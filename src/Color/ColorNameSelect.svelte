@@ -2,12 +2,13 @@
   import Select from '../Components/Select/Select.svelte';
   import SelectOption from '../Components/Select/SelectOption.svelte';
   import type { Color } from './color';
-  export let value: Color = 'blue';
   export let buttonStyles: string[];
   export let menuStyles: string[];
   export let menuItemStyles: string[];
+  export let label: string;
+  export let isMenuOpen: boolean = false;
 
-  const colors: Color[] = [
+  const items: Color[] = [
     'white',
     'black',
     'gray',
@@ -21,16 +22,10 @@
   ];
 </script>
 
-<Select bind:value placeHolder="Color" {buttonStyles} {menuStyles}>
-  {#each colors as c}
-    <SelectOption value={c} text={c} styles={menuItemStyles} />
+<Select {label} {buttonStyles} {menuStyles} {isMenuOpen} on:click>
+  {#each items as color}
+    <SelectOption styles={menuItemStyles} on:selected value={color}>
+      {color}
+    </SelectOption>
   {/each}
 </Select>
-
-<!-- svelte-ignore a11y-no-onchange -->
-<!-- <select bind:value on:change>
-  <option />
-  {#each colors as c}
-    <option value={c}>{c}</option>
-  {/each}
-</select> -->

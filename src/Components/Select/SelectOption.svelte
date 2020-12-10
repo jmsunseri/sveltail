@@ -1,20 +1,20 @@
 <script lang="ts">
-  import TiInputChecked from 'svelte-icons/ti/TiInputChecked.svelte';
+  import { createEventDispatcher } from 'svelte';
 
-  export let value: any;
-  export let text: string;
+  const dispatch = createEventDispatcher();
+
   export let styles: string[];
-  export let isSelected: boolean;
-  export let onSelect: (value: any, text: string) => void;
+  export let value: any;
+
+  const selected = () => {
+    dispatch('selected', value);
+  };
 </script>
 
 <!-- p-2 block text-black hover:bg-grey-light cursor-pointer -->
 
-<li on:click={() => onSelect(value, text)}>
+<li on:click={selected}>
   <p class={styles?.join(' ')}>
-    {text}
-    {#if isSelected}
-      <TiInputChecked />
-    {/if}
+    <slot />
   </p>
 </li>

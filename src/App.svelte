@@ -47,9 +47,9 @@
   let selectButtonStyles = [
     'py-1 px-4',
     'text-black',
-    'border-2',
+    'border',
     'rounded-lg',
-    'border-green-900',
+    'border-grey-100',
     'hover:border-green-700',
     'min-w-max',
   ];
@@ -148,7 +148,12 @@
       </div>
       <div class="flex flex-row items-center gap-2">
         Border Color:
-        <ColorSelect prefix="border" bind:value={borderColor} />
+        <ColorSelect
+          prefix="border"
+          bind:value={borderColor}
+          buttonStyles={selectButtonStyles}
+          menuStyles={selectMenuStyles}
+          menuItemStyles={selectMenuItemStyles} />
       </div>
       <div class="flex flex-row items-center gap-2">
         Box Shadow:

@@ -1,10 +1,14 @@
 <script lang="ts">
+  import Select from '../Components/Select/Select.svelte';
+  import SelectOption from '../Components/Select/SelectOption.svelte';
   import type { ColorNumber } from './color';
-  export let value: ColorNumber = '400';
+  export let label: ColorNumber;
   export let buttonStyles: string[];
   export let menuStyles: string[];
+  export let menuItemStyles: string[];
+  export let isMenuOpen: boolean = false;
 
-  const numbers: ColorNumber[] = [
+  const items: ColorNumber[] = [
     '50',
     '100',
     '200',
@@ -18,10 +22,15 @@
   ];
 </script>
 
-<!-- svelte-ignore a11y-no-onchange -->
-<select bind:value on:change>
-  <option />
-  {#each numbers as n}
-    <option value={n}>{n}</option>
+<Select
+  label={label || 'Number'}
+  {buttonStyles}
+  {menuStyles}
+  {isMenuOpen}
+  on:click>
+  {#each items as number}
+    <SelectOption styles={menuItemStyles} on:selected value={number}>
+      {number}
+    </SelectOption>
   {/each}
-</select>
+</Select>

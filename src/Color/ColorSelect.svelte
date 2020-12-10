@@ -5,7 +5,10 @@
   import ColorNumberSelect from './ColorNumberSelect.svelte';
 
   let color: Color;
-  let number: ColorNumber;
+  let isColorMenuOpen: boolean = false;
+
+  let number: ColorNumber = '500';
+  let isColorNumberMenuOpen: boolean = false;
 
   export let buttonStyles: string[];
   export let menuStyles: string[];
@@ -14,7 +17,7 @@
   export let prefix: string;
   export let value: string;
 
-  const onDropDownSelect = () => {
+  const updateColor = () => {
     if (prefix && color && number) {
       if (color === 'black' || color === 'white') {
         value = `${prefix}-${color}`;
@@ -27,14 +30,43 @@
       value = '';
     }
   };
+
+  const onColorNameSelected = (event: any) => {
+    color = event.detail;
+    isColorMenuOpen = false;
+    updateColor();
+  };
+
+  const onColorNameClick = () => {
+    isColorMenuOpen = !isColorMenuOpen;
+  };
+
+  const onColorNumberSelected = (event: any) => {
+    number = event.detail;
+    isColorNumberMenuOpen = false;
+    updateColor();
+  };
+
+  const onColorNumberClick = () => {
+    isColorNumberMenuOpen = !isColorNumberMenuOpen;
+  };
 </script>
 
 <div class="flex flex-row items-center gap-1">
   <ColorNameSelect
-    bind:value={color}
-    on:change={onDropDownSelect}
+    label={color || 'color'}
+    on:selected={onColorNameSelected}
+    on:click={onColorNameClick}
+    isMenuOpen={isColorMenuOpen}
     {buttonStyles}
     {menuStyles}
     {menuItemStyles} />
-  <ColorNumberSelect bind:value={number} on:change={onDropDownSelect} />
+  <ColorNumberSelect
+    label={number}
+    on:selected={onColorNumberSelected}
+    on:click={onColorNumberClick}
+    isMenuOpen={isColorNumberMenuOpen}
+    {buttonStyles}
+    {menuStyles}
+    {menuItemStyles} />
 </div>

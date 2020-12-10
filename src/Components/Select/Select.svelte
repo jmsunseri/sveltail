@@ -3,42 +3,28 @@
   export let buttonStyles: string[];
   export let menuStyles: string[];
 
-  let selectedValueText: string;
-  export let placeHolder: string;
-  export let value: any;
+  export let label: string;
 
-  let isShowMenu: boolean;
+  export let isMenuOpen: boolean;
 
-  const onSelect = (selectedValue: any, text: string) => {
-    selectedValueText = text;
-    value = selectedValue;
-  };
-
-  const onButtonClick = () => {
-    isShowMenu = !isShowMenu;
-  };
-
-  const onBlur = () => {
-    isShowMenu = false;
-  };
+  // const onBlur = () => {
+  //   isShowMenu = false;
+  // };
 </script>
 
 <span class="relative ">
-  <button
-    class={buttonStyles?.join(' ')}
-    on:click={onButtonClick}
-    on:blur={onBlur}>
+  <button class={buttonStyles?.join(' ')} on:click>
     <span class="flex justify-between items-center gap-4">
-      {selectedValueText || placeHolder || ''}
+      {label || ''}
       <div class="h-5 w-5">
         <FaChevronDown />
       </div>
     </span>
   </button>
-  {#if isShowMenu}
+  {#if isMenuOpen}
     <div class={menuStyles?.join(' ') + ' absolute z-10'}>
       <ul class="list-reset">
-        <slot {onSelect} />
+        <slot />
       </ul>
     </div>
   {/if}
