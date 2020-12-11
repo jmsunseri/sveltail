@@ -59,7 +59,7 @@
     'rounded-lg',
     'shadow-lg',
     'bg-white',
-    'borde-2',
+    'borde2-2',
     'border-grey-50',
   ];
 
@@ -101,21 +101,11 @@
       <h3>Button Styles</h3>
       <div class="flex flex-row items-center gap-2">
         Background:
-        <ColorSelect
-          prefix="bg"
-          bind:value={backgroundColor}
-          buttonStyles={selectButtonStyles}
-          menuStyles={selectMenuStyles}
-          menuItemStyles={selectMenuItemStyles} />
+        <ColorSelect prefix="bg" bind:value={backgroundColor} />
       </div>
       <div class="flex flex-row items-center gap-2">
         Font Color:
-        <ColorSelect
-          prefix="text"
-          bind:value={textColor}
-          buttonStyles={selectButtonStyles}
-          menuStyles={selectMenuStyles}
-          menuItemStyles={selectMenuItemStyles} />
+        <ColorSelect prefix="text" bind:value={textColor} />
       </div>
 
       <div class="flex flex-row items-center gap-2">
@@ -148,12 +138,7 @@
       </div>
       <div class="flex flex-row items-center gap-2">
         Border Color:
-        <ColorSelect
-          prefix="border"
-          bind:value={borderColor}
-          buttonStyles={selectButtonStyles}
-          menuStyles={selectMenuStyles}
-          menuItemStyles={selectMenuItemStyles} />
+        <ColorSelect prefix="border" bind:value={borderColor} />
       </div>
       <div class="flex flex-row items-center gap-2">
         Box Shadow:

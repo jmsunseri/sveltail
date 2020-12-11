@@ -2,24 +2,14 @@
   import Select from '../Components/Select/Select.svelte';
   import SelectOption from '../Components/Select/SelectOption.svelte';
   import type { ColorNumber } from './color';
+  import { numbers } from './color';
   export let label: ColorNumber;
   export let buttonStyles: string[];
   export let menuStyles: string[];
   export let menuItemStyles: string[];
   export let isMenuOpen: boolean = false;
 
-  const items: ColorNumber[] = [
-    '50',
-    '100',
-    '200',
-    '300',
-    '400',
-    '500',
-    '600',
-    '700',
-    '800',
-    '900',
-  ];
+  const items = numbers;
 </script>
 
 <Select
