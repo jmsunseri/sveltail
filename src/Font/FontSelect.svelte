@@ -7,7 +7,7 @@
   import { fontSizes, fontWeights } from './font';
 
   let isMenuVisible = false;
-  let colorStyle: string = 'text-black';
+  let colorStyle: string = 'text-white';
   let fontSizeStyle = 'text-sm';
   let fontWeightStyle = 'semibold';
   let isSizeMenuOpen = false;

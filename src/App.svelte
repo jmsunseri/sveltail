@@ -7,8 +7,7 @@
   import FontSelect from './Font/FontSelect.svelte';
 
   let fontStyles: string;
-  let borderStyles: string =
-    'rounded-none border-solid border-2 border-blue-900';
+  let borderStyles: string;
   let backgroundColor: string = 'bg-blue-500';
   let shadowStyle: string = 'shadow-md';
 
