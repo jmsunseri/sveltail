@@ -53,13 +53,13 @@
     {#if isMenuVisible}
       <div
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
-        <div class="flex flex-row justify-around">
+        <div class="flex flex-row gap-1">
           <Select
             isMenuOpen={isSizeMenuOpen}
             label={fontSizeStyle}
             on:click={() => (isSizeMenuOpen = !isSizeMenuOpen)}
             menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
-            buttonStyles={['rounded-sm', 'py-1', 'px-2']}>
+            buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
             {#each fontSizes as size}
               <SelectOption value={size} on:selected={sizeSelected}>
                 <div class={`text-${size}`}>{size}</div>
@@ -71,7 +71,7 @@
             label={fontWeightStyle}
             on:click={() => (isWeightMenuOpen = !isWeightMenuOpen)}
             menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
-            buttonStyles={['rounded-sm', 'py-1', 'px-2']}>
+            buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
             {#each fontWeights as weight}
               <SelectOption value={weight} on:selected={weightSelected}>
                 <div class={`font-${weight}`}>{weight}</div>

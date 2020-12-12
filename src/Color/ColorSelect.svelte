@@ -25,7 +25,7 @@
   <div>
     {#if isShowPalette}
       <div
-        class="flex flex-col h-72 absolute p-4 z-10 bg-white border shadow-md rounded-lg">
+        class="flex flex-col h-72 absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
         <ColorMenu {updateColor} />
       </div>
     {/if}

@@ -8,7 +8,7 @@
   export let isMenuOpen: boolean;
 </script>
 
-<span class="relative">
+<span class="relative flex-grow">
   <button class={buttonStyles?.join(' ')} on:click>
     <span class="flex justify-between items-center gap-4">
       {label || ''}
