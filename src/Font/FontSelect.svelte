@@ -5,6 +5,7 @@
   import SelectOption from '../Components/Select/SelectOption.svelte';
   import Select from '../Components/Select/Select.svelte';
   import { fontSizes, fontWeights } from './font';
+  import { slide } from 'svelte/transition';
 
   let isMenuVisible = false;
   let colorStyle: string = 'text-white';
@@ -52,6 +53,7 @@
   <div>
     {#if isMenuVisible}
       <div
+        transition:slide
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
         <div class="flex flex-row gap-1">
           <Select

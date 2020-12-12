@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { slide } from 'svelte/transition';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
   export let buttonStyles: string[];
   export let menuStyles: string[];
@@ -18,7 +19,7 @@
     </span>
   </button>
   {#if isMenuOpen}
-    <div class={menuStyles?.join(' ') + ' absolute z-10'}>
+    <div transition:slide class={menuStyles?.join(' ') + ' absolute z-10'}>
       <ul class="list-reset">
         <slot />
       </ul>

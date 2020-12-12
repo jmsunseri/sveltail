@@ -5,6 +5,7 @@
   import BorderStyleSelect from './BorderStyleSelect.svelte';
   import BorderWidthSelect from './BorderWidth/BorderWidthSelect.svelte';
   import BorderRadiusSelect from './BorderRadius/BorderRadiusSelect.svelte';
+  import { slide } from 'svelte/transition';
 
   let isMenuVisible: boolean = false;
   let isStyleMenuVisible: boolean = false;
@@ -77,6 +78,7 @@
   <div>
     {#if isMenuVisible}
       <div
+        transition:slide
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
         <BorderStyleSelect
           value={borderStyle}
