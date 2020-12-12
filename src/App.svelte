@@ -41,21 +41,11 @@
   </div>
   <div class="max-w-screen-xl flex flex-row gap-1 w-full">
     <Card styles={cardStyles} containerStyles={cardContainerStyles}>
-      <h3>Button Styles</h3>
       <div class="flex flex-row items-center gap-2">
-        Background:
+        Button:
         <ColorSelect prefix="bg" bind:value={backgroundColor} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Font:
         <FontSelect bind:value={fontStyles} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Border:
         <BorderSelect bind:value={borderStyles} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Box Shadow:
         <BoxShadowSelect bind:value={shadowStyle} />
       </div>
     </Card>
