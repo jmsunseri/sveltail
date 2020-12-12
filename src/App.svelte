@@ -1,5 +1,4 @@
 <script lang="ts">
-  import type { FontWeight, FontSize } from './Font/font';
   import Button from './Components/Button/Button.svelte';
   import Card from './Components/Card/Card.svelte';
   import BorderRadiusSelect from './Border/BorderRadius/BorderRadiusSelect.svelte';
@@ -7,41 +6,14 @@
   import BorderStyleSelect from './Border/BorderStyleSelect.svelte';
   import BorderWidthSelect from './Border/BorderWidth/BorderWidthSelect.svelte';
   import BoxShadowSelect from './Effects/BoxShadowSelect.svelte';
+  import FontSelect from './Font/FontSelect.svelte';
 
-  const fontWeights: FontWeight[] = [
-    'bold',
-    'semibold',
-    'thin',
-    'extralight',
-    'light',
-    'normal',
-    'medium',
-    'extrabold',
-    'black',
-  ];
-  const fontSizes: FontSize[] = [
-    'xs',
-    'sm',
-    'base',
-    'lg',
-    'xl',
-    '2xl',
-    '3xl',
-    '4xl',
-    '5xl',
-    '6xl',
-    '7xl',
-    '8xl',
-    '9xl',
-  ];
-  let fontWeight: FontWeight;
-  let fontSize: FontSize;
+  let fontStyles: string;
   let borderRadius: string = 'rounded-lg';
   let backgroundColor: string = 'bg-blue-500';
   let borderStyle: string = 'border-solid';
   let borderWidth: string = 'border-2';
   let shadowStyle: string = 'shadow-lg';
-  let textColor: string = 'text-white';
   let borderColor: string = 'border-blue-900';
 
   let selectButtonStyles = [
@@ -104,25 +76,8 @@
         <ColorSelect prefix="bg" bind:value={backgroundColor} />
       </div>
       <div class="flex flex-row items-center gap-2">
-        Font Color:
-        <ColorSelect prefix="text" bind:value={textColor} />
-      </div>
-
-      <div class="flex flex-row items-center gap-2">
-        Font Weight:
-        <select bind:value={fontWeight}>
-          {#each fontWeights as f}
-            <option value={f}>{f}</option>
-          {/each}
-        </select>
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Font Size:
-        <select bind:value={fontSize}>
-          {#each fontSizes as f}
-            <option value={f}>{f}</option>
-          {/each}
-        </select>
+        Font:
+        <FontSelect bind:value={fontStyles} />
       </div>
       <div class="flex flex-row items-center gap-2">
         Border Radius:
@@ -149,16 +104,14 @@
     <Card styles={cardStyles} containerStyles={cardContainerStyles}>
       <div>
         <Button
-          styles={[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, textColor, borderColor]}
-          text="Some Button Text"
-          {fontWeight}
-          {fontSize} />
+          styles={[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, fontStyles, borderColor]}
+          text="Some Button Text" />
       </div>
     </Card>
   </div>
   <div class="w-full">
     Button Style:
-    <pre>{[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, textColor, borderColor].join(' ')}
+    <pre>{[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, fontStyles, borderColor].join(' ')}
     </pre>
   </div>
 </main>
