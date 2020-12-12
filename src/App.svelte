@@ -1,51 +1,22 @@
 <script lang="ts">
   import Button from './Components/Button/Button.svelte';
   import Card from './Components/Card/Card.svelte';
-  import BorderRadiusSelect from './Border/BorderRadius/BorderRadiusSelect.svelte';
   import ColorSelect from './Color/ColorSelect.svelte';
-  import BorderStyleSelect from './Border/BorderStyleSelect.svelte';
-  import BorderWidthSelect from './Border/BorderWidth/BorderWidthSelect.svelte';
+  import BorderSelect from './Border/BorderSelect.svelte';
   import BoxShadowSelect from './Effects/BoxShadowSelect.svelte';
   import FontSelect from './Font/FontSelect.svelte';
 
   let fontStyles: string;
-  let borderRadius: string = 'rounded-lg';
+  let borderStyles: string =
+    'rounded-none border-solid border-2 border-blue-900';
   let backgroundColor: string = 'bg-blue-500';
-  let borderStyle: string = 'border-solid';
-  let borderWidth: string = 'border-2';
-  let shadowStyle: string = 'shadow-lg';
-  let borderColor: string = 'border-blue-900';
+  let shadowStyle: string = 'shadow-md';
 
-  let selectButtonStyles = [
-    'py-1 px-4',
-    'text-black',
-    'border',
-    'rounded-lg',
-    'border-grey-100',
-    'hover:border-green-700',
-    'min-w-max',
-  ];
-
-  let selectMenuStyles = [
-    'text-black',
-    'rounded-lg',
-    'shadow-lg',
-    'bg-white',
-    'borde2-2',
-    'border-grey-50',
-  ];
-
-  let selectMenuItemStyles = [
-    'cursor-pointer',
-    'p-2',
-    'text-black',
-    'hover:bg-green-50',
-  ];
   let cardStyles = [
     'p-4',
     'm-2',
     'rounded-lg',
-    'shadow-lg',
+    'shadow-md',
     'border-2',
     'border-grey-100',
     'flex',
@@ -65,7 +36,8 @@
 </style>
 
 <main class="flex flex-col items-center  m-0 h-screen">
-  <div class="bg-grey-50 shadow-lg w-full h-12 px-4 py-2 flex items-center">
+  <div
+    class="bg-red-400 text-white font-bold shadow-md w-full h-12 px-4 py-2 flex items-center">
     Sveltail
   </div>
   <div class="max-w-screen-xl flex flex-row gap-1 w-full">
@@ -80,20 +52,8 @@
         <FontSelect bind:value={fontStyles} />
       </div>
       <div class="flex flex-row items-center gap-2">
-        Border Radius:
-        <BorderRadiusSelect bind:value={borderRadius} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Border Style:
-        <BorderStyleSelect bind:value={borderStyle} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Border Width:
-        <BorderWidthSelect bind:value={borderWidth} />
-      </div>
-      <div class="flex flex-row items-center gap-2">
-        Border Color:
-        <ColorSelect prefix="border" bind:value={borderColor} />
+        Border:
+        <BorderSelect bind:value={borderStyles} />
       </div>
       <div class="flex flex-row items-center gap-2">
         Box Shadow:
@@ -104,14 +64,14 @@
     <Card styles={cardStyles} containerStyles={cardContainerStyles}>
       <div>
         <Button
-          styles={[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, fontStyles, borderColor]}
+          styles={[backgroundColor, borderStyles, shadowStyle, fontStyles]}
           text="Some Button Text" />
       </div>
     </Card>
   </div>
   <div class="w-full">
     Button Style:
-    <pre>{[backgroundColor, borderRadius, borderWidth, borderStyle, shadowStyle, fontStyles, borderColor].join(' ')}
+    <pre>{[backgroundColor, borderStyles, shadowStyle, fontStyles].join(' ')}
     </pre>
   </div>
 </main>
