@@ -6,13 +6,9 @@
   export let label: string;
 
   export let isMenuOpen: boolean;
-
-  // const onBlur = () => {
-  //   isShowMenu = false;
-  // };
 </script>
 
-<span class="relative ">
+<span class="relative">
   <button class={buttonStyles?.join(' ')} on:click>
     <span class="flex justify-between items-center gap-4">
       {label || ''}
