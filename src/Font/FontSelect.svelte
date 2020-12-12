@@ -6,7 +6,7 @@
   import Select from '../Components/Select/Select.svelte';
   import { fontSizes, fontWeights } from './font';
 
-  let isMenuVisible = true;
+  let isMenuVisible = false;
   let colorStyle: string = 'text-black';
   let fontSizeStyle = 'text-sm';
   let fontWeightStyle = 'semibold';
