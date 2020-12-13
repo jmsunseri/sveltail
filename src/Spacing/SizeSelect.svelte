@@ -1,0 +1,55 @@
+<script lang="ts">
+  import Select from '../Components/Select/Select.svelte';
+  import SelectOption from '../Components/Select/SelectOption.svelte';
+
+  const sizeOptions: string[] = [
+    '0',
+    '0.5',
+    '1',
+    '1.5',
+    '2',
+    '2.5',
+    '3',
+    '3.5',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '10',
+    '11',
+    '12',
+    '14',
+    '16',
+    '20',
+    '24',
+    '28',
+    '32',
+    '36',
+    '40',
+    '44',
+    '48',
+    '52',
+    '56',
+    '60',
+    '64',
+    '72',
+    '80',
+    '96',
+    'px',
+  ];
+  export let value: string = 'border-solid';
+  export let isMenuOpen: boolean;
+</script>
+
+<Select
+  on:click
+  label={value}
+  {isMenuOpen}
+  menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
+  buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
+  {#each sizeOptions as option}
+    <SelectOption value={option} on:selected>{option}</SelectOption>
+  {/each}
+</Select>

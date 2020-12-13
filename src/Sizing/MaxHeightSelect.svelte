@@ -1,0 +1,57 @@
+<script lang="ts">
+  import Select from '../Components/Select/Select.svelte';
+  import SelectOption from '../Components/Select/SelectOption.svelte';
+
+  const heightOptions: string[] = [
+    '',
+    'max-h-0.5',
+    'max-h-1',
+    'max-h-1.5',
+    'max-h-2',
+    'max-h-2.5',
+    'max-h-3',
+    'max-h-3.5',
+    'max-h-4',
+    'max-h-5',
+    'max-h-6',
+    'max-h-7',
+    'max-h-8',
+    'max-h-9',
+    'max-h-10',
+    'max-h-11',
+    'max-h-12',
+    'max-h-14',
+    'max-h-16',
+    'max-h-20',
+    'max-h-24',
+    'max-h-28',
+    'max-h-32',
+    'max-h-36',
+    'max-h-40',
+    'max-h-44',
+    'max-h-48',
+    'max-h-52',
+    'max-h-56',
+    'max-h-60',
+    'max-h-64',
+    'max-h-72',
+    'max-h-80',
+    'max-h-96',
+    'max-h-px',
+    'max-h-full',
+    'max-h-screen	100vh',
+  ];
+  export let value: string = 'max-h-full';
+  export let isMenuOpen: boolean;
+</script>
+
+<Select
+  on:click
+  label={value}
+  {isMenuOpen}
+  menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
+  buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
+  {#each heightOptions as option}
+    <SelectOption value={option} on:selected>{option}</SelectOption>
+  {/each}
+</Select>
