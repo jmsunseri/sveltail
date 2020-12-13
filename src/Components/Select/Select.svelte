@@ -19,7 +19,9 @@
     </span>
   </button>
   {#if isMenuOpen}
-    <div transition:slide class={menuStyles?.join(' ') + ' absolute z-10'}>
+    <div
+      transition:slide
+      class={menuStyles?.join(' ') + ' absolute z-10 h-80 overflow-auto w-full'}>
       <ul class="list-reset">
         <slot />
       </ul>
