@@ -1,5 +1,6 @@
 <script lang="ts">
   import FaExpandArrowsAlt from 'svelte-icons/fa/FaExpandArrowsAlt.svelte';
+  import { SizingStyles } from './SizingStyles';
   import IconButton from '../Components/Button/IconButton.svelte';
   import HeightSelect from './HeightSelect.svelte';
   import WidthSelect from './WidthSelect.svelte';
@@ -10,96 +11,13 @@
   import { slide } from 'svelte/transition';
 
   let isMenuVisible: boolean = false;
-  let isHeightMenuVisible: boolean = false;
-  let isWidthMenuVisible: boolean = false;
-  let isMaxHeightMenuVisible: boolean = false;
-  let isMaxWidthMenuVisible: boolean = false;
-  let isMinHeightMenuVisible: boolean = false;
-  let isMinWidthMenuVisible: boolean = false;
 
   const onShowMenuClick = () => {
     isMenuVisible = !isMenuVisible;
   };
 
-  let height: string = '';
-  let width: string = '';
-  let maxHeight: string = '';
-  let minHeight: string = '';
-  let maxWidth: string = '';
-  let minWidth: string = '';
-
-  export let value: string = [
-    height,
-    width,
-    maxHeight,
-    minHeight,
-    maxWidth,
-    minWidth,
-  ].join(' ');
-
-  const updateValue = () => {
-    value = [height, width, maxHeight, minHeight, maxWidth, minWidth].join(' ');
-  };
-
-  const onHeightSelect = (style: CustomEvent<any>) => {
-    height = style.detail;
-    isHeightMenuVisible = false;
-    updateValue();
-  };
-
-  const onWidthSelect = (style: CustomEvent<any>) => {
-    width = style.detail;
-    isWidthMenuVisible = false;
-    updateValue();
-  };
-
-  const onHeightButtonClick = () => {
-    isHeightMenuVisible = !isHeightMenuVisible;
-  };
-
-  const onMaxHeightSelect = (style: CustomEvent<any>) => {
-    maxHeight = style.detail;
-    isMaxHeightMenuVisible = false;
-    updateValue();
-  };
-
-  const onMinWidthSelect = (style: CustomEvent<any>) => {
-    minWidth = style.detail;
-    isMinWidthMenuVisible = false;
-    updateValue();
-  };
-
-  const onMaxWidthSelect = (style: CustomEvent<any>) => {
-    maxWidth = style.detail;
-    isMaxWidthMenuVisible = false;
-    updateValue();
-  };
-
-  const onWidthButtonClick = () => {
-    isWidthMenuVisible = !isWidthMenuVisible;
-  };
-
-  const onMinHeightSelect = (style: CustomEvent<any>) => {
-    minHeight = style.detail;
-    isMinHeightMenuVisible = false;
-    updateValue();
-  };
-
-  const onMaxHeightButtonClick = () => {
-    isMaxHeightMenuVisible = !isMaxHeightMenuVisible;
-  };
-
-  const onMinHeightButtonClick = () => {
-    isMinHeightMenuVisible = !isMinHeightMenuVisible;
-  };
-
-  const onMinWidthButtonClick = () => {
-    isMinWidthMenuVisible = !isMinWidthMenuVisible;
-  };
-
-  const onMaxWidthButtonClick = () => {
-    isMaxWidthMenuVisible = !isMaxWidthMenuVisible;
-  };
+  export let init: SizingStyles;
+  export let value: SizingStyles = init || new SizingStyles();
 </script>
 
 <div class="flex flex-col">
@@ -113,54 +31,30 @@
     {#if isMenuVisible}
       <div
         transition:slide
-        class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1 w-64">
-        <div class="flex gap-2">
+        class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1 w-72">
+        <div class="flex gap-2 items-center">
           Height:
-          <HeightSelect
-            value={height}
-            on:click={onHeightButtonClick}
-            on:selected={onHeightSelect}
-            isMenuOpen={isHeightMenuVisible} />
+          <HeightSelect bind:value={value.height} />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 items-center">
           Width
-          <WidthSelect
-            value={width}
-            on:click={onWidthButtonClick}
-            on:selected={onWidthSelect}
-            isMenuOpen={isWidthMenuVisible} />
+          <WidthSelect bind:value={value.width} />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 items-center">
           Min Height
-          <MinHeightSelect
-            value={minHeight}
-            on:click={onMinHeightButtonClick}
-            on:selected={onMinHeightSelect}
-            isMenuOpen={isMinHeightMenuVisible} />
+          <MinHeightSelect bind:value={value.minHeight} />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 items-center">
           Min Width
-          <MinWidthSelect
-            value={minWidth}
-            on:click={onMinWidthButtonClick}
-            on:selected={onMinWidthSelect}
-            isMenuOpen={isMinWidthMenuVisible} />
+          <MinWidthSelect bind:value={value.minWidth} />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 items-center">
           Max Height
-          <MaxHeightSelect
-            value={maxHeight}
-            on:click={onMaxHeightButtonClick}
-            on:selected={onMaxHeightSelect}
-            isMenuOpen={isMaxHeightMenuVisible} />
+          <MaxHeightSelect bind:value={value.maxHeight} />
         </div>
-        <div class="flex gap-2">
+        <div class="flex gap-2 items-center">
           Max Width
-          <MaxWidthSelect
-            value={maxWidth}
-            on:click={onMaxWidthButtonClick}
-            on:selected={onMaxWidthSelect}
-            isMenuOpen={isMaxWidthMenuVisible} />
+          <MaxWidthSelect bind:value={value.maxWidth} />
         </div>
       </div>
     {/if}

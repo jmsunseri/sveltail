@@ -1,5 +1,6 @@
 <script lang="ts">
   import FaFont from 'svelte-icons/fa/FaFont.svelte';
+  import { FontStyles } from './FontStyles';
   import ColorMenu from '../Color/ColorMenu.svelte';
   import IconButton from '../Components/Button/IconButton.svelte';
   import SelectOption from '../Components/Select/SelectOption.svelte';
@@ -8,38 +9,14 @@
   import { slide } from 'svelte/transition';
 
   let isMenuVisible = false;
-  let colorStyle: string = 'text-white';
-  let fontSizeStyle = 'text-sm';
-  let fontWeightStyle = 'semibold';
-  let isSizeMenuOpen = false;
-  let isWeightMenuOpen = false;
+  let sizeSelect: Select;
+  let weightSelect: Select;
 
-  export let value: string = [colorStyle, fontWeightStyle, fontSizeStyle].join(
-    ' '
-  );
-
-  const updateValue = () => {
-    value = [colorStyle, fontWeightStyle, fontSizeStyle].join(' ');
-  };
+  export let init: FontStyles;
+  export let value: FontStyles = init || new FontStyles();
 
   const onShowMenuClick = () => {
     isMenuVisible = !isMenuVisible;
-  };
-
-  const updateColor = (style: string) => {
-    colorStyle = `text-${style}`;
-    updateValue();
-  };
-
-  const sizeSelected = (size: CustomEvent<any>) => {
-    fontSizeStyle = `text-${size.detail}`;
-    isSizeMenuOpen = false;
-    updateValue();
-  };
-  const weightSelected = (weight: CustomEvent<any>) => {
-    fontWeightStyle = `font-${weight.detail}`;
-    isWeightMenuOpen = false;
-    updateValue();
   };
 </script>
 
@@ -57,32 +34,32 @@
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
         <div class="flex flex-row gap-1">
           <Select
-            isMenuOpen={isSizeMenuOpen}
-            label={fontSizeStyle}
-            on:click={() => (isSizeMenuOpen = !isSizeMenuOpen)}
+            bind:this={sizeSelect}
+            bind:value={value.size}
+            placeholder="Font Size"
             menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
             buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
             {#each fontSizes as size}
-              <SelectOption value={size} on:selected={sizeSelected}>
-                <div class={`text-${size}`}>{size}</div>
+              <SelectOption value={size} select={sizeSelect}>
+                <div class={size}>{size}</div>
               </SelectOption>
             {/each}
           </Select>
           <Select
-            isMenuOpen={isWeightMenuOpen}
-            label={fontWeightStyle}
-            on:click={() => (isWeightMenuOpen = !isWeightMenuOpen)}
+            bind:this={weightSelect}
+            bind:value={value.weight}
+            placeholder="Font Size"
             menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
             buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
             {#each fontWeights as weight}
-              <SelectOption value={weight} on:selected={weightSelected}>
-                <div class={`font-${weight}`}>{weight}</div>
+              <SelectOption value={weight} select={weightSelect}>
+                <div class={weight}>{weight}</div>
               </SelectOption>
             {/each}
           </Select>
         </div>
 
-        <ColorMenu {updateColor} />
+        <ColorMenu bind:value={value.color} init={value.color} prefix="text" />
       </div>
     {/if}
   </div>

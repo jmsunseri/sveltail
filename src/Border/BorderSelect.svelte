@@ -6,66 +6,17 @@
   import BorderWidthSelect from './BorderWidth/BorderWidthSelect.svelte';
   import BorderRadiusSelect from './BorderRadius/BorderRadiusSelect.svelte';
   import { slide } from 'svelte/transition';
+  import { BorderStyles } from './BorderStyles';
 
   let isMenuVisible: boolean = false;
-  let isStyleMenuVisible: boolean = false;
-  let isWidthMenuVisible: boolean = false;
-  let isRadiusMenuVisible: boolean = false;
 
   const onShowMenuClick = () => {
     isMenuVisible = !isMenuVisible;
   };
 
-  let borderColor: string = 'border-black';
-  let borderStyle: string = 'border-solid';
-  let borderWidth: string = 'border-2';
-  let borderRadius: string = 'rounded-none';
+  export let init: BorderStyles;
 
-  export let value: string = [
-    borderColor,
-    borderStyle,
-    borderWidth,
-    borderRadius,
-  ].join(' ');
-
-  const updateValue = () => {
-    value = [borderColor, borderStyle, borderWidth, borderRadius].join(' ');
-  };
-
-  const updateColor = (style: string) => {
-    borderColor = `border-${style}`;
-    updateValue();
-  };
-
-  const onStyleSelect = (style: CustomEvent<any>) => {
-    borderStyle = style.detail;
-    isStyleMenuVisible = false;
-    updateValue();
-  };
-
-  const onStyleButtonClick = () => {
-    isStyleMenuVisible = !isStyleMenuVisible;
-  };
-
-  const onWidthSelect = (style: CustomEvent<any>) => {
-    borderWidth = style.detail;
-    isWidthMenuVisible = false;
-    updateValue();
-  };
-
-  const onWidthButtonClick = () => {
-    isWidthMenuVisible = !isWidthMenuVisible;
-  };
-
-  const onRadiusSelect = (style: CustomEvent<any>) => {
-    borderRadius = style.detail;
-    isRadiusMenuVisible = false;
-    updateValue();
-  };
-
-  const onRadiusButtonClick = () => {
-    isRadiusMenuVisible = !isRadiusMenuVisible;
-  };
+  export let value: BorderStyles = init || new BorderStyles();
 </script>
 
 <div class="flex flex-col">
@@ -80,23 +31,13 @@
       <div
         transition:slide
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
-        <BorderStyleSelect
-          value={borderStyle}
-          on:click={onStyleButtonClick}
-          on:selected={onStyleSelect}
-          isMenuOpen={isStyleMenuVisible} />
-        <BorderWidthSelect
-          value={borderWidth}
-          on:click={onWidthButtonClick}
-          on:selected={onWidthSelect}
-          isMenuOpen={isWidthMenuVisible} />
-        <BorderRadiusSelect
-          value={borderRadius}
-          on:click={onRadiusButtonClick}
-          on:selected={onRadiusSelect}
-          isMenuOpen={isRadiusMenuVisible} />
-
-        <ColorMenu {updateColor} />
+        <BorderStyleSelect bind:value={value.style} />
+        <BorderWidthSelect bind:value={value.width} />
+        <BorderRadiusSelect bind:value={value.radius} />
+        <ColorMenu
+          bind:value={value.color}
+          init={value.color}
+          prefix="border" />
       </div>
     {/if}
   </div>

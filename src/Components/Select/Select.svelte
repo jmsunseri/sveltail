@@ -3,16 +3,25 @@
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
   export let buttonStyles: string[];
   export let menuStyles: string[];
+  export let placeholder: string;
+  export let value: any;
 
-  export let label: string;
+  let isMenuOpen: boolean;
 
-  export let isMenuOpen: boolean;
+  export const onSelected = (v: any) => {
+    isMenuOpen = false;
+    value = v;
+  };
+
+  export const onClick = () => {
+    isMenuOpen = !isMenuOpen;
+  };
 </script>
 
 <span class="relative flex-grow">
-  <button class={buttonStyles?.join(' ')} on:click>
+  <button class={buttonStyles?.join(' ')} on:click={onClick}>
     <span class="flex justify-between items-center gap-4">
-      {label || ''}
+      {value || placeholder || ''}
       <div class="h-5 w-5">
         <FaChevronDown />
       </div>

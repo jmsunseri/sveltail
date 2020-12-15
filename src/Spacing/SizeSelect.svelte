@@ -39,17 +39,18 @@
     '96',
     'px',
   ];
-  export let value: string = 'border-solid';
-  export let isMenuOpen: boolean;
+  export let value: string;
+
+  let select: Select;
 </script>
 
 <Select
-  on:click
-  label={value}
-  {isMenuOpen}
+  placeholder="Size"
+  bind:value
+  bind:this={select}
   menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each sizeOptions as option}
-    <SelectOption value={option} on:selected>{option}</SelectOption>
+    <SelectOption {select} value={option} on:selected>{option}</SelectOption>
   {/each}
 </Select>

@@ -71,17 +71,17 @@
     'w-min',
     'w-max',
   ];
-  export let value: string = 'w-full';
-  export let isMenuOpen: boolean;
+  export let value: string;
+  let select: Select;
 </script>
 
 <Select
-  on:click
-  label={value}
-  {isMenuOpen}
+  bind:value
+  placeholder="Width"
+  bind:this={select}
   menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each widthOptions as option}
-    <SelectOption value={option} on:selected>{option}</SelectOption>
+    <SelectOption value={option} {select}>{option}</SelectOption>
   {/each}
 </Select>

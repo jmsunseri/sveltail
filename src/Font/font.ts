@@ -1,53 +1,53 @@
 export type FontWeight =
-  | 'bold'
-  | 'semibold'
-  | 'thin'
-  | 'extralight'
-  | 'light'
-  | 'normal'
-  | 'medium'
-  | 'extrabold'
-  | 'black';
+  | 'font-bold'
+  | 'font-semibold'
+  | 'font-thin'
+  | 'font-extralight'
+  | 'font-light'
+  | 'font-normal'
+  | 'font-medium'
+  | 'font-extrabold'
+  | 'font-black';
 
 export type FontSize =
-  | 'xs'
-  | 'sm'
-  | 'base'
-  | 'lg'
-  | 'xl'
-  | '2xl'
-  | '3xl'
-  | '4xl'
-  | '5xl'
-  | '6xl'
-  | '7xl'
-  | '8xl'
-  | '9xl';
+  | 'text-xs'
+  | 'text-sm'
+  | 'text-base'
+  | 'text-lg'
+  | 'text-xl'
+  | 'text-2xl'
+  | 'text-3xl'
+  | 'text-4xl'
+  | 'text-5xl'
+  | 'text-6xl'
+  | 'text-7xl'
+  | 'text-8xl'
+  | 'text-9xl';
 
 export const fontSizes: FontSize[] = [
-  'xs',
-  'sm',
-  'base',
-  'lg',
-  'xl',
-  '2xl',
-  '3xl',
-  '4xl',
-  '5xl',
-  '6xl',
-  '7xl',
-  '8xl',
-  '9xl',
+  'text-xs',
+  'text-sm',
+  'text-base',
+  'text-lg',
+  'text-xl',
+  'text-2xl',
+  'text-3xl',
+  'text-4xl',
+  'text-5xl',
+  'text-6xl',
+  'text-7xl',
+  'text-8xl',
+  'text-9xl',
 ];
 
 export const fontWeights: FontWeight[] = [
-  'bold',
-  'semibold',
-  'thin',
-  'extralight',
-  'light',
-  'normal',
-  'medium',
-  'extrabold',
-  'black',
+  'font-bold',
+  'font-semibold',
+  'font-thin',
+  'font-extralight',
+  'font-light',
+  'font-normal',
+  'font-medium',
+  'font-extrabold',
+  'font-black',
 ];

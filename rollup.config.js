@@ -73,6 +73,7 @@ export default {
     typescript({
       sourceMap: !production,
       inlineSources: !production,
+      include: ['src/**/*.ts', new RegExp('shared\\/(.)+\\/(.+.ts)')],
     }),
 
     // In dev mode, call `npm run start` once

@@ -3,14 +3,11 @@
   import FaPalette from 'svelte-icons/fa/FaPalette.svelte';
   import IconButton from '../Components/Button/IconButton.svelte';
   import ColorMenu from './ColorMenu.svelte';
+  export let init: string;
   export let value: string;
   export let prefix: string;
 
   let isShowPalette: boolean = false;
-
-  const updateColor = (style: string) => {
-    value = `${prefix}-${style}`;
-  };
 
   const onShowPalletteClick = () => {
     isShowPalette = !isShowPalette;
@@ -28,7 +25,7 @@
       <div
         transition:slide
         class="flex flex-col h-72 absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">
-        <ColorMenu {updateColor} />
+        <ColorMenu {prefix} bind:value {init} />
       </div>
     {/if}
   </div>

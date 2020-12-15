@@ -4,19 +4,20 @@
   import SelectOption from '../../Components/Select/SelectOption.svelte';
 
   export let value: string;
-  export let isMenuOpen: boolean;
+
+  let select: Select;
 </script>
 
 <Select
-  on:click
-  label={value}
-  {isMenuOpen}
+  bind:this={select}
+  bind:value
+  placeholder="Border Radius"
   menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2', 'h-72', 'overflow-auto']}
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each borderRadiusOptions as option}
-    <SelectOption value={option.value} on:selected>
-      <div class={`m-2 p-2 border-solid border-2 border-black ${option.value}`}>
-        {option.value}
+    <SelectOption value={option} {select}>
+      <div class={`m-2 p-2 border-solid border-2 border-black ${option}`}>
+        {option}
       </div>
     </SelectOption>
   {/each}

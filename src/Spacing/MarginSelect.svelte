@@ -18,17 +18,17 @@
     '-mb',
     '-ml',
   ];
-  export let value: string = 'm';
-  export let isMenuOpen: boolean;
+  export let value: string;
+  let select: Select;
 </script>
 
 <Select
-  on:click
-  label={value}
-  {isMenuOpen}
+  bind:value
+  bind:this={select}
+  placeholder="Margin"
   menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each marginOptions as option}
-    <SelectOption value={option} on:selected>{option}</SelectOption>
+    <SelectOption value={option} {select}>{option}</SelectOption>
   {/each}
 </Select>
