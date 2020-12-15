@@ -5,6 +5,7 @@ import { EffectsStyle } from './Effects/EffectsStyle';
 import { FontStyles } from './Font/FontStyles';
 import { SizingStyles } from './Sizing/SizingStyles';
 import { SpacingStyles } from './Spacing/SpacingStyles';
+import { HeaderStyle } from './Components/Header/HeaderStyle';
 
 export const primaryButton = new ButtonStyles({
   border: new BorderStyles({
@@ -59,5 +60,28 @@ export const secondaryButton = new ButtonStyles({
   }),
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],
+  }),
+});
+
+export const header = new HeaderStyle({
+  color: 'bg-blue-400',
+  font: new FontStyles({
+    color: 'text-white',
+    size: 'text-3xl',
+    weight: 'font-bold',
+  }),
+  size: new SizingStyles({
+    height: 'h-12',
+    width: 'w-full',
+  }),
+  effects: new EffectsStyle({
+    boxShadow: 'shadow-lg',
+  }),
+  spacing: new SpacingStyles({
+    padding: [
+      { spacing: 'py', size: '2' },
+      { spacing: 'px', size: '4' },
+    ],
+    margin: [{ spacing: 'mb', size: '5' }],
   }),
 });

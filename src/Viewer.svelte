@@ -7,11 +7,13 @@
     primaryButtonStyles,
     secondaryButtonStyles,
   } from './store';
+  import Header from './Components/Header/Header.svelte';
 </script>
 
 <div class="flex-grow p-4 border-l flex flex-col">
   Style Viewer
-  <div class={$headerStyles}>My Classy App Header</div>
+
+  <Header styles={$headerStyles}>My Classy App Header</Header>
 
   <div class="flex justify-end">
     <div>
