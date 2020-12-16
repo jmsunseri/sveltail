@@ -1,10 +1,10 @@
-import { BorderStyles } from './Border/BorderStyles';
+import { BorderStyles } from './TailwindControls/Border/BorderStyles';
 import { ButtonStyles } from './Components/Button/Models/ButtonStyles';
 import { IconStyles } from './Components/Button/Models/IconStyles';
-import { EffectsStyle } from './Effects/EffectsStyle';
-import { FontStyles } from './Font/FontStyles';
-import { SizingStyles } from './Sizing/SizingStyles';
-import { SpacingStyles } from './Spacing/SpacingStyles';
+import { EffectsStyle } from './TailwindControls/Effects/EffectsStyle';
+import { FontStyles } from './TailwindControls/Font/FontStyles';
+import { SizingStyles } from './TailwindControls/Sizing/SizingStyles';
+import { SpacingStyles } from './TailwindControls/Spacing/SpacingStyles';
 import { HeaderStyle } from './Components/Header/HeaderStyle';
 
 export const primaryButton = new ButtonStyles({

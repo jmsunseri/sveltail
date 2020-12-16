@@ -1,7 +1,7 @@
 <script lang="ts">
   import FaExpandArrowsAlt from 'svelte-icons/fa/FaExpandArrowsAlt.svelte';
   import { SizingStyles } from './SizingStyles';
-  import IconButton from '../Components/Button/IconButton.svelte';
+  import IconButton from '@comp/Button/IconButton.svelte';
   import HeightSelect from './HeightSelect.svelte';
   import WidthSelect from './WidthSelect.svelte';
   import MinHeightSelect from './MinHeightSelect.svelte';

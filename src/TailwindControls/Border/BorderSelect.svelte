@@ -1,7 +1,7 @@
 <script lang="ts">
   import FaBorderStyle from 'svelte-icons/fa/FaBorderStyle.svelte';
-  import IconButton from '../Components/Button/IconButton.svelte';
-  import ColorMenu from '../Color/ColorMenu.svelte';
+  import IconButton from '@comp/Button/IconButton.svelte';
+  import ColorMenu from '@tail/Color/ColorMenu.svelte';
   import BorderStyleSelect from './BorderStyleSelect.svelte';
   import BorderWidthSelect from './BorderWidth/BorderWidthSelect.svelte';
   import BorderRadiusSelect from './BorderRadius/BorderRadiusSelect.svelte';
@@ -9,6 +9,7 @@
   import { BorderStyles } from './BorderStyles';
 
   let isMenuVisible: boolean = false;
+  export let isInline: boolean = false;
 
   const onShowMenuClick = () => {
     isMenuVisible = !isMenuVisible;
@@ -20,14 +21,16 @@
 </script>
 
 <div class="flex flex-col">
-  <IconButton
-    on:click={onShowMenuClick}
-    styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-900']}>
-    <FaBorderStyle />
-  </IconButton>
+  {#if !isInline}
+    <IconButton
+      on:click={onShowMenuClick}
+      styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-900']}>
+      <FaBorderStyle />
+    </IconButton>
+  {/if}
 
   <div>
-    {#if isMenuVisible}
+    {#if isMenuVisible || isInline}
       <div
         transition:slide
         class="flex flex-col absolute p-4 z-10 bg-white border shadow-md rounded-lg gap-1">

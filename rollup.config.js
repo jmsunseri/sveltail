@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
+import alias from '@rollup/plugin-alias';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -74,6 +75,12 @@ export default {
       sourceMap: !production,
       inlineSources: !production,
       include: ['src/**/*.ts', new RegExp('shared\\/(.)+\\/(.+.ts)')],
+    }),
+    alias({
+      entries: [
+        { find: '@tail', replacement: './TailwindControls' },
+        { find: '@comps', replacement: './Components' },
+      ],
     }),
 
     // In dev mode, call `npm run start` once

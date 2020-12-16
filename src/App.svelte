@@ -1,4 +1,5 @@
 <script lang="ts">
+  import HeaderStyler from '@comp/Header/HeaderStyler.svelte';
   import Card from './Components/Card/Card.svelte';
   import Viewer from './Viewer.svelte';
   import ButtonStyler from './Components/Button/ButtonStyler.svelte';
@@ -38,6 +39,8 @@
   </div>
   <div class="max-w-screen-xl flex flex-row gap-1 w-full h-full">
     <Card styles={cardStyles} containerStyles={cardContainerStyles}>
+      Header
+      <HeaderStyler bind:value={$headerStyles} />
       Primary Button:
       <ButtonStyler bind:value={$primaryButtonStyles} />
       Secondary Button:

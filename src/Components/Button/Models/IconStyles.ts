@@ -1,4 +1,4 @@
-import { SizingStyles } from '../../../Sizing/SizingStyles';
+import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
 
 class IconStyles {
   color?: string;

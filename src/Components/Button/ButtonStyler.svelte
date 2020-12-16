@@ -1,11 +1,11 @@
 <script lang="ts">
   import { ButtonStyles } from './Models/ButtonStyles';
-  import ColorSelect from '../../Color/ColorSelect.svelte';
-  import FontSelect from '../../Font/FontSelect.svelte';
-  import BorderSelect from '../../Border/BorderSelect.svelte';
-  import BoxShadowSelect from '../../Effects/BoxShadowSelect.svelte';
-  import SizingSelect from '../../Sizing/SizingSelect.svelte';
-  import SpacingSelect from '../../Spacing/SpacingSelect.svelte';
+  import ColorSelect from '@tail/Color/ColorSelect.svelte';
+  import FontSelect from '@tail/Font/FontSelect.svelte';
+  import BorderSelect from '@tail/Border/BorderSelect.svelte';
+  import BoxShadowSelect from '@tail/Effects/BoxShadowSelect.svelte';
+  import SizingSelect from '@tail/Sizing/SizingSelect.svelte';
+  import SpacingSelect from '@tail/Spacing/SpacingSelect.svelte';
 
   export let init: ButtonStyles;
   export let value: ButtonStyles = init || new ButtonStyles();

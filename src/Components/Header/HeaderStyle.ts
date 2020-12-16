@@ -1,8 +1,8 @@
-import { BorderStyles } from '../../Border/BorderStyles';
-import { EffectsStyle } from '../../Effects/EffectsStyle';
-import { FontStyles } from '../../Font/FontStyles';
-import { SizingStyles } from '../../Sizing/SizingStyles';
-import { SpacingStyles } from '../../Spacing/SpacingStyles';
+import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
+import { FontStyles } from '../../TailwindControls/Font/FontStyles';
+import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
+import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 
 class HeaderStyle {
   font: FontStyles;

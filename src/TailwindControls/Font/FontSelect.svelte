@@ -2,9 +2,9 @@
   import FaFont from 'svelte-icons/fa/FaFont.svelte';
   import { FontStyles } from './FontStyles';
   import ColorMenu from '../Color/ColorMenu.svelte';
-  import IconButton from '../Components/Button/IconButton.svelte';
-  import SelectOption from '../Components/Select/SelectOption.svelte';
-  import Select from '../Components/Select/Select.svelte';
+  import IconButton from '@comp/Button/IconButton.svelte';
+  import SelectOption from '@comp/Select/SelectOption.svelte';
+  import Select from '@comp/Select/Select.svelte';
   import { fontSizes, fontWeights } from './font';
   import { slide } from 'svelte/transition';
 
@@ -48,7 +48,7 @@
           <Select
             bind:this={weightSelect}
             bind:value={value.weight}
-            placeholder="Font Size"
+            placeholder="Font Weight"
             menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
             buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
             {#each fontWeights as weight}

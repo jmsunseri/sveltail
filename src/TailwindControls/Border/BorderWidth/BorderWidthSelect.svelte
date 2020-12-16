@@ -1,7 +1,7 @@
 <script lang="ts">
   import { borderWidthOptions } from './borderWidth';
-  import Select from '../../Components/Select/Select.svelte';
-  import SelectOption from '../../Components/Select/SelectOption.svelte';
+  import Select from '@comp/Select/Select.svelte';
+  import SelectOption from '@comp/Select/SelectOption.svelte';
 
   export let value: string;
   let select: Select;

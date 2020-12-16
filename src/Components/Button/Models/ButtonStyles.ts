@@ -1,7 +1,7 @@
-import { BorderStyles } from '../../../Border/BorderStyles';
-import { EffectsStyle } from '../../../Effects/EffectsStyle';
-import { FontStyles } from '../../../Font/FontStyles';
-import { SpacingStyles } from '../../../Spacing/SpacingStyles';
+import { BorderStyles } from '../../../TailwindControls/Border/BorderStyles';
+import { EffectsStyle } from '../../../TailwindControls/Effects/EffectsStyle';
+import { FontStyles } from '../../../TailwindControls/Font/FontStyles';
+import { SpacingStyles } from '../../../TailwindControls/Spacing/SpacingStyles';
 import { IconStyles } from './IconStyles';
 
 class ButtonStyles {

@@ -2,12 +2,11 @@
   import FaBraille from 'svelte-icons/fa/FaBraille.svelte';
   import FaRegTrashAlt from 'svelte-icons/fa/FaRegTrashAlt.svelte';
   import { SpacingStyles } from './SpacingStyles';
-  import IconButton from '../Components/Button/IconButton.svelte';
+  import IconButton from '@comp/Button/IconButton.svelte';
   import MarginSelect from './MarginSelect.svelte';
   import PaddingSelect from './PaddingSelect.svelte';
   import { slide } from 'svelte/transition';
   import SizeSelect from './SizeSelect.svelte';
-  import App from '../App.svelte';
 
   let isMenuVisible: boolean = false;
 
