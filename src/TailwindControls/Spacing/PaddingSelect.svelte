@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Select from '@comp/Select/Select.svelte';
-  import SelectOption from '../Components/Select/SelectOption.svelte';
+  import Select from '../../Components/Select/Select.svelte';
+  import SelectOption from '../../Components/Select/SelectOption.svelte';
 
   const marginOptions: string[] = ['p', 'py', 'px', 'pt', 'pr', 'pb', 'pl'];
   export let value: string;

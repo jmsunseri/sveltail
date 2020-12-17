@@ -1,7 +1,7 @@
 <script lang="ts">
   import FaBorderStyle from 'svelte-icons/fa/FaBorderStyle.svelte';
-  import IconButton from '@comp/Button/IconButton.svelte';
-  import ColorMenu from '@tail/Color/ColorMenu.svelte';
+  import IconButton from '../../Components/Button/IconButton.svelte';
+  import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
   import BorderStyleSelect from './BorderStyleSelect.svelte';
   import BorderWidthSelect from './BorderWidth/BorderWidthSelect.svelte';
   import BorderRadiusSelect from './BorderRadius/BorderRadiusSelect.svelte';

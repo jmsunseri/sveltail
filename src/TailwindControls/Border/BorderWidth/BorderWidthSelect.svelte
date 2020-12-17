@@ -1,7 +1,7 @@
 <script lang="ts">
   import { borderWidthOptions } from './borderWidth';
-  import Select from '@comp/Select/Select.svelte';
-  import SelectOption from '@comp/Select/SelectOption.svelte';
+  import Select from '../../../Components/Select/Select.svelte';
+  import SelectOption from '../../../Components/Select/SelectOption.svelte';
 
   export let value: string;
   let select: Select;
@@ -15,7 +15,7 @@
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each borderWidthOptions as option}
     <SelectOption value={option} {select}>
-      <div class={`m-2 p-2 border-solid border-black ${option}`}>{option}</div>
+      <div class="m-2 p-2">{option}</div>
     </SelectOption>
   {/each}
 </Select>

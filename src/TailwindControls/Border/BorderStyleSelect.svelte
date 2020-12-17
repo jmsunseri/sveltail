@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Select from '../Components/Select/Select.svelte';
-  import SelectOption from '../Components/Select/SelectOption.svelte';
+  import Select from '../../Components/Select/Select.svelte';
+  import SelectOption from '../../Components/Select/SelectOption.svelte';
 
   const styleOptions: string[] = [
     'border-solid',
@@ -21,7 +21,7 @@
   buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
   {#each styleOptions as option}
     <SelectOption value={option} {select}>
-      <div class={`m-2 p-2 border-2 border-black ${option}`}>{option}</div>
+      <div class="m-2 p-2">{option}</div>
     </SelectOption>
   {/each}
 </Select>

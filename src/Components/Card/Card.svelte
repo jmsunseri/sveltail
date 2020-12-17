@@ -4,10 +4,15 @@
 </script>
 
 <div class={styles?.join(' ')}>
-  <slot name="header" />
+  {#if $$slots.header}
+    <slot name="header" />
+  {/if}
+
   <div class={containerStyles?.join(' ')}>
     <slot />
   </div>
 
-  <slot name="footer" />
+  {#if $$slots.footer}
+    <slot name="footer" />
+  {/if}
 </div>

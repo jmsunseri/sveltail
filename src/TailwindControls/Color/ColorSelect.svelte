@@ -1,7 +1,7 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import FaPalette from 'svelte-icons/fa/FaPalette.svelte';
-  import IconButton from '@comp/Button/IconButton.svelte';
+  import IconButton from '../../Components/Button/IconButton.svelte';
   import ColorMenu from './ColorMenu.svelte';
   export let init: string;
   export let value: string;

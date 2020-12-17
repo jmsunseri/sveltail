@@ -22,7 +22,7 @@
   <button class={buttonStyles?.join(' ')} on:click={onClick}>
     <span class="flex justify-between items-center gap-4">
       {value || placeholder || ''}
-      <div class="h-5 w-5">
+      <div class="h-3 w-3">
         <FaChevronDown />
       </div>
     </span>
