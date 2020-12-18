@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Button from './Components/Button/Button.svelte';
+  import Button from '@comps/Button/Button.svelte';
   import FaRegSave from 'svelte-icons/fa/FaRegSave.svelte';
   // "bg-blue-400 text-white font-bold shadow-md w-full h-12 px-4 py-2 flex items-center mb-4"
   import {
@@ -7,7 +7,7 @@
     primaryButtonStyles,
     secondaryButtonStyles,
   } from './store';
-  import Header from './Components/Header/Header.svelte';
+  import Header from '@comps/Header/Header.svelte';
 </script>
 
 <div class="flex-grow p-4 border-l flex flex-col">

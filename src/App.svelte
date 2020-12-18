@@ -1,15 +1,15 @@
 <script lang="ts">
-  import HeaderStyler from './Components/Header/HeaderStyler.svelte';
+  import HeaderStyler from '@comps/Header/HeaderStyler.svelte';
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
-  import Card from './Components/Card/Card.svelte';
+  import Card from '@comps/Card/Card.svelte';
   import Viewer from './Viewer.svelte';
-  import ButtonStyler from './Components/Button/ButtonStyler.svelte';
+  import ButtonStyler from '@comps/Button/ButtonStyler.svelte';
   import {
     primaryButtonStyles,
     secondaryButtonStyles,
     headerStyles,
   } from './store';
-  import IconButton from './Components/Button/IconButton.svelte';
+  import IconButton from '@comps/Button/IconButton.svelte';
   import StyleMenuButton from './StyleMenuButton.svelte';
 
   let cardStyles = [
