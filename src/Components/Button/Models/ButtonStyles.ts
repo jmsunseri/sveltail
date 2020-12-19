@@ -1,6 +1,7 @@
 import { BorderStyles } from '../../../TailwindControls/Border/BorderStyles';
 import { EffectsStyle } from '../../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../../TailwindControls/Font/FontStyles';
+import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../../TailwindControls/Spacing/SpacingStyles';
 import { IconStyles } from './IconStyles';
 
@@ -11,6 +12,7 @@ class ButtonStyles {
   border: BorderStyles;
   effects: EffectsStyle;
   spacing: SpacingStyles;
+  size: SizingStyles;
 
   /**
    *
@@ -21,13 +23,14 @@ class ButtonStyles {
     this.icon = new IconStyles();
     this.effects = new EffectsStyle();
     this.spacing = new SpacingStyles();
+    this.size = new SizingStyles();
     Object.assign(this, init);
   }
 
   toStyles = () =>
     `${
       this.color
-    } ${this.font.toStyles()} ${this.border.toStyles()} ${this.effects.toStyles()} ${this.spacing.toStyles()}`;
+    } ${this.font.toStyles()} ${this.border.toStyles()} ${this.effects.toStyles()} ${this.spacing.toStyles()}  ${this.size.toStyles()}`;
 }
 
 export { ButtonStyles };

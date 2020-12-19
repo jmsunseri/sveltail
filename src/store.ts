@@ -1,7 +1,11 @@
 import { writable } from 'svelte/store';
 import type { ButtonStyles } from './Components/Button/Models/ButtonStyles';
 import type { HeaderStyle } from './Components/Header/HeaderStyle';
-import { primaryButton, secondaryButton, header } from './DefaultStyles';
+import {
+  primaryButton,
+  secondaryButton,
+  header,
+} from './StyleDefinitions/DefaultStyles';
 
 const headerStyles = writable<HeaderStyle>(header);
 const primaryButtonStyles = writable<ButtonStyles>(primaryButton);

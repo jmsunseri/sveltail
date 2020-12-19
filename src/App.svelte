@@ -9,13 +9,14 @@
     headerStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
-  import type { header } from './DefaultStyles';
+  import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
 
   enum VisibleComponent {
     menu,
     header,
     btn,
     altBtn,
+    notImplemented,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
@@ -36,7 +37,8 @@
   @tailwind utilities;
 </style>
 
-<main class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin">
+<main
+  class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin overflow-hidden">
   <div
     class="text-3xl w-full h-16 px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
     SvelTail
@@ -62,22 +64,22 @@
           </StyleMenuButton>
           <StyleMenuButton
             text="List"
-            on:click={() => change(VisibleComponent.header)}>
+            on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
             text="Card"
-            on:click={() => change(VisibleComponent.header)}>
+            on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
             text="Text Field"
-            on:click={() => change(VisibleComponent.header)}>
+            on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
             text="Select"
-            on:click={() => change(VisibleComponent.header)}>
+            on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
         </div>
@@ -92,7 +94,9 @@
       {:else if visible === VisibleComponent.altBtn}
         <ButtonStyler
           on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$primaryButtonStyles} />
+          bind:value={$secondaryButtonStyles} />
+      {:else}
+        <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
       {/if}
     </div>
     <Viewer />

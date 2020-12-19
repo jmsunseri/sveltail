@@ -1,6 +1,7 @@
 <script lang="ts">
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
+  import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   export let value: string;
 
@@ -23,13 +24,10 @@
   bind:this={select}
   bind:value
   placeholder="Box Shadow"
-  menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2', 'h-72', 'overflow-auto']}
-  buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
+  styles={selectStyles}>
   {#each shadowOptions as option}
     <SelectOption value={option} {select}>
-      <div class={`m-2 p-2 border-solid border-2 border-black ${option}`}>
-        {option}
-      </div>
+      <div class={`m-2 p-2`}>{option}</div>
     </SelectOption>
   {/each}
 </Select>

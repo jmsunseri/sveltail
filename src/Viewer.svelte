@@ -14,7 +14,7 @@
   class="flex-grow p-4 border-l-2 border-dashed border-gray-300 flex flex-col">
   <Header styles={$headerStyles}>My Classy App Header</Header>
   <div class="flex justify-end">
-    <div>
+    <div class="flex gap-3">
       <Button styles={$primaryButtonStyles}>
         Primary Button
         <span slot="icon">

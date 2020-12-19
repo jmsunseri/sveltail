@@ -1,8 +1,8 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
-  export let buttonStyles: string[];
-  export let menuStyles: string[];
+  import type { SelectStyles } from './SelectStyle';
+  export let styles: SelectStyles;
   export let placeholder: string;
   export let value: any;
 
@@ -19,10 +19,12 @@
 </script>
 
 <span class="relative flex-grow">
-  <button class={buttonStyles?.join(' ')} on:click={onClick}>
+  <button
+    class={styles.button.toStyles() + ' focus:outline-none'}
+    on:click={onClick}>
     <span class="flex justify-between items-center gap-4">
       {value || placeholder || ''}
-      <div class="h-3 w-3">
+      <div class={styles.button.icon.toStyles()}>
         <FaChevronDown />
       </div>
     </span>
@@ -30,7 +32,7 @@
   {#if isMenuOpen}
     <div
       transition:slide
-      class={menuStyles?.join(' ') + ' absolute z-10 h-80 overflow-auto w-full'}>
+      class={styles.menu.toStyles() + ' absolute z-10 h-80 overflow-auto w-full cursor-pointer'}>
       <ul class="list-reset">
         <slot />
       </ul>

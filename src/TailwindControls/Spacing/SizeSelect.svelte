@@ -1,6 +1,7 @@
 <script lang="ts">
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
+  import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const sizeOptions: string[] = [
     '0',
@@ -44,12 +45,7 @@
   let select: Select;
 </script>
 
-<Select
-  placeholder="Size"
-  bind:value
-  bind:this={select}
-  menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
-  buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
+<Select placeholder="Size" bind:value bind:this={select} styles={selectStyles}>
   {#each sizeOptions as option}
     <SelectOption {select} value={option} on:selected>{option}</SelectOption>
   {/each}

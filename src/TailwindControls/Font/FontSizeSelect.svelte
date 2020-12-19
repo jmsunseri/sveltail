@@ -2,6 +2,7 @@
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
   import { fontSizes } from './font';
+  import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   let select: Select;
   export let value: string;
@@ -11,11 +12,10 @@
   bind:this={select}
   bind:value
   placeholder="Font Size"
-  menuStyles={['bg-white', 'rounded-sm', 'border', 'shadow-md', 'py-1', 'px-2']}
-  buttonStyles={['rounded-sm', 'py-1', 'px-2', 'w-full']}>
+  styles={selectStyles}>
   {#each fontSizes as size}
     <SelectOption value={size} {select}>
-      <div class={size}>{size}</div>
+      <div>{size}</div>
     </SelectOption>
   {/each}
 </Select>

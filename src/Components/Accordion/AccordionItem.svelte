@@ -1,9 +1,11 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
+  import { bounceIn, expoIn } from 'svelte/easing';
   import Card from '../Card/Card.svelte';
   import type Accordion from './Accordion.svelte';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
   import FaChevronUp from 'svelte-icons/fa/FaChevronUp.svelte';
+  import { fly, slide } from 'svelte/transition';
 
   export let accordion: Accordion;
   export let id: number;
@@ -74,7 +76,7 @@
     </span>
   </button>
   {#if isSelected}
-    <div class="mt-2">
+    <div transition:slide class="mt-2">
       <slot />
     </div>
   {/if}
