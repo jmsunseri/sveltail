@@ -1,39 +1,27 @@
 <script lang="ts">
-  import HeaderStyler from '@comps/Header/HeaderStyler.svelte';
+  import HeaderStyler from './Components/Styles/HeaderStyler.svelte';
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
-  import Card from '@comps/Card/Card.svelte';
   import Viewer from './Viewer.svelte';
-  import ButtonStyler from '@comps/Button/ButtonStyler.svelte';
+  import ButtonStyler from './Components/Styles/ButtonStyler.svelte';
   import {
     primaryButtonStyles,
     secondaryButtonStyles,
     headerStyles,
   } from './store';
-  import IconButton from '@comps/Button/IconButton.svelte';
   import StyleMenuButton from './StyleMenuButton.svelte';
+  import type { header } from './DefaultStyles';
 
-  let cardStyles = [
-    'p-4',
-    'm-2',
-    'rounded-lg',
-    'shadow-md',
-    'border-2',
-    'border-grey-100',
-    'flex',
-  ];
-  let cardContainerStyles = ['flex', 'flex-grow', 'flex-col', 'gap-4'];
+  enum VisibleComponent {
+    menu,
+    header,
+    btn,
+    altBtn,
+  }
 
-  let isHeaderStylerVisible: boolean = false;
-  let isMenuVisible: boolean = true;
+  let visible: VisibleComponent = VisibleComponent.menu;
 
-  const closeHeaderStyler = () => {
-    isHeaderStylerVisible = false;
-    isMenuVisible = true;
-  };
-
-  const openHeaderStyler = () => {
-    isHeaderStylerVisible = true;
-    isMenuVisible = false;
+  const change = (v: VisibleComponent) => {
+    visible = v;
   };
 </script>
 
@@ -48,52 +36,65 @@
   @tailwind utilities;
 </style>
 
-<main class="flex flex-col items-center m-0 h-screen overflow-hidden">
+<main class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin">
   <div
-    class="bg-red-400 text-white text-3xl font-thin shadow-md w-full h-16 px-4 py-2 flex items-center">
+    class="text-3xl w-full h-16 px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
     SvelTail
   </div>
   <div class="max-w-screen-xl flex flex-row gap-1 w-full h-screen pb-16">
     <div class="flex flex-col w-96 overflow-auto">
-      {#if isMenuVisible}
+      {#if visible === VisibleComponent.menu}
         <div class="flex flex-wrap">
-          <StyleMenuButton text="Header" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Header"
+            on:click={() => change(VisibleComponent.header)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="Button" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Button"
+            on:click={() => change(VisibleComponent.btn)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="2nd Button" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Alt Button"
+            on:click={() => change(VisibleComponent.altBtn)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="List" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="List"
+            on:click={() => change(VisibleComponent.header)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="Card" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Card"
+            on:click={() => change(VisibleComponent.header)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="Text Field" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Text Field"
+            on:click={() => change(VisibleComponent.header)}>
             <IoIosBrowsers />
           </StyleMenuButton>
-          <StyleMenuButton text="Select" on:click={openHeaderStyler}>
+          <StyleMenuButton
+            text="Select"
+            on:click={() => change(VisibleComponent.header)}>
             <IoIosBrowsers />
           </StyleMenuButton>
         </div>
-      {/if}
-      {#if isHeaderStylerVisible}
+      {:else if visible === VisibleComponent.header}
         <HeaderStyler
-          on:closed={closeHeaderStyler}
-          bind:value={$headerStyles}
-          {cardStyles}
-          {cardContainerStyles} />
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$headerStyles} />
+      {:else if visible === VisibleComponent.btn}
+        <ButtonStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$primaryButtonStyles} />
+      {:else if visible === VisibleComponent.altBtn}
+        <ButtonStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$primaryButtonStyles} />
       {/if}
     </div>
-
-    <!-- Primary Button:
-      <ButtonStyler bind:value={$primaryButtonStyles} />
-      Secondary Button:
-      <ButtonStyler bind:value={$secondaryButtonStyles} /> -->
-    <!-- </Card> -->
     <Viewer />
   </div>
 </main>

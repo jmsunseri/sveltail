@@ -5,10 +5,10 @@
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
 
   //needed to get alias working
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "src/*": ["src/*"]
-    }
-  }
+  // "compilerOptions": {
+  //   "baseUrl": ".",
+  //   "paths": {
+  //     "src/*": ["src/*"]
+  //   }
+  // }
 }

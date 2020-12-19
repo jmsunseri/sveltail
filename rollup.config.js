@@ -76,13 +76,13 @@ export default {
       inlineSources: !production,
       include: ['src/**/*.ts', new RegExp('shared\\/(.)+\\/(.+.ts)')],
     }),
-    alias({
-      resolve: ['.svelte', '.ts'],
-      entries: [
-        { find: '@tail', replacement: `./src/TailwindControls` },
-        { find: '@comps', replacement: `./src/Components` },
-      ],
-    }),
+    // alias({
+    //   resolve: ['.svelte', '.ts'],
+    //   entries: [
+    //     { find: '@tail', replacement: `./src/TailwindControls` },
+    //     { find: '@comps', replacement: `./src/Components` },
+    //   ],
+    // }),
 
     // In dev mode, call `npm run start` once
     // the bundle has been generated

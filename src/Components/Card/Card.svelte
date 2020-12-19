@@ -1,14 +1,14 @@
 <script lang="ts">
-  export let styles: string[];
-  export let containerStyles: string[];
+  export let styles: string;
+  export let containerStyles: string;
 </script>
 
-<div class={styles?.join(' ')}>
+<div class={styles}>
   {#if $$slots.header}
     <slot name="header" />
   {/if}
 
-  <div class={containerStyles?.join(' ')}>
+  <div class={containerStyles}>
     <slot />
   </div>
 
