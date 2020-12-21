@@ -6,6 +6,9 @@ import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
 import { HeaderStyle } from '../Components/Header/HeaderStyle';
+import { SelectStyles } from '../Components/Select/SelectStyle';
+import { MenuStyles } from '../Components/Select/MenuStyles';
+import { GlobalStyle } from '../Components/Styles/GlobalStyle';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -70,5 +73,59 @@ export const header = new HeaderStyle({
       { spacing: 'px', size: '4' },
     ],
     margin: [{ spacing: 'mb', size: '5' }],
+  }),
+});
+
+export const viewer = new GlobalStyle({
+  color: 'bg-purple-100',
+  font: new FontStyles({
+    color: 'text-gray-700',
+  }),
+});
+
+export const select: SelectStyles = new SelectStyles({
+  button: new ButtonStyles({
+    color: 'bg-white',
+    border: new BorderStyles({
+      width: 'border-2',
+      color: 'border-pink-900 focus:border-pink-900',
+    }),
+    spacing: new SpacingStyles({
+      padding: [
+        { spacing: 'py', size: '2' },
+        { spacing: 'px', size: '2' },
+      ],
+    }),
+    size: new SizingStyles({
+      width: 'w-full',
+    }),
+    icon: new IconStyles({
+      size: new SizingStyles({
+        height: 'h-5',
+        width: 'w-5',
+      }),
+      color: 'text-black',
+    }),
+  }),
+  menu: new MenuStyles({
+    // size: new SizingStyles({
+    //   minHeight: 'h-1',
+    //   maxHeight: 'h-20',
+    // }),
+    effects: new EffectsStyle({
+      boxShadow: 'shadow-md',
+    }),
+    color: 'bg-white',
+    border: new BorderStyles({
+      width: 'border-2 border-t-0',
+      color: 'border-pink-900',
+    }),
+    spacing: new SpacingStyles({
+      margin: [{ size: '1', spacing: '-mt' }],
+      padding: [
+        { spacing: 'py', size: '1' },
+        { spacing: 'px', size: '2' },
+      ],
+    }),
   }),
 });

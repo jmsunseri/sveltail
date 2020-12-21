@@ -6,7 +6,7 @@
   export let placeholder: string;
   export let value: any;
 
-  let isMenuOpen: boolean;
+  export let isMenuOpen: boolean;
 
   export const onSelected = (v: any) => {
     isMenuOpen = false;
@@ -32,7 +32,7 @@
   {#if isMenuOpen}
     <div
       transition:slide
-      class={styles.menu.toStyles() + ' absolute z-10 h-80 overflow-auto w-full cursor-pointer'}>
+      class={styles.menu.toStyles() + ' absolute z-10 overflow-auto w-full cursor-pointer'}>
       <ul class="list-reset">
         <slot />
       </ul>

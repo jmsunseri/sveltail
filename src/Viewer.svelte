@@ -1,32 +1,87 @@
 <script lang="ts">
   import Button from './Components/Button/Button.svelte';
+  import Select from './Components/Select/Select.svelte';
+  import SelectOption from './Components/Select/SelectOption.svelte';
   import FaRegSave from 'svelte-icons/fa/FaRegSave.svelte';
-  // "bg-blue-400 text-white font-bold shadow-md w-full h-12 px-4 py-2 flex items-center mb-4"
+  import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
   import {
     headerStyles,
     primaryButtonStyles,
     secondaryButtonStyles,
+    selectStyles,
+    viewerStyles,
   } from './store';
   import Header from './Components/Header/Header.svelte';
+
+  let select: Select;
+  let petType: string;
+
+  let checkboxStyle =
+    'form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none';
 </script>
 
 <div
-  class="flex-grow p-4 border-l-2 border-dashed border-gray-300 flex flex-col">
-  <Header styles={$headerStyles}>My Classy App Header</Header>
-  <div class="flex justify-end">
-    <div class="flex gap-3">
-      <Button styles={$primaryButtonStyles}>
-        Primary Button
-        <span slot="icon">
-          <FaRegSave />
-        </span>
-      </Button>
-      <Button styles={$secondaryButtonStyles}>
-        Secondary Button
-        <span slot="trailingIcon">
-          <FaRegSave />
-        </span>
-      </Button>
+  class={`flex-grow border-l-2 border-dashed border-gray-300 flex flex-col ${$viewerStyles.toStyles()}`}>
+  <Header styles={$headerStyles}>Pet Finder</Header>
+  <div class="px-4">
+    <div class="flex flex-row gap-3">
+      <div class="flex flex-1 flex-col gap-3">
+        <div class="flex flex-row gap-3">
+          <input type="text" placeholder="Pet's Name" />
+          <Select
+            bind:this={select}
+            bind:value={petType}
+            isMenuOpen
+            placeholder="Pet Type"
+            styles={$selectStyles}>
+            <SelectOption {select} value="Dog">Dog</SelectOption>
+            <SelectOption {select} value="Cat">Cat</SelectOption>
+            <SelectOption {select} value="Bird">Bird</SelectOption>
+          </Select>
+          <Button styles={$primaryButtonStyles}>
+            Search
+            <span slot="icon">
+              <IoIosSearch />
+            </span>
+          </Button>
+        </div>
+        Results
+        <div class="flex flex-col">
+          <div class="flex flex-row gap-3">
+            <div><input type="checkbox" class={checkboxStyle} /></div>
+            <div class="flex-1">Name</div>
+            <div class="flex-1">Type</div>
+            <div class="flex-1">Breed</div>
+            <div class="flex-1">Distance</div>
+          </div>
+          <div class="flex flex-row gap-3">
+            <div><input type="checkbox" class={checkboxStyle} /></div>
+            <div class="flex-1">Fido</div>
+            <div class="flex-1">Dog</div>
+            <div class="flex-1">Hound</div>
+            <div class="flex-1">10km</div>
+          </div>
+          <div class="flex flex-row gap-3">
+            <div><input checked type="checkbox" class={checkboxStyle} /></div>
+            <div class="flex-1">Doge</div>
+            <div class="flex-1">Dog</div>
+            <div class="flex-1">Shiba Inu</div>
+            <div class="flex-1">1km</div>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-1 flex-col" />
+    </div>
+
+    <div class="flex justify-end">
+      <div class="flex gap-3">
+        <Button styles={$secondaryButtonStyles}>
+          Secondary Button
+          <span slot="trailingIcon">
+            <FaRegSave />
+          </span>
+        </Button>
+      </div>
     </div>
   </div>
 </div>

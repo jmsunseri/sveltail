@@ -36,6 +36,9 @@ const selectStyles: SelectStyles = new SelectStyles({
     effects: new EffectsStyle({
       boxShadow: 'shadow-md',
     }),
+    size: new SizingStyles({
+      height: 'h-80',
+    }),
     color: 'bg-white',
     border: new BorderStyles({
       radius: 'rounded-b-lg',

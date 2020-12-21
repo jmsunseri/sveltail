@@ -8,6 +8,11 @@ module.exports = {
     removeDeprecatedGapUtilities: true,
   },
   plugins: [],
+  variants: {
+    extend: {
+      backgroundColor: ['checked'],
+    },
+  },
   purge: {
     content: [
       './src/**/*.svelte',

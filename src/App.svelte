@@ -3,13 +3,16 @@
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
   import Viewer from './Viewer.svelte';
   import ButtonStyler from './Components/Styles/ButtonStyler.svelte';
+  import GlobalStyler from './Components/Styles/GlobalStyler.svelte';
   import {
     primaryButtonStyles,
     secondaryButtonStyles,
     headerStyles,
+    viewerStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
+  import { slide } from 'svelte/transition';
 
   enum VisibleComponent {
     menu,
@@ -17,6 +20,7 @@
     btn,
     altBtn,
     notImplemented,
+    global,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
@@ -32,6 +36,7 @@
   /* purgecss start ignore */
   @tailwind base;
   @tailwind components;
+  @tailwind forms;
   /* purgecss end ignore */
 
   @tailwind utilities;
@@ -46,7 +51,12 @@
   <div class="max-w-screen-xl flex flex-row gap-1 w-full h-screen pb-16">
     <div class="flex flex-col w-96 overflow-auto">
       {#if visible === VisibleComponent.menu}
-        <div class="flex flex-wrap">
+        <div transition:slide class="flex flex-wrap">
+          <StyleMenuButton
+            text="Global"
+            on:click={() => change(VisibleComponent.global)}>
+            <IoIosBrowsers />
+          </StyleMenuButton>
           <StyleMenuButton
             text="Header"
             on:click={() => change(VisibleComponent.header)}>
@@ -83,6 +93,10 @@
             <IoIosBrowsers />
           </StyleMenuButton>
         </div>
+      {:else if visible === VisibleComponent.global}
+        <GlobalStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$viewerStyles} />
       {:else if visible === VisibleComponent.header}
         <HeaderStyler
           on:closed={() => change(VisibleComponent.menu)}
