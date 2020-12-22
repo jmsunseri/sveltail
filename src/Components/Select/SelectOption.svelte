@@ -1,8 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
   import type Select from './Select.svelte';
-
-  const dispatch = createEventDispatcher();
 
   export let styles: string[];
   export let value: any;

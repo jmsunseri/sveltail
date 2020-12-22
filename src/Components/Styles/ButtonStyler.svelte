@@ -1,6 +1,5 @@
 <script lang="ts">
   import { ButtonStyles } from '../Button/Models/ButtonStyles';
-  import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import BoxShadowSelect from '../../TailwindControls/Effects/BoxShadowSelect.svelte';
@@ -10,7 +9,6 @@
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
   import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
-  import type { borderRadiusOptions } from '../../TailwindControls/Border/BorderRadius/borderRadius';
 
   let accordion: Accordion;
   export let init: ButtonStyles;

@@ -1,18 +1,10 @@
 <script lang="ts">
-  import FaBraille from 'svelte-icons/fa/FaBraille.svelte';
   import FaRegTrashAlt from 'svelte-icons/fa/FaRegTrashAlt.svelte';
   import { SpacingStyles } from './SpacingStyles';
   import IconButton from '../../Components/Button/IconButton.svelte';
   import MarginSelect from './MarginSelect.svelte';
   import PaddingSelect from './PaddingSelect.svelte';
-  import { slide } from 'svelte/transition';
   import SizeSelect from './SizeSelect.svelte';
-
-  let isMenuVisible: boolean = false;
-
-  const onShowMenuClick = () => {
-    isMenuVisible = !isMenuVisible;
-  };
 
   export let init: SpacingStyles;
   export let value: SpacingStyles = init || new SpacingStyles();
@@ -26,7 +18,7 @@
       <SizeSelect bind:value={margin.size} />
       <IconButton
         styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300']}
-        on:click={() => (value.margin = value.margin.filter((x, i) => i !== index))}>
+        on:click={() => (value.margin = value.margin.filter((_, i) => i !== index))}>
         <FaRegTrashAlt />
       </IconButton>
     </div>
@@ -43,7 +35,7 @@
       <SizeSelect bind:value={padding.size} />
       <IconButton
         styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300']}
-        on:click={() => (value.padding = value.padding.filter((x, i) => i !== index))}>
+        on:click={() => (value.padding = value.padding.filter((_, i) => i !== index))}>
         <FaRegTrashAlt />
       </IconButton>
     </div>
