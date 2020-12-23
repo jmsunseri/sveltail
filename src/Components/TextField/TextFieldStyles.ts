@@ -1,26 +1,26 @@
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
-import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
+import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { IconStyles } from '../Button/Models/IconStyles';
 
-class HeaderStyle {
+class TextFieldStyles {
   font: FontStyles;
   color?: string;
-  size: SizingStyles;
+  icon: IconStyles;
   border: BorderStyles;
-  effects: EffectsStyle;
   spacing: SpacingStyles;
+  ring: RingStyles;
 
   /**
    *
    */
-  constructor(init?: Partial<HeaderStyle>) {
+  constructor(init?: Partial<TextFieldStyles>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
-    this.size = new SizingStyles();
-    this.effects = new EffectsStyle();
+    this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
+    this.ring = new RingStyles();
     Object.assign(this, init);
   }
 
@@ -29,10 +29,9 @@ class HeaderStyle {
       this.color,
       this.font.toStyles(),
       this.border.toStyles(),
-      this.effects.toStyles(),
       this.spacing.toStyles(),
-      this.size.toStyles(),
+      this.ring.toStyles(),
     ].join(' ');
 }
 
-export { HeaderStyle };
+export { TextFieldStyles };

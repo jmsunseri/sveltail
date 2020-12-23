@@ -9,10 +9,12 @@
     secondaryButtonStyles,
     headerStyles,
     viewerStyles,
+    textFieldStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
   import { slide } from 'svelte/transition';
+  import TextFieldStyler from './Components/Styles/TextFieldStyler.svelte';
 
   enum VisibleComponent {
     menu,
@@ -21,6 +23,8 @@
     altBtn,
     notImplemented,
     global,
+    text,
+    select,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
@@ -73,22 +77,22 @@
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
+            text="Text Field"
+            on:click={() => change(VisibleComponent.text)}>
+            <IoIosBrowsers />
+          </StyleMenuButton>
+          <StyleMenuButton
+            text="Select"
+            on:click={() => change(VisibleComponent.select)}>
+            <IoIosBrowsers />
+          </StyleMenuButton>
+          <StyleMenuButton
             text="List"
             on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
             text="Card"
-            on:click={() => change(VisibleComponent.notImplemented)}>
-            <IoIosBrowsers />
-          </StyleMenuButton>
-          <StyleMenuButton
-            text="Text Field"
-            on:click={() => change(VisibleComponent.notImplemented)}>
-            <IoIosBrowsers />
-          </StyleMenuButton>
-          <StyleMenuButton
-            text="Select"
             on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
           </StyleMenuButton>
@@ -109,6 +113,10 @@
         <ButtonStyler
           on:closed={() => change(VisibleComponent.menu)}
           bind:value={$secondaryButtonStyles} />
+      {:else if visible === VisibleComponent.text}
+        <TextFieldStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$textFieldStyles} />
       {:else}
         <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
       {/if}

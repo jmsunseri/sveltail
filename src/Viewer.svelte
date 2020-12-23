@@ -10,8 +10,10 @@
     secondaryButtonStyles,
     selectStyles,
     viewerStyles,
+    textFieldStyles,
   } from './store';
   import Header from './Components/Header/Header.svelte';
+  import TextField from './Components/TextField/TextField.svelte';
 
   let select: Select;
   let petType: string;
@@ -27,7 +29,11 @@
     <div class="flex flex-row gap-3">
       <div class="flex flex-1 flex-col gap-3">
         <div class="flex flex-row gap-3">
-          <input type="text" placeholder="Pet's Name" />
+          <TextField styles={$textFieldStyles} placeholder="Pet's Name">
+            <span slot="trailingIcon">
+              <IoIosSearch />
+            </span>
+          </TextField>
           <Select
             bind:this={select}
             bind:value={petType}

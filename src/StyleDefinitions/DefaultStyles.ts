@@ -10,6 +10,7 @@ import { SelectStyles } from '../Components/Select/SelectStyle';
 import { MenuStyles } from '../Components/Select/MenuStyles';
 import { GlobalStyle } from '../Components/Styles/GlobalStyle';
 import { RingStyles } from '../TailwindControls/Ring/RingStyles';
+import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -33,6 +34,33 @@ export const primaryButton = new ButtonStyles({
   }),
   effects: new EffectsStyle({
     boxShadow: 'shadow-md',
+  }),
+  spacing: new SpacingStyles({
+    padding: [{ spacing: 'p', size: '2' }],
+  }),
+});
+
+export const textField = new TextFieldStyles({
+  color: 'bg-gray-50',
+  border: new BorderStyles({
+    radius: 'rounded-full',
+  }),
+  ring: new RingStyles({
+    onFocus: true,
+    color: 'ring-blue-500',
+    width: 'ring-4',
+    offsetWidth: 'ring-offset-1',
+    opacity: 'ring-opacity-20',
+  }),
+  icon: new IconStyles({
+    size: new SizingStyles({
+      height: 'h-5',
+      width: 'w-5',
+    }),
+    color: 'text-pink-900',
+  }),
+  font: new FontStyles({
+    weight: 'font-thin',
   }),
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],

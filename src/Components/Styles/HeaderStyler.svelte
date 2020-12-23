@@ -1,6 +1,5 @@
 <script lang="ts">
   import { HeaderStyle } from '../Header/HeaderStyle';
-  import BoxShadowSelect from '../../TailwindControls/Effects/BoxShadowSelect.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
   import StyleGroup from './StyleGroup.svelte';
