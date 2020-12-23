@@ -46,9 +46,9 @@
   class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin overflow-hidden">
   <div
     class="text-3xl w-full h-16 px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
-    SvelTail
+    <div class="container mx-auto">SvelTail - TailwindCSS Styling Lab</div>
   </div>
-  <div class="max-w-screen-xl flex flex-row gap-1 w-full h-screen pb-16">
+  <div class="container mx-auto h-screen pb-14 flex flex-row gap-1 ">
     <div class="flex flex-col w-96 overflow-auto">
       {#if visible === VisibleComponent.menu}
         <div transition:slide class="flex flex-wrap">
