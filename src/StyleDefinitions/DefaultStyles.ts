@@ -54,7 +54,7 @@ export const secondaryButton = new ButtonStyles({
 });
 
 export const header = new HeaderStyle({
-  color: 'bg-pink-900',
+  color: 'bg-gradient-to-r from-pink-900 to-pink-700',
   font: new FontStyles({
     color: 'text-white',
     size: 'text-3xl',
