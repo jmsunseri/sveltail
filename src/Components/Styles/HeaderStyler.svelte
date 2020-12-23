@@ -7,6 +7,7 @@
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
+  import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
 
   let accordion: Accordion;
   export let init: HeaderStyle;
@@ -25,7 +26,7 @@
       <FontSelect bind:value={value.font} />
     </AccordionItem>
     <AccordionItem isLast id={3} {accordion} headerText="Effects">
-      <BoxShadowSelect bind:value={value.effects.boxShadow} />
+      <EffectsSelect bind:value={value.effects} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

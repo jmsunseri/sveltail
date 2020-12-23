@@ -4,8 +4,7 @@
   import FontSizeSelect from './FontSizeSelect.svelte';
   import FontWeightSelect from './FontWeightSelect.svelte';
 
-  export let init: FontStyles;
-  export let value: FontStyles = init || new FontStyles();
+  export let value: FontStyles = new FontStyles();
 </script>
 
 <div class="flex flex-col gap-1">

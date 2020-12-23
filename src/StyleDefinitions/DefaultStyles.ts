@@ -9,6 +9,7 @@ import { HeaderStyle } from '../Components/Header/HeaderStyle';
 import { SelectStyles } from '../Components/Select/SelectStyle';
 import { MenuStyles } from '../Components/Select/MenuStyles';
 import { GlobalStyle } from '../Components/Styles/GlobalStyle';
+import { RingStyles } from '../TailwindControls/Ring/RingStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -16,6 +17,13 @@ export const primaryButton = new ButtonStyles({
     color: 'text-white',
     size: 'text-base',
     weight: 'font-semibold',
+  }),
+  ring: new RingStyles({
+    onFocus: true,
+    color: 'ring-blue-500',
+    width: 'ring-4',
+    offsetWidth: 'ring-offset-1',
+    opacity: 'ring-opacity-20',
   }),
   icon: new IconStyles({
     size: new SizingStyles({
@@ -40,6 +48,13 @@ export const secondaryButton = new ButtonStyles({
   }),
   effects: new EffectsStyle({
     boxShadow: 'shadow-md',
+  }),
+  ring: new RingStyles({
+    onFocus: true,
+    color: 'ring-blue-500',
+    width: 'ring-4',
+    offsetWidth: 'ring-offset-1',
+    opacity: 'ring-opacity-20',
   }),
   icon: new IconStyles({
     size: new SizingStyles({

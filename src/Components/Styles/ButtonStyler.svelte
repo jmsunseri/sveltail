@@ -3,6 +3,7 @@
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import BoxShadowSelect from '../../TailwindControls/Effects/BoxShadowSelect.svelte';
+  import OpacitySelect from '../../TailwindControls/Effects/OpacitySelect.svelte';
   import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
   import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
   import StyleGroup from './StyleGroup.svelte';
@@ -10,6 +11,8 @@
   import AccordionItem from '../Accordion/AccordionItem.svelte';
   import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
+  import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
+  import RingSelect from '../../TailwindControls/Ring/RingSelect.svelte';
 
   let accordion: Accordion;
   export let init: ButtonStyles;
@@ -27,8 +30,11 @@
     <AccordionItem id={3} {accordion} headerText="Border">
       <BorderSelect bind:value={value.border} />
     </AccordionItem>
+    <AccordionItem id={4} {accordion} headerText="Ring">
+      <RingSelect bind:value={value.ring} />
+    </AccordionItem>
     <AccordionItem id={5} {accordion} headerText="Effects">
-      <BoxShadowSelect bind:value={value.effects.boxShadow} />
+      <EffectsSelect bind:value={value.effects} />
     </AccordionItem>
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={value.spacing} />

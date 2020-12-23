@@ -6,7 +6,7 @@
   let iconStyles: string;
 
   $: {
-    buttonStyles = `${styles.toStyles()}`;
+    buttonStyles = `focus:outline-none ${styles.toStyles()}`;
   }
 
   $: {
