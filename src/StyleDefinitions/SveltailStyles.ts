@@ -3,8 +3,8 @@ import { IconStyles } from '../Components/Button/Models/IconStyles';
 import { MenuStyles } from '../Components/Select/MenuStyles';
 import { SelectStyles } from '../Components/Select/SelectStyle';
 import { BorderStyles } from '../TailwindControls/Border/BorderStyles';
-import type { colors } from '../TailwindControls/Color/color';
 import { EffectsStyle } from '../TailwindControls/Effects/EffectsStyle';
+import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
 
@@ -56,4 +56,32 @@ const selectStyles: SelectStyles = new SelectStyles({
   }),
 });
 
-export { selectStyles };
+const primaryButton = new ButtonStyles({
+  color: 'bg-white',
+  font: new FontStyles({
+    weight: 'font-semibold',
+  }),
+  border: new BorderStyles({
+    style: 'border-dashed focus:outline-none',
+    width: 'border-2',
+    color: 'border-gray-200',
+    radius: 'rounded-lg',
+  }),
+  icon: new IconStyles({
+    size: new SizingStyles({
+      height: 'h-5',
+      width: 'w-5',
+    }),
+    color: 'text-blue-300',
+  }),
+  spacing: new SpacingStyles({
+    padding: [
+      { spacing: 'px', size: '2' },
+      { spacing: 'py', size: '1' },
+    ],
+    margin: [{ spacing: 'm', size: '1' }],
+  }),
+  size: new SizingStyles({}),
+});
+
+export { selectStyles, primaryButton };

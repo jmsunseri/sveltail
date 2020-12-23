@@ -1,10 +1,13 @@
 <script lang="ts">
   import FaRegTrashAlt from 'svelte-icons/fa/FaRegTrashAlt.svelte';
+  import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
   import { SpacingStyles } from './SpacingStyles';
   import IconButton from '../../Components/Button/IconButton.svelte';
+  import Button from '../../Components/Button/Button.svelte';
   import MarginSelect from './MarginSelect.svelte';
   import PaddingSelect from './PaddingSelect.svelte';
   import SizeSelect from './SizeSelect.svelte';
+  import { primaryButton } from '../../StyleDefinitions/SveltailStyles';
 
   export let init: SpacingStyles;
   export let value: SpacingStyles = init || new SpacingStyles();
@@ -23,11 +26,17 @@
       </IconButton>
     </div>
   {/each}
-  <button
-    on:click={() => (value.margin = [...value.margin, { spacing: '', size: '' }])}
-    class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm`}>
-    Add Margin
-  </button>
+  <div class="flex flex-row justify-center">
+    <Button
+      on:click={() => (value.margin = [...value.margin, { spacing: '', size: '' }])}
+      styles={primaryButton}>
+      <div slot="icon">
+        <IoIosAdd />
+      </div>
+      Add Margin
+    </Button>
+  </div>
+
   Padding
   {#each value.padding as padding, index}
     <div class="flex flex-row gap-1 items-center">
@@ -40,9 +49,15 @@
       </IconButton>
     </div>
   {/each}
-  <button
-    on:click={() => (value.padding = [...value.padding, { spacing: '', size: '' }])}
-    class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm`}>
-    Add Padding
-  </button>
+  <div class="flex flex-row justify-center">
+    <Button
+      on:click={() => (value.padding = [...value.padding, { spacing: '', size: '' }])}
+      styles={primaryButton}>
+      <div slot="icon">
+        <IoIosAdd />
+      </div>
+
+      Add Padding
+    </Button>
+  </div>
 </div>

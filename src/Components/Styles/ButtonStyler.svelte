@@ -9,6 +9,7 @@
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
   import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
+  import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
 
   let accordion: Accordion;
   export let init: ButtonStyles;
@@ -18,7 +19,7 @@
 <StyleGroup on:closed header="Button Styles">
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
-      <ColorMenu prefix="bg" bind:value={value.color} />
+      <ColorSelect prefix="bg" bind:value={value.color} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Font">
       <FontSelect bind:value={value.font} />

@@ -15,7 +15,7 @@
 </script>
 
 <button class={buttonStyles} on:click>
-  <div class="flex flex-row gap-1 items-center">
+  <div class="flex flex-row gap-1 items-center justify-center">
     {#if $$slots.icon}
       <div class={iconStyles}>
         <slot name="icon" />

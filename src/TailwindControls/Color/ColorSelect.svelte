@@ -10,13 +10,21 @@
 
   let from: string;
   let to: string;
+  let via: string;
   let isGradient: boolean = false;
+  let isVia: boolean = false;
   let direction: string = 'b';
   let select: Select;
 
   $: {
-    if (isGradient && from && to && direction) {
-      value = `${prefix}-gradient-to-${direction} ${from} ${to}`;
+    if (isGradient && from && direction) {
+      if (to && via && isVia) {
+        value = `${prefix}-gradient-to-${direction} ${from} ${via} ${to}`;
+      } else if (to) {
+        value = `${prefix}-gradient-to-${direction} ${from} ${to}`;
+      } else {
+        value = `${prefix}-gradient-to-${direction} ${from}`;
+      }
     }
   }
 
@@ -34,6 +42,9 @@
       } else if (value.includes('gradient-to-r')) {
         direction = 'r';
       }
+    }
+    if (value.includes('via')) {
+      isVia = true;
     }
   });
 </script>
@@ -53,9 +64,16 @@
       <SelectOption {select} value="l">From Right To Left</SelectOption>
     </Select>
     From:
-    <ColorMenu prefix={isGradient ? `from` : prefix} bind:value={from} />
+    <ColorMenu prefix="from" bind:value={from} />
+    <div class="flex flex-row gap-2">
+      <Switch bind:checked={isVia} />
+      <span>Via ?</span>
+    </div>
+    {#if isVia}
+      <ColorMenu prefix="via" bind:value={via} />
+    {/if}
     To:
-    <ColorMenu prefix={isGradient ? `to` : prefix} bind:value={to} />
+    <ColorMenu prefix="to" bind:value={to} />
   {:else}
     <ColorMenu {prefix} bind:value />
   {/if}
