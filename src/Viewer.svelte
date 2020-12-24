@@ -34,16 +34,19 @@
               <IoIosSearch />
             </span>
           </TextField>
-          <Select
-            bind:this={select}
-            bind:value={petType}
-            isMenuOpen
-            placeholder="Pet Type"
-            styles={$selectStyles}>
-            <SelectOption {select} value="Dog">Dog</SelectOption>
-            <SelectOption {select} value="Cat">Cat</SelectOption>
-            <SelectOption {select} value="Bird">Bird</SelectOption>
-          </Select>
+          <div class="w-40">
+            <Select
+              bind:this={select}
+              bind:value={petType}
+              isMenuOpen
+              placeholder="Pet Type"
+              styles={$selectStyles}>
+              <SelectOption {select} value="Dog">Dog</SelectOption>
+              <SelectOption {select} value="Cat">Cat</SelectOption>
+              <SelectOption {select} value="Bird">Bird</SelectOption>
+            </Select>
+          </div>
+
           <Button styles={$primaryButtonStyles}>
             Search
             <span slot="icon">
@@ -51,8 +54,9 @@
             </span>
           </Button>
         </div>
-        Results
-        <div class="flex flex-col">
+
+        <div class="flex flex-col mt-20">
+          Results
           <div class="flex flex-row gap-3">
             <div><input type="checkbox" class={checkboxStyle} /></div>
             <div class="flex-1">Name</div>
@@ -76,7 +80,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-1 flex-col" />
+      <div class="flex flex-col" />
     </div>
 
     <div class="flex justify-end">
