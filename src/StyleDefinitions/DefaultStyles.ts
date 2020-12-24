@@ -12,6 +12,7 @@ import { GlobalStyle } from '../Components/Styles/GlobalStyle';
 import { RingStyles } from '../TailwindControls/Ring/RingStyles';
 import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
+import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -166,6 +167,10 @@ export const select: SelectStyles = new SelectStyles({
     }),
     spacing: new SpacingStyles({
       margin: [{ size: '1', spacing: '-mt' }],
+    }),
+    divider: new DividerStyles({
+      width: 'divide-y-2',
+      color: 'divide-pink-100',
     }),
   }),
   menuItem: new SelectOptionStyles({
