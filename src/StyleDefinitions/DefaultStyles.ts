@@ -13,6 +13,7 @@ import { RingStyles } from '../TailwindControls/Ring/RingStyles';
 import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
 import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
+import { CheckboxStyles } from '../Components/Checkbox/CheckboxStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -42,6 +43,25 @@ export const primaryButton = new ButtonStyles({
   }),
 });
 
+export const checkbox = new CheckboxStyles({
+  color: 'bg-purple-500',
+  border: new BorderStyles({
+    radius: 'rounded',
+  }),
+  font: new FontStyles({
+    color: 'text-white',
+    weight: 'font-black',
+    size: 'text-xl',
+  }),
+  size: new SizingStyles({
+    height: 'h-5',
+    width: 'w-5',
+  }),
+  // spacing: new SpacingStyles({
+  //   margin: [{ spacing: 'mr', size: '2' }],
+  // }),
+});
+
 export const textField = new TextFieldStyles({
   color: 'bg-gray-50',
   border: new BorderStyles({
@@ -60,9 +80,6 @@ export const textField = new TextFieldStyles({
       width: 'w-5',
     }),
     color: 'text-pink-900',
-  }),
-  font: new FontStyles({
-    weight: 'font-thin',
   }),
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],
@@ -125,6 +142,8 @@ export const viewer = new GlobalStyle({
   color: 'bg-purple-100',
   font: new FontStyles({
     color: 'text-gray-700',
+    weight: 'font-normal',
+    size: 'text-base',
   }),
 });
 
@@ -133,7 +152,7 @@ export const select: SelectStyles = new SelectStyles({
     color: 'bg-white',
     border: new BorderStyles({
       width: 'border-2',
-      color: 'border-pink-900 focus:border-pink-900',
+      color: 'border-pink-900',
     }),
     spacing: new SpacingStyles({
       padding: [

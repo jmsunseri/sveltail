@@ -11,15 +11,14 @@
     selectStyles,
     viewerStyles,
     textFieldStyles,
+    checkboxStyles,
   } from './store';
   import Header from './Components/Header/Header.svelte';
   import TextField from './Components/TextField/TextField.svelte';
+  import Checkbox from './Components/Checkbox/Checkbox.svelte';
 
   let select: Select;
   let petType: string;
-
-  let checkboxStyle =
-    'form-tick appearance-none h-6 w-6 border border-gray-300 rounded-md checked:bg-blue-600 checked:border-transparent focus:outline-none';
 </script>
 
 <div
@@ -34,7 +33,7 @@
               <IoIosSearch />
             </span>
           </TextField>
-          <div class="w-40">
+          <div class="w-44">
             <Select
               bind:this={select}
               bind:value={petType}
@@ -54,25 +53,25 @@
             </span>
           </Button>
         </div>
-
-        <div class="flex flex-col mt-20">
+        <div class="flex flex-col mt-28">
           Results
-          <div class="flex flex-row gap-3">
-            <div><input type="checkbox" class={checkboxStyle} /></div>
+          <div class="flex flex-row gap-3 items-center">
+            <div
+              class={`${$checkboxStyles.size.height || ''} ${$checkboxStyles.size.width || ''}`} />
             <div class="flex-1">Name</div>
             <div class="flex-1">Type</div>
             <div class="flex-1">Breed</div>
             <div class="flex-1">Distance</div>
           </div>
-          <div class="flex flex-row gap-3">
-            <div><input type="checkbox" class={checkboxStyle} /></div>
+          <div class="flex flex-row gap-3 items-center">
+            <Checkbox style={$checkboxStyles} />
             <div class="flex-1">Fido</div>
             <div class="flex-1">Dog</div>
             <div class="flex-1">Hound</div>
             <div class="flex-1">10km</div>
           </div>
-          <div class="flex flex-row gap-3">
-            <div><input checked type="checkbox" class={checkboxStyle} /></div>
+          <div class="flex flex-row gap-3 items-center">
+            <Checkbox checked style={$checkboxStyles} />
             <div class="flex-1">Doge</div>
             <div class="flex-1">Dog</div>
             <div class="flex-1">Shiba Inu</div>

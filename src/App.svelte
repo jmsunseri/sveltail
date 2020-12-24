@@ -11,12 +11,14 @@
     viewerStyles,
     textFieldStyles,
     selectStyles,
+    checkboxStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
   import { slide } from 'svelte/transition';
   import TextFieldStyler from './Components/Styles/TextFieldStyler.svelte';
   import SelectStyler from './Components/Styles/SelectStyler.svelte';
+  import CheckboxStyler from './Components/Styles/CheckboxStyler.svelte';
 
   enum VisibleComponent {
     menu,
@@ -27,9 +29,12 @@
     global,
     text,
     select,
+    checkbox,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
+
+  console.log('checkbox styles', $checkboxStyles);
 
   const change = (v: VisibleComponent) => {
     visible = v;
@@ -89,6 +94,11 @@
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
+            text="Checkbox"
+            on:click={() => change(VisibleComponent.checkbox)}>
+            <IoIosBrowsers />
+          </StyleMenuButton>
+          <StyleMenuButton
             text="List"
             on:click={() => change(VisibleComponent.notImplemented)}>
             <IoIosBrowsers />
@@ -123,6 +133,10 @@
         <SelectStyler
           on:closed={() => change(VisibleComponent.menu)}
           bind:value={$selectStyles} />
+      {:else if visible === VisibleComponent.checkbox}
+        <CheckboxStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$checkboxStyles} />
       {:else}
         <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
       {/if}

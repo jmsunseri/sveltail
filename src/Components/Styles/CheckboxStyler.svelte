@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { ButtonStyles } from '../Button/Models/ButtonStyles';
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
@@ -7,28 +6,24 @@
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
-  import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
-  import RingSelect from '../../TailwindControls/Ring/RingSelect.svelte';
+  import { CheckboxStyles } from '../Checkbox/CheckboxStyles';
 
   let accordion: Accordion;
-  export let value: ButtonStyles = new ButtonStyles();
+  export let value: CheckboxStyles = new CheckboxStyles();
 </script>
 
-<StyleGroup on:closed header="Button Styles">
+<StyleGroup on:closed header="Checkbox Styles">
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorSelect prefix="bg" bind:value={value.color} />
     </AccordionItem>
-    <AccordionItem id={2} {accordion} headerText="Font">
+    <AccordionItem id={2} {accordion} headerText="Checkmark">
       <FontSelect bind:value={value.font} />
     </AccordionItem>
     <AccordionItem id={3} {accordion} headerText="Border">
       <BorderSelect bind:value={value.border} />
-    </AccordionItem>
-    <AccordionItem id={4} {accordion} headerText="Ring">
-      <RingSelect bind:value={value.ring} />
     </AccordionItem>
     <AccordionItem id={5} {accordion} headerText="Effects">
       <EffectsSelect bind:value={value.effects} />
@@ -36,11 +31,8 @@
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={value.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={7} {accordion} headerText="Icon">
-      <div class="flex-col flex gap-1">
-        <SizingSelect bind:value={value.icon.size} />
-        <ColorMenu prefix="text" bind:value={value.icon.color} />
-      </div>
+    <AccordionItem isLast id={7} {accordion} headerText="Size">
+      <SizingSelect bind:value={value.size} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>
