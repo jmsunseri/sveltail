@@ -1,21 +1,27 @@
 <script lang="ts">
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
-  import { fontSizes } from './font';
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
-  let select: Select;
+  const styleOptions: string[] = [
+    'divide-solid',
+    'divide-dashed',
+    'divide-dotted',
+    'divide-double',
+    'divide-none',
+  ];
   export let value: string;
+  let select: Select;
 </script>
 
 <Select
   bind:this={select}
   bind:value
-  placeholder="Font Size"
+  placeholder="Divider Style"
   styles={selectStyles}>
-  {#each fontSizes as size}
-    <SelectOption value={size} {select}>
-      <div class={size}>{size}</div>
+  {#each styleOptions as option}
+    <SelectOption value={option} {select}>
+      <div class="m-2 p-2">{option}</div>
     </SelectOption>
   {/each}
 </Select>

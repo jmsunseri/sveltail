@@ -1,8 +1,10 @@
 import { ButtonStyles } from '../Components/Button/Models/ButtonStyles';
 import { IconStyles } from '../Components/Button/Models/IconStyles';
 import { MenuStyles } from '../Components/Select/MenuStyles';
+import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
 import { SelectStyles } from '../Components/Select/SelectStyle';
 import { BorderStyles } from '../TailwindControls/Border/BorderStyles';
+import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
 import { EffectsStyle } from '../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
@@ -39,19 +41,25 @@ const selectStyles: SelectStyles = new SelectStyles({
     size: new SizingStyles({
       height: 'h-80',
     }),
+    divider: new DividerStyles({
+      width: 'divide-y-2',
+      style: 'divide-dashed',
+    }),
     color: 'bg-white',
     border: new BorderStyles({
       radius: 'rounded-b-lg',
       width: 'border-2 border-t-0',
-      color: 'border-gray-600',
+      color: 'border-gray-200',
       style: 'border-dashed',
     }),
     spacing: new SpacingStyles({
       margin: [{ size: '1', spacing: '-mt' }],
-      padding: [
-        { spacing: 'py', size: '1' },
-        { spacing: 'px', size: '2' },
-      ],
+    }),
+  }),
+  menuItem: new SelectOptionStyles({
+    color: 'hover:bg-gray-100',
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '2' }],
     }),
   }),
 });

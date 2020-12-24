@@ -9,7 +9,7 @@ class IconStyles {
     Object.assign(this, init);
   }
 
-  toStyles = () => `${this.color} ${this.size.toStyles()}`;
+  toStyles = () => `${this.color || ''} ${this.size.toStyles() || ''}`;
 }
 
 export { IconStyles };

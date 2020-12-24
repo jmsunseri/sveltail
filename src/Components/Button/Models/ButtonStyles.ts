@@ -33,13 +33,16 @@ class ButtonStyles {
   toStyles = () =>
     [
       this.color,
-      this.font.toStyles(),
-      this.border.toStyles(),
-      this.effects.toStyles(),
-      this.spacing.toStyles(),
-      this.size.toStyles(),
-      this.ring.toStyles(),
-    ].join(' ');
+      this.font?.toStyles(),
+      this.border?.toStyles(),
+      this.effects?.toStyles(),
+      this.spacing?.toStyles(),
+      this.size?.toStyles(),
+      this.ring?.toStyles(),
+    ]
+      .filter((x) => !!x)
+      .join(' ')
+      .trim();
 }
 
 export { ButtonStyles };

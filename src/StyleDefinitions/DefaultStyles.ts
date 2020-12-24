@@ -11,6 +11,7 @@ import { MenuStyles } from '../Components/Select/MenuStyles';
 import { GlobalStyle } from '../Components/Styles/GlobalStyle';
 import { RingStyles } from '../TailwindControls/Ring/RingStyles';
 import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
+import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -165,10 +166,12 @@ export const select: SelectStyles = new SelectStyles({
     }),
     spacing: new SpacingStyles({
       margin: [{ size: '1', spacing: '-mt' }],
-      padding: [
-        { spacing: 'py', size: '1' },
-        { spacing: 'px', size: '2' },
-      ],
+    }),
+  }),
+  menuItem: new SelectOptionStyles({
+    color: 'hover:bg-purple-100',
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '2' }],
     }),
   }),
 });

@@ -13,6 +13,10 @@
     value = v;
   };
 
+  export const getStyle = (): string => {
+    return styles?.menuItem?.toStyles();
+  };
+
   export const onClick = () => {
     isMenuOpen = !isMenuOpen;
   };
@@ -33,9 +37,7 @@
     <div
       transition:slide
       class={styles.menu.toStyles() + ' absolute z-10 overflow-auto w-full cursor-pointer'}>
-      <ul class="list-reset">
-        <slot />
-      </ul>
+      <slot />
     </div>
   {/if}
 </span>

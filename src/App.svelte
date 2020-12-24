@@ -10,11 +10,13 @@
     headerStyles,
     viewerStyles,
     textFieldStyles,
+    selectStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
   import { slide } from 'svelte/transition';
   import TextFieldStyler from './Components/Styles/TextFieldStyler.svelte';
+  import SelectStyler from './Components/Styles/SelectStyler.svelte';
 
   enum VisibleComponent {
     menu,
@@ -117,6 +119,10 @@
         <TextFieldStyler
           on:closed={() => change(VisibleComponent.menu)}
           bind:value={$textFieldStyles} />
+      {:else if visible === VisibleComponent.select}
+        <SelectStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$selectStyles} />
       {:else}
         <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
       {/if}

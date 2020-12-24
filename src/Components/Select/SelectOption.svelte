@@ -1,19 +1,24 @@
 <script lang="ts">
+  import { onMount, tick } from 'svelte';
+
   import type Select from './Select.svelte';
 
-  export let styles: string[];
+  let styles: string;
   export let value: any;
   export let select: Select;
 
   const selected = () => {
     select.onSelected(value);
   };
+
+  onMount(async () => {
+    await tick();
+    if (select) {
+      styles = select.getStyle();
+    }
+  });
 </script>
 
-<!-- p-2 block text-black hover:bg-grey-light cursor-pointer -->
-
-<li on:click={selected}>
-  <p class={`h-5 ${styles?.join(' ')}`}>
-    <slot />
-  </p>
-</li>
+<div class={styles} on:click={selected}>
+  <slot />
+</div>

@@ -8,7 +8,7 @@ class GlobalStyle {
     this.font = new FontStyles();
     Object.assign(this, init);
   }
-  toStyles = () => `${this.color} ${this.font.toStyles()}`;
+  toStyles = () => `${this.color || ''} ${this.font?.toStyles() || ''}`;
 }
 
 export { GlobalStyle };

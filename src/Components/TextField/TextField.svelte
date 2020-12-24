@@ -8,6 +8,7 @@
   let icon: string;
   let ring: string;
   let font: string;
+  let container: string;
 
   let isFocused = false;
   let activateRingOnFocus = false;
@@ -30,11 +31,16 @@
       activateRingOnFocus = true;
     }
   }
+
+  $: {
+    container =
+      activateRingOnFocus && isFocused
+        ? `flex flex-col justify-center ${input} ${ring}`
+        : `flex flex-col justify-center ${input}`;
+  }
 </script>
 
-<div
-  class={activateRingOnFocus && isFocused ? `${input} ${ring}` : input}
-  on:click>
+<div class={container} on:click>
   <div class="flex flex-row gap-1 items-center">
     {#if $$slots.icon}
       <div class={icon}>

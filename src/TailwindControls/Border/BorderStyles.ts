@@ -13,9 +13,9 @@ class BorderStyles {
   }
 
   toStyles = () =>
-    `${this.color || ''} ${this.style || ''} ${this.width || ''} ${
-      this.radius || ''
-    } ${this.opacity || ''}`.trim();
+    [this.color, this.style, this.width, this.radius, this.opacity]
+      .join(' ')
+      .trim();
 }
 
 export { BorderStyles };

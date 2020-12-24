@@ -32,7 +32,10 @@ class HeaderStyle {
       this.effects.toStyles(),
       this.spacing.toStyles(),
       this.size.toStyles(),
-    ].join(' ');
+    ]
+      .filter((x) => !!x)
+      .join(' ')
+      .trim();
 }
 
 export { HeaderStyle };
