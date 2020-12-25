@@ -6,14 +6,18 @@
 
 <div class={styles.toStyles()}>
   {#if $$slots.header}
-    <slot name="header" />
+    <div class={styles.header.toStyles()}>
+      <slot name="header" />
+    </div>
   {/if}
 
-  <div>
+  <div class={styles.container.toStyles()}>
     <slot />
   </div>
 
   {#if $$slots.footer}
-    <slot name="footer" />
+    <div class={styles.footer.toStyles()}>
+      <slot name="footer" />
+    </div>
   {/if}
 </div>

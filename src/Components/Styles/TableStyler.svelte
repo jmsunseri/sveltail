@@ -1,14 +1,11 @@
 <script lang="ts">
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
-  import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
   import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
-  import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
-  import RingSelect from '../../TailwindControls/Ring/RingSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import DividerSelect from '../../TailwindControls/Divider/DividerSelect.svelte';
   import { TableStyles } from '../Table/TableStyles';

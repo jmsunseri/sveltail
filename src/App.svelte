@@ -13,6 +13,7 @@
     selectStyles,
     checkboxStyles,
     tableStyles,
+    cardStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
@@ -21,6 +22,7 @@
   import SelectStyler from './Components/Styles/SelectStyler.svelte';
   import CheckboxStyler from './Components/Styles/CheckboxStyler.svelte';
   import TableStyler from './Components/Styles/TableStyler.svelte';
+  import CardStyler from './Components/Styles/CardStyler.svelte';
 
   enum VisibleComponent {
     menu,
@@ -33,12 +35,17 @@
     select,
     checkbox,
     table,
+    card,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
 
   const change = (v: VisibleComponent) => {
     visible = v;
+  };
+
+  const cardClosed = () => {
+    change(VisibleComponent.menu);
   };
 </script>
 
@@ -106,44 +113,34 @@
           </StyleMenuButton>
           <StyleMenuButton
             text="Card"
-            on:click={() => change(VisibleComponent.notImplemented)}>
+            on:click={() => change(VisibleComponent.card)}>
             <IoIosBrowsers />
           </StyleMenuButton>
         </div>
       {:else if visible === VisibleComponent.global}
-        <GlobalStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$viewerStyles} />
+        <GlobalStyler on:closed={cardClosed} bind:value={$viewerStyles} />
       {:else if visible === VisibleComponent.header}
-        <HeaderStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$headerStyles} />
+        <HeaderStyler on:closed={cardClosed} bind:value={$headerStyles} />
       {:else if visible === VisibleComponent.btn}
         <ButtonStyler
-          on:closed={() => change(VisibleComponent.menu)}
+          on:closed={cardClosed}
           bind:value={$primaryButtonStyles} />
       {:else if visible === VisibleComponent.altBtn}
         <ButtonStyler
-          on:closed={() => change(VisibleComponent.menu)}
+          on:closed={cardClosed}
           bind:value={$secondaryButtonStyles} />
       {:else if visible === VisibleComponent.text}
-        <TextFieldStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$textFieldStyles} />
+        <TextFieldStyler on:closed={cardClosed} bind:value={$textFieldStyles} />
       {:else if visible === VisibleComponent.select}
-        <SelectStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$selectStyles} />
+        <SelectStyler on:closed={cardClosed} bind:value={$selectStyles} />
       {:else if visible === VisibleComponent.checkbox}
-        <CheckboxStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$checkboxStyles} />
+        <CheckboxStyler on:closed={cardClosed} bind:value={$checkboxStyles} />
       {:else if visible === VisibleComponent.table}
-        <TableStyler
-          on:closed={() => change(VisibleComponent.menu)}
-          bind:value={$tableStyles} />
+        <TableStyler on:closed={cardClosed} bind:value={$tableStyles} />
+      {:else if visible === VisibleComponent.card}
+        <CardStyler on:closed={cardClosed} bind:value={$cardStyles} />
       {:else}
-        <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
+        <NotImplementedStyler on:closed={cardClosed} />
       {/if}
     </div>
     <Viewer />

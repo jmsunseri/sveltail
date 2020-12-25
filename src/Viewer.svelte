@@ -3,7 +3,6 @@
   import Card from './Components/Card/Card.svelte';
   import Select from './Components/Select/Select.svelte';
   import SelectOption from './Components/Select/SelectOption.svelte';
-  import FaRegSave from 'svelte-icons/fa/FaRegSave.svelte';
   import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
   import {
     headerStyles,
@@ -14,21 +13,14 @@
     textFieldStyles,
     checkboxStyles,
     tableStyles,
+    cardStyles,
   } from './store';
   import Header from './Components/Header/Header.svelte';
   import TextField from './Components/TextField/TextField.svelte';
   import Checkbox from './Components/Checkbox/Checkbox.svelte';
-  import { CardStyles } from './Components/Card/CardStyles';
-  import { EffectsStyle } from './TailwindControls/Effects/EffectsStyle';
 
   let select: Select;
   let petType: string;
-
-  let cardStyle = new CardStyles({
-    effects: new EffectsStyle({
-      boxShadow: 'box-shadow',
-    }),
-  });
 </script>
 
 <div
@@ -118,26 +110,35 @@
       </div>
     </div>
 
-    Foo
+    <div class="w-96">
+      <Card styles={$cardStyles}>
+        <div slot="header">Dog Profile</div>
 
-    <Card styles={cardStyle}>
-      <div>
-        <img
-          alt="Doge"
-          class="h-40 w-40"
-          src="https://crhscountyline.com/wp-content/uploads/2020/03/Capture.png" />
-      </div>
-    </Card>
-
-    <!-- <div class="flex justify-end">
-      <div class="flex gap-3">
-        <Button styles={$secondaryButtonStyles}>
-          Secondary Button
-          <span slot="trailingIcon">
-            <FaRegSave />
-          </span>
-        </Button>
-      </div>
-    </div> -->
+        <div class="flex flex-row gap-2">
+          <img
+            alt="Doge"
+            class="h-40 w-40"
+            src="https://upload.wikimedia.org/wikipedia/commons/5/58/Shiba_inu_taiki.jpg" />
+          <div class="flex flex-col gap-1">
+            <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
+            <div class="flex flex-row gap-1"><b>Sex:</b> Male</div>
+            <div class="flex flex-row gap-1"><b>DOB:</b> Nov, 2 2005</div>
+            <div class="flex flex-row gap-1">
+              <b>Bio:</b>
+              <p>
+                An Internet meme that became popular in 2013. The meme typically
+                consists of a picture of a Shiba Inu dog accompanied by
+                multicolored text in Comic Sans font in the foreground.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div slot="footer">
+          <div class="flex flex-row justify-end">
+            <Button styles={$secondaryButtonStyles}>Adopt Me</Button>
+          </div>
+        </div>
+      </Card>
+    </div>
   </div>
 </div>

@@ -1,5 +1,6 @@
 import { writable } from 'svelte/store';
 import type { ButtonStyles } from './Components/Button/Models/ButtonStyles';
+import type { CardStyles } from './Components/Card/CardStyles';
 import type { CheckboxStyles } from './Components/Checkbox/CheckboxStyles';
 import type { HeaderStyle } from './Components/Header/HeaderStyle';
 import type { SelectStyles } from './Components/Select/SelectStyle';
@@ -15,6 +16,7 @@ import {
   textField,
   checkbox,
   table,
+  card,
 } from './StyleDefinitions/DefaultStyles';
 
 const headerStyles = writable<HeaderStyle>(header);
@@ -25,6 +27,7 @@ const viewerStyles = writable<GlobalStyle>(viewer);
 const textFieldStyles = writable<TextFieldStyles>(textField);
 const checkboxStyles = writable<CheckboxStyles>(checkbox);
 const tableStyles = writable<TableStyles>(table);
+const cardStyles = writable<CardStyles>(card);
 
 export {
   headerStyles,
@@ -35,4 +38,5 @@ export {
   textFieldStyles,
   checkboxStyles,
   tableStyles,
+  cardStyles,
 };

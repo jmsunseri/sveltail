@@ -16,12 +16,13 @@ import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
 import { CheckboxStyles } from '../Components/Checkbox/CheckboxStyles';
 import { TableStyles } from '../Components/Table/TableStyles';
 import { TablePartStyles } from '../Components/Table/TablePartStyles';
+import { CardStyles } from '../Components/Card/CardStyles';
+import { CardPartStyles } from '../Components/Card/CardPartStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
   font: new FontStyles({
     color: 'text-white',
-    size: 'text-base',
     weight: 'font-semibold',
   }),
   ring: new RingStyles({
@@ -89,11 +90,10 @@ export const textField = new TextFieldStyles({
 });
 
 export const secondaryButton = new ButtonStyles({
-  color: 'bg-white',
+  color: 'bg-purple-50',
   font: new FontStyles({
-    color: 'text-black',
-    size: 'text-base',
-    weight: 'font-semibold',
+    color: 'text-purple-800',
+    weight: 'font-bold',
   }),
   effects: new EffectsStyle({
     boxShadow: 'shadow-md',
@@ -231,5 +231,52 @@ export const table: TableStyles = new TableStyles({
       ],
     }),
     hoverColor: 'hover:bg-purple-200',
+  }),
+});
+
+export const card: CardStyles = new CardStyles({
+  color: 'bg-purple-50',
+  border: new BorderStyles({
+    width: 'border-2',
+    color: 'border-pruple-200',
+    radius: 'rounded-lg',
+  }),
+  effects: new EffectsStyle({
+    boxShadow: 'shadow-lg',
+  }),
+  spacing: new SpacingStyles({
+    margin: [{ spacing: 'mt', size: '5' }],
+  }),
+  header: new CardPartStyles({
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '2' }],
+    }),
+    font: new FontStyles({
+      weight: 'font-semibold',
+      size: 'text-2xl',
+    }),
+    border: new BorderStyles({
+      style: 'border-solid',
+      width: 'border-b-2',
+      color: 'border-pink-800',
+    }),
+  }),
+  container: new CardPartStyles({
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '4' }],
+    }),
+    font: new FontStyles({
+      size: 'text-sm',
+    }),
+  }),
+  footer: new CardPartStyles({
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '2' }],
+    }),
+    border: new BorderStyles({
+      style: 'border-solid',
+      width: 'border-t-2',
+      color: 'border-pink-800',
+    }),
   }),
 });
