@@ -146,6 +146,7 @@ export const viewer = new GlobalStyle({
     color: 'text-gray-700',
     weight: 'font-normal',
     size: 'text-base',
+    family: 'font-mono',
   }),
 });
 
