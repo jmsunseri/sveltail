@@ -15,7 +15,7 @@
   styles={selectStyles}>
   {#each borderWidthOptions as option}
     <SelectOption value={option} {select}>
-      <div class="m-2 p-2">{option}</div>
+      <div>{option}</div>
     </SelectOption>
   {/each}
 </Select>

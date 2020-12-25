@@ -14,6 +14,8 @@ import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
 import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
 import { CheckboxStyles } from '../Components/Checkbox/CheckboxStyles';
+import { TableStyles } from '../Components/Table/TableStyles';
+import { TablePartStyles } from '../Components/Table/TablePartStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -197,5 +199,37 @@ export const select: SelectStyles = new SelectStyles({
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
     }),
+  }),
+});
+
+export const table: TableStyles = new TableStyles({
+  color: 'bg-purple-50',
+  spacing: new SpacingStyles({
+    margin: [{ size: '2', spacing: 'm' }],
+  }),
+  divider: new DividerStyles({
+    width: 'divide-y',
+    color: 'divide-purple-100',
+  }),
+  header: new TablePartStyles({
+    font: new FontStyles({
+      weight: 'font-bold',
+    }),
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'py', size: '2' }],
+    }),
+    border: new BorderStyles({
+      width: 'border-b-4',
+      color: 'border-pink-800',
+    }),
+  }),
+  row: new TablePartStyles({
+    spacing: new SpacingStyles({
+      padding: [
+        { spacing: 'py', size: '1' },
+        { spacing: 'px', size: '2' },
+      ],
+    }),
+    hoverColor: 'hover:bg-purple-200',
   }),
 });

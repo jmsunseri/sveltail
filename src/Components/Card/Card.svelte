@@ -1,14 +1,15 @@
 <script lang="ts">
-  export let styles: string;
-  export let containerStyles: string;
+  import { CardStyles } from './CardStyles';
+
+  export let styles: CardStyles = new CardStyles();
 </script>
 
-<div class={styles}>
+<div class={styles.toStyles()}>
   {#if $$slots.header}
     <slot name="header" />
   {/if}
 
-  <div class={containerStyles}>
+  <div>
     <slot />
   </div>
 

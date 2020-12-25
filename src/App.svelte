@@ -12,6 +12,7 @@
     textFieldStyles,
     selectStyles,
     checkboxStyles,
+    tableStyles,
   } from './store';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import NotImplementedStyler from './Components/Styles/NotImplementedStyler.svelte';
@@ -19,6 +20,7 @@
   import TextFieldStyler from './Components/Styles/TextFieldStyler.svelte';
   import SelectStyler from './Components/Styles/SelectStyler.svelte';
   import CheckboxStyler from './Components/Styles/CheckboxStyler.svelte';
+  import TableStyler from './Components/Styles/TableStyler.svelte';
 
   enum VisibleComponent {
     menu,
@@ -30,11 +32,10 @@
     text,
     select,
     checkbox,
+    table,
   }
 
   let visible: VisibleComponent = VisibleComponent.menu;
-
-  console.log('checkbox styles', $checkboxStyles);
 
   const change = (v: VisibleComponent) => {
     visible = v;
@@ -99,8 +100,8 @@
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
-            text="List"
-            on:click={() => change(VisibleComponent.notImplemented)}>
+            text="Table"
+            on:click={() => change(VisibleComponent.table)}>
             <IoIosBrowsers />
           </StyleMenuButton>
           <StyleMenuButton
@@ -137,6 +138,10 @@
         <CheckboxStyler
           on:closed={() => change(VisibleComponent.menu)}
           bind:value={$checkboxStyles} />
+      {:else if visible === VisibleComponent.table}
+        <TableStyler
+          on:closed={() => change(VisibleComponent.menu)}
+          bind:value={$tableStyles} />
       {:else}
         <NotImplementedStyler on:closed={() => change(VisibleComponent.menu)} />
       {/if}

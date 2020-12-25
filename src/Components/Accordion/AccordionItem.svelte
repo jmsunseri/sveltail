@@ -60,7 +60,7 @@
   }
 </script>
 
-<Card styles={cardStyle}>
+<div class={cardStyle}>
   <button class="w-full border-none focus:outline-none" on:click={onItemClick}>
     <span class="flex justify-between items-center gap-4">
       <div class="flex">{headerText}</div>
@@ -79,4 +79,4 @@
       <slot />
     </div>
   {/if}
-</Card>
+</div>
