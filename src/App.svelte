@@ -1,6 +1,8 @@
 <script lang="ts">
   import HeaderStyler from './Components/Styles/HeaderStyler.svelte';
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
+  import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
+  import DiGithubAlt from 'svelte-icons/di/DiGithubAlt.svelte';
   import Viewer from './Viewer.svelte';
   import ButtonStyler from './Components/Styles/ButtonStyler.svelte';
   import GlobalStyler from './Components/Styles/GlobalStyler.svelte';
@@ -61,10 +63,22 @@
   @tailwind utilities;
 </style>
 
-<main class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin">
+<main class="flex flex-col items-center m-0 h-screen text-gray-500">
   <div
-    class="md:text-3xl sm:text-2xl w-full px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
-    <div class="container mx-auto">SvelTail - TailwindCSS Styling Lab</div>
+    class="md:text-3xl sm:text-2xl w-full px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex">
+    <div class="container mx-auto flex items-center gap-4">
+      <div class="flex-1">SvelTail - TailwindCSS Styling Lab</div>
+      <div class="h-9 w-9 hover:text-blue-300">
+        <a alt="GitHub" href="https://github.com/jmsunseri/sveltail">
+          <DiGithubAlt />
+        </a>
+      </div>
+      <div class="h-7 w-7 hover:text-blue-300">
+        <a alt="Twitter" href="https://twitter.com/jmsunseri">
+          <FaTwitter />
+        </a>
+      </div>
+    </div>
   </div>
   <div
     class="container mx-auto h-full grid grid-cols-1 lg:grid-cols-3 lg:gap-1">
