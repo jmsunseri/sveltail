@@ -61,14 +61,13 @@
   @tailwind utilities;
 </style>
 
-<main
-  class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin lg:overflow-hidden">
+<main class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin">
   <div
     class="md:text-3xl sm:text-2xl w-full px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
     <div class="container mx-auto">SvelTail - TailwindCSS Styling Lab</div>
   </div>
   <div
-    class="container mx-auto h-screen pb-14 grid grid-cols-1 lg:grid-cols-3 lg:gap-1">
+    class="container mx-auto h-full grid grid-cols-1 lg:grid-cols-3 lg:gap-1">
     <div class="flex flex-col lg:overflow-auto py-2 lg:px-0 px-2">
       {#if visible === VisibleComponent.menu}
         <div transition:slide class="grid gap-2 grid-cols-3">
