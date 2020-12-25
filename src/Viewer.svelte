@@ -23,37 +23,35 @@
   let petType: string;
 </script>
 
-<div
-  class={`flex-grow border-l-2 border-dashed border-gray-300 flex flex-col ${$viewerStyles.toStyles()}`}>
+<div class={`flex-grow flex flex-col ${$viewerStyles.toStyles()}`}>
   <Header styles={$headerStyles}>Pet Finder</Header>
-  <div class="px-4">
+  <div class="px-4 pb-4">
     <div class="flex flex-row gap-3">
       <div class="flex flex-1 flex-col gap-3">
-        <div class="flex flex-row gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3  ">
           <TextField styles={$textFieldStyles} placeholder="Pet's Name">
             <span slot="trailingIcon">
               <IoIosSearch />
             </span>
           </TextField>
-          <div class="w-44">
-            <Select
-              bind:this={select}
-              bind:value={petType}
-              isMenuOpen
-              placeholder="Pet Type"
-              styles={$selectStyles}>
-              <SelectOption {select} value="Dog">Dog</SelectOption>
-              <SelectOption {select} value="Cat">Cat</SelectOption>
-              <SelectOption {select} value="Bird">Bird</SelectOption>
-            </Select>
+          <Select
+            bind:this={select}
+            bind:value={petType}
+            isMenuOpen
+            placeholder="Pet Type"
+            styles={$selectStyles}>
+            <SelectOption {select} value="Dog">Dog</SelectOption>
+            <SelectOption {select} value="Cat">Cat</SelectOption>
+            <SelectOption {select} value="Bird">Bird</SelectOption>
+          </Select>
+          <div>
+            <Button styles={$primaryButtonStyles}>
+              Search
+              <span slot="icon">
+                <IoIosSearch />
+              </span>
+            </Button>
           </div>
-
-          <Button styles={$primaryButtonStyles}>
-            Search
-            <span slot="icon">
-              <IoIosSearch />
-            </span>
-          </Button>
         </div>
         <div class="text-2xl mt-28">Found Dogs:</div>
         <div class={`flex flex-col ${$tableStyles.toStyles()}`}>
@@ -110,7 +108,7 @@
       </div>
     </div>
 
-    <div class="w-96">
+    <div>
       <Card styles={$cardStyles}>
         <div slot="header">Dog Profile</div>
 

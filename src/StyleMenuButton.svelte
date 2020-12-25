@@ -6,7 +6,7 @@
 
 <IconButton
   on:click
-  styles={['border-2', 'rounded-lg', 'border-dashed', 'border-gray-300', 'm-2', 'p-2', 'flex-col', 'flex', 'items-center', 'w-28']}>
+  styles={['border-2', 'rounded-lg', 'border-dashed', 'border-gray-300', 'p-2', 'flex-col', 'flex', 'items-center']}>
   <div class="h-10 w-10 text-blue-300">
     <slot />
   </div>

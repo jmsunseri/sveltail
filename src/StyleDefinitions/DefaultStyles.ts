@@ -204,9 +204,6 @@ export const select: SelectStyles = new SelectStyles({
 
 export const table: TableStyles = new TableStyles({
   color: 'bg-purple-50',
-  spacing: new SpacingStyles({
-    margin: [{ size: '2', spacing: 'm' }],
-  }),
   divider: new DividerStyles({
     width: 'divide-y',
     color: 'divide-purple-100',

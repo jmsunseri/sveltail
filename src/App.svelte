@@ -62,15 +62,16 @@
 </style>
 
 <main
-  class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin overflow-hidden">
+  class="flex flex-col items-center m-0 h-screen text-gray-500 font-thin lg:overflow-hidden">
   <div
-    class="text-3xl w-full h-16 px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
+    class="md:text-3xl sm:text-2xl w-full px-4 bg-gray-100 border-b-2 border-dashed shadow py-2 flex items-center">
     <div class="container mx-auto">SvelTail - TailwindCSS Styling Lab</div>
   </div>
-  <div class="container mx-auto h-screen pb-14 flex flex-row gap-1 ">
-    <div class="flex flex-col w-96 overflow-auto">
+  <div
+    class="container mx-auto h-screen pb-14 grid grid-cols-1 lg:grid-cols-3 lg:gap-1">
+    <div class="flex flex-col lg:overflow-auto py-2 lg:px-0 px-2">
       {#if visible === VisibleComponent.menu}
-        <div transition:slide class="flex flex-wrap">
+        <div transition:slide class="grid gap-2 grid-cols-3">
           <StyleMenuButton
             text="Global"
             on:click={() => change(VisibleComponent.global)}>
@@ -143,6 +144,9 @@
         <NotImplementedStyler on:closed={cardClosed} />
       {/if}
     </div>
-    <Viewer />
+    <div
+      class="col-span-2 lg:border-l-2 border-dashed border-gray-300 pl-2 lg:pt-2 lg:pr-0  pr-2 ">
+      <Viewer />
+    </div>
   </div>
 </main>

@@ -48,7 +48,7 @@
       </div>
     {/if}
     <input
-      class={`focus:outline-none flex-1 bg-transparent ${font}`}
+      class={`focus:outline-none min-w-0 flex-1 bg-transparent ${font}`}
       type="text"
       bind:value
       on:focus={() => {
