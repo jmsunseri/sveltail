@@ -121,7 +121,7 @@
             src="https://upload.wikimedia.org/wikipedia/commons/5/58/Shiba_inu_taiki.jpg" />
           <div class="flex flex-col gap-1">
             <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
-            <div class="flex flex-row gap-1"><b>Sex:</b> Male</div>
+            <div class="flex flex-row gap-1"><b>Gender:</b> Female</div>
             <div class="flex flex-row gap-1"><b>DOB:</b> Nov, 2 2005</div>
             <div class="flex flex-row gap-1">
               <b>Bio:</b>
