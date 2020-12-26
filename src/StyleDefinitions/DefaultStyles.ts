@@ -108,7 +108,6 @@ export const secondaryButton = new ButtonStyles({
   transform: new TransformStyles({
     scale: 'scale-110',
     onHover: true,
-    skew: '-skew-y-6',
   }),
   effects: [
     new EffectsStyle({
