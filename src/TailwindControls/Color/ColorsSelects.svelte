@@ -7,9 +7,22 @@
   export let value: ColorStyle[] = [new ColorStyle()];
   export let prefix: string;
   export let blockGradient: boolean;
+
+  let normal: ColorStyle;
+  let hover: ColorStyle;
+
+  $: {
+    normal = value.find((x) => !x.isHover) || new ColorStyle();
+    hover = value.find((x) => x.isHover);
+    if (hover) {
+      value = [normal, hover];
+    } else {
+      value = [normal];
+    }
+  }
 </script>
 
-<ColorSelect {prefix} bind:value={value[0]} {blockGradient} />
+<ColorSelect {prefix} bind:value={normal} {blockGradient} />
 
 {#if value.length < 2}
   <div class="flex flex-row justify-center">
@@ -25,5 +38,5 @@
   </div>
 {:else}
   Hover Color
-  <ColorSelect {prefix} bind:value={value[1]} {blockGradient} />
+  <ColorSelect {prefix} bind:value={hover} {blockGradient} />
 {/if}

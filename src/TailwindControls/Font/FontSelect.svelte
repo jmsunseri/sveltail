@@ -1,6 +1,5 @@
 <script lang="ts">
   import { FontStyles } from './FontStyles';
-  import ColorMenu from '../Color/ColorMenu.svelte';
   import FontSizeSelect from './FontSizeSelect.svelte';
   import FontWeightSelect from './FontWeightSelect.svelte';
   import FontFamilySelect from './FontFamilySelect.svelte';

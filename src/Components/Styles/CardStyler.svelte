@@ -5,10 +5,10 @@
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
-  import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import { CardStyles } from '../Card/CardStyles';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
+  import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
   let accordion: Accordion;
   export let value: CardStyles = new CardStyles();
@@ -17,7 +17,7 @@
 <StyleGroup on:closed header="Card Styles">
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
-      <ColorSelect prefix="bg" bind:value={value.color} />
+      <ColorsSelects prefix="bg" bind:value={value.color} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Border">
       <BorderSelect bind:value={value.border} />
@@ -29,7 +29,7 @@
       <SpacingSelect bind:value={value.spacing} />
     </AccordionItem>
     <AccordionItem id={5} {accordion} headerText="Header Color">
-      <ColorSelect prefix="bg" bind:value={value.header.color} />
+      <ColorsSelects prefix="bg" bind:value={value.header.color} />
     </AccordionItem>
     <AccordionItem id={6} {accordion} headerText="Header Font">
       <FontSelect bind:value={value.header.font} />
@@ -47,7 +47,7 @@
       <SpacingSelect bind:value={value.container.spacing} />
     </AccordionItem>
     <AccordionItem id={11} {accordion} headerText="Footer Color">
-      <ColorSelect prefix="bg" bind:value={value.footer.color} />
+      <ColorsSelects prefix="bg" bind:value={value.footer.color} />
     </AccordionItem>
     <AccordionItem id={12} {accordion} headerText="Footer Font">
       <FontSelect bind:value={value.footer.font} />

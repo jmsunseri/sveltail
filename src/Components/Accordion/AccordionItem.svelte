@@ -1,6 +1,5 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
-  import Card from '../Card/Card.svelte';
   import type Accordion from './Accordion.svelte';
   import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
   import FaChevronUp from 'svelte-icons/fa/FaChevronUp.svelte';

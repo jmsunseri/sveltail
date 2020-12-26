@@ -5,11 +5,11 @@
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
-  import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import DividerSelect from '../../TailwindControls/Divider/DividerSelect.svelte';
   import { TableStyles } from '../Table/TableStyles';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
+  import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
   let accordion: Accordion;
   export let value: TableStyles = new TableStyles();
@@ -18,7 +18,7 @@
 <StyleGroup on:closed header="Table Styles">
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
-      <ColorSelect prefix="bg" bind:value={value.color} />
+      <ColorsSelects prefix="bg" bind:value={value.color} />
     </AccordionItem>
     <AccordionItem id={1} {accordion} headerText="Font">
       <FontSelect bind:value={value.font} />
@@ -39,7 +39,7 @@
       <TransformSelect bind:value={value.transform} />
     </AccordionItem>
     <AccordionItem id={7} {accordion} headerText="Header Color">
-      <ColorSelect prefix="bg" bind:value={value.header.color} />
+      <ColorsSelects prefix="bg" bind:value={value.header.color} />
     </AccordionItem>
     <AccordionItem id={8} {accordion} headerText="Header Font">
       <FontSelect bind:value={value.header.font} />
@@ -60,27 +60,24 @@
       <TransformSelect bind:value={value.header.transform} />
     </AccordionItem>
     <AccordionItem id={14} {accordion} headerText="Row Color">
-      <ColorSelect prefix="bg" bind:value={value.row.color} />
+      <ColorsSelects prefix="bg" bind:value={value.row.color} />
     </AccordionItem>
-    <AccordionItem id={15} {accordion} headerText="Row Hover Color">
-      <ColorSelect prefix="hover:bg" bind:value={value.row.hoverColor} />
-    </AccordionItem>
-    <AccordionItem id={16} {accordion} headerText="Row Font">
+    <AccordionItem id={15} {accordion} headerText="Row Font">
       <FontSelect bind:value={value.row.font} />
     </AccordionItem>
-    <AccordionItem id={17} {accordion} headerText="Row Border">
+    <AccordionItem id={16} {accordion} headerText="Row Border">
       <BorderSelect bind:value={value.row.border} />
     </AccordionItem>
-    <AccordionItem id={18} {accordion} headerText="Row Divider">
+    <AccordionItem id={17} {accordion} headerText="Row Divider">
       <DividerSelect bind:value={value.row.divider} />
     </AccordionItem>
-    <AccordionItem id={19} {accordion} headerText="Row Effects">
+    <AccordionItem id={18} {accordion} headerText="Row Effects">
       <EffectsSelect bind:value={value.row.effects} />
     </AccordionItem>
-    <AccordionItem id={20} {accordion} headerText="Row Spacing">
+    <AccordionItem id={19} {accordion} headerText="Row Spacing">
       <SpacingSelect bind:value={value.row.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={21} {accordion} headerText="Row Transform">
+    <AccordionItem isLast id={20} {accordion} headerText="Row Transform">
       <TransformSelect bind:value={value.row.transform} />
     </AccordionItem>
   </Accordion>

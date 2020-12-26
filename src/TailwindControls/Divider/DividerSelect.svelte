@@ -1,7 +1,6 @@
 <script lang="ts">
   import DividerWidthSelect from './DividerWidthSelect.svelte';
   import { DividerStyles } from './DividerStyles';
-  import DividerColorMenu from './DividerColorMenu.svelte';
   import OpacitySelect from '../Effects/OpacitySelect.svelte';
   import DividerStyleSelect from './DividerStyleSelect.svelte';
   import ColorsSelects from '../Color/ColorsSelects.svelte';
