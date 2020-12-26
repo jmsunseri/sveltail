@@ -56,6 +56,7 @@ export const checkbox = new CheckboxStyles({
     color: 'text-white',
     weight: 'font-black',
     size: 'text-xl',
+    family: 'font-sans',
   }),
   size: new SizingStyles({
     height: 'h-5',
