@@ -3,6 +3,7 @@ import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 
 class HeaderStyle {
   font: FontStyles;
@@ -11,6 +12,7 @@ class HeaderStyle {
   border: BorderStyles;
   effects: EffectsStyle;
   spacing: SpacingStyles;
+  transform: TransformStyles;
 
   /**
    *
@@ -21,6 +23,7 @@ class HeaderStyle {
     this.size = new SizingStyles();
     this.effects = new EffectsStyle();
     this.spacing = new SpacingStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -32,6 +35,7 @@ class HeaderStyle {
       this.effects.toStyles(),
       this.spacing.toStyles(),
       this.size.toStyles(),
+      this.transform.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

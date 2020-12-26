@@ -4,6 +4,7 @@ import { FontStyles } from '../../../TailwindControls/Font/FontStyles';
 import { RingStyles } from '../../../TailwindControls/Ring/RingStyles';
 import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../../TailwindControls/Transform/TransformStyles';
 import { IconStyles } from './IconStyles';
 
 class ButtonStyles {
@@ -15,6 +16,7 @@ class ButtonStyles {
   spacing: SpacingStyles;
   size: SizingStyles;
   ring: RingStyles;
+  transform: TransformStyles;
 
   /**
    *
@@ -27,6 +29,7 @@ class ButtonStyles {
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
     this.ring = new RingStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -39,6 +42,7 @@ class ButtonStyles {
       this.spacing?.toStyles(),
       this.size?.toStyles(),
       this.ring?.toStyles(),
+      this.transform?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

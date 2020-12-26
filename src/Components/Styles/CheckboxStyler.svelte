@@ -9,6 +9,7 @@
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import { CheckboxStyles } from '../Checkbox/CheckboxStyles';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
 
   let accordion: Accordion;
   export let value: CheckboxStyles = new CheckboxStyles();
@@ -31,8 +32,11 @@
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={value.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={7} {accordion} headerText="Size">
+    <AccordionItem id={7} {accordion} headerText="Size">
       <SizingSelect bind:value={value.size} />
+    </AccordionItem>
+    <AccordionItem isLast id={8} {accordion} headerText="Transform">
+      <TransformSelect bind:value={value.transform} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

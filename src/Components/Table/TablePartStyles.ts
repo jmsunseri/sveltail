@@ -3,6 +3,7 @@ import { DividerStyles } from '../../TailwindControls/Divider/DividerStyles';
 import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 
 class TablePartStyles {
   font: FontStyles;
@@ -12,6 +13,7 @@ class TablePartStyles {
   spacing: SpacingStyles;
   divider: DividerStyles;
   hoverColor?: string;
+  transform?: TransformStyles;
 
   /**
    *
@@ -22,6 +24,7 @@ class TablePartStyles {
     this.effects = new EffectsStyle();
     this.spacing = new SpacingStyles();
     this.divider = new DividerStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -34,6 +37,7 @@ class TablePartStyles {
       this.effects?.toStyles(),
       this.spacing?.toStyles(),
       this.divider?.toStyles(),
+      this.transform?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

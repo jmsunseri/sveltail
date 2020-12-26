@@ -5,9 +5,7 @@
   import BorderRadiusSelect from './BorderRadius/BorderRadiusSelect.svelte';
   import { BorderStyles } from './BorderStyles';
 
-  export let init: BorderStyles;
-
-  export let value: BorderStyles = init || new BorderStyles();
+  export let value: BorderStyles = new BorderStyles();
 </script>
 
 <div class="flex flex-col gap-1">

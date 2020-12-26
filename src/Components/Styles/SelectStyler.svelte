@@ -12,6 +12,7 @@
   import { SelectStyles } from '../Select/SelectStyle';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import DividerSelect from '../../TailwindControls/Divider/DividerSelect.svelte';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
 
   let accordion: Accordion;
   export let value: SelectStyles = new SelectStyles();
@@ -22,26 +23,29 @@
     <AccordionItem isFirst id={0} {accordion} headerText="Button Color">
       <ColorSelect prefix="bg" bind:value={value.button.color} />
     </AccordionItem>
-    <AccordionItem id={2} {accordion} headerText="Button Font">
+    <AccordionItem id={1} {accordion} headerText="Button Font">
       <FontSelect bind:value={value.button.font} />
     </AccordionItem>
-    <AccordionItem id={3} {accordion} headerText="Button Border">
+    <AccordionItem id={2} {accordion} headerText="Button Border">
       <BorderSelect bind:value={value.button.border} />
     </AccordionItem>
-    <AccordionItem id={4} {accordion} headerText="Button Ring">
+    <AccordionItem id={3} {accordion} headerText="Button Ring">
       <RingSelect bind:value={value.button.ring} />
     </AccordionItem>
-    <AccordionItem id={5} {accordion} headerText="Button Effects">
+    <AccordionItem id={4} {accordion} headerText="Button Effects">
       <EffectsSelect bind:value={value.button.effects} />
     </AccordionItem>
-    <AccordionItem id={6} {accordion} headerText="Button Spacing">
+    <AccordionItem id={5} {accordion} headerText="Button Spacing">
       <SpacingSelect bind:value={value.button.spacing} />
     </AccordionItem>
-    <AccordionItem id={7} {accordion} headerText="Button Icon">
+    <AccordionItem id={6} {accordion} headerText="Button Icon">
       <div class="flex-col flex gap-1">
         <SizingSelect bind:value={value.button.icon.size} />
         <ColorMenu prefix="text" bind:value={value.button.icon.color} />
       </div>
+    </AccordionItem>
+    <AccordionItem id={7} {accordion} headerText="Button Transform">
+      <TransformSelect bind:value={value.button.transform} />
     </AccordionItem>
     <AccordionItem id={8} {accordion} headerText="Menu Color">
       <ColorSelect prefix="bg" bind:value={value.menu.color} />
@@ -61,15 +65,21 @@
     <AccordionItem id={13} {accordion} headerText="Menu Spacing">
       <SpacingSelect bind:value={value.menu.spacing} />
     </AccordionItem>
-    <AccordionItem id={14} {accordion} headerText="Menu Item Font">
+    <AccordionItem id={14} {accordion} headerText="Menu Transform">
+      <TransformSelect bind:value={value.menu.transform} />
+    </AccordionItem>
+    <AccordionItem id={15} {accordion} headerText="Menu Item Font">
       <FontSelect bind:value={value.menuItem.font} />
     </AccordionItem>
-    <AccordionItem id={15} {accordion} headerText="Menu Item Spacing">
+    <AccordionItem id={16} {accordion} headerText="Menu Item Spacing">
       <SpacingSelect bind:value={value.menuItem.spacing} />
+    </AccordionItem>
+    <AccordionItem id={17} {accordion} headerText="Menu Item Transform">
+      <TransformSelect bind:value={value.menuItem.transform} />
     </AccordionItem>
     <AccordionItem
       isLast
-      id={16}
+      id={18}
       {accordion}
       headerText="Menu Item Hover Color">
       <ColorMenu prefix="hover:bg" bind:value={value.menuItem.color} />

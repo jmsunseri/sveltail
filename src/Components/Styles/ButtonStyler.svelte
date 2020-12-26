@@ -11,6 +11,7 @@
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import RingSelect from '../../TailwindControls/Ring/RingSelect.svelte';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
 
   let accordion: Accordion;
   export let value: ButtonStyles = new ButtonStyles();
@@ -36,11 +37,14 @@
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={value.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={7} {accordion} headerText="Icon">
+    <AccordionItem id={7} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">
         <SizingSelect bind:value={value.icon.size} />
         <ColorMenu prefix="text" bind:value={value.icon.color} />
       </div>
+    </AccordionItem>
+    <AccordionItem isLast id={8} {accordion} headerText="Transform">
+      <TransformSelect bind:value={value.transform} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

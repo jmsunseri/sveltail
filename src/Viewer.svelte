@@ -4,6 +4,7 @@
   import Select from './Components/Select/Select.svelte';
   import SelectOption from './Components/Select/SelectOption.svelte';
   import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
+  import FaPaw from 'svelte-icons/fa/FaPaw.svelte';
   import {
     headerStyles,
     primaryButtonStyles,
@@ -24,7 +25,15 @@
 </script>
 
 <div class={`flex-grow flex flex-col ${$viewerStyles.toStyles()}`}>
-  <Header styles={$headerStyles}>Pet Finder</Header>
+  <Header styles={$headerStyles}>
+    <div class="flex flex-row items-center gap-2">
+      <div class="h-8 w-8">
+        <FaPaw />
+      </div>
+      <div class="flex-1">Pet Finder</div>
+      <div class="text-base hover:underline font-normal">Account</div>
+    </div>
+  </Header>
   <div class="px-4 pb-4">
     <div class="flex flex-row gap-3">
       <div class="flex flex-1 flex-col gap-3">

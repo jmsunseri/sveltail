@@ -9,6 +9,7 @@
   let ring: string;
   let font: string;
   let container: string;
+  let transform: string;
 
   let isFocused = false;
   let activateRingOnFocus = false;
@@ -30,6 +31,7 @@
       ring = styles.ring.toStyles().replaceAll('focus:', '');
       activateRingOnFocus = true;
     }
+    transform = styles.transform.toStyles();
   }
 
   $: {
@@ -37,6 +39,9 @@
       activateRingOnFocus && isFocused
         ? `flex flex-col justify-center ${input} ${ring}`
         : `flex flex-col justify-center ${input}`;
+    if (transform) {
+      container += ` ${transform}`;
+    }
   }
 </script>
 

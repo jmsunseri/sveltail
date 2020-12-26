@@ -1,9 +1,9 @@
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
-import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 
 class CheckboxStyles {
   color?: string;
@@ -12,6 +12,7 @@ class CheckboxStyles {
   effects: EffectsStyle;
   spacing: SpacingStyles;
   size: SizingStyles;
+  transform: TransformStyles;
 
   /**
    *
@@ -22,6 +23,7 @@ class CheckboxStyles {
     this.effects = new EffectsStyle();
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -33,6 +35,7 @@ class CheckboxStyles {
       this.spacing?.toStyles(),
       this.size?.toStyles(),
       this.font?.toStyles(),
+      this.transform?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

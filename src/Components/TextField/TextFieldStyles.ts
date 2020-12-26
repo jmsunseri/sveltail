@@ -2,6 +2,7 @@ import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { IconStyles } from '../Button/Models/IconStyles';
 
 class TextFieldStyles {
@@ -11,6 +12,7 @@ class TextFieldStyles {
   border: BorderStyles;
   spacing: SpacingStyles;
   ring: RingStyles;
+  transform: TransformStyles;
 
   /**
    *
@@ -21,6 +23,7 @@ class TextFieldStyles {
     this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -31,6 +34,7 @@ class TextFieldStyles {
       this.border.toStyles(),
       this.spacing.toStyles(),
       this.ring.toStyles(),
+      this.transform.toStyles(),
     ].join(' ');
 }
 

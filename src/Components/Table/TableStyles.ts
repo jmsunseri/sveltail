@@ -3,6 +3,7 @@ import { DividerStyles } from '../../TailwindControls/Divider/DividerStyles';
 import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TablePartStyles } from './TablePartStyles';
 
 class TableStyles {
@@ -14,6 +15,7 @@ class TableStyles {
   divider: DividerStyles;
   row: TablePartStyles;
   header: TablePartStyles;
+  transform: TransformStyles;
 
   /**
    *
@@ -26,6 +28,7 @@ class TableStyles {
     this.divider = new DividerStyles();
     this.row = new TablePartStyles();
     this.header = new TablePartStyles();
+    this.transform = new TransformStyles();
     Object.assign(this, init);
   }
 
@@ -37,6 +40,7 @@ class TableStyles {
       this.effects?.toStyles(),
       this.spacing?.toStyles(),
       this.divider?.toStyles(),
+      this.transform?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

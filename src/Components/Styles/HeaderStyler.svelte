@@ -7,6 +7,7 @@
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
 
   let accordion: Accordion;
   export let init: HeaderStyle;
@@ -24,8 +25,11 @@
     <AccordionItem id={2} {accordion} headerText="Font">
       <FontSelect bind:value={value.font} />
     </AccordionItem>
-    <AccordionItem isLast id={3} {accordion} headerText="Effects">
+    <AccordionItem id={3} {accordion} headerText="Effects">
       <EffectsSelect bind:value={value.effects} />
+    </AccordionItem>
+    <AccordionItem isLast id={4} {accordion} headerText="Transform">
+      <TransformSelect bind:value={value.transform} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

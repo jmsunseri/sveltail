@@ -8,6 +8,7 @@
   import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import { CardStyles } from '../Card/CardStyles';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
 
   let accordion: Accordion;
   export let value: CardStyles = new CardStyles();
@@ -54,8 +55,11 @@
     <AccordionItem id={13} {accordion} headerText="Footer Border">
       <BorderSelect bind:value={value.footer.border} />
     </AccordionItem>
-    <AccordionItem isLast id={14} {accordion} headerText="Footer Spacing">
+    <AccordionItem id={14} {accordion} headerText="Footer Spacing">
       <SpacingSelect bind:value={value.footer.spacing} />
+    </AccordionItem>
+    <AccordionItem isLast id={15} {accordion} headerText="Transform">
+      <TransformSelect bind:value={value.transform} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

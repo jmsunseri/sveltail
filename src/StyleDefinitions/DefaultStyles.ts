@@ -18,6 +18,7 @@ import { TableStyles } from '../Components/Table/TableStyles';
 import { TablePartStyles } from '../Components/Table/TablePartStyles';
 import { CardStyles } from '../Components/Card/CardStyles';
 import { CardPartStyles } from '../Components/Card/CardPartStyles';
+import { TransformStyles } from '../TailwindControls/Transform/TransformStyles';
 
 export const primaryButton = new ButtonStyles({
   color: 'bg-purple-500',
@@ -60,9 +61,9 @@ export const checkbox = new CheckboxStyles({
     height: 'h-5',
     width: 'w-5',
   }),
-  // spacing: new SpacingStyles({
-  //   margin: [{ spacing: 'mr', size: '2' }],
-  // }),
+  transform: new TransformStyles({
+    rotate: 'hover:rotate-6',
+  }),
 });
 
 export const textField = new TextFieldStyles({
@@ -94,6 +95,9 @@ export const secondaryButton = new ButtonStyles({
   font: new FontStyles({
     color: 'text-purple-800',
     weight: 'font-bold',
+  }),
+  transform: new TransformStyles({
+    scale: 'hover:scale-110',
   }),
   effects: new EffectsStyle({
     boxShadow: 'shadow-md',
