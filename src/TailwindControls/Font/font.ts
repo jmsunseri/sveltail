@@ -54,4 +54,4 @@ export const fontWeights: FontWeight[] = [
 
 export const fontFamilies: string[] = ['font-sans', 'font-serif', 'font-mono'];
 
-export const italics: string[] = ['italic', 'non-italic'];
+export const italics: string[] = ['', 'italic', 'non-italic'];

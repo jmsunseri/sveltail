@@ -1,10 +1,9 @@
-<script lang="ts">
+<!--<script lang="ts">
   import ColorMenu from '../Color/ColorMenu.svelte';
+import { ColorStyle } from '../Color/ColorStyle';
   export let prefix: string;
-  export let value: string;
-</script>
-
-<div class="flex flex-col">
+  export let value: ColorStyle[] = [new ColorStyle()];
+</script><div class="flex flex-col">
   <ColorMenu {prefix} bind:value />
   <button
     on:click={() => {
@@ -20,4 +19,4 @@
     class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm text-black`}>
     Current
   </button>
-</div>
+</div> -->

@@ -1,5 +1,7 @@
+import { ColorStyle } from '../Color/ColorStyle';
+
 class DividerStyles {
-  color: string;
+  color: ColorStyle[];
   style: string;
   width: string;
   opacity: string;
@@ -8,11 +10,23 @@ class DividerStyles {
    *
    */
   constructor(init?: Partial<DividerStyles>) {
+    this.color = [new ColorStyle()];
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [this.color, this.style, this.width, this.opacity].join(' ').trim();
+    [
+      this.color
+        .filter((x) => !!x)
+        .map((x) => x.toStyles())
+        .join(' ')
+        .trim(),
+      this.style,
+      this.width,
+      this.opacity,
+    ]
+      .join(' ')
+      .trim();
 }
 
 export { DividerStyles };

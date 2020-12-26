@@ -7,10 +7,10 @@
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Accordion/Accordion.svelte';
   import AccordionItem from '../Accordion/AccordionItem.svelte';
-  import ColorMenu from '../../TailwindControls/Color/ColorMenu.svelte';
-  import ColorSelect from '../../TailwindControls/Color/ColorSelect.svelte';
   import RingSelect from '../../TailwindControls/Ring/RingSelect.svelte';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
+  import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
 
   let accordion: Accordion;
   export let value: TextFieldStyles = new TextFieldStyles();
@@ -19,7 +19,7 @@
 <StyleGroup on:closed header="Text Field Styles">
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
-      <ColorSelect prefix="bg" bind:value={value.color} />
+      <ColorsSelects prefix="bg" bind:value={value.color} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Font">
       <FontSelect bind:value={value.font} />
@@ -36,11 +36,14 @@
     <AccordionItem id={7} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">
         <SizingSelect bind:value={value.icon.size} />
-        <ColorMenu prefix="text" bind:value={value.icon.color} />
+        <ColorsSelects prefix="text" bind:value={value.icon.color} />
       </div>
     </AccordionItem>
-    <AccordionItem isLast id={8} {accordion} headerText="Transform">
+    <AccordionItem id={8} {accordion} headerText="Transform">
       <TransformSelect bind:value={value.transform} />
+    </AccordionItem>
+    <AccordionItem isLast id={9} {accordion} headerText="Transition">
+      <TransitionSelect bind:value={value.transition} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

@@ -4,13 +4,27 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
   import TransformScaleNumberSelect from './TransformScaleNumberSelect.svelte';
 
-  const options: string[] = ['scale-x', 'scale-y'];
+  const options: string[] = ['scale', 'scale-x', 'scale-y'];
   export let value: string;
   let select: Select;
   let scale: string;
   let xY: string;
 
   $: {
+    if (!xY && value) {
+      if (value.includes('scale-x')) {
+        xY = 'scale-x';
+      } else if (value.includes('scale-y')) {
+        xY = 'scale-y';
+      } else {
+        xY = 'scale';
+      }
+    }
+    if (!scale && value) {
+      let x = value.split('-');
+      scale = x[x.length - 1];
+    }
+
     if (xY && scale) {
       value = `${xY}-${scale}`;
     } else if (scale) {

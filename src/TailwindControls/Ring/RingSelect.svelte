@@ -1,10 +1,10 @@
 <script lang="ts">
   import RingWidthSelect from './RingWidthSelect.svelte';
   import { RingStyles } from './RingStyles';
-  import RingColorMenu from './RingColorMenu.svelte';
   import OpacitySelect from '../Effects/OpacitySelect.svelte';
   import Switch from '../../Components/Switch.svelte';
   import RingOffsetWidthSelect from './RingOffsetWidthSelect.svelte';
+  import ColorsSelects from '../Color/ColorsSelects.svelte';
 
   export let value: RingStyles = new RingStyles();
 
@@ -22,8 +22,11 @@
   </div>
 
   <RingWidthSelect bind:value={value.width} />
-  <RingColorMenu prefix="ring" bind:value={value.color} />
+  <ColorsSelects prefix="ring" bind:value={value.color} blockGradient />
   <OpacitySelect bind:value={opacity} />
   <RingOffsetWidthSelect bind:value={value.offsetWidth} />
-  <RingColorMenu prefix="ring-offset" bind:value={value.offsetColor} />
+  <ColorsSelects
+    prefix="ring-offset"
+    bind:value={value.offsetColor}
+    blockGradient />
 </div>

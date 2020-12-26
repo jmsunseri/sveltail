@@ -5,6 +5,7 @@
   import FontWeightSelect from './FontWeightSelect.svelte';
   import FontFamilySelect from './FontFamilySelect.svelte';
   import FontItalicSelect from './FontItalicSelect.svelte';
+  import ColorsSelects from '../Color/ColorsSelects.svelte';
 
   export let value: FontStyles = new FontStyles();
 </script>
@@ -14,5 +15,5 @@
   <FontSizeSelect bind:value={value.size} />
   <FontFamilySelect bind:value={value.family} />
   <FontItalicSelect bind:value={value.italics} />
-  <ColorMenu bind:value={value.color} init={value.color} prefix="text" />
+  <ColorsSelects bind:value={value.color} prefix="text" blockGradient />
 </div>

@@ -1,12 +1,16 @@
+import { ColorStyle } from '../Color/ColorStyle';
+
 class RingStyles {
-  color?: string;
+  color?: ColorStyle[];
   width?: string;
   opacity?: string;
   offsetWidth?: string;
-  offsetColor?: string;
+  offsetColor?: ColorStyle[];
   onFocus?: boolean = true;
 
   constructor(init?: Partial<RingStyles>) {
+    this.color = [new ColorStyle()];
+    this.offsetColor = [new ColorStyle()];
     Object.assign(this, init);
   }
 
@@ -14,10 +18,23 @@ class RingStyles {
     this.onFocus && style ? `focus:${style}` : style;
 
   toStyles = () =>
-    `${this.addFocus(this.color) || ''} ${this.addFocus(this.width) || ''} ${
-      this.addFocus(this.opacity) || ''
-    }  ${this.addFocus(this.offsetColor) || ''}  ${
-      this.addFocus(this.offsetWidth) || ''
-    }`.trim();
+    [
+      this.color
+        .filter((x) => !!x)
+        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
+        .join(' ')
+        .trim(),
+      this.offsetColor
+        .filter((x) => !!x)
+        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
+        .join(' ')
+        .trim(),
+      this.addFocus(this.width),
+      this.addFocus(this.opacity),
+      this.addFocus(this.offsetWidth),
+    ]
+      .filter((x) => !!x)
+      .join(' ')
+      .trim();
 }
 export { RingStyles };

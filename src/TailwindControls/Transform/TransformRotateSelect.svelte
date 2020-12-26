@@ -17,8 +17,12 @@
       } else {
         value = `rotate-${degrees}`;
       }
-    } else {
-      value = '';
+    } else if (value) {
+      if (value[0] === '-') {
+        reverse = true;
+      }
+      let x = value.split('-');
+      degrees = x[x.length - 1];
     }
   }
 </script>

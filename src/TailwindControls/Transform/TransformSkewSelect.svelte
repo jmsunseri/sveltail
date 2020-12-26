@@ -13,6 +13,23 @@
   let reverse: boolean;
 
   $: {
+    if (!xY && value) {
+      if (value.includes('skew-x')) {
+        xY = 'skew-x';
+      } else if (value.includes('skew-y')) {
+        xY = 'skew-y';
+      } else {
+        xY = '';
+      }
+      if (value[0] === '-') {
+        reverse = true;
+      }
+    }
+    if (!skew && value) {
+      let x = value.split('-');
+      skew = x[x.length - 1];
+    }
+
     if (xY && skew) {
       if (reverse) {
         value = `-${xY}-${skew}`;

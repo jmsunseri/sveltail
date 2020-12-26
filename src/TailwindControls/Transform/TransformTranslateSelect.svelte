@@ -5,7 +5,7 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
   import TransformTranslateNumberSelect from './TransformTranslateNumberSelect.svelte';
 
-  const options: string[] = ['translate-x', 'translate-y'];
+  const options: string[] = ['', 'translate-x', 'translate-y'];
   export let value: string;
   let select: Select;
   let scale: string;
@@ -13,6 +13,23 @@
   let reverse: boolean;
 
   $: {
+    if (!xY && value) {
+      if (value.includes('translate-x')) {
+        xY = 'translate-x';
+      } else if (value.includes('translate-y')) {
+        xY = 'translate-y';
+      } else {
+        xY = '';
+      }
+      if (value[0] === '-') {
+        reverse = true;
+      }
+    }
+    if (!scale && value) {
+      let x = value.split('-');
+      scale = x[x.length - 1];
+    }
+
     if (xY && scale) {
       if (reverse) {
         value = `-${xY}-${scale}`;

@@ -19,16 +19,18 @@ import { TablePartStyles } from '../Components/Table/TablePartStyles';
 import { CardStyles } from '../Components/Card/CardStyles';
 import { CardPartStyles } from '../Components/Card/CardPartStyles';
 import { TransformStyles } from '../TailwindControls/Transform/TransformStyles';
+import { ColorStyle } from '../TailwindControls/Color/ColorStyle';
+import { TransitionStyles } from '../TailwindControls/Transition/TransitionStyles';
 
 export const primaryButton = new ButtonStyles({
-  color: 'bg-purple-500',
+  color: [new ColorStyle({ color: 'bg-purple-500' })],
   font: new FontStyles({
-    color: 'text-white',
+    color: [new ColorStyle({ color: 'text-white' })],
     weight: 'font-semibold',
   }),
   ring: new RingStyles({
     onFocus: true,
-    color: 'ring-blue-500',
+    color: [new ColorStyle({ color: 'ring-blue-500' })],
     width: 'ring-4',
     offsetWidth: 'ring-offset-1',
     opacity: 'ring-opacity-20',
@@ -39,21 +41,23 @@ export const primaryButton = new ButtonStyles({
       width: 'w-5',
     }),
   }),
-  effects: new EffectsStyle({
-    boxShadow: 'shadow-md',
-  }),
+  effects: [
+    new EffectsStyle({
+      boxShadow: 'shadow-md',
+    }),
+  ],
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],
   }),
 });
 
 export const checkbox = new CheckboxStyles({
-  color: 'bg-purple-500',
+  color: [new ColorStyle({ color: 'bg-purple-500' })],
   border: new BorderStyles({
     radius: 'rounded',
   }),
   font: new FontStyles({
-    color: 'text-white',
+    color: [new ColorStyle({ color: 'text-white' })],
     weight: 'font-black',
     size: 'text-xl',
     family: 'font-sans',
@@ -65,16 +69,20 @@ export const checkbox = new CheckboxStyles({
   transform: new TransformStyles({
     rotate: 'hover:rotate-6',
   }),
+  transition: new TransitionStyles({
+    transition: 'transition',
+    duration: 'duration-300',
+  }),
 });
 
 export const textField = new TextFieldStyles({
-  color: 'bg-gray-50',
+  color: [new ColorStyle({ color: 'bg-gray-50' })],
   border: new BorderStyles({
     radius: 'rounded-full',
   }),
   ring: new RingStyles({
     onFocus: true,
-    color: 'ring-blue-500',
+    color: [new ColorStyle({ color: 'ring-blue-500' })],
     width: 'ring-4',
     offsetWidth: 'ring-offset-1',
     opacity: 'ring-opacity-20',
@@ -84,7 +92,7 @@ export const textField = new TextFieldStyles({
       height: 'h-5',
       width: 'w-5',
     }),
-    color: 'text-pink-900',
+    color: [new ColorStyle({ color: 'text-pink-900' })],
   }),
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],
@@ -92,20 +100,24 @@ export const textField = new TextFieldStyles({
 });
 
 export const secondaryButton = new ButtonStyles({
-  color: 'bg-purple-50',
+  color: [new ColorStyle({ color: 'bg-purple-50' })],
   font: new FontStyles({
-    color: 'text-purple-800',
+    color: [new ColorStyle({ color: 'text-purple-800' })],
     weight: 'font-bold',
   }),
   transform: new TransformStyles({
-    scale: 'hover:scale-110',
+    scale: 'scale-110',
+    onHover: true,
+    skew: '-skew-y-6',
   }),
-  effects: new EffectsStyle({
-    boxShadow: 'shadow-md',
-  }),
+  effects: [
+    new EffectsStyle({
+      boxShadow: 'shadow-md',
+    }),
+  ],
   ring: new RingStyles({
     onFocus: true,
-    color: 'ring-blue-500',
+    color: [new ColorStyle({ color: 'ring-blue-500' })],
     width: 'ring-4',
     offsetWidth: 'ring-offset-1',
     opacity: 'ring-opacity-20',
@@ -115,7 +127,7 @@ export const secondaryButton = new ButtonStyles({
       height: 'h-5',
       width: 'w-5',
     }),
-    color: 'text-purple-300',
+    color: [new ColorStyle({ color: 'bg-purple-300' })],
   }),
   spacing: new SpacingStyles({
     padding: [{ spacing: 'p', size: '2' }],
@@ -123,9 +135,11 @@ export const secondaryButton = new ButtonStyles({
 });
 
 export const header = new HeaderStyle({
-  color: 'bg-gradient-to-r from-pink-900 to-pink-700',
+  color: [
+    new ColorStyle({ color: 'bg-gradient-to-r from-pink-900 to-pink-700' }),
+  ],
   font: new FontStyles({
-    color: 'text-white',
+    color: [new ColorStyle({ color: 'text-white' })],
     size: 'text-3xl',
     weight: 'font-bold',
   }),
@@ -133,9 +147,11 @@ export const header = new HeaderStyle({
     height: 'h-12',
     width: 'w-full',
   }),
-  effects: new EffectsStyle({
-    boxShadow: 'shadow-lg',
-  }),
+  effects: [
+    new EffectsStyle({
+      boxShadow: 'shadow-lg',
+    }),
+  ],
   spacing: new SpacingStyles({
     padding: [
       { spacing: 'py', size: '2' },
@@ -146,9 +162,9 @@ export const header = new HeaderStyle({
 });
 
 export const viewer = new GlobalStyle({
-  color: 'bg-purple-100',
+  color: [new ColorStyle({ color: 'bg-purple-100' })],
   font: new FontStyles({
-    color: 'text-gray-700',
+    color: [new ColorStyle({ color: 'text-gray-700' })],
     weight: 'font-normal',
     size: 'text-base',
     family: 'font-mono',
@@ -157,10 +173,10 @@ export const viewer = new GlobalStyle({
 
 export const select: SelectStyles = new SelectStyles({
   button: new ButtonStyles({
-    color: 'bg-white',
+    color: [new ColorStyle({ color: 'bg-white' })],
     border: new BorderStyles({
       width: 'border-2',
-      color: 'border-pink-900',
+      color: [new ColorStyle({ color: 'border-pink-900' })],
     }),
     spacing: new SpacingStyles({
       padding: [
@@ -176,7 +192,7 @@ export const select: SelectStyles = new SelectStyles({
         height: 'h-5',
         width: 'w-5',
       }),
-      color: 'text-black',
+      color: [new ColorStyle({ color: 'text-black' })],
     }),
   }),
   menu: new MenuStyles({
@@ -184,24 +200,26 @@ export const select: SelectStyles = new SelectStyles({
     //   minHeight: 'h-1',
     //   maxHeight: 'h-20',
     // }),
-    effects: new EffectsStyle({
-      boxShadow: 'shadow-md',
-    }),
-    color: 'bg-white',
+    effects: [
+      new EffectsStyle({
+        boxShadow: 'shadow-md',
+      }),
+    ],
+    color: [new ColorStyle({ color: 'bg-white' })],
     border: new BorderStyles({
       width: 'border-2 border-t-0',
-      color: 'border-pink-900',
+      color: [new ColorStyle({ color: 'border-pink-900' })],
     }),
     spacing: new SpacingStyles({
       margin: [{ size: '1', spacing: '-mt' }],
     }),
     divider: new DividerStyles({
       width: 'divide-y-2',
-      color: 'divide-pink-100',
+      color: [new ColorStyle({ color: 'divide-pink-100' })],
     }),
   }),
   menuItem: new SelectOptionStyles({
-    color: 'hover:bg-purple-100',
+    color: [new ColorStyle({ color: 'hover:bg-purple-100' })],
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
     }),
@@ -209,10 +227,10 @@ export const select: SelectStyles = new SelectStyles({
 });
 
 export const table: TableStyles = new TableStyles({
-  color: 'bg-purple-50',
+  color: [new ColorStyle({ color: 'bg-purple-50' })],
   divider: new DividerStyles({
     width: 'divide-y',
-    color: 'divide-purple-100',
+    color: [new ColorStyle({ color: 'divider-purple-100' })],
   }),
   header: new TablePartStyles({
     font: new FontStyles({
@@ -223,7 +241,7 @@ export const table: TableStyles = new TableStyles({
     }),
     border: new BorderStyles({
       width: 'border-b-4',
-      color: 'border-pink-800',
+      color: [new ColorStyle({ color: 'border-pink-800' })],
     }),
   }),
   row: new TablePartStyles({
@@ -233,20 +251,22 @@ export const table: TableStyles = new TableStyles({
         { spacing: 'px', size: '2' },
       ],
     }),
-    hoverColor: 'hover:bg-purple-200',
+    color: [new ColorStyle({ color: 'bg-purple-200', isHover: true })],
   }),
 });
 
 export const card: CardStyles = new CardStyles({
-  color: 'bg-purple-50',
+  color: [new ColorStyle({ color: 'bg-purple-50' })],
   border: new BorderStyles({
     width: 'border-2',
-    color: 'border-pruple-200',
+    color: [new ColorStyle({ color: 'border-purple-200' })],
     radius: 'rounded-lg',
   }),
-  effects: new EffectsStyle({
-    boxShadow: 'shadow-lg',
-  }),
+  effects: [
+    new EffectsStyle({
+      boxShadow: 'shadow-lg',
+    }),
+  ],
   spacing: new SpacingStyles({
     margin: [{ spacing: 'mt', size: '5' }],
   }),
@@ -261,7 +281,7 @@ export const card: CardStyles = new CardStyles({
     border: new BorderStyles({
       style: 'border-solid',
       width: 'border-b-2',
-      color: 'border-pink-800',
+      color: [new ColorStyle({ color: 'border-pink-800' })],
     }),
   }),
   container: new CardPartStyles({
@@ -279,7 +299,7 @@ export const card: CardStyles = new CardStyles({
     border: new BorderStyles({
       style: 'border-solid',
       width: 'border-t-2',
-      color: 'border-pink-800',
+      color: [new ColorStyle({ color: 'border-pink-800' })],
     }),
   }),
 });

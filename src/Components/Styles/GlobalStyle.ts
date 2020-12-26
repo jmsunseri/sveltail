@@ -1,16 +1,34 @@
+import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
-import type { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 
 class GlobalStyle {
   font: FontStyles;
-  color?: string;
+  color?: ColorStyle[];
   spacing: SpacingStyles;
+  transition: TransitionStyles;
 
   constructor(init?: Partial<GlobalStyle>) {
     this.font = new FontStyles();
+    this.spacing = new SpacingStyles();
+    this.transition = new TransitionStyles();
+    this.color = [new ColorStyle()];
     Object.assign(this, init);
   }
-  toStyles = () => `${this.color || ''} ${this.font?.toStyles() || ''}`;
+  toStyles = () =>
+    [
+      this.color
+        ?.map((x) => x.toStyles())
+        .join(' ')
+        .trim(),
+      this.font?.toStyles(),
+      this.spacing?.toStyles(),
+      this.transition?.toStyles(),
+    ]
+      .filter((x) => !!x)
+      .join(' ')
+      .trim();
 }
 
 export { GlobalStyle };

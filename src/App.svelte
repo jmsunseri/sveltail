@@ -74,7 +74,7 @@
         </a>
       </div>
       <div class="h-7 w-7 hover:text-blue-300">
-        <a alt="Twitter" href="https://twitter.com/jmsunseri">
+        <a alt="Twitter" href="https://twitter.com/sveltail">
           <FaTwitter />
         </a>
       </div>

@@ -4,16 +4,10 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const options: string[] = [
-    '',
-    'origin-center',
-    'origin-top',
-    'origin-top-right',
-    'origin-right',
-    'origin-bottom-right',
-    'origin-bottom',
-    'origin-bottom-left',
-    'origin-left',
-    'origin-top-left',
+    'ease-linear',
+    'ease-in',
+    'ease-out',
+    'ease-in-out',
   ];
   export let value: string;
   let select: Select;
@@ -22,7 +16,7 @@
 <Select
   bind:this={select}
   bind:value
-  placeholder="Origin"
+  placeholder="Timing Function"
   styles={selectStyles}>
   {#each options as option}
     <SelectOption value={option} {select}>

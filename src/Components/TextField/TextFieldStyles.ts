@@ -1,18 +1,21 @@
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { IconStyles } from '../Button/Models/IconStyles';
 
 class TextFieldStyles {
   font: FontStyles;
-  color?: string;
+  color?: ColorStyle[];
   icon: IconStyles;
   border: BorderStyles;
   spacing: SpacingStyles;
   ring: RingStyles;
   transform: TransformStyles;
+  transition: TransitionStyles;
 
   /**
    *
@@ -24,18 +27,27 @@ class TextFieldStyles {
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();
     this.transform = new TransformStyles();
+    this.color = [new ColorStyle()];
+    this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
   toStyles = () =>
     [
-      this.color,
+      this.color
+        ?.map((x) => x.toStyles())
+        .join(' ')
+        .trim(),
       this.font.toStyles(),
       this.border.toStyles(),
       this.spacing.toStyles(),
       this.ring.toStyles(),
       this.transform.toStyles(),
-    ].join(' ');
+      this.transition.toStyles(),
+    ]
+      .filter((x) => !!x)
+      .join(' ')
+      .trim();
 }
 
 export { TextFieldStyles };

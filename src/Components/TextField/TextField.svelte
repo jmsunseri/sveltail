@@ -10,6 +10,7 @@
   let font: string;
   let container: string;
   let transform: string;
+  let transition: string;
 
   let isFocused = false;
   let activateRingOnFocus = false;
@@ -17,7 +18,10 @@
   $: {
     icon = styles?.icon?.toStyles();
     input = [
-      styles?.color,
+      styles?.color
+        .filter((x) => !!x)
+        .map((x) => x.toStyles())
+        .join(' '),
       styles?.border?.toStyles(),
       styles?.font?.toStyles(),
       styles?.spacing?.toStyles(),
@@ -27,11 +31,11 @@
     if (styles?.ring?.onFocus === false) {
       input += ` ${styles.ring.toStyles()}`;
     } else {
-      console.log('setting activate ring on focus');
       ring = styles.ring.toStyles().replaceAll('focus:', '');
       activateRingOnFocus = true;
     }
     transform = styles.transform.toStyles();
+    transition = styles.transition.toStyles();
   }
 
   $: {
@@ -41,6 +45,9 @@
         : `flex flex-col justify-center ${input}`;
     if (transform) {
       container += ` ${transform}`;
+    }
+    if (transition) {
+      container += ` ${transition}`;
     }
   }
 </script>

@@ -1,19 +1,9 @@
 <script lang="ts">
   import { colors, numbers } from './color';
-  export let init: string;
+
+  // export let init: string;
   export let value: string;
   export let prefix: string;
-
-  if (init?.length) {
-    const options = colors.flatMap((c: string) =>
-      numbers.map((n: string) => `${prefix}-${c}-${n}`)
-    );
-    const found = options.find((s: string) => init.includes(s));
-    if (found) {
-      value = found;
-    }
-  }
-  console.log('value?', value);
 </script>
 
 <div class="flex flex-col">
@@ -42,5 +32,19 @@
     on:click={() => (value = `${prefix}-white`)}
     class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm text-black`}>
     White
+  </button>
+  <button
+    on:click={() => {
+      value = `${prefix}-transparent`;
+    }}
+    class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm text-black`}>
+    Transparent
+  </button>
+  <button
+    on:click={() => {
+      value = `${prefix}-current`;
+    }}
+    class={`btn border rounded-sm bg-white flex-grow flex justify-center items-center text-sm text-black`}>
+    Current
   </button>
 </div>

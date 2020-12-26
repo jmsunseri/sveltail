@@ -122,10 +122,7 @@
         <div slot="header">Dog Profile</div>
 
         <div class="flex flex-row gap-2">
-          <img
-            alt="Doge"
-            class="h-40 w-40"
-            src="https://upload.wikimedia.org/wikipedia/commons/5/58/Shiba_inu_taiki.jpg" />
+          <img alt="Doge" class="h-40 w-40" src="/shiba.jpg" />
           <div class="flex flex-col gap-1">
             <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
             <div class="flex flex-row gap-1"><b>Gender:</b> Female</div>

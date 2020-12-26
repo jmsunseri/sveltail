@@ -5,8 +5,10 @@
   import SelectOption from '../../Components/Select/SelectOption.svelte';
   import Switch from '../../Components/Switch.svelte';
   import ColorMenu from './ColorMenu.svelte';
-  export let value: string;
+  import type { ColorStyle } from './ColorStyle';
+  export let value: ColorStyle;
   export let prefix: string;
+  export let blockGradient: boolean;
 
   let from: string;
   let to: string;
@@ -19,11 +21,11 @@
   $: {
     if (isGradient && from && direction) {
       if (to && via && isVia) {
-        value = `${prefix}-gradient-to-${direction} ${from} ${via} ${to}`;
+        value.color = `${prefix}-gradient-to-${direction} ${from} ${via} ${to}`;
       } else if (to) {
-        value = `${prefix}-gradient-to-${direction} ${from} ${to}`;
+        value.color = `${prefix}-gradient-to-${direction} ${from} ${to}`;
       } else {
-        value = `${prefix}-gradient-to-${direction} ${from}`;
+        value.color = `${prefix}-gradient-to-${direction} ${from}`;
       }
     }
   }
@@ -31,29 +33,31 @@
   onMount(async () => {
     await tick();
 
-    if (value.includes('gradient')) {
+    if (value.color?.includes('gradient')) {
       isGradient = true;
-      if (value.includes('gradient-to-b')) {
+      if (value.color?.includes('gradient-to-b')) {
         direction = 'b';
-      } else if (value.includes('gradient-to-t')) {
+      } else if (value.color?.includes('gradient-to-t')) {
         direction = 't';
-      } else if (value.includes('gradient-to-l')) {
+      } else if (value.color?.includes('gradient-to-l')) {
         direction = 'l';
-      } else if (value.includes('gradient-to-r')) {
+      } else if (value.color?.includes('gradient-to-r')) {
         direction = 'r';
       }
     }
-    if (value.includes('via')) {
+    if (value.color?.includes('via')) {
       isVia = true;
     }
   });
 </script>
 
 <div class="flex flex-col gap-2">
-  <div class="flex flex-row gap-2">
-    <Switch bind:checked={isGradient} />
-    <span>Gradient ?</span>
-  </div>
+  {#if !blockGradient}
+    <div class="flex flex-row gap-2">
+      <Switch bind:checked={isGradient} />
+      <span>Gradient ?</span>
+    </div>
+  {/if}
 
   {#if isGradient}
     Direction:
@@ -75,6 +79,6 @@
     To:
     <ColorMenu prefix="to" bind:value={to} />
   {:else}
-    <ColorMenu {prefix} bind:value />
+    <ColorMenu {prefix} bind:value={value.color} />
   {/if}
 </div>
