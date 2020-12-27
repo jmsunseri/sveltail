@@ -9,6 +9,7 @@
   import { CardStyles } from '../Card/CardStyles';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
 
   let accordion: Accordion;
   export let value: CardStyles = new CardStyles();
@@ -28,6 +29,12 @@
     <AccordionItem id={4} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={value.spacing} />
     </AccordionItem>
+    <AccordionItem id={4.1} {accordion} headerText="Transform">
+      <TransformSelect bind:value={value.transform} />
+    </AccordionItem>
+    <AccordionItem id={4.2} {accordion} headerText="Transition">
+      <TransitionSelect bind:value={value.transition} />
+    </AccordionItem>
     <AccordionItem id={5} {accordion} headerText="Header Color">
       <ColorsSelects prefix="bg" bind:value={value.header.color} />
     </AccordionItem>
@@ -40,11 +47,23 @@
     <AccordionItem id={8} {accordion} headerText="Header Spacing">
       <SpacingSelect bind:value={value.header.spacing} />
     </AccordionItem>
+    <AccordionItem id={8.1} {accordion} headerText="Header Transform">
+      <TransformSelect bind:value={value.header.transform} />
+    </AccordionItem>
+    <AccordionItem id={8.2} {accordion} headerText="Header Transition">
+      <TransitionSelect bind:value={value.header.transition} />
+    </AccordionItem>
     <AccordionItem id={9} {accordion} headerText="Body Font">
       <FontSelect bind:value={value.container.font} />
     </AccordionItem>
     <AccordionItem id={10} {accordion} headerText="Body Spacing">
       <SpacingSelect bind:value={value.container.spacing} />
+    </AccordionItem>
+    <AccordionItem id={10.1} {accordion} headerText="Body Transform">
+      <TransformSelect bind:value={value.container.transform} />
+    </AccordionItem>
+    <AccordionItem id={10.2} {accordion} headerText="Body Transition">
+      <TransitionSelect bind:value={value.container.transition} />
     </AccordionItem>
     <AccordionItem id={11} {accordion} headerText="Footer Color">
       <ColorsSelects prefix="bg" bind:value={value.footer.color} />
@@ -58,8 +77,11 @@
     <AccordionItem id={14} {accordion} headerText="Footer Spacing">
       <SpacingSelect bind:value={value.footer.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={15} {accordion} headerText="Transform">
-      <TransformSelect bind:value={value.transform} />
+    <AccordionItem id={14.1} {accordion} headerText="Footer Transform">
+      <TransformSelect bind:value={value.footer.transform} />
+    </AccordionItem>
+    <AccordionItem isLast id={14.2} {accordion} headerText="Footer Transition">
+      <TransitionSelect bind:value={value.footer.transition} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

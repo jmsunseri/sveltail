@@ -3,6 +3,7 @@ import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { CardPartStyles } from './CardPartStyles';
 
 class CardStyles {
@@ -14,6 +15,7 @@ class CardStyles {
   footer?: CardPartStyles;
   container?: CardPartStyles;
   transform?: TransformStyles;
+  transition?: TransitionStyles;
 
   /**
    *
@@ -27,6 +29,7 @@ class CardStyles {
     this.container = new CardPartStyles();
     this.transform = new TransformStyles();
     this.color = [new ColorStyle()];
+    this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
@@ -43,6 +46,7 @@ class CardStyles {
         .trim(),
       this.spacing?.toStyles(),
       this.transform?.toStyles(),
+      this.transition?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')
