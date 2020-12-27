@@ -12,6 +12,7 @@
   import DividerSelect from '../../TailwindControls/Divider/DividerSelect.svelte';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
 
   let accordion: Accordion;
   export let value: SelectStyles = new SelectStyles();
@@ -46,6 +47,9 @@
     <AccordionItem id={7} {accordion} headerText="Button Transform">
       <TransformSelect bind:value={value.button.transform} />
     </AccordionItem>
+    <AccordionItem id={7.1} {accordion} headerText="Button Transition">
+      <TransitionSelect bind:value={value.button.transition} />
+    </AccordionItem>
     <AccordionItem id={8} {accordion} headerText="Menu Color">
       <ColorsSelects prefix="bg" bind:value={value.menu.color} />
     </AccordionItem>
@@ -67,21 +71,28 @@
     <AccordionItem id={14} {accordion} headerText="Menu Transform">
       <TransformSelect bind:value={value.menu.transform} />
     </AccordionItem>
+    <AccordionItem id={14.1} {accordion} headerText="Menu Transition">
+      <TransitionSelect bind:value={value.menu.transition} />
+    </AccordionItem>
     <AccordionItem id={15} {accordion} headerText="Menu Item Font">
+      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <FontSelect bind:value={value.menuItem.font} />
     </AccordionItem>
     <AccordionItem id={16} {accordion} headerText="Menu Item Spacing">
+      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <SpacingSelect bind:value={value.menuItem.spacing} />
     </AccordionItem>
     <AccordionItem id={17} {accordion} headerText="Menu Item Transform">
+      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <TransformSelect bind:value={value.menuItem.transform} />
     </AccordionItem>
-    <AccordionItem
-      isLast
-      id={18}
-      {accordion}
-      headerText="Menu Item Hover Color">
-      <ColorsSelects prefix="hover:bg" bind:value={value.menuItem.color} />
+    <AccordionItem id={17.1} {accordion} headerText="Menu Item Transition">
+      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
+      <TransitionSelect bind:value={value.menuItem.transition} />
+    </AccordionItem>
+    <AccordionItem isLast id={18} {accordion} headerText="Menu Item Color">
+      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
+      <ColorsSelects prefix="bg" bind:value={value.menuItem.color} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

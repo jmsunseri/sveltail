@@ -8,9 +8,9 @@
     'transition-all',
     'transition',
     'transition-colors',
-    'transition-bopacity',
+    'transition-opacity',
     'transition-shadow',
-    'transition-btransform',
+    'transition-transform',
   ];
   export let value: string;
   let select: Select;
