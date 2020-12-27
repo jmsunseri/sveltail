@@ -123,7 +123,7 @@
       <Card styles={$cardStyles}>
         <div slot="header">Dog Profile</div>
 
-        <div class="flex flex-row gap-2">
+        <div class="flex md:flex-row md:gap-2 flex-col ">
           <img alt="Doge" class="h-40 w-40" src="/shiba.jpg" />
           <div class="flex flex-col gap-1">
             <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
