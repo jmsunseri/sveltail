@@ -7,6 +7,7 @@
   export let value: ColorStyle[] = [new ColorStyle()];
   export let prefix: string;
   export let blockGradient: boolean;
+  export let blockHover: boolean;
 
   let normal: ColorStyle;
   let hover: ColorStyle;
@@ -24,7 +25,7 @@
 
 <ColorSelect {prefix} bind:value={normal} {blockGradient} />
 
-{#if value.length < 2}
+{#if !hover && !blockHover}
   <div class="flex flex-row justify-center">
     <Button
       styles={primaryButton}
@@ -36,7 +37,7 @@
       Add Hover Color
     </Button>
   </div>
-{:else}
+{:else if hover}
   Hover Color
   <ColorSelect {prefix} bind:value={hover} {blockGradient} />
 {/if}
