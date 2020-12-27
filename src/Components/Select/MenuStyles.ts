@@ -6,6 +6,7 @@ import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 
 class MenuStyles {
   font: FontStyles;
@@ -16,6 +17,7 @@ class MenuStyles {
   spacing: SpacingStyles;
   divider: DividerStyles;
   transform: TransformStyles;
+  transition: TransitionStyles;
 
   /**
    *
@@ -29,6 +31,7 @@ class MenuStyles {
     this.divider = new DividerStyles();
     this.transform = new TransformStyles();
     this.color = [new ColorStyle()];
+    this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
@@ -48,6 +51,7 @@ class MenuStyles {
       this.size?.toStyles(),
       this.divider?.toStyles(),
       this.transform?.toStyles(),
+      this.transition?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

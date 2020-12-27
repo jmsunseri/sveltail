@@ -5,6 +5,7 @@ import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 
 class TablePartStyles {
   font: FontStyles;
@@ -14,6 +15,7 @@ class TablePartStyles {
   spacing: SpacingStyles;
   divider: DividerStyles;
   transform?: TransformStyles;
+  transition?: TransitionStyles;
 
   /**
    *
@@ -26,6 +28,7 @@ class TablePartStyles {
     this.divider = new DividerStyles();
     this.transform = new TransformStyles();
     this.color = [new ColorStyle()];
+    this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
@@ -44,6 +47,7 @@ class TablePartStyles {
       this.spacing?.toStyles(),
       this.divider?.toStyles(),
       this.transform?.toStyles(),
+      this.transition?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')

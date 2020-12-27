@@ -10,6 +10,7 @@
   import { TableStyles } from '../Table/TableStyles';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
 
   let accordion: Accordion;
   export let value: TableStyles = new TableStyles();
@@ -38,6 +39,9 @@
     <AccordionItem id={6} {accordion} headerText="Transform">
       <TransformSelect bind:value={value.transform} />
     </AccordionItem>
+    <AccordionItem id={6.1} {accordion} headerText="Transition">
+      <TransitionSelect bind:value={value.transition} />
+    </AccordionItem>
     <AccordionItem id={7} {accordion} headerText="Header Color">
       <ColorsSelects prefix="bg" bind:value={value.header.color} />
     </AccordionItem>
@@ -59,6 +63,9 @@
     <AccordionItem id={13} {accordion} headerText="Header Transform">
       <TransformSelect bind:value={value.header.transform} />
     </AccordionItem>
+    <AccordionItem id={13.1} {accordion} headerText="Header Transition">
+      <TransitionSelect bind:value={value.header.transition} />
+    </AccordionItem>
     <AccordionItem id={14} {accordion} headerText="Row Color">
       <ColorsSelects prefix="bg" bind:value={value.row.color} />
     </AccordionItem>
@@ -77,8 +84,11 @@
     <AccordionItem id={19} {accordion} headerText="Row Spacing">
       <SpacingSelect bind:value={value.row.spacing} />
     </AccordionItem>
-    <AccordionItem isLast id={20} {accordion} headerText="Row Transform">
+    <AccordionItem id={20} {accordion} headerText="Row Transform">
       <TransformSelect bind:value={value.row.transform} />
+    </AccordionItem>
+    <AccordionItem isLast id={20.1} {accordion} headerText="Row Transition">
+      <TransitionSelect bind:value={value.row.transition} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

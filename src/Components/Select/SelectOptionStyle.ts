@@ -2,12 +2,14 @@ import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 
 class SelectOptionStyles {
   font?: FontStyles;
   spacing?: SpacingStyles;
   color?: ColorStyle[];
   transform?: TransformStyles;
+  transition?: TransitionStyles;
 
   /**
    *
@@ -17,6 +19,7 @@ class SelectOptionStyles {
     this.spacing = new SpacingStyles();
     this.transform = new TransformStyles();
     this.color = [new ColorStyle()];
+    this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
@@ -29,6 +32,7 @@ class SelectOptionStyles {
         .join(' ')
         .trim(),
       this.transform?.toStyles(),
+      this.transition?.toStyles(),
     ]
       .filter((x) => !!x)
       .join(' ')
