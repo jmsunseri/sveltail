@@ -1,4 +1,6 @@
-class ColorStyle {
+import type { IStyle } from '../../IStyle';
+
+class ColorStyle implements IStyle {
   color?: string;
   isHover?: boolean;
 

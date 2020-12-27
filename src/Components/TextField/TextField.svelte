@@ -11,6 +11,7 @@
   let container: string;
   let transform: string;
   let transition: string;
+  let placeholderStyle: string;
 
   let isFocused = false;
   let activateRingOnFocus = false;
@@ -36,6 +37,7 @@
     }
     transform = styles.transform.toStyles();
     transition = styles.transition.toStyles();
+    placeholderStyle = styles.placeholder.toStyles();
   }
 
   $: {
@@ -60,7 +62,7 @@
       </div>
     {/if}
     <input
-      class={`focus:outline-none min-w-0 flex-1 bg-transparent ${font}`}
+      class={`focus:outline-none min-w-0 flex-1 bg-transparent ${font} ${placeholderStyle}`}
       type="text"
       bind:value
       on:focus={() => {

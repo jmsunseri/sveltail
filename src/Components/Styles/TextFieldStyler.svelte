@@ -11,6 +11,7 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
+  import PlaceholderSelect from '../../TailwindControls/Placeholder/PlaceholderSelect.svelte';
 
   let accordion: Accordion;
   export let value: TextFieldStyles = new TextFieldStyles();
@@ -23,6 +24,9 @@
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Font">
       <FontSelect bind:value={value.font} />
+    </AccordionItem>
+    <AccordionItem id={2.5} {accordion} headerText="Placeholder">
+      <PlaceholderSelect bind:value={value.placeholder} />
     </AccordionItem>
     <AccordionItem id={3} {accordion} headerText="Border">
       <BorderSelect bind:value={value.border} />
