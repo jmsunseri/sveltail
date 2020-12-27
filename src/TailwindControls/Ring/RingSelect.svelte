@@ -11,7 +11,7 @@
   let opacity: string = value?.opacity?.substring(5);
 
   $: {
-    value.opacity = `ring-${opacity}`;
+    value.opacity = opacity ? `ring-${opacity}` : '';
   }
 </script>
 
