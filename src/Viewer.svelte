@@ -31,7 +31,9 @@
         <FaPaw />
       </div>
       <div class="flex-1">Pet Finder</div>
-      <div class="text-base hover:underline font-normal">Account</div>
+      <div class="text-base hover:underline font-normal cursor-pointer">
+        Account
+      </div>
     </div>
   </Header>
   <div class="px-4 pb-4">
