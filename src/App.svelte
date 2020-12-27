@@ -157,8 +157,7 @@
         <NotImplementedStyler on:closed={cardClosed} />
       {/if}
     </div>
-    <div
-      class="col-span-2 lg:border-l-2 border-dashed border-gray-300 pl-2 lg:pt-2 lg:pr-0  pr-2 ">
+    <div class="col-span-2 pl-2 lg:pt-2 lg:pr-0  pr-2 ">
       <Viewer />
     </div>
   </div>
