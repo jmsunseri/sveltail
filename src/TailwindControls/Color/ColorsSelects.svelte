@@ -8,36 +8,21 @@
   export let prefix: string;
   export let blockGradient: boolean;
   export let blockHover: boolean;
-
-  let normal: ColorStyle;
-  let hover: ColorStyle;
-
-  $: {
-    normal = value.find((x) => !x.isHover) || new ColorStyle();
-    hover = value.find((x) => x.isHover);
-    if (hover) {
-      value = [normal, hover];
-    } else {
-      value = [normal];
-    }
-  }
 </script>
 
-<ColorSelect {prefix} bind:value={normal} {blockGradient} />
-
-{#if !hover && !blockHover}
-  <div class="flex flex-row justify-center">
-    <Button
-      styles={primaryButton}
-      on:click={() => {
-        console.log('value', value);
-
-        value = [...value, new ColorStyle({ isHover: true })];
-      }}>
-      Add Hover Color
-    </Button>
-  </div>
-{:else if hover}
-  Hover Color
-  <ColorSelect {prefix} bind:value={hover} {blockGradient} />
-{/if}
+<div class="flex flex-col gap-1">
+  {#each value as color}
+    <ColorSelect {prefix} bind:value={color} {blockGradient} {blockHover} />
+  {/each}
+  {#if !blockHover && value.length !== 2}
+    <div class="flex items-center justify-center">
+      <Button
+        styles={primaryButton}
+        on:click={() => {
+          value = [...value, new ColorStyle()];
+        }}>
+        Add Color Styles
+      </Button>
+    </div>
+  {/if}
+</div>

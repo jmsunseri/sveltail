@@ -9,6 +9,7 @@
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
+  export let blockHover: boolean;
 
   let from: string;
   let to: string;
@@ -32,7 +33,6 @@
 
   onMount(async () => {
     await tick();
-
     if (value.color?.includes('gradient')) {
       isGradient = true;
       if (value.color?.includes('gradient-to-b')) {
@@ -52,13 +52,18 @@
 </script>
 
 <div class="flex flex-col gap-2">
-  {#if !blockGradient}
+  {#if !blockGradient || !blockHover}
     <div class="flex flex-row gap-2">
-      <Switch bind:checked={isGradient} />
-      <span>Gradient ?</span>
+      {#if !blockGradient}
+        <Switch bind:checked={isGradient} />
+        <span>Gradient ?</span>
+      {/if}
+      {#if !blockHover}
+        <Switch bind:checked={value.isHover} />
+        <span>Apply On Hover?</span>
+      {/if}
     </div>
   {/if}
-
   {#if isGradient}
     Direction:
     <Select bind:this={select} styles={selectStyles} bind:value={direction}>
