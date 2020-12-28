@@ -8,7 +8,7 @@ import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
 import { HeaderStyle } from '../Components/Header/HeaderStyle';
 import { SelectStyles } from '../Components/Select/SelectStyle';
 import { MenuStyles } from '../Components/Select/MenuStyles';
-import { GlobalStyle } from '../Components/Styles/GlobalStyle';
+import { GlobalStyle } from '../Components/Viewer/GlobalStyle';
 import { RingStyles } from '../TailwindControls/Ring/RingStyles';
 import { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';

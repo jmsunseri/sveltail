@@ -2,10 +2,9 @@
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
-  import StyleGroup from '../../Components/Styles/StyleGroup.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
-  import { SelectStyles } from '../../Components/Select/SelectStyle';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import DividerSelect from '../../TailwindControls/Divider/DividerSelect.svelte';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';

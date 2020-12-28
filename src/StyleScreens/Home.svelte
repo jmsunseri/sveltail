@@ -3,9 +3,9 @@
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../Components/Breadcrumb/Breadcrumb';
-  import GlobalStyler from './GlobalStyler.svelte';
+  import GlobalStyler from './Global/GlobalStyler.svelte';
   import TextFieldStyler from './TextFieldStyler.svelte';
-  import StyleMenuButton from '../StyleMenuButton.svelte';
+  import StyleMenuButton from './StyleMenuButton.svelte';
   import ButtonMenu from './Button/ButtonMenu.svelte';
   import HeaderStyler from './HeaderStyler.svelte';
   import TableMenu from './Table/TableMenu.svelte';

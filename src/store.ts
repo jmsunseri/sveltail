@@ -4,7 +4,7 @@ import type { CardStyles } from './Components/Card/CardStyles';
 import type { CheckboxStyles } from './Components/Checkbox/CheckboxStyles';
 import type { HeaderStyle } from './Components/Header/HeaderStyle';
 import type { SelectStyles } from './Components/Select/SelectStyle';
-import type { GlobalStyle } from './Components/Styles/GlobalStyle';
+import type { GlobalStyle } from './Components/Viewer/GlobalStyle';
 import type { TableStyles } from './Components/Table/TableStyles';
 import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
 import {

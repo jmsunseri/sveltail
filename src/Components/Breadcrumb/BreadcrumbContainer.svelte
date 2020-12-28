@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount, SvelteComponent, tick } from 'svelte';
+  import { onMount, tick } from 'svelte';
   import type { IBreadcrumb, IBreadcrumbEvent } from './Breadcrumb';
   import BreadcrumbNavigator from './BreadcrumbNavigator.svelte';
 

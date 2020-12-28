@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Button from './Components/Button/Button.svelte';
-  import Card from './Components/Card/Card.svelte';
-  import Select from './Components/Select/Select.svelte';
-  import SelectOption from './Components/Select/SelectOption.svelte';
+  import Button from '../Button/Button.svelte';
+  import Card from '../Card/Card.svelte';
+  import Select from '../Select/Select.svelte';
+  import SelectOption from '../Select/SelectOption.svelte';
   import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
   import FaPaw from 'svelte-icons/fa/FaPaw.svelte';
   import {
@@ -15,10 +15,10 @@
     checkboxStyles,
     tableStyles,
     cardStyles,
-  } from './store';
-  import Header from './Components/Header/Header.svelte';
-  import TextField from './Components/TextField/TextField.svelte';
-  import Checkbox from './Components/Checkbox/Checkbox.svelte';
+  } from '../../store';
+  import Header from '../Header/Header.svelte';
+  import TextField from '../TextField/TextField.svelte';
+  import Checkbox from '../Checkbox/Checkbox.svelte';
 
   let select: Select;
   let petType: string;

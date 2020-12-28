@@ -1,5 +1,5 @@
 <script lang="ts">
-  import IconButton from './Components/Button/IconButton.svelte';
+  import IconButton from '../Components/Button/IconButton.svelte';
 
   export let text: string;
 </script>

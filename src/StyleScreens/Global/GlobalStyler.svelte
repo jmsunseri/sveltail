@@ -1,13 +1,13 @@
 <script lang="ts">
-  import Accordion from '../Components/Accordion/Accordion.svelte';
-  import AccordionItem from '../Components/Accordion/AccordionItem.svelte';
-  import StyleGroup from '../Components/Styles/StyleGroup.svelte';
-  import FontSelect from '../TailwindControls/Font/FontSelect.svelte';
-  import SpacingSelect from '../TailwindControls/Spacing/SpacingSelect.svelte';
-  import TransitionSelect from '../TailwindControls/Transition/TransitionSelect.svelte';
-  import ColorsSelects from '../TailwindControls/Color/ColorsSelects.svelte';
+  import Accordion from '../../Components/Accordion/Accordion.svelte';
+  import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
+  import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
+  import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
+  import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
-  import { viewerStyles } from '../store';
+  import { viewerStyles } from '../../store';
 
   let accordion: Accordion;
 </script>

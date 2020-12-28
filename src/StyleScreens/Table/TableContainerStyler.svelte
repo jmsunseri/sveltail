@@ -7,7 +7,7 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import StyleGroup from '../../Components/Styles/StyleGroup.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import { tableStyles } from '../../store';

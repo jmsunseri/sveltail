@@ -9,7 +9,7 @@
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
-  import StyleGroup from '../../Components/Styles/StyleGroup.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
   import { tableStyles } from '../../store';
 
   let accordion: Accordion;

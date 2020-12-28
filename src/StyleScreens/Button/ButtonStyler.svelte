@@ -4,7 +4,7 @@
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
   import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
   import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
-  import StyleGroup from '../../Components/Styles/StyleGroup.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
@@ -16,7 +16,7 @@
   import type { Writable } from 'svelte/store';
 
   let accordion: Accordion;
-  export let isPrimary;
+  export let isPrimary: boolean;
 
   let value: Writable<ButtonStyles> = primaryButtonStyles;
 

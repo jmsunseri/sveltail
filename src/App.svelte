@@ -1,33 +1,9 @@
 <script lang="ts">
   import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
   import DiGithubAlt from 'svelte-icons/di/DiGithubAlt.svelte';
-  import Viewer from './Viewer.svelte';
+  import Viewer from './Components/Viewer/Viewer.svelte';
   import BreadcrumbContainer from './Components/Breadcrumb/BreadcrumbContainer.svelte';
   import Home from './StyleScreens/Home.svelte';
-
-  enum VisibleComponent {
-    menu,
-    header,
-    btn,
-    altBtn,
-    notImplemented,
-    global,
-    text,
-    select,
-    checkbox,
-    table,
-    card,
-  }
-
-  let visible: VisibleComponent = VisibleComponent.menu;
-
-  const change = (v: VisibleComponent) => {
-    visible = v;
-  };
-
-  const cardClosed = () => {
-    change(VisibleComponent.menu);
-  };
 </script>
 
 <!--  -->

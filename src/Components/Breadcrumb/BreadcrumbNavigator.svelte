@@ -2,7 +2,7 @@
   import FaAngleDoubleRight from 'svelte-icons/fa/FaAngleDoubleRight.svelte';
   import type { IBreadcrumb, IBreadcrumbEvent } from './Breadcrumb';
   import { createEventDispatcher } from 'svelte';
-  import { fade, fly, slide } from 'svelte/transition';
+  import { fade, fly } from 'svelte/transition';
 
   const dispatch = createEventDispatcher();
 

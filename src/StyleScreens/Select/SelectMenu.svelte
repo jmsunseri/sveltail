@@ -3,7 +3,7 @@
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../../Components/Breadcrumb/Breadcrumb';
-  import StyleMenuButton from '../../StyleMenuButton.svelte';
+  import StyleMenuButton from '../StyleMenuButton.svelte';
   import SelectButtonStyler from './SelectButtonStyler.svelte';
   import SelectMenuItemStyler from './SelectMenuItemStyler.svelte';
   import SelectMenuStyler from './SelectMenuStyler.svelte';
