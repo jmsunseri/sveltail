@@ -218,7 +218,7 @@ export const select: SelectStyles = new SelectStyles({
     }),
   }),
   menuItem: new SelectOptionStyles({
-    color: [new ColorStyle({ color: 'hover:bg-purple-100' })],
+    color: [new ColorStyle({ color: 'bg-purple-100', isHover: true })],
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
     }),
