@@ -20,7 +20,7 @@ class ButtonStyles implements IStyle {
   spacing: SpacingStyles;
   size: SizingStyles;
   ring: RingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
 
   /**
@@ -34,7 +34,7 @@ class ButtonStyles implements IStyle {
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
     this.ring = new RingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.transition = new TransitionStyles();
     this.color = [new ColorStyle()];
     Object.assign(this, init);

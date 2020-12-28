@@ -18,7 +18,7 @@ class MenuStyles implements IStyle {
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   divider: DividerStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
 
   /**
@@ -31,7 +31,7 @@ class MenuStyles implements IStyle {
     this.effects = [new EffectsStyle()];
     this.spacing = new SpacingStyles();
     this.divider = new DividerStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);

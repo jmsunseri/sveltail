@@ -17,7 +17,7 @@ class TextFieldStyles implements IStyle {
   border: BorderStyles;
   spacing: SpacingStyles;
   ring: RingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
   placeholder: PlaceholderStyles;
 
@@ -30,7 +30,7 @@ class TextFieldStyles implements IStyle {
     this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     this.placeholder = new PlaceholderStyles();

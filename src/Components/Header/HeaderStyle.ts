@@ -16,7 +16,7 @@ class HeaderStyle implements IStyle {
   border: BorderStyles;
   effects: EffectsStyle[];
   spacing: SpacingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
 
   /**
@@ -28,7 +28,7 @@ class HeaderStyle implements IStyle {
     this.size = new SizingStyles();
     this.effects = [new EffectsStyle()];
     this.spacing = new SpacingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);

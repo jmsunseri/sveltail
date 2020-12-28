@@ -16,7 +16,7 @@ class CheckboxStyles implements IStyle {
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   size: SizingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
 
   /**
@@ -28,7 +28,7 @@ class CheckboxStyles implements IStyle {
     this.effects = [new EffectsStyle()];
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);

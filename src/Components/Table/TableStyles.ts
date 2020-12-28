@@ -19,7 +19,7 @@ class TableStyles implements IStyle {
   divider: DividerStyles;
   row: TablePartStyles;
   header: TablePartStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
 
   /**
@@ -33,7 +33,7 @@ class TableStyles implements IStyle {
     this.divider = new DividerStyles();
     this.row = new TablePartStyles();
     this.header = new TablePartStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);

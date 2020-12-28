@@ -12,7 +12,7 @@ class CardPartStyles implements IStyle {
   color?: ColorStyle[];
   border?: BorderStyles;
   spacing?: SpacingStyles;
-  transform?: TransformStyles;
+  transform?: TransformStyles[];
   transition?: TransitionStyles;
 
   /**
@@ -23,7 +23,7 @@ class CardPartStyles implements IStyle {
     this.border = new BorderStyles();
     this.spacing = new SpacingStyles();
     this.color = [new ColorStyle()];
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
   }

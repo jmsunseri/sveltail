@@ -10,7 +10,7 @@ class SelectOptionStyles implements IStyle {
   font?: FontStyles;
   spacing?: SpacingStyles;
   color?: ColorStyle[];
-  transform?: TransformStyles;
+  transform?: TransformStyles[];
   transition?: TransitionStyles;
 
   /**
@@ -19,7 +19,7 @@ class SelectOptionStyles implements IStyle {
   constructor(init?: Partial<SelectOptionStyles>) {
     this.font = new FontStyles();
     this.spacing = new SpacingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);

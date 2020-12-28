@@ -34,7 +34,7 @@
       ring = styles.ring.toStyles().replaceAll('focus:', '');
       activateRingOnFocus = true;
     }
-    transform = styles.transform.toStyles();
+    transform = getStyles(styles.transform);
     transition = styles.transition.toStyles();
     placeholderStyle = styles.placeholder.toStyles();
   }

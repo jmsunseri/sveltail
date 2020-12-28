@@ -66,9 +66,12 @@ export const checkbox = new CheckboxStyles({
     height: 'h-5',
     width: 'w-5',
   }),
-  transform: new TransformStyles({
-    rotate: 'hover:rotate-6',
-  }),
+  transform: [
+    new TransformStyles({
+      rotate: 'rotate-6',
+      onHover: true,
+    }),
+  ],
   transition: new TransitionStyles({
     transition: 'transition',
     duration: 'duration-300',
@@ -105,10 +108,12 @@ export const secondaryButton = new ButtonStyles({
     color: [new ColorStyle({ color: 'text-purple-800' })],
     weight: 'font-bold',
   }),
-  transform: new TransformStyles({
-    scale: 'scale-110',
-    onHover: true,
-  }),
+  transform: [
+    new TransformStyles({
+      scale: 'scale-110',
+      onHover: true,
+    }),
+  ],
   effects: [
     new EffectsStyle({
       boxShadow: 'shadow-md',

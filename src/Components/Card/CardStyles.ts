@@ -16,7 +16,7 @@ class CardStyles implements IStyle {
   header?: CardPartStyles;
   footer?: CardPartStyles;
   container?: CardPartStyles;
-  transform?: TransformStyles;
+  transform?: TransformStyles[];
   transition?: TransitionStyles;
 
   /**
@@ -29,7 +29,7 @@ class CardStyles implements IStyle {
     this.header = new CardPartStyles();
     this.footer = new CardPartStyles();
     this.container = new CardPartStyles();
-    this.transform = new TransformStyles();
+    this.transform = [new TransformStyles()];
     this.color = [new ColorStyle()];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
