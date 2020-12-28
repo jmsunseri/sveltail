@@ -20,13 +20,13 @@
   };
 </script>
 
-<div class="flex md:flex-row flex-col md:gap-3 items-center pb-3">
+<div class="flex flex-row gap-3 items-center pb-3">
   {#each breadcrumbs as crumb, index}
     {#if index !== 0}
       <div
         in:fly={{ x: -50, duration: 250 }}
         out:fade={{ duration: 250 }}
-        class="h-5 w-5 md:transform-none sm:transform-gpu sm:rotate-90 text-blue-300">
+        class="h-5 w-5 text-blue-300">
         <FaAngleDoubleRight />
       </div>
       <div
