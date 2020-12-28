@@ -11,7 +11,6 @@
   const crumbClicked = (index: number) => {
     const crumb = breadcrumbs[index];
     const newCrumbs = breadcrumbs.slice(0, index + 1);
-    console.log('new crumbs', newCrumbs);
     dispatch('navigate', {
       breadcrumbs: newCrumbs,
       component: crumb.component,
