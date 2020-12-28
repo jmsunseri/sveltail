@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { getStyles } from '../../utils';
+
   import { TextFieldStyles } from './TextFieldStyles';
   export let styles: TextFieldStyles = new TextFieldStyles();
   export let value: string;
@@ -18,15 +20,12 @@
 
   $: {
     icon = styles?.icon?.toStyles();
-    input = [
-      styles?.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' '),
-      styles?.border?.toStyles(),
-      styles?.font?.toStyles(),
-      styles?.spacing?.toStyles(),
-    ].join(' ');
+    input = getStyles([
+      styles?.color,
+      styles?.border,
+      styles?.font,
+      styles?.spacing,
+    ]);
     font = styles?.font?.toStyles();
 
     if (styles?.ring?.onFocus === false) {

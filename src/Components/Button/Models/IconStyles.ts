@@ -1,7 +1,9 @@
+import type { IStyle } from '../../../IStyle';
 import { ColorStyle } from '../../../TailwindControls/Color/ColorStyle';
 import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
+import { getStyles } from '../../../utils';
 
-class IconStyles {
+class IconStyles implements IStyle {
   color?: ColorStyle[];
   size?: SizingStyles;
 
@@ -11,17 +13,7 @@ class IconStyles {
     Object.assign(this, init);
   }
 
-  toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.size?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+  toStyles = () => getStyles([this.color, this.size]);
 }
 
 export { IconStyles };

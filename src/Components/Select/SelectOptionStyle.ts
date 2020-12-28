@@ -1,10 +1,12 @@
+import type { IStyle } from '../../IStyle';
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 
-class SelectOptionStyles {
+class SelectOptionStyles implements IStyle {
   font?: FontStyles;
   spacing?: SpacingStyles;
   color?: ColorStyle[];
@@ -24,19 +26,13 @@ class SelectOptionStyles {
   }
 
   toStyles = () =>
-    [
-      this.font?.toStyles(),
-      this.spacing?.toStyles(),
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.font,
+      this.spacing,
+      this.color,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { SelectOptionStyles };

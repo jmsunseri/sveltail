@@ -1,3 +1,4 @@
+import type { IStyle } from '../../IStyle';
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
@@ -6,9 +7,10 @@ import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 import { IconStyles } from '../Button/Models/IconStyles';
 
-class TextFieldStyles {
+class TextFieldStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   icon: IconStyles;
@@ -36,22 +38,16 @@ class TextFieldStyles {
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.font.toStyles(),
-      this.border.toStyles(),
-      this.spacing.toStyles(),
-      this.ring.toStyles(),
-      this.transform.toStyles(),
-      this.transition.toStyles(),
-      this.placeholder.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.font,
+      this.border,
+      this.spacing,
+      this.ring,
+      this.transform,
+      this.transition,
+      this.placeholder,
+    ]);
 }
 
 export { TextFieldStyles };

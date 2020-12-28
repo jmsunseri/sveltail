@@ -1,12 +1,14 @@
+import type { IStyle } from '../../IStyle';
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 import { CardPartStyles } from './CardPartStyles';
 
-class CardStyles {
+class CardStyles implements IStyle {
   color?: ColorStyle[];
   border?: BorderStyles;
   effects?: EffectsStyle[];
@@ -34,23 +36,14 @@ class CardStyles {
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.border?.toStyles(),
-      this.effects
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.spacing?.toStyles(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.border,
+      this.effects,
+      this.spacing,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { CardStyles };
