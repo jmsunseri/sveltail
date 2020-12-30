@@ -13,7 +13,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Header Styles">
+<StyleGroup on:closed header="Header Styles" bind:style={$cardStyles.header}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$cardStyles.header.color} />

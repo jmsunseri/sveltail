@@ -26,7 +26,9 @@
     "svelte-preprocess": "^4.6.1",
     "tailwindcss": "^2.0.1",
     "tslib": "^2.0.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "lodash": "^4.17.20",
+    "@types/lodash": "^4.14.166"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"

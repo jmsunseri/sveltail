@@ -1,14 +1,16 @@
 import type { IStyle } from '../../IStyle';
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { PlaceholderStyles } from '../../TailwindControls/Placeholder/PlaceholderStyles';
 import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
 import { IconStyles } from '../Button/Models/IconStyles';
+import clone from 'lodash/cloneDeep';
+import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 
 class TextFieldStyles implements IStyle {
   font: FontStyles;
@@ -16,10 +18,28 @@ class TextFieldStyles implements IStyle {
   icon: IconStyles;
   border: BorderStyles;
   spacing: SpacingStyles;
+  effects: EffectsStyle[];
   ring: RingStyles;
   transform: TransformStyles[];
   transition: TransitionStyles;
   placeholder: PlaceholderStyles;
+  default: TextFieldStyles;
+
+  reset = (): TextFieldStyles => {
+    this.font.reset();
+    this.color = this.color.slice(0, this.default.color.length);
+    this.color.forEach((x) => x.reset());
+    this.icon.reset();
+    this.border.reset();
+    this.spacing.reset();
+    this.ring.reset();
+    this.transform = this.transform.slice(0, this.default.transform.length);
+    this.transform.forEach((x) => x.reset());
+    this.transition.reset();
+    this.effects = this.effects.slice(0, this.default.effects.length);
+    this.effects.forEach((x) => x.reset());
+    return this;
+  };
 
   /**
    *
@@ -30,11 +50,13 @@ class TextFieldStyles implements IStyle {
     this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();
-    this.transform = [new TransformStyles()];
-    this.color = [new ColorStyle()];
+    this.transform = [];
+    this.color = [];
     this.transition = new TransitionStyles();
     this.placeholder = new PlaceholderStyles();
+    this.effects = [];
     Object.assign(this, init);
+    this.default = clone<TextFieldStyles>(this);
   }
 
   toStyles = () =>
@@ -47,6 +69,7 @@ class TextFieldStyles implements IStyle {
       this.transform,
       this.transition,
       this.placeholder,
+      this.effects,
     ]);
 }
 

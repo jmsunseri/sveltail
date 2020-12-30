@@ -15,7 +15,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Container Styles">
+<StyleGroup on:closed header="Table Container" bind:style={$tableStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$tableStyles.color} />

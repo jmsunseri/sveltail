@@ -29,7 +29,7 @@
   }
 </script>
 
-<StyleGroup on:closed header="Button Styles">
+<StyleGroup on:closed header="Button Styles" bind:style={$value}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$value.color} />

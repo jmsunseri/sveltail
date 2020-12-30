@@ -1,3 +1,6 @@
+import { getStyles } from '../../utils';
+import clone from 'lodash/cloneDeep';
+
 class SizingStyles {
   height?: string;
   maxHeight?: string;
@@ -5,15 +8,42 @@ class SizingStyles {
   width?: string;
   maxWidth?: string;
   minWidth?: string;
+  default: SizingStyles;
+
+  reset = (): SizingStyles => {
+    const {
+      height,
+      maxHeight,
+      minHeight,
+      width,
+      maxWidth,
+      minWidth,
+    } = this.default;
+    Object.assign(this, {
+      height,
+      maxHeight,
+      minHeight,
+      width,
+      maxWidth,
+      minWidth,
+    });
+    return this;
+  };
 
   constructor(init?: Partial<SizingStyles>) {
     Object.assign(this, init);
+    this.default = clone<SizingStyles>(this);
   }
 
   toStyles = () =>
-    `${this.height || ''} ${this.maxHeight || ''} ${this.minHeight || ''} ${
-      this.width || ''
-    } ${this.maxWidth || ''} ${this.minWidth || ''}`.trim();
+    getStyles([
+      this.height,
+      this.maxHeight,
+      this.maxWidth,
+      this.width,
+      this.minHeight,
+      this.minWidth,
+    ]);
 }
 
 export { SizingStyles };

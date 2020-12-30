@@ -15,7 +15,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Checkbox Styles">
+<StyleGroup on:closed header="Checkbox Styles" bind:style={$checkboxStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$checkboxStyles.color} />

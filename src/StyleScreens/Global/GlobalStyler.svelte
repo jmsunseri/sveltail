@@ -8,11 +8,10 @@
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
   import { viewerStyles } from '../../store';
-
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Global Styles">
+<StyleGroup on:closed header="Global Styles" bind:style={$viewerStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Background">
       <ColorsSelects prefix="bg" bind:value={$viewerStyles.color} />

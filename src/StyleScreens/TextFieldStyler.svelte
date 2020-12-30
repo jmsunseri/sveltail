@@ -12,11 +12,12 @@
   import TransitionSelect from '../TailwindControls/Transition/TransitionSelect.svelte';
   import PlaceholderSelect from '../TailwindControls/Placeholder/PlaceholderSelect.svelte';
   import { textFieldStyles } from '../store';
+  import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
 
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Text Field Styles">
+<StyleGroup on:closed header="Text Field" bind:style={$textFieldStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$textFieldStyles.color} />
@@ -35,6 +36,9 @@
     </AccordionItem>
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={$textFieldStyles.spacing} />
+    </AccordionItem>
+    <AccordionItem id={6.1} {accordion} headerText="Effects">
+      <EffectsSelect bind:value={$textFieldStyles.effects} />
     </AccordionItem>
     <AccordionItem id={7} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">

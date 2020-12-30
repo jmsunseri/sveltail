@@ -15,7 +15,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Menu Styles">
+<StyleGroup on:closed header="Popup" bind:style={$selectStyles.menu}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$selectStyles.menu.color} />

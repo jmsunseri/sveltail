@@ -12,7 +12,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Menu Item Styles">
+<StyleGroup on:closed header="Popup Items" bind:style={$selectStyles.menuItem}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Font">
       <div class="text-xs">(toggle dropdown for changes to take effect)</div>

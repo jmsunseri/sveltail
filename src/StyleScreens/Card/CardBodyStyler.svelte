@@ -11,7 +11,7 @@
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Body Styles">
+<StyleGroup on:closed header="Body Styles" bind:style={$cardStyles.container}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={9} {accordion} headerText="Font">
       <FontSelect bind:value={$cardStyles.container.font} />

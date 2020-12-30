@@ -1,34 +1,35 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
+import clone from 'lodash/cloneDeep';
 
-class BorderStyles {
+class BorderStyles implements IStyle {
   color: ColorStyle[];
   style: string;
   width: string;
   radius: string;
   opacity: string;
+  default: BorderStyles;
+
+  reset = (): BorderStyles => {
+    this.color = this.color.slice(0, this.default.color.length);
+    this.color.forEach((x) => x.reset());
+    const { style, width, radius, opacity } = this.default;
+    Object.assign(this, { style, width, radius, opacity });
+    return this;
+  };
 
   /**
    *
    */
   constructor(init?: Partial<BorderStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
+    this.default = clone<BorderStyles>(this);
   }
 
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.style,
-      this.width,
-      this.radius,
-      this.opacity,
-    ]
-      .join(' ')
-      .trim();
+    getStyles([this.color, this.style, this.width, this.radius, this.opacity]);
 }
 
 export { BorderStyles };

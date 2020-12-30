@@ -1,12 +1,13 @@
 import type { IStyle } from '../../IStyle';
 import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
-import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
 import { CardPartStyles } from './CardPartStyles';
+import clone from 'lodash/cloneDeep';
 
 class CardStyles implements IStyle {
   color?: ColorStyle[];
@@ -18,21 +19,36 @@ class CardStyles implements IStyle {
   container?: CardPartStyles;
   transform?: TransformStyles[];
   transition?: TransitionStyles;
+  default: CardStyles;
+
+  reset = (): CardStyles => {
+    this.color = this.color.slice(0, this.default.color.length);
+    this.color = this.color.map((x) => x.reset());
+    this.border.reset();
+    this.effects = this.effects.slice(0, this.default.effects.length);
+    this.effects = this.effects.map((x) => x.reset());
+    this.spacing.reset();
+    this.transform = this.transform.slice(0, this.default.transform.length);
+    this.transform = this.transform.map((x) => x.reset());
+    this.transition.reset();
+    return this;
+  };
 
   /**
    *
    */
   constructor(init?: Partial<CardStyles>) {
     this.border = new BorderStyles();
-    this.effects = [new EffectsStyle()];
+    this.effects = [];
     this.spacing = new SpacingStyles();
     this.header = new CardPartStyles();
     this.footer = new CardPartStyles();
     this.container = new CardPartStyles();
-    this.transform = [new TransformStyles()];
-    this.color = [new ColorStyle()];
+    this.transform = [];
+    this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
+    this.default = clone(this);
   }
 
   toStyles = () =>

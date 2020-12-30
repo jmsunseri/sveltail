@@ -14,6 +14,7 @@
   let transform: string;
   let transition: string;
   let placeholderStyle: string;
+  let effects: string;
 
   let isFocused = false;
   let activateRingOnFocus = false;
@@ -37,6 +38,7 @@
     transform = getStyles(styles.transform);
     transition = styles.transition.toStyles();
     placeholderStyle = styles.placeholder.toStyles();
+    effects = getStyles(styles.effects);
   }
 
   $: {
@@ -49,6 +51,9 @@
     }
     if (transition) {
       container += ` ${transition}`;
+    }
+    if (effects) {
+      container += ` ${effects}`;
     }
   }
 </script>

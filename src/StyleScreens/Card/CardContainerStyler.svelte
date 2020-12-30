@@ -13,7 +13,7 @@
   import { cardStyles } from '../../store';
 </script>
 
-<StyleGroup on:closed header="Card Styles">
+<StyleGroup on:closed header="Card Styles" bind:style={$cardStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$cardStyles.color} />

@@ -8,9 +8,25 @@
   export let prefix: string;
   export let blockGradient: boolean;
   export let blockHover: boolean;
+
+  // const clear = () => {
+  //   value = [];
+  // };
+
+  // const reset = () => {
+  //   value = value.map((x: ColorStyle) => {
+  //     x.reset();
+  //     return x;
+  //   });
+  // };
 </script>
 
 <div class="flex flex-col gap-1">
+  <!-- <div class="flex">
+    <Button styles={primaryButton} on:click={clear}>Clear</Button>
+    <Button styles={primaryButton} on:click={reset}>Reset</Button>
+  </div> -->
+
   {#each value as color}
     <ColorSelect {prefix} bind:value={color} {blockGradient} {blockHover} />
   {/each}

@@ -1,32 +1,34 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
+import clone from 'lodash/cloneDeep';
 
-class DividerStyles {
+class DividerStyles implements IStyle {
   color: ColorStyle[];
   style: string;
   width: string;
   opacity: string;
+  default: DividerStyles;
+
+  reset = (): DividerStyles => {
+    this.color = this.color.slice(0, this.default.color.length);
+    this.color.forEach((x) => x.reset());
+    const { style, width, opacity } = this.default;
+    Object.assign(this, { style, width, opacity });
+    return this;
+  };
 
   /**
    *
    */
   constructor(init?: Partial<DividerStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
+    this.default = clone<DividerStyles>(this);
   }
 
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.style,
-      this.width,
-      this.opacity,
-    ]
-      .join(' ')
-      .trim();
+    getStyles([this.color, this.style, this.width, this.opacity]);
 }
 
 export { DividerStyles };

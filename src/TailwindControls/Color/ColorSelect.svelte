@@ -14,13 +14,12 @@
   let from: string;
   let to: string;
   let via: string;
-  let isGradient: boolean = false;
   let isVia: boolean = false;
   let direction: string = 'b';
   let select: Select;
 
   $: {
-    if (isGradient && from && direction) {
+    if (value.isGradient && from && direction) {
       if (to && via && isVia) {
         value.color = `${prefix}-gradient-to-${direction} ${from} ${via} ${to}`;
       } else if (to) {
@@ -34,7 +33,7 @@
   onMount(async () => {
     await tick();
     if (value.color?.includes('gradient')) {
-      isGradient = true;
+      value.isGradient = true;
       if (value.color?.includes('gradient-to-b')) {
         direction = 'b';
       } else if (value.color?.includes('gradient-to-t')) {
@@ -55,7 +54,7 @@
   {#if !blockGradient || !blockHover}
     <div class="flex flex-row gap-2">
       {#if !blockGradient}
-        <Switch bind:checked={isGradient} />
+        <Switch bind:checked={value.isGradient} />
         <span>Gradient ?</span>
       {/if}
       {#if !blockHover}
@@ -64,7 +63,7 @@
       {/if}
     </div>
   {/if}
-  {#if isGradient}
+  {#if value.isGradient}
     Direction:
     <Select bind:this={select} styles={selectStyles} bind:value={direction}>
       <SelectOption {select} value="b">From Top To Bottom</SelectOption>
