@@ -58,7 +58,7 @@ class ButtonStyles implements IStyle {
     this.color = [];
 
     Object.assign(this, init);
-    this.default = clone(this);
+    this.default = clone<ButtonStyles>(this);
   }
 
   toStyles = () =>

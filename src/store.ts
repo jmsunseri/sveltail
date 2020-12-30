@@ -8,6 +8,7 @@ import type { GlobalStyle } from './Components/Viewer/GlobalStyle';
 import type { TableStyles } from './Components/Table/TableStyles';
 import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
 import { getInstance } from './StyleDefinitions/ViewerThemes/DefaultStyles';
+import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
 
 const defaultTheme = getInstance();
 
@@ -22,6 +23,7 @@ const textFieldStyles = writable<TextFieldStyles>(defaultTheme.textField);
 const checkboxStyles = writable<CheckboxStyles>(defaultTheme.checkbox);
 const tableStyles = writable<TableStyles>(defaultTheme.table);
 const cardStyles = writable<CardStyles>(defaultTheme.card);
+const tooltipStyles = writable<TooltipStyles>(defaultTheme.tooltip);
 
 const selectedTheme = writable<string>('Default Theme');
 
@@ -36,4 +38,5 @@ export {
   tableStyles,
   cardStyles,
   selectedTheme,
+  tooltipStyles,
 };

@@ -15,10 +15,12 @@
     checkboxStyles,
     tableStyles,
     cardStyles,
+    tooltipStyles,
   } from '../../store';
   import Header from '../Header/Header.svelte';
   import TextField from '../TextField/TextField.svelte';
   import Checkbox from '../Checkbox/Checkbox.svelte';
+  import Tooltip from '../Tooltip/Tooltip.svelte';
 
   let select: Select;
   let petType: string;
@@ -56,12 +58,15 @@
             <SelectOption {select} value="Bird">Bird</SelectOption>
           </Select>
           <div>
-            <Button styles={$primaryButtonStyles}>
-              Search
-              <span slot="icon">
-                <IoIosSearch />
-              </span>
-            </Button>
+            <Tooltip styles={$tooltipStyles} visible>
+              <Button styles={$primaryButtonStyles}>
+                Search
+                <span slot="icon">
+                  <IoIosSearch />
+                </span>
+              </Button>
+              <div slot="tooltip">I'm a tooltip!!!</div>
+            </Tooltip>
           </div>
         </div>
         <div class="text-2xl mt-28">Found Dogs:</div>

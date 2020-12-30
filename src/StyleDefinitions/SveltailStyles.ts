@@ -3,6 +3,7 @@ import { IconStyles } from '../Components/Button/Models/IconStyles';
 import { MenuStyles } from '../Components/Select/MenuStyles';
 import { SelectOptionStyles } from '../Components/Select/SelectOptionStyle';
 import { SelectStyles } from '../Components/Select/SelectStyle';
+import { TooltipStyles } from '../Components/Tooltip/TooltipStyles';
 import { BorderStyles } from '../TailwindControls/Border/BorderStyles';
 import { ColorStyle } from '../TailwindControls/Color/ColorStyle';
 import { DividerStyles } from '../TailwindControls/Divider/DividerStyles';
@@ -10,6 +11,7 @@ import { EffectsStyle } from '../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
+import { TransformStyles } from '../TailwindControls/Transform/TransformStyles';
 
 const selectStyles: SelectStyles = new SelectStyles({
   button: new ButtonStyles({
@@ -95,4 +97,41 @@ const primaryButton = new ButtonStyles({
   size: new SizingStyles({}),
 });
 
-export { selectStyles, primaryButton };
+const tooltip = new TooltipStyles({
+  spacing: new SpacingStyles({
+    padding: [{ spacing: 'p', size: '1' }],
+    margin: [{ spacing: 'm', size: '0.5' }],
+  }),
+  color: [
+    new ColorStyle({
+      color: 'bg-white',
+    }),
+  ],
+  border: new BorderStyles({
+    width: 'border',
+    style: 'border-dashed',
+    color: [new ColorStyle({ color: 'border-blue-300' })],
+    radius: 'rounded-lg',
+  }),
+  effects: [
+    new EffectsStyle({
+      boxShadow: 'shadow-md',
+      opacity: 'opacity-95',
+    }),
+  ],
+  font: new FontStyles({
+    size: 'text-xs',
+    color: [
+      new ColorStyle({
+        color: 'text-gray-700',
+      }),
+    ],
+  }),
+  transform: [
+    new TransformStyles({
+      translate: '-translate-y-full',
+    }),
+  ],
+});
+
+export { selectStyles, primaryButton, tooltip };

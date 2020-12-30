@@ -22,6 +22,7 @@ import { TransformStyles } from '../../TailwindControls/Transform/TransformStyle
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import type { IViewerTheme } from '../IViewer';
+import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
 
 const getInstance = (): IViewerTheme => {
   const primaryButton = new ButtonStyles({
@@ -309,6 +310,37 @@ const getInstance = (): IViewerTheme => {
     }),
   });
 
+  const tooltip = new TooltipStyles({
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '1' }],
+      margin: [{ spacing: 'm', size: '1.5' }],
+    }),
+    color: [
+      new ColorStyle({
+        color: 'bg-black',
+      }),
+    ],
+    effects: [
+      new EffectsStyle({
+        boxShadow: 'shadow-md',
+        opacity: 'opacity-75',
+      }),
+    ],
+    font: new FontStyles({
+      size: 'text-xs',
+      color: [
+        new ColorStyle({
+          color: 'text-white',
+        }),
+      ],
+    }),
+    transform: [
+      new TransformStyles({
+        translate: '-translate-y-full',
+      }),
+    ],
+  });
+
   return {
     primaryButton,
     secondaryButton,
@@ -319,6 +351,7 @@ const getInstance = (): IViewerTheme => {
     select,
     table,
     card,
+    tooltip,
   };
 };
 

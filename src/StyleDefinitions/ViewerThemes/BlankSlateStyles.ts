@@ -20,6 +20,8 @@ import { CardStyles } from '../../Components/Card/CardStyles';
 import { CardPartStyles } from '../../Components/Card/CardPartStyles';
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import type { IViewerTheme } from '../IViewer';
+import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 
 const getInstance = (): IViewerTheme => {
   const primaryButton = new ButtonStyles({
@@ -278,6 +280,41 @@ const getInstance = (): IViewerTheme => {
     }),
   });
 
+  const tooltip = new TooltipStyles({
+    spacing: new SpacingStyles({
+      padding: [{ spacing: 'p', size: '1' }],
+      margin: [{ spacing: 'my', size: '2' }],
+    }),
+    border: new BorderStyles({
+      width: 'border',
+      color: [new ColorStyle({ color: 'border-white' })],
+    }),
+    color: [
+      new ColorStyle({
+        color: 'bg-black',
+      }),
+    ],
+    effects: [
+      new EffectsStyle({
+        boxShadow: 'shadow-md',
+        opacity: 'opacity-95',
+      }),
+    ],
+    font: new FontStyles({
+      size: 'text-xs',
+      color: [
+        new ColorStyle({
+          color: 'text-white',
+        }),
+      ],
+    }),
+    transform: [
+      new TransformStyles({
+        translate: '-translate-y-full',
+      }),
+    ],
+  });
+
   return {
     primaryButton,
     secondaryButton,
@@ -288,6 +325,7 @@ const getInstance = (): IViewerTheme => {
     select,
     table,
     card,
+    tooltip,
   };
 };
 

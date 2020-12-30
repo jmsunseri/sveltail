@@ -13,7 +13,10 @@
   import CardMenu from './Card/CardMenu.svelte';
   import SelectMenu from './Select/SelectMenu.svelte';
   import Select from '../Components/Select/Select.svelte';
-  import { selectStyles as sveltailSelectStyle } from '../StyleDefinitions/SveltailStyles';
+  import {
+    selectStyles as sveltailSelectStyle,
+    tooltip,
+  } from '../StyleDefinitions/SveltailStyles';
   import SelectOption from '../Components/Select/SelectOption.svelte';
   import { getInstance as getDefaultInstance } from '../StyleDefinitions/ViewerThemes/DefaultStyles';
   import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/ViewerThemes/BlankSlateStyles';
@@ -28,14 +31,18 @@
     textFieldStyles,
     viewerStyles,
     selectedTheme,
+    tooltipStyles,
   } from '../store';
   import type { IViewerTheme } from '../StyleDefinitions/IViewer';
   import IconButton from '../Components/Button/IconButton.svelte';
   import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
+  import Tooltip from '../Components/Tooltip/Tooltip.svelte';
+  import TooltipStyler from './TooltipStyler.svelte';
 
   const dispatch = createEventDispatcher();
   let select: any;
   let theme: string = $selectedTheme;
+  let resetButton: any;
 
   const navigate = (text: string, component: any) => {
     dispatch('navigate', { text, component } as IBreadcrumbEvent);
@@ -51,6 +58,7 @@
     $checkboxStyles = $checkboxStyles.reset();
     $tableStyles = $tableStyles.reset();
     $cardStyles = $cardStyles.reset();
+    $tooltipStyles = $tooltipStyles.reset();
   };
 
   $: {
@@ -72,23 +80,27 @@
       $checkboxStyles = newTheme.checkbox;
       $tableStyles = newTheme.table;
       $cardStyles = newTheme.card;
+      $tooltipStyles = newTheme.tooltip;
     }
   }
 </script>
 
 <div transition:slide class="grid gap-2 grid-cols-3">
-  <div class="col-span-3 flex items-center gap-3">
+  <div bind:this={resetButton} class="col-span-3 flex items-center gap-3">
     <Select bind:this={select} bind:value={theme} styles={sveltailSelectStyle}>
       <SelectOption value="Default Theme" {select}>Default Theme</SelectOption>
       <SelectOption value="Blank Slate Theme" {select}>
         Blank Slate Theme
       </SelectOption>
     </Select>
-    <IconButton
-      on:click={reset}
-      styles={['h-6', 'w-6', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
-      <FaUndo />
-    </IconButton>
+    <Tooltip styles={tooltip}>
+      <div slot="tooltip">reset theme</div>
+      <IconButton
+        on:click={reset}
+        styles={['h-6', 'w-6', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+        <FaUndo />
+      </IconButton>
+    </Tooltip>
   </div>
   <StyleMenuButton
     text="Global"
@@ -124,6 +136,11 @@
     <IoIosBrowsers />
   </StyleMenuButton>
   <StyleMenuButton text="Card" on:click={() => navigate('Card', CardMenu)}>
+    <IoIosBrowsers />
+  </StyleMenuButton>
+  <StyleMenuButton
+    text="Tooltip"
+    on:click={() => navigate('Tooltip', TooltipStyler)}>
     <IoIosBrowsers />
   </StyleMenuButton>
 </div>
