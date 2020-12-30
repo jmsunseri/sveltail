@@ -33,7 +33,6 @@
   onMount(async () => {
     await tick();
     if (value.color?.includes('gradient')) {
-      value.isGradient = true;
       if (value.color?.includes('gradient-to-b')) {
         direction = 'b';
       } else if (value.color?.includes('gradient-to-t')) {

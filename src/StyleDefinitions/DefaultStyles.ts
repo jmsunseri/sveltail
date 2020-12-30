@@ -140,7 +140,10 @@ export const secondaryButton = new ButtonStyles({
 
 export const header = new HeaderStyle({
   color: [
-    new ColorStyle({ color: 'bg-gradient-to-r from-pink-900 to-pink-700' }),
+    new ColorStyle({
+      color: 'bg-gradient-to-r from-pink-900 to-pink-700',
+      isGradient: true,
+    }),
   ],
   font: new FontStyles({
     color: [new ColorStyle({ color: 'text-white' })],
