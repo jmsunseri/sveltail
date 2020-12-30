@@ -33,6 +33,12 @@
           <FaTwitter />
         </a>
       </div>
+      <a href="https://www.buymeacoffee.com/jmsunseri">
+        <img
+          class="h-7"
+          alt="buy me a coffee button"
+          src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jmsunseri&button_colour=6b7280&font_colour=ffffff&font_family=Lato&outline_colour=ffffff&coffee_colour=FFDD00" />
+      </a>
     </div>
   </div>
   <div
