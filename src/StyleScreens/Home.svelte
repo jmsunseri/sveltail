@@ -86,7 +86,7 @@
     </Select>
     <IconButton
       on:click={reset}
-      styles={['h-6', 'w-6', 'border-none', 'fill-current', 'text-blue-300']}>
+      styles={['h-6', 'w-6', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
       <FaUndo />
     </IconButton>
   </div>

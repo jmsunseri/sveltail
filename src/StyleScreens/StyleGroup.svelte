@@ -1,7 +1,6 @@
 <script lang="ts">
   import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
   import type { IStyle } from '../IStyle';
-  // import {  } from '../StyleDefinitions/SveltailStyles';
   import IconButton from '../Components/Button/IconButton.svelte';
   export let header: string;
   export let style: IStyle;
@@ -16,7 +15,7 @@
     <h2>{header}</h2>
     <IconButton
       on:click={reset}
-      styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300']}>
+      styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
       <FaUndo />
     </IconButton>
     <!-- <Button on:click={reset} styles={primaryButton}>Reset</Button> -->
