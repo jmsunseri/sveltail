@@ -12,6 +12,9 @@ class SelectStyles implements IStyle {
   default: SelectStyles;
 
   reset = (): SelectStyles => {
+    this.button.reset();
+    this.menu.reset();
+    this.menuItem.reset();
     return this;
   };
 

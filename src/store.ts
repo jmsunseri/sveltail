@@ -7,27 +7,23 @@ import type { SelectStyles } from './Components/Select/SelectStyle';
 import type { GlobalStyle } from './Components/Viewer/GlobalStyle';
 import type { TableStyles } from './Components/Table/TableStyles';
 import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
-import {
-  primaryButton,
-  secondaryButton,
-  header,
-  select,
-  viewer,
-  textField,
-  checkbox,
-  table,
-  card,
-} from './StyleDefinitions/DefaultStyles';
+import { getInstance } from './StyleDefinitions/ViewerThemes/DefaultStyles';
 
-const headerStyles = writable<HeaderStyle>(header);
-const primaryButtonStyles = writable<ButtonStyles>(primaryButton);
-const secondaryButtonStyles = writable<ButtonStyles>(secondaryButton);
-const selectStyles = writable<SelectStyles>(select);
-const viewerStyles = writable<GlobalStyle>(Object.create(viewer));
-const textFieldStyles = writable<TextFieldStyles>(textField);
-const checkboxStyles = writable<CheckboxStyles>(checkbox);
-const tableStyles = writable<TableStyles>(table);
-const cardStyles = writable<CardStyles>(card);
+const defaultTheme = getInstance();
+
+const headerStyles = writable<HeaderStyle>(defaultTheme.header);
+const primaryButtonStyles = writable<ButtonStyles>(defaultTheme.primaryButton);
+const secondaryButtonStyles = writable<ButtonStyles>(
+  defaultTheme.secondaryButton
+);
+const selectStyles = writable<SelectStyles>(defaultTheme.select);
+const viewerStyles = writable<GlobalStyle>(defaultTheme.viewer);
+const textFieldStyles = writable<TextFieldStyles>(defaultTheme.textField);
+const checkboxStyles = writable<CheckboxStyles>(defaultTheme.checkbox);
+const tableStyles = writable<TableStyles>(defaultTheme.table);
+const cardStyles = writable<CardStyles>(defaultTheme.card);
+
+const selectedTheme = writable<string>('Default Theme');
 
 export {
   headerStyles,
@@ -39,4 +35,5 @@ export {
   checkboxStyles,
   tableStyles,
   cardStyles,
+  selectedTheme,
 };
