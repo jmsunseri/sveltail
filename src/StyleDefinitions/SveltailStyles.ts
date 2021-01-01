@@ -19,6 +19,7 @@ const selectStyles: SelectStyles = new SelectStyles({
       radius: 'rounded',
       style: 'border-dashed',
       width: 'border-2',
+      color: [new ColorStyle({ color: 'border-gray-300' })],
     }),
     spacing: new SpacingStyles({
       padding: [
@@ -54,7 +55,7 @@ const selectStyles: SelectStyles = new SelectStyles({
     border: new BorderStyles({
       radius: 'rounded-b-lg',
       width: 'border-2 border-t-0',
-      color: [new ColorStyle({ color: 'border-gray-200' })],
+      color: [new ColorStyle({ color: 'border-gray-300' })],
       style: 'border-dashed',
     }),
     spacing: new SpacingStyles({

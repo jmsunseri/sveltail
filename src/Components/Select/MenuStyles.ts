@@ -22,6 +22,10 @@ class MenuStyles implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   default: MenuStyles;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): MenuStyles => {
     this.font.reset();

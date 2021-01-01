@@ -8,12 +8,20 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { cardStyles } from '../../store';
+  import { cardStyles, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $cardStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Header Styles" bind:style={$cardStyles.header}>
+<StyleGroup
+  on:closed
+  header="Header Styles"
+  bind:style={$cardStyles.header}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$cardStyles.header.color} />

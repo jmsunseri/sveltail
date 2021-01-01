@@ -11,12 +11,20 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { selectStyles } from '../../store';
+  import { selectedStyle, selectStyles } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $selectStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Button Styles" bind:style={$selectStyles.button}>
+<StyleGroup
+  on:closed
+  header="Button Styles"
+  bind:style={$selectStyles.button}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$selectStyles.button.color} />

@@ -7,12 +7,20 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { selectStyles } from '../../store';
+  import { selectedStyle, selectStyles } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $selectStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Popup Items" bind:style={$selectStyles.menuItem}>
+<StyleGroup
+  on:closed
+  header="Popup Items"
+  bind:style={$selectStyles.menuItem}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Font">
       <div class="text-xs">(toggle dropdown for changes to take effect)</div>

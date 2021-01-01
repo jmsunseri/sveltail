@@ -8,7 +8,7 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import { HeaderStyle } from '../../Components/Header/HeaderStyle';
 import { SelectStyles } from '../../Components/Select/SelectStyle';
 import { MenuStyles } from '../../Components/Select/MenuStyles';
-import { GlobalStyle } from '../../Components/Viewer/GlobalStyle';
+import { PageStyle } from '../../Components/Page/PageStyle';
 import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { TextFieldStyles } from '../../Components/TextField/TextFieldStyles';
 import { SelectOptionStyles } from '../../Components/Select/SelectOptionStyle';
@@ -18,20 +18,23 @@ import { TableStyles } from '../../Components/Table/TableStyles';
 import { TablePartStyles } from '../../Components/Table/TablePartStyles';
 import { CardStyles } from '../../Components/Card/CardStyles';
 import { CardPartStyles } from '../../Components/Card/CardPartStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
-import type { IViewerTheme } from '../IViewer';
-import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import type { IPageTheme } from '../IPageTheme';
+import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
+import { Variant } from '../../Variants';
 
-const getInstance = (): IViewerTheme => {
+const getInstance = (): IPageTheme => {
   const primaryButton = new ButtonStyles({
-    color: [new ColorStyle({ color: 'bg-black' })],
+    color: [new ColorStyle({ color: 'bg-purple-500' })],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-white' })],
-      weight: 'font-bold',
+      weight: 'font-semibold',
     }),
     ring: new RingStyles({
-      onFocus: true,
+      variant: Variant.Focus,
+      color: [new ColorStyle({ color: 'ring-blue-500' })],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
       opacity: 'ring-opacity-20',
@@ -53,7 +56,10 @@ const getInstance = (): IViewerTheme => {
   });
 
   const checkbox = new CheckboxStyles({
-    color: [new ColorStyle({ color: 'bg-black' })],
+    color: [new ColorStyle({ color: 'bg-purple-500' })],
+    border: new BorderStyles({
+      radius: 'rounded',
+    }),
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-white' })],
       weight: 'font-black',
@@ -64,15 +70,26 @@ const getInstance = (): IViewerTheme => {
       height: 'h-5',
       width: 'w-5',
     }),
+    transform: [
+      new TransformStyles({
+        rotate: 'rotate-6',
+        onHover: true,
+      }),
+    ],
+    transition: new TransitionStyles({
+      transition: 'transition',
+      duration: 'duration-300',
+    }),
   });
 
   const textField = new TextFieldStyles({
     color: [new ColorStyle({ color: 'bg-gray-50' })],
     border: new BorderStyles({
-      width: 'border-2',
+      radius: 'rounded-full',
     }),
     ring: new RingStyles({
-      onFocus: true,
+      variant: Variant.Focus,
+      color: [new ColorStyle({ color: 'ring-blue-500' })],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
       opacity: 'ring-opacity-20',
@@ -82,6 +99,7 @@ const getInstance = (): IViewerTheme => {
         height: 'h-5',
         width: 'w-5',
       }),
+      color: [new ColorStyle({ color: 'text-pink-900' })],
     }),
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
@@ -89,17 +107,25 @@ const getInstance = (): IViewerTheme => {
   });
 
   const secondaryButton = new ButtonStyles({
-    color: [new ColorStyle({ color: 'bg-white' })],
+    color: [new ColorStyle({ color: 'bg-purple-50' })],
     font: new FontStyles({
+      color: [new ColorStyle({ color: 'text-purple-800' })],
       weight: 'font-bold',
     }),
+    transform: [
+      new TransformStyles({
+        scale: 'scale-110',
+        onHover: true,
+      }),
+    ],
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-md',
       }),
     ],
     ring: new RingStyles({
-      onFocus: true,
+      variant: Variant.Focus,
+      color: [new ColorStyle({ color: 'ring-blue-500' })],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
       opacity: 'ring-opacity-20',
@@ -109,6 +135,7 @@ const getInstance = (): IViewerTheme => {
         height: 'h-5',
         width: 'w-5',
       }),
+      color: [new ColorStyle({ color: 'bg-purple-300' })],
     }),
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
@@ -118,7 +145,7 @@ const getInstance = (): IViewerTheme => {
   const header = new HeaderStyle({
     color: [
       new ColorStyle({
-        color: 'bg-black',
+        color: 'bg-gradient-to-r from-pink-900 to-pink-700',
         isGradient: true,
       }),
     ],
@@ -145,20 +172,22 @@ const getInstance = (): IViewerTheme => {
     }),
   });
 
-  const viewer = new GlobalStyle({
-    color: [new ColorStyle({ color: 'bg-white' })],
+  const viewer = new PageStyle({
+    color: [new ColorStyle({ color: 'bg-purple-100' })],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-black' })],
+      color: [new ColorStyle({ color: 'text-gray-700' })],
       weight: 'font-normal',
       size: 'text-base',
+      family: 'font-mono',
     }),
   });
 
   const select: SelectStyles = new SelectStyles({
     button: new ButtonStyles({
+      color: [new ColorStyle({ color: 'bg-white' })],
       border: new BorderStyles({
         width: 'border-2',
-        color: [new ColorStyle({ color: 'border-black' })],
+        color: [new ColorStyle({ color: 'border-pink-900' })],
       }),
       spacing: new SpacingStyles({
         padding: [
@@ -186,18 +215,15 @@ const getInstance = (): IViewerTheme => {
       color: [new ColorStyle({ color: 'bg-white' })],
       border: new BorderStyles({
         width: 'border-2 border-t-0',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
-      spacing: new SpacingStyles({
-        margin: [{ size: '1', spacing: '-mt' }],
+        color: [new ColorStyle({ color: 'border-pink-900' })],
       }),
       divider: new DividerStyles({
         width: 'divide-y-2',
-        color: [new ColorStyle({ color: 'divide-black' })],
+        color: [new ColorStyle({ color: 'divide-pink-100' })],
       }),
     }),
     menuItem: new SelectOptionStyles({
-      color: [new ColorStyle({ color: 'bg-gray-100', isHover: true })],
+      color: [new ColorStyle({ color: 'bg-purple-100', isHover: true })],
       spacing: new SpacingStyles({
         padding: [{ spacing: 'p', size: '2' }],
       }),
@@ -205,9 +231,10 @@ const getInstance = (): IViewerTheme => {
   });
 
   const table: TableStyles = new TableStyles({
+    color: [new ColorStyle({ color: 'bg-purple-50' })],
     divider: new DividerStyles({
       width: 'divide-y',
-      color: [new ColorStyle({ color: 'divider-black' })],
+      color: [new ColorStyle({ color: 'divider-purple-100' })],
     }),
     header: new TablePartStyles({
       font: new FontStyles({
@@ -218,7 +245,7 @@ const getInstance = (): IViewerTheme => {
       }),
       border: new BorderStyles({
         width: 'border-b-4',
-        color: [new ColorStyle({ color: 'border-black' })],
+        color: [new ColorStyle({ color: 'border-pink-800' })],
       }),
     }),
     row: new TablePartStyles({
@@ -228,15 +255,16 @@ const getInstance = (): IViewerTheme => {
           { spacing: 'px', size: '2' },
         ],
       }),
-      color: [new ColorStyle({ color: 'bg-gray-100', isHover: true })],
+      color: [new ColorStyle({ color: 'bg-purple-200', isHover: true })],
     }),
   });
 
   const card: CardStyles = new CardStyles({
-    color: [new ColorStyle({ color: 'bg-white' })],
+    color: [new ColorStyle({ color: 'bg-purple-50' })],
     border: new BorderStyles({
       width: 'border-2',
-      color: [new ColorStyle({ color: 'border-black' })],
+      color: [new ColorStyle({ color: 'border-purple-200' })],
+      radius: 'rounded-lg',
     }),
     effects: [
       new EffectsStyle({
@@ -257,7 +285,7 @@ const getInstance = (): IViewerTheme => {
       border: new BorderStyles({
         style: 'border-solid',
         width: 'border-b-2',
-        color: [new ColorStyle({ color: 'border-black' })],
+        color: [new ColorStyle({ color: 'border-pink-800' })],
       }),
     }),
     container: new CardPartStyles({
@@ -275,7 +303,7 @@ const getInstance = (): IViewerTheme => {
       border: new BorderStyles({
         style: 'border-solid',
         width: 'border-t-2',
-        color: [new ColorStyle({ color: 'border-black' })],
+        color: [new ColorStyle({ color: 'border-pink-800' })],
       }),
     }),
   });
@@ -283,11 +311,7 @@ const getInstance = (): IViewerTheme => {
   const tooltip = new TooltipStyles({
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '1' }],
-      margin: [{ spacing: 'my', size: '2' }],
-    }),
-    border: new BorderStyles({
-      width: 'border',
-      color: [new ColorStyle({ color: 'border-white' })],
+      margin: [{ spacing: 'm', size: '1.5' }],
     }),
     color: [
       new ColorStyle({
@@ -297,7 +321,7 @@ const getInstance = (): IViewerTheme => {
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-md',
-        opacity: 'opacity-95',
+        opacity: 'opacity-75',
       }),
     ],
     font: new FontStyles({

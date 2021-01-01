@@ -6,6 +6,10 @@ class ColorStyle implements IStyle {
   isHover?: boolean;
   isGradient?: boolean;
   default: ColorStyle;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): ColorStyle => {
     this.color = this.default.color;

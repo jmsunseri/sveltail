@@ -3,7 +3,6 @@
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../Components/Breadcrumb/Breadcrumb';
-  import GlobalStyler from './Global/GlobalStyler.svelte';
   import TextFieldStyler from './TextFieldStyler.svelte';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import ButtonMenu from './Button/ButtonMenu.svelte';
@@ -18,8 +17,8 @@
     tooltip,
   } from '../StyleDefinitions/SveltailStyles';
   import SelectOption from '../Components/Select/SelectOption.svelte';
-  import { getInstance as getDefaultInstance } from '../StyleDefinitions/ViewerThemes/DefaultStyles';
-  import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/ViewerThemes/BlankSlateStyles';
+  import { getInstance as getDefaultInstance } from '../StyleDefinitions/PageThemes/DefaultStyles';
+  import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/PageThemes/BlankSlateStyles';
   import {
     cardStyles,
     checkboxStyles,
@@ -29,15 +28,17 @@
     selectStyles,
     tableStyles,
     textFieldStyles,
-    viewerStyles,
+    pageStyles,
     selectedTheme,
     tooltipStyles,
+    selectedStyle,
   } from '../store';
-  import type { IViewerTheme } from '../StyleDefinitions/IViewer';
+  import type { IPageTheme } from '../StyleDefinitions/IPageTheme';
   import IconButton from '../Components/Button/IconButton.svelte';
   import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
   import TooltipStyler from './TooltipStyler.svelte';
+  import PageStyler from './Page/PageStyler.svelte';
 
   const dispatch = createEventDispatcher();
   let select: any;
@@ -53,7 +54,7 @@
     $primaryButtonStyles = $primaryButtonStyles.reset();
     $secondaryButtonStyles = $secondaryButtonStyles.reset();
     $selectStyles = $selectStyles.reset();
-    $viewerStyles = $viewerStyles.reset();
+    $pageStyles = $pageStyles.reset();
     $textFieldStyles = $textFieldStyles.reset();
     $checkboxStyles = $checkboxStyles.reset();
     $tableStyles = $tableStyles.reset();
@@ -63,7 +64,7 @@
 
   $: {
     if (theme !== $selectedTheme) {
-      const newTheme: IViewerTheme = {};
+      const newTheme: IPageTheme = {};
       $selectedTheme = theme;
       if (theme === 'Default Theme') {
         Object.assign(newTheme, getDefaultInstance());
@@ -75,12 +76,14 @@
       $primaryButtonStyles = newTheme.primaryButton;
       $secondaryButtonStyles = newTheme.secondaryButton;
       $selectStyles = newTheme.select;
-      $viewerStyles = newTheme.viewer;
+      $pageStyles = newTheme.viewer;
       $textFieldStyles = newTheme.textField;
       $checkboxStyles = newTheme.checkbox;
       $tableStyles = newTheme.table;
       $cardStyles = newTheme.card;
       $tooltipStyles = newTheme.tooltip;
+
+      $selectedStyle = newTheme.viewer;
     }
   }
 </script>
@@ -102,9 +105,7 @@
       </IconButton>
     </Tooltip>
   </div>
-  <StyleMenuButton
-    text="Global"
-    on:click={() => navigate('Global', GlobalStyler)}>
+  <StyleMenuButton text="Page" on:click={() => navigate('Page', PageStyler)}>
     <IoIosBrowsers />
   </StyleMenuButton>
   <StyleMenuButton text="Table" on:click={() => navigate('Table', TableMenu)}>

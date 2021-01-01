@@ -14,6 +14,10 @@ class SelectOptionStyles implements IStyle {
   transform?: TransformStyles[];
   transition?: TransitionStyles;
   default: SelectOptionStyles;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): SelectOptionStyles => {
     this.font.reset();

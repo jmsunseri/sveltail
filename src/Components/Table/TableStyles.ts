@@ -23,6 +23,22 @@ class TableStyles implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   default: TableStyles;
+  name: string;
+
+  getMarkup = (): string => {
+    return `<div class="flex flex-col ${this.toStyles()}">
+  <div
+    class="flex flex-row gap-3 items-center ${this.header.toStyles()}">
+    <div class="flex-1">Header 1</div>
+    <div class="flex-1">Header 2</div>
+  </div>
+  <div
+    class="flex flex-row gap-3 items-center ${this.row.toStyles()}">
+    <div class="flex-1">Value 1</div>
+    <div class="flex-1">Value 2</div>
+  </div>
+</div>`;
+  };
 
   reset = (): TableStyles => {
     this.font.reset();

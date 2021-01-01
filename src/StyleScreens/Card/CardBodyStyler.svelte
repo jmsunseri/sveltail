@@ -6,12 +6,20 @@
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { cardStyles } from '../../store';
+  import { cardStyles, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $cardStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Body Styles" bind:style={$cardStyles.container}>
+<StyleGroup
+  on:closed
+  header="Body Styles"
+  bind:style={$cardStyles.container}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={9} {accordion} headerText="Font">
       <FontSelect bind:value={$cardStyles.container.font} />

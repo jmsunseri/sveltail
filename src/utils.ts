@@ -1,7 +1,9 @@
 import type { IStyle } from './IStyle';
+import type { Variant } from './Variants';
 
 const getStyles = (
-  styles: (IStyle | IStyle[] | string | undefined)[]
+  styles: (IStyle | IStyle[] | string | undefined)[],
+  variant?: Variant
 ): string => {
   return styles
     .filter((x: IStyle | IStyle[] | undefined) => !!x)
@@ -11,7 +13,11 @@ const getStyles = (
       } else if (Array.isArray(x)) {
         return getStyles(x);
       } else {
-        return x;
+        if (variant) {
+          return `${variant}${x}`;
+        } else {
+          return x;
+        }
       }
     })
     .join(' ')

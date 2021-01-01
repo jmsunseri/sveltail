@@ -20,6 +20,17 @@ class HeaderStyle implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   default: HeaderStyle;
+  name: string;
+  getMarkup = (): string => {
+    return `<div class="flex flex-row items-center gap-2 ${this.toStyles()}">
+  <div class="flex-1">App Title</div>
+  <a class="text-base font-light hover:underline" href="/account" >
+    Account
+  </a>
+</div>`;
+
+    return this.toStyles();
+  };
 
   reset = (): HeaderStyle => {
     this.font.reset();

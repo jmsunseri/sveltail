@@ -1,9 +1,10 @@
 <script lang="ts">
   import FaTwitter from 'svelte-icons/fa/FaTwitter.svelte';
   import DiGithubAlt from 'svelte-icons/di/DiGithubAlt.svelte';
-  import Viewer from './Components/Viewer/Viewer.svelte';
+  import Page from './Components/Page/Page.svelte';
   import BreadcrumbContainer from './Components/Breadcrumb/BreadcrumbContainer.svelte';
   import Home from './StyleScreens/Home.svelte';
+  import Markup from './Markup.svelte';
 </script>
 
 <!--  -->
@@ -47,7 +48,10 @@
       <BreadcrumbContainer component={Home} text="Home" />
     </div>
     <div class="col-span-2 pl-2 lg:pt-2 lg:pr-0  pr-2 ">
-      <Viewer />
+      <Page />
     </div>
+  </div>
+  <div class="container mx-auto fixed bottom-0">
+    <Markup />
   </div>
 </main>

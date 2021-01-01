@@ -7,23 +7,24 @@
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
-  import { viewerStyles } from '../../store';
+  import { pageStyles } from '../../store';
+
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Global Styles" bind:style={$viewerStyles}>
+<StyleGroup on:closed header="Page Styles" bind:style={$pageStyles}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Background">
-      <ColorsSelects prefix="bg" bind:value={$viewerStyles.color} />
+      <ColorsSelects prefix="bg" bind:value={$pageStyles.color} />
     </AccordionItem>
     <AccordionItem id={1} {accordion} headerText="Spacing">
-      <SpacingSelect bind:value={$viewerStyles.spacing} />
+      <SpacingSelect bind:value={$pageStyles.spacing} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Font">
-      <FontSelect bind:value={$viewerStyles.font} />
+      <FontSelect bind:value={$pageStyles.font} />
     </AccordionItem>
     <AccordionItem isLast id={3} {accordion} headerText="Transition">
-      <TransitionSelect bind:value={$viewerStyles.transition} />
+      <TransitionSelect bind:value={$pageStyles.transition} />
     </AccordionItem>
   </Accordion>
 </StyleGroup>

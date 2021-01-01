@@ -3,6 +3,7 @@
   import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../../Components/Breadcrumb/Breadcrumb';
+  import { selectedStyle, tableStyles } from '../../store';
   import StyleMenuButton from '../StyleMenuButton.svelte';
   import TableContainerStyler from './TableContainerStyler.svelte';
   import TableHeaderStyler from './TableHeaderStyler.svelte';
@@ -13,6 +14,10 @@
   const navigate = (text: string, component: any) => {
     dispatch('navigate', { text, component } as IBreadcrumbEvent);
   };
+
+  $: {
+    $selectedStyle = $tableStyles;
+  }
 </script>
 
 <div transition:slide class="grid gap-2 grid-cols-3">

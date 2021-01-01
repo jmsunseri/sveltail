@@ -4,12 +4,20 @@
   import IconButton from '../Components/Button/IconButton.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
   import { tooltip } from '../StyleDefinitions/SveltailStyles';
+  import { selectedStyle } from '../store';
   export let header: string;
   export let style: IStyle;
+  export let dontSelectSelectedStyle: boolean = false;
 
   const reset = () => {
     style = style.reset();
   };
+
+  $: {
+    if (!dontSelectSelectedStyle) {
+      $selectedStyle = style;
+    }
+  }
 </script>
 
 <div class="flex flex-col gap-1">

@@ -24,6 +24,14 @@ class ButtonStyles implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   default: ButtonStyles;
+  name: string;
+  getMarkup = (): string => {
+    return `<button class="${this.toStyles()}">
+  <div class="flex flex-row gap-1 items-center justify-center">
+    Do Action
+  </div>
+</button>`;
+  };
 
   reset = (): ButtonStyles => {
     this.font.reset();

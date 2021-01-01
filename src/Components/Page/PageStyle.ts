@@ -6,14 +6,20 @@ import { TransitionStyles } from '../../TailwindControls/Transition/TransitionSt
 import { getStyles } from '../../utils';
 import clone from 'lodash/cloneDeep';
 
-class GlobalStyle implements IStyle {
+class PageStyle implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   spacing: SpacingStyles;
   transition: TransitionStyles;
-  default: GlobalStyle;
+  default: PageStyle;
+  name: string;
+  getMarkup = (): string => {
+    return `<body class="p-0 h-full w-full m-0 ${this.toStyles()}">
+Your Content
+</body>`;
+  };
 
-  reset = (): GlobalStyle => {
+  reset = (): PageStyle => {
     this.color = this.color.slice(0, this.default.color.length);
     this.color.forEach((x) => x.reset());
     this.font.reset();
@@ -22,17 +28,17 @@ class GlobalStyle implements IStyle {
     return this;
   };
 
-  constructor(init?: Partial<GlobalStyle>) {
+  constructor(init?: Partial<PageStyle>) {
     this.font = new FontStyles();
     this.spacing = new SpacingStyles();
     this.transition = new TransitionStyles();
     this.color = [new ColorStyle()];
     Object.assign(this, init);
-    this.default = clone<GlobalStyle>(this);
+    this.default = clone<PageStyle>(this);
   }
   toStyles = () => {
     return getStyles([this.color, this.font, this.spacing, this.transition]);
   };
 }
 
-export { GlobalStyle };
+export { PageStyle };

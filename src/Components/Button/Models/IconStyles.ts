@@ -8,6 +8,10 @@ class IconStyles implements IStyle {
   color?: ColorStyle[];
   size?: SizingStyles;
   default: IconStyles;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): IconStyles => {
     this.color = this.color.slice(0, this.default.color.length);

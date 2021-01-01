@@ -24,6 +24,30 @@ class TextFieldStyles implements IStyle {
   transition: TransitionStyles;
   placeholder: PlaceholderStyles;
   default: TextFieldStyles;
+  name: string;
+  getMarkup = (): string => {
+    let container = getStyles([
+      this.ring,
+      this?.color,
+      this?.border,
+      this?.font,
+      this?.spacing,
+      this.transform,
+      this.transition,
+      this.effects,
+      this.placeholder,
+    ]);
+
+    return `<div class="flex items-center">
+  <input
+    class="focus:outline-none min-w-0 flex-1 bg-transparent ${container}"
+    type="text"
+    placeholder="Placeholder" />
+    <div class="relative right-8 ${this.icon?.toStyles()}">
+      <svg>Some SVG ICON HERE</svg>
+    </div>
+</div>`;
+  };
 
   reset = (): TextFieldStyles => {
     this.font.reset();

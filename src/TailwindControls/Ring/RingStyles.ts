@@ -2,6 +2,7 @@ import type { IStyle } from '../../IStyle';
 import { getStyles } from '../../utils';
 import type { ColorStyle } from '../Color/ColorStyle';
 import clone from 'lodash/cloneDeep';
+import type { Variant } from '../../Variants';
 
 class RingStyles implements IStyle {
   color?: ColorStyle[];
@@ -9,8 +10,8 @@ class RingStyles implements IStyle {
   opacity?: string;
   offsetWidth?: string;
   offsetColor?: ColorStyle[];
-  onFocus?: boolean = true;
   default: RingStyles;
+  variant?: Variant;
 
   reset = (): RingStyles => {
     this.color = this.color.slice(0, this.default.color.length);
@@ -20,8 +21,8 @@ class RingStyles implements IStyle {
       this.default.offsetColor.length
     );
     this.offsetColor.forEach((x) => x.reset());
-    const { width, opacity, offsetWidth, onFocus } = this.default;
-    Object.assign({ width, opacity, offsetWidth, onFocus });
+    const { width, opacity, offsetWidth, variant } = this.default;
+    Object.assign({ width, opacity, offsetWidth, variant });
     return this;
   };
 
@@ -32,24 +33,16 @@ class RingStyles implements IStyle {
     this.default = clone<RingStyles>(this);
   }
 
-  addFocus = (style?: string) =>
-    this.onFocus && style ? `focus:${style}` : style;
-
   toStyles = () =>
-    getStyles([
-      this.color
-        .filter((x) => !!x)
-        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
-        .join(' ')
-        .trim(),
-      this.offsetColor
-        .filter((x) => !!x)
-        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
-        .join(' ')
-        .trim(),
-      this.addFocus(this.width),
-      this.addFocus(this.opacity),
-      this.addFocus(this.offsetWidth),
-    ]);
+    getStyles(
+      [
+        this.color,
+        this.offsetColor,
+        this.width,
+        this.opacity,
+        this.offsetWidth,
+      ],
+      this.variant
+    );
 }
 export { RingStyles };

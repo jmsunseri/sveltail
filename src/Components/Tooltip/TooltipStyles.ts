@@ -16,6 +16,20 @@ class TooltipStyles implements IStyle {
   spacing: SpacingStyles;
   transform: TransformStyles[];
   default: TooltipStyles;
+  name: string;
+  getMarkup = (): string => {
+    return `<div class="absolute z-10 ${getStyles(this.transform)}">
+  <div class="${getStyles([
+    this.spacing,
+    this.effects,
+    this.font,
+    this.border,
+    this.color,
+  ])}">
+    Tooltip Text
+  </div>
+</div>`;
+  };
 
   reset = (): TooltipStyles => {
     this.font.reset();

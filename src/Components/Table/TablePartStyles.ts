@@ -20,6 +20,10 @@ class TablePartStyles implements IStyle {
   transform?: TransformStyles[];
   transition?: TransitionStyles;
   default: TablePartStyles;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): TablePartStyles => {
     this.font.reset();

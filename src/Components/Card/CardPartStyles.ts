@@ -16,6 +16,10 @@ class CardPartStyles implements IStyle {
   transform?: TransformStyles[];
   transition?: TransitionStyles;
   default: CardPartStyles;
+  name: string;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   reset = (): CardPartStyles => {
     this.font.reset();

@@ -6,19 +6,19 @@ import type { SelectStyles } from '../Components/Select/SelectStyle';
 import type { TableStyles } from '../Components/Table/TableStyles';
 import type { TextFieldStyles } from '../Components/TextField/TextFieldStyles';
 import type { TooltipStyles } from '../Components/Tooltip/TooltipStyles';
-import type { GlobalStyle } from '../Components/Viewer/GlobalStyle';
+import type { PageStyle } from '../Components/Page/PageStyle';
 
-interface IViewerTheme {
+interface IPageTheme {
   primaryButton?: ButtonStyles;
   secondaryButton?: ButtonStyles;
   textField?: TextFieldStyles;
   checkbox?: CheckboxStyles;
   header?: HeaderStyle;
-  viewer?: GlobalStyle;
+  viewer?: PageStyle;
   select?: SelectStyles;
   table?: TableStyles;
   card?: CardStyles;
   tooltip?: TooltipStyles;
 }
 
-export type { IViewerTheme };
+export type { IPageTheme };

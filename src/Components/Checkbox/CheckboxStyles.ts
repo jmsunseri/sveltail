@@ -20,6 +20,12 @@ class CheckboxStyles implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   default: CheckboxStyles;
+  name: string;
+  getMarkup = (): string => {
+    return `<span class="${this.toStyles()} cursor-pointer flex flex-row items-center justify-center">
+    ✓
+</span>`;
+  };
 
   reset = (): CheckboxStyles => {
     this.color = this.color.slice(0, this.default.color.length);

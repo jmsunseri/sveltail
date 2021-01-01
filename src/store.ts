@@ -4,11 +4,12 @@ import type { CardStyles } from './Components/Card/CardStyles';
 import type { CheckboxStyles } from './Components/Checkbox/CheckboxStyles';
 import type { HeaderStyle } from './Components/Header/HeaderStyle';
 import type { SelectStyles } from './Components/Select/SelectStyle';
-import type { GlobalStyle } from './Components/Viewer/GlobalStyle';
+import type { PageStyle } from './Components/Page/PageStyle';
 import type { TableStyles } from './Components/Table/TableStyles';
 import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
-import { getInstance } from './StyleDefinitions/ViewerThemes/DefaultStyles';
+import { getInstance } from './StyleDefinitions/PageThemes/DefaultStyles';
 import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
+import type { IStyle } from './IStyle';
 
 const defaultTheme = getInstance();
 
@@ -18,12 +19,13 @@ const secondaryButtonStyles = writable<ButtonStyles>(
   defaultTheme.secondaryButton
 );
 const selectStyles = writable<SelectStyles>(defaultTheme.select);
-const viewerStyles = writable<GlobalStyle>(defaultTheme.viewer);
+const pageStyles = writable<PageStyle>(defaultTheme.viewer);
 const textFieldStyles = writable<TextFieldStyles>(defaultTheme.textField);
 const checkboxStyles = writable<CheckboxStyles>(defaultTheme.checkbox);
 const tableStyles = writable<TableStyles>(defaultTheme.table);
 const cardStyles = writable<CardStyles>(defaultTheme.card);
 const tooltipStyles = writable<TooltipStyles>(defaultTheme.tooltip);
+const selectedStyle = writable<IStyle>(defaultTheme.viewer);
 
 const selectedTheme = writable<string>('Default Theme');
 
@@ -32,11 +34,12 @@ export {
   primaryButtonStyles,
   secondaryButtonStyles,
   selectStyles,
-  viewerStyles,
+  pageStyles,
   textFieldStyles,
   checkboxStyles,
   tableStyles,
   cardStyles,
   selectedTheme,
   tooltipStyles,
+  selectedStyle,
 };

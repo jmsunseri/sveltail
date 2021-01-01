@@ -10,12 +10,20 @@
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import StyleGroup from '../StyleGroup.svelte';
-  import { tableStyles } from '../../store';
+  import { selectedStyle, tableStyles } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $tableStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Table Row" bind:style={$tableStyles.row}>
+<StyleGroup
+  on:closed
+  header="Table Row"
+  bind:style={$tableStyles.row}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$tableStyles.row.color} />
