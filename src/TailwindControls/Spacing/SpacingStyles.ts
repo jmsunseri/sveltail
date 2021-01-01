@@ -12,7 +12,15 @@ class SpacingStyles implements IStyle {
   default: SpacingStyles;
 
   reset = (): SpacingStyles => {
-    return clone<SpacingStyles>(this.default);
+    this.padding = this.default.padding.map(({ spacing, size }) => ({
+      spacing,
+      size,
+    }));
+    this.margin = this.default.margin.map(({ spacing, size }) => ({
+      spacing,
+      size,
+    }));
+    return this;
   };
 
   constructor(init?: Partial<SpacingStyles>) {
