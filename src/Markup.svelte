@@ -66,6 +66,7 @@
           {$selectedStyle.getMarkup()}
         </pre>
       </div>
+      <!-- Here for me to use while developing debugging the example markup templates -->
       <!-- <div
         class={`flex-1 hidden md:flex flex-col justify-center items-center ${$pageStyles.toStyles()}`}>
         {@html $selectedStyle.getMarkup()}
