@@ -3,8 +3,7 @@
   import Card from '../Card/Card.svelte';
   import Select from '../Select/Select.svelte';
   import SelectOption from '../Select/SelectOption.svelte';
-  import IoIosSearch from 'svelte-icons/io/IoIosSearch.svelte';
-  import FaPaw from 'svelte-icons/fa/FaPaw.svelte';
+  import { Search, SmartHome } from 'tabler-icons-svelte';
   import {
     headerStyles,
     primaryButtonStyles,
@@ -27,9 +26,7 @@
 <div class={`flex-grow flex flex-col ${$pageStyles.toStyles()}`}>
   <Header styles={$headerStyles}>
     <div class="flex items-center gap-2">
-      <div class="h-8 w-8">
-        <FaPaw />
-      </div>
+      <SmartHome size={34} />
       <div class="flex-1">Pet Finder</div>
       <div class="text-base hover:underline font-normal cursor-pointer">
         Account
@@ -42,7 +39,7 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3  ">
           <TextField styles={$textFieldStyles} placeholder="Pet's Name">
             <span slot="trailingIcon">
-              <IoIosSearch />
+              <Search size={20} />
             </span>
           </TextField>
           <Select
@@ -60,7 +57,7 @@
               <Button styles={$primaryButtonStyles}>
                 Search
                 <span slot="icon">
-                  <IoIosSearch />
+                  <Search size={20} />
                 </span>
               </Button>
               <div slot="tooltip">I'm a tooltip!!!</div>

@@ -1,7 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import { Refresh } from 'tabler-icons-svelte';
-  import { ColorSwatch } from 'tabler-icons-svelte';
+  import { Refresh, ColorSwatch } from 'tabler-icons-svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../Components/Breadcrumb/Breadcrumb';
   import TextFieldStyler from './TextFieldStyler.svelte';

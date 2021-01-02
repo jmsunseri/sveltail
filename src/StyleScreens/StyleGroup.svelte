@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Refresh } from 'tabler-icons-svelte';
-  // import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
   import type { IStyle } from '../IStyle';
   import IconButton from '../Components/Button/IconButton.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';

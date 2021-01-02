@@ -78,10 +78,6 @@ const primaryButton = new ButtonStyles({
     radius: 'rounded-lg',
   }),
   icon: new IconStyles({
-    size: new SizingStyles({
-      height: 'h-5',
-      width: 'w-5',
-    }),
     color: [new ColorStyle({ color: 'text-blue-300' })],
   }),
   spacing: new SpacingStyles({

@@ -39,12 +39,6 @@ const getInstance = (): IPageTheme => {
       offsetWidth: 'ring-offset-1',
       opacity: 'ring-opacity-20',
     }),
-    icon: new IconStyles({
-      size: new SizingStyles({
-        height: 'h-5',
-        width: 'w-5',
-      }),
-    }),
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-md',
@@ -95,10 +89,6 @@ const getInstance = (): IPageTheme => {
       opacity: 'ring-opacity-20',
     }),
     icon: new IconStyles({
-      size: new SizingStyles({
-        height: 'h-5',
-        width: 'w-5',
-      }),
       color: [new ColorStyle({ color: 'text-pink-900' })],
     }),
     spacing: new SpacingStyles({
@@ -131,10 +121,6 @@ const getInstance = (): IPageTheme => {
       opacity: 'ring-opacity-20',
     }),
     icon: new IconStyles({
-      size: new SizingStyles({
-        height: 'h-5',
-        width: 'w-5',
-      }),
       color: [new ColorStyle({ color: 'bg-purple-300' })],
     }),
     spacing: new SpacingStyles({
