@@ -9,26 +9,19 @@
   export let blockGradient: boolean;
   export let blockHover: boolean;
 
-  // const clear = () => {
-  //   value = [];
-  // };
-
-  // const reset = () => {
-  //   value = value.map((x: ColorStyle) => {
-  //     x.reset();
-  //     return x;
-  //   });
-  // };
+  const remove = (toBeRemoved: number) => {
+    value = value.filter((_, index: number) => index !== toBeRemoved);
+  };
 </script>
 
 <div class="flex flex-col gap-1">
-  <!-- <div class="flex">
-    <Button styles={primaryButton} on:click={clear}>Clear</Button>
-    <Button styles={primaryButton} on:click={reset}>Reset</Button>
-  </div> -->
-
-  {#each value as color}
-    <ColorSelect {prefix} bind:value={color} {blockGradient} {blockHover} />
+  {#each value as color, index}
+    <ColorSelect
+      {prefix}
+      bind:value={color}
+      {blockGradient}
+      {blockHover}
+      onDelete={() => remove(index)} />
   {/each}
   {#if !blockHover && value.length !== 2}
     <div class="flex items-center justify-center">

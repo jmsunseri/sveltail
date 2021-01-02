@@ -1,15 +1,18 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
+  import { Trash } from 'tabler-icons-svelte';
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
   import Switch from '../../Components/Switch.svelte';
   import ColorMenu from './ColorMenu.svelte';
   import type { ColorStyle } from './ColorStyle';
+  import IconButton from '../../Components/Button/IconButton.svelte';
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
   export let blockHover: boolean;
+  export let onDelete: VoidFunction;
 
   let from: string;
   let to: string;
@@ -50,18 +53,25 @@
 </script>
 
 <div class="flex flex-col gap-2">
-  {#if !blockGradient || !blockHover}
-    <div class="flex flex-row gap-2">
-      {#if !blockGradient}
+  <div class="flex flex-row gap-2 justify-end justify-between">
+    {#if !blockGradient}
+      <div class="flex gap-1">
         <Switch bind:checked={value.isGradient} />
         <span>Gradient ?</span>
-      {/if}
-      {#if !blockHover}
+      </div>
+    {/if}
+    {#if !blockHover}
+      <div class="flex gap-1">
         <Switch bind:checked={value.isHover} />
         <span>Apply On Hover?</span>
-      {/if}
-    </div>
-  {/if}
+      </div>
+    {/if}
+    <IconButton
+      on:click={onDelete}
+      styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+      <Trash />
+    </IconButton>
+  </div>
   {#if value.isGradient}
     Direction:
     <Select bind:this={select} styles={selectStyles} bind:value={direction}>
