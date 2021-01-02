@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import { ChevronDown } from 'tabler-icons-svelte';
+  import { ChevronDown, ChevronUp } from 'tabler-icons-svelte';
   import type { SelectStyles } from './SelectStyle';
   export let styles: SelectStyles;
   export let placeholder: string;
@@ -29,7 +29,15 @@
     <span class="flex justify-between items-center gap-4">
       {value || placeholder || ''}
       <div class={styles.button.icon.toStyles()}>
-        <ChevronDown size={28} />
+        {#if !isMenuOpen}
+          <ChevronDown
+            size={styles.button.icon.size}
+            strokeWidth={styles.button.icon.stroke} />
+        {:else}
+          <ChevronUp
+            size={styles.button.icon.size}
+            strokeWidth={styles.button.icon.stroke} />
+        {/if}
       </div>
     </span>
   </button>

@@ -39,7 +39,9 @@
         <div class="grid grid-cols-2 md:grid-cols-3 gap-3  ">
           <TextField styles={$textFieldStyles} placeholder="Pet's Name">
             <span slot="trailingIcon">
-              <Search size={20} />
+              <Search
+                size={$textFieldStyles.icon.size}
+                strokeWidth={$textFieldStyles.icon.stroke} />
             </span>
           </TextField>
           <Select
@@ -57,7 +59,9 @@
               <Button styles={$primaryButtonStyles}>
                 Search
                 <span slot="icon">
-                  <Search size={20} />
+                  <Search
+                    size={$primaryButtonStyles.icon.size}
+                    strokeWidth={$primaryButtonStyles.icon.stroke} />
                 </span>
               </Button>
               <div slot="tooltip">I'm a tooltip!!!</div>

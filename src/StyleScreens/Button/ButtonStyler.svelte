@@ -2,7 +2,6 @@
   import type { ButtonStyles } from '../../Components/Button/Models/ButtonStyles';
   import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
-  import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
   import SpacingSelect from '../../TailwindControls/Spacing/SpacingSelect.svelte';
   import StyleGroup from '../StyleGroup.svelte';
   import Accordion from '../../Components/Accordion/Accordion.svelte';
@@ -14,6 +13,7 @@
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import { primaryButtonStyles, secondaryButtonStyles } from '../../store';
   import type { Writable } from 'svelte/store';
+  import Slider from '../../Components/Slider/Slider.svelte';
 
   let accordion: Accordion;
   export let isPrimary: boolean;
@@ -51,7 +51,20 @@
     </AccordionItem>
     <AccordionItem id={6} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">
-        <SizingSelect bind:value={$value.icon.size} />
+        <Slider
+          min={12}
+          max={100}
+          bind:value={$value.icon.size}
+          step={1}
+          units="px"
+          label="Size" />
+        <Slider
+          min={0.5}
+          max={10}
+          bind:value={$value.icon.stroke}
+          step={0.5}
+          units="px"
+          label="Stroke" />
         <ColorsSelects prefix="text" bind:value={$value.icon.color} />
       </div>
     </AccordionItem>

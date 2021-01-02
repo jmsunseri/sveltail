@@ -1,7 +1,6 @@
 <script lang="ts">
   import FontSelect from '../TailwindControls/Font/FontSelect.svelte';
   import BorderSelect from '../TailwindControls/Border/BorderSelect.svelte';
-  import SizingSelect from '../TailwindControls/Sizing/SizingSelect.svelte';
   import SpacingSelect from '../TailwindControls/Spacing/SpacingSelect.svelte';
   import StyleGroup from './StyleGroup.svelte';
   import Accordion from '../Components/Accordion/Accordion.svelte';
@@ -13,6 +12,7 @@
   import PlaceholderSelect from '../TailwindControls/Placeholder/PlaceholderSelect.svelte';
   import { textFieldStyles } from '../store';
   import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
+  import Slider from '../Components/Slider/Slider.svelte';
 
   let accordion: Accordion;
 </script>
@@ -42,7 +42,20 @@
     </AccordionItem>
     <AccordionItem id={7} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">
-        <SizingSelect bind:value={$textFieldStyles.icon.size} />
+        <Slider
+          min={12}
+          max={100}
+          bind:value={$textFieldStyles.icon.size}
+          step={1}
+          units="px"
+          label="Size" />
+        <Slider
+          min={0.5}
+          max={10}
+          bind:value={$textFieldStyles.icon.stroke}
+          step={0.5}
+          units="px"
+          label="Stroke" />
         <ColorsSelects prefix="text" bind:value={$textFieldStyles.icon.color} />
       </div>
     </AccordionItem>
