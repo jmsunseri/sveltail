@@ -1,6 +1,7 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
+  import { Refresh } from 'tabler-icons-svelte';
+  import { ColorSwatch } from 'tabler-icons-svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../Components/Breadcrumb/Breadcrumb';
   import TextFieldStyler from './TextFieldStyler.svelte';
@@ -35,7 +36,6 @@
   } from '../store';
   import type { IPageTheme } from '../StyleDefinitions/IPageTheme';
   import IconButton from '../Components/Button/IconButton.svelte';
-  import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
   import TooltipStyler from './TooltipStyler.svelte';
   import PageStyler from './Page/PageStyler.svelte';
@@ -100,48 +100,48 @@
       <div slot="tooltip">reset theme</div>
       <IconButton
         on:click={reset}
-        styles={['h-6', 'w-6', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
-        <FaUndo />
+        styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+        <Refresh size={30} />
       </IconButton>
     </Tooltip>
   </div>
   <StyleMenuButton text="Page" on:click={() => navigate('Page', PageStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton text="Table" on:click={() => navigate('Table', TableMenu)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Header"
     on:click={() => navigate('Header', HeaderStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Button"
     on:click={() => navigate('Button', ButtonMenu)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Text Field"
     on:click={() => navigate('Text Field', TextFieldStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Checkbox"
     on:click={() => navigate('Checkbox', CheckboxStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Select"
     on:click={() => navigate('Select', SelectMenu)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton text="Card" on:click={() => navigate('Card', CardMenu)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Tooltip"
     on:click={() => navigate('Tooltip', TooltipStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
 </div>

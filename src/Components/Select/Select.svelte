@@ -1,6 +1,6 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
+  import { ChevronDown } from 'tabler-icons-svelte';
   import type { SelectStyles } from './SelectStyle';
   export let styles: SelectStyles;
   export let placeholder: string;
@@ -29,7 +29,7 @@
     <span class="flex justify-between items-center gap-4">
       {value || placeholder || ''}
       <div class={styles.button.icon.toStyles()}>
-        <FaChevronDown />
+        <ChevronDown size={28} />
       </div>
     </span>
   </button>

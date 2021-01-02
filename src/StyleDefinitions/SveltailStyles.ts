@@ -31,10 +31,6 @@ const selectStyles: SelectStyles = new SelectStyles({
       width: 'w-full',
     }),
     icon: new IconStyles({
-      size: new SizingStyles({
-        height: 'h-3',
-        width: 'w-3',
-      }),
       color: [new ColorStyle({ color: 'text-blue-300' })],
     }),
   }),

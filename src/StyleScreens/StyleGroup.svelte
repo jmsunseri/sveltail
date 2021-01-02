@@ -1,5 +1,6 @@
 <script lang="ts">
-  import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
+  import { Refresh } from 'tabler-icons-svelte';
+  // import FaUndo from 'svelte-icons/fa/FaUndo.svelte';
   import type { IStyle } from '../IStyle';
   import IconButton from '../Components/Button/IconButton.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
@@ -27,8 +28,8 @@
       <div slot="tooltip">reset section</div>
       <IconButton
         on:click={reset}
-        styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
-        <FaUndo />
+        styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+        <Refresh size={30} />
       </IconButton>
     </Tooltip>
   </div>

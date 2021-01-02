@@ -1,6 +1,6 @@
 <script lang="ts">
   import { fade, slide } from 'svelte/transition';
-  import FaRegCopy from 'svelte-icons/fa/FaRegCopy.svelte';
+  import { Copy } from 'tabler-icons-svelte';
   import { selectedStyle } from './store';
   import Tooltip from './Components/Tooltip/Tooltip.svelte';
   import { tooltip } from './StyleDefinitions/SveltailStyles';
@@ -52,8 +52,8 @@
       <div slot="tooltip">Copy To Clipboard</div>
       <button
         on:click={copyToClipboard}
-        class="font-mono border-none focus:outline-none my-2 mx-4 h-6 w-6 flex-0">
-        <FaRegCopy />
+        class="font-mono border-none focus:outline-none my-2 mx-4 flex-0">
+        <Copy size={28} />
       </button>
     </Tooltip>
   </div>

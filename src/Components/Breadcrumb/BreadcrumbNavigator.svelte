@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FaAngleDoubleRight from 'svelte-icons/fa/FaAngleDoubleRight.svelte';
+  import { ChevronsRight } from 'tabler-icons-svelte';
   import type { IBreadcrumb, IBreadcrumbEvent } from './Breadcrumb';
   import { createEventDispatcher } from 'svelte';
   import { fade, fly } from 'svelte/transition';
@@ -26,7 +26,7 @@
         in:fly={{ x: -50, duration: 250 }}
         out:fade={{ duration: 250 }}
         class="h-5 w-5 text-blue-300">
-        <FaAngleDoubleRight />
+        <ChevronsRight />
       </div>
       <div
         class="underline cursor-pointer"

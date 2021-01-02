@@ -1,8 +1,7 @@
 <script lang="ts">
   import { onMount, tick } from 'svelte';
   import type Accordion from './Accordion.svelte';
-  import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
-  import FaChevronUp from 'svelte-icons/fa/FaChevronUp.svelte';
+  import { ChevronDown, ChevronUp } from 'tabler-icons-svelte';
   import { slide } from 'svelte/transition';
 
   export let accordion: Accordion;
@@ -64,11 +63,11 @@
     <span class="flex justify-between items-center gap-4">
       <div class="flex">{headerText}</div>
 
-      <div class="h-4 w-4 text-blue-300">
+      <div class="text-blue-300">
         {#if isSelected}
-          <FaChevronUp />
+          <ChevronUp size={28} />
         {:else}
-          <FaChevronDown />
+          <ChevronDown size={28} />
         {/if}
       </div>
     </span>

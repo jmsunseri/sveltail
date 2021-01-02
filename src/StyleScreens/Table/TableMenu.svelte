@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher } from 'svelte';
-  import IoIosBrowsers from 'svelte-icons/io/IoIosBrowsers.svelte';
+  import { ColorSwatch } from 'tabler-icons-svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../../Components/Breadcrumb/Breadcrumb';
   import { selectedStyle, tableStyles } from '../../store';
@@ -24,14 +24,14 @@
   <StyleMenuButton
     text="Container"
     on:click={() => navigate('Container', TableContainerStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton
     text="Header"
     on:click={() => navigate('Header', TableHeaderStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton text="Row" on:click={() => navigate('Row', TableRowStyler)}>
-    <IoIosBrowsers />
+    <ColorSwatch size={40} />
   </StyleMenuButton>
 </div>
