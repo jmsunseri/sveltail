@@ -23,17 +23,16 @@ class CardStyles implements IStyle {
   name: string;
   getMarkup = (): string => {
     return `<div class="${this.toStyles()}">
-      <div class="${this.header.toStyles()}">
-        Card Header
-      </div>
-  
-    <div class="${this.container.toStyles()}">
-      body content
+    <div class="${this.header.toStyles()}">
+      Card Header
     </div>
-      <div class="${this.footer.toStyles()}">
-        Some footer content!
-      </div>
-  </div>`;
+  <div class="${this.container.toStyles()}">
+    body content
+  </div>
+    <div class="${this.footer.toStyles()}">
+      Some footer content!
+    </div>
+</div>`;
   };
 
   reset = (): CardStyles => {
