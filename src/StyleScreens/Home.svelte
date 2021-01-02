@@ -6,7 +6,6 @@
   import TextFieldStyler from './TextFieldStyler.svelte';
   import StyleMenuButton from './StyleMenuButton.svelte';
   import ButtonMenu from './Button/ButtonMenu.svelte';
-  import HeaderStyler from './HeaderStyler.svelte';
   import TableMenu from './Table/TableMenu.svelte';
   import CheckboxStyler from './CheckboxStyler.svelte';
   import CardMenu from './Card/CardMenu.svelte';
@@ -19,6 +18,7 @@
   import SelectOption from '../Components/Select/SelectOption.svelte';
   import { getInstance as getDefaultInstance } from '../StyleDefinitions/PageThemes/DefaultStyles';
   import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/PageThemes/BlankSlateStyles';
+  import { getInstance as getGetHubInstance } from '../StyleDefinitions/PageThemes/GetHubStyles';
   import {
     cardStyles,
     checkboxStyles,
@@ -38,6 +38,7 @@
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
   import TooltipStyler from './TooltipStyler.svelte';
   import PageStyler from './Page/PageStyler.svelte';
+  import HeaderMenu from './Header/HeaderMenu.svelte';
 
   const dispatch = createEventDispatcher();
   let select: any;
@@ -69,6 +70,8 @@
         Object.assign(newTheme, getDefaultInstance());
       } else if (theme === 'Blank Slate Theme') {
         Object.assign(newTheme, getBlankSlateInstance());
+      } else if (theme === 'Get Hub Theme') {
+        Object.assign(newTheme, getGetHubInstance());
       }
 
       $headerStyles = newTheme.header;
@@ -94,6 +97,7 @@
       <SelectOption value="Blank Slate Theme" {select}>
         Blank Slate Theme
       </SelectOption>
+      <SelectOption value="Get Hub Theme" {select}>Get Hub Theme</SelectOption>
     </Select>
     <Tooltip styles={tooltip}>
       <div slot="tooltip">reset theme</div>
@@ -112,7 +116,7 @@
   </StyleMenuButton>
   <StyleMenuButton
     text="Header"
-    on:click={() => navigate('Header', HeaderStyler)}>
+    on:click={() => navigate('Header', HeaderMenu)}>
     <ColorSwatch size={40} />
   </StyleMenuButton>
   <StyleMenuButton

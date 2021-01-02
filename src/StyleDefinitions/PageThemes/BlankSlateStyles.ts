@@ -23,6 +23,7 @@ import type { IPageTheme } from '../IPageTheme';
 import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { Variant } from '../../Variants';
+import { HeaderPartStyle } from '../../Components/Header/HeaderPartStyle';
 
 const getInstance = (): IPageTheme => {
   const primaryButton = new ButtonStyles({
@@ -102,7 +103,7 @@ const getInstance = (): IPageTheme => {
     color: [
       new ColorStyle({
         color: 'bg-black',
-        isGradient: true,
+        isGradient: false,
       }),
     ],
     font: new FontStyles({
@@ -125,6 +126,14 @@ const getInstance = (): IPageTheme => {
         { spacing: 'px', size: '4' },
       ],
       margin: [{ spacing: 'mb', size: '5' }],
+    }),
+    icon: new IconStyles({
+      size: 36,
+    }),
+    menu: new HeaderPartStyle({
+      font: new FontStyles({
+        size: 'text-base',
+      }),
     }),
   });
 

@@ -1,19 +1,27 @@
 <script lang="ts">
-  import Accordion from '../Components/Accordion/Accordion.svelte';
-  import AccordionItem from '../Components/Accordion/AccordionItem.svelte';
-  import StyleGroup from './StyleGroup.svelte';
-  import BorderSelect from '../TailwindControls/Border/BorderSelect.svelte';
-  import FontSelect from '../TailwindControls/Font/FontSelect.svelte';
-  import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
-  import TransformSelect from '../TailwindControls/Transform/TransformSelect.svelte';
-  import ColorsSelects from '../TailwindControls/Color/ColorsSelects.svelte';
-  import TransitionSelect from '../TailwindControls/Transition/TransitionSelect.svelte';
-  import { headerStyles } from '../store';
+  import Accordion from '../../Components/Accordion/Accordion.svelte';
+  import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
+  import StyleGroup from '../StyleGroup.svelte';
+  import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
+  import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
+  import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
+  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
+  import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
+  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
+  import { headerStyles, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+
+  $: {
+    $selectedStyle = $headerStyles;
+  }
 </script>
 
-<StyleGroup on:closed header="Header" bind:style={$headerStyles}>
+<StyleGroup
+  on:closed
+  header="Header Container"
+  bind:style={$headerStyles}
+  dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Background">
       <ColorsSelects prefix="bg" bind:value={$headerStyles.color} />

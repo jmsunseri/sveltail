@@ -25,13 +25,13 @@
 
 <div class={`flex-grow flex flex-col ${$pageStyles.toStyles()}`}>
   <Header styles={$headerStyles}>
-    <div class="flex items-center gap-2">
-      <SmartHome size={34} />
-      <div class="flex-1">Pet Finder</div>
-      <div class="text-base hover:underline font-normal cursor-pointer">
-        Account
-      </div>
+    <div slot="icon">
+      <SmartHome
+        size={$headerStyles.icon.size}
+        strokeWidth={$headerStyles.icon.stroke} />
     </div>
+    <div slot="brand">Pet Finder</div>
+    <div slot="menu" class="hover:underline cursor-pointer">Account</div>
   </Header>
   <div class="px-4 pb-4">
     <div class="flex flex-row gap-3">
