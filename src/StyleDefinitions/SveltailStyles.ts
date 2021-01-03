@@ -41,7 +41,7 @@ const selectStyles: SelectStyles = new SelectStyles({
       }),
     ],
     size: new SizingStyles({
-      height: 'h-80',
+      maxHeight: 'max-h-80',
     }),
     divider: new DividerStyles({
       width: 'divide-y-2',
@@ -49,13 +49,13 @@ const selectStyles: SelectStyles = new SelectStyles({
     }),
     color: [new ColorStyle({ color: 'bg-white' })],
     border: new BorderStyles({
-      radius: 'rounded-b-lg',
-      width: 'border-2 border-t-0',
+      radius: 'rounded-lg',
+      width: 'border-2',
       color: [new ColorStyle({ color: 'border-gray-300' })],
       style: 'border-dashed',
     }),
     spacing: new SpacingStyles({
-      margin: [{ size: '1', spacing: '-mt' }],
+      margin: [{ size: '1', spacing: 'mt' }],
     }),
   }),
   menuItem: new SelectOptionStyles({

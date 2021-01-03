@@ -11,6 +11,7 @@
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
   import { getNewInstance, selectedStyle, selectStyles } from '../../store';
+  import SizingSelect from '../../TailwindControls/Sizing/SizingSelect.svelte';
 
   let accordion: Accordion;
   const reset = () => ($selectStyles.menu = $getNewInstance().select.menu);
@@ -44,6 +45,9 @@
     </AccordionItem>
     <AccordionItem id={6} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={$selectStyles.menu.spacing} />
+    </AccordionItem>
+    <AccordionItem id={6.1} {accordion} headerText="Sizing">
+      <SizingSelect bind:value={$selectStyles.menu.size} />
     </AccordionItem>
     <AccordionItem id={7} {accordion} headerText="Transform">
       <TransformSelect bind:value={$selectStyles.menu.transform} />
