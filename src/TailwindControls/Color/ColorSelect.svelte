@@ -45,9 +45,12 @@
       } else if (value.color?.includes('gradient-to-r')) {
         direction = 'r';
       }
-    }
-    if (value.color?.includes('via')) {
-      isVia = true;
+      if (value.color?.includes('via')) {
+        isVia = true;
+        via = value.color.split(' ').find((x: string) => x.includes('via'));
+      }
+      from = value.color.split(' ').find((x: string) => x.includes('from'));
+      to = value.color.split(' ').filter((x: string) => x.includes('to'))[1];
     }
   });
 </script>

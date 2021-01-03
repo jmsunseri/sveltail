@@ -5,8 +5,6 @@
   import { colors, numbers } from './color';
   export let value: string;
   export let prefix: string;
-
-  primaryButton;
 </script>
 
 <div class="flex flex-row flex-1 gap-1">
