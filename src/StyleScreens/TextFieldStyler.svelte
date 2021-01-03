@@ -10,14 +10,16 @@
   import ColorsSelects from '../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../TailwindControls/Transition/TransitionSelect.svelte';
   import PlaceholderSelect from '../TailwindControls/Placeholder/PlaceholderSelect.svelte';
-  import { textFieldStyles } from '../store';
+  import { textFieldStyles, getNewInstance } from '../store';
   import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
   import Slider from '../Components/Slider/Slider.svelte';
 
   let accordion: Accordion;
+
+  const reset = () => ($textFieldStyles = $getNewInstance().textField);
 </script>
 
-<StyleGroup on:closed header="Text Field" bind:style={$textFieldStyles}>
+<StyleGroup on:closed header="Text Field" bind:style={$textFieldStyles} {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$textFieldStyles.color} />

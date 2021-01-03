@@ -6,12 +6,9 @@
   import { tooltip } from '../StyleDefinitions/SveltailStyles';
   import { selectedStyle } from '../store';
   export let header: string;
+  export let reset: VoidFunction;
   export let style: IStyle;
   export let dontSelectSelectedStyle: boolean = false;
-
-  const reset = () => {
-    style = style.reset();
-  };
 
   $: {
     if (!dontSelectSelectedStyle) {
@@ -26,7 +23,7 @@
     <Tooltip styles={tooltip}>
       <div slot="tooltip">reset section</div>
       <IconButton
-        on:click={reset}
+        on:click={() => reset && reset()}
         styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
         <Refresh size={30} />
       </IconButton>

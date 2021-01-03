@@ -6,7 +6,6 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 
 class CardPartStyles implements IStyle {
   font?: FontStyles;
@@ -15,27 +14,10 @@ class CardPartStyles implements IStyle {
   spacing?: SpacingStyles;
   transform?: TransformStyles[];
   transition?: TransitionStyles;
-  default: CardPartStyles;
-  name: string;
   getMarkup = (): string => {
     return this.toStyles();
   };
 
-  reset = (): CardPartStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.border.reset();
-    this.spacing.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<CardPartStyles>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
@@ -44,7 +26,6 @@ class CardPartStyles implements IStyle {
     this.transform = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone<CardPartStyles>(this);
   }
 
   toStyles = () =>

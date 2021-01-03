@@ -168,7 +168,11 @@ const getInstance = (): IPageTheme => {
   });
 
   const viewer = new PageStyle({
-    color: [new ColorStyle({ color: 'bg-purple-100' })],
+    color: [
+      new ColorStyle({
+        color: 'bg-purple-100',
+      }),
+    ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-gray-700' })],
       weight: 'font-normal',

@@ -7,9 +7,11 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { selectedStyle, selectStyles } from '../../store';
+  import { getNewInstance, selectedStyle, selectStyles } from '../../store';
 
   let accordion: Accordion;
+  const reset = () =>
+    ($selectStyles.menuItem = $getNewInstance().select.menuItem);
 
   $: {
     $selectedStyle = $selectStyles;
@@ -20,6 +22,7 @@
   on:closed
   header="Popup Items"
   bind:style={$selectStyles.menuItem}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Font">

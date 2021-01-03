@@ -10,9 +10,11 @@
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import StyleGroup from '../StyleGroup.svelte';
-  import { selectedStyle, tableStyles } from '../../store';
+  import { getNewInstance, selectedStyle, tableStyles } from '../../store';
 
   let accordion: Accordion;
+
+  const reset = () => ($tableStyles.row = $getNewInstance().table.row);
 
   $: {
     $selectedStyle = $tableStyles;
@@ -23,7 +25,8 @@
   on:closed
   header="Table Row"
   bind:style={$tableStyles.row}
-  dontSelectSelectedStyle>
+  dontSelectSelectedStyle
+  {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$tableStyles.row.color} />

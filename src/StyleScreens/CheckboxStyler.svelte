@@ -10,12 +10,18 @@
   import TransformSelect from '../TailwindControls/Transform/TransformSelect.svelte';
   import TransitionSelect from '../TailwindControls/Transition/TransitionSelect.svelte';
   import ColorsSelects from '../TailwindControls/Color/ColorsSelects.svelte';
-  import { checkboxStyles } from '../store';
+  import { checkboxStyles, getNewInstance } from '../store';
 
   let accordion: Accordion;
+
+  const reset = () => ($checkboxStyles = $getNewInstance().checkbox);
 </script>
 
-<StyleGroup on:closed header="Checkbox Styles" bind:style={$checkboxStyles}>
+<StyleGroup
+  on:closed
+  header="Checkbox Styles"
+  bind:style={$checkboxStyles}
+  {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$checkboxStyles.color} />

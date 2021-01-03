@@ -8,7 +8,6 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 import { IconStyles } from '../Button/Models/IconStyles';
 import { HeaderPartStyle } from './HeaderPartStyle';
 
@@ -21,11 +20,9 @@ class HeaderStyle implements IStyle {
   spacing: SpacingStyles;
   transform: TransformStyles[];
   transition: TransitionStyles;
-  default: HeaderStyle;
   icon: IconStyles;
   brand: HeaderPartStyle;
   menu: HeaderPartStyle;
-  name: string;
   getMarkup = (): string => {
     return `<div class="flex flex-row items-center gap-2 ${this.toStyles()}">
   <div class="${this.icon.toStyles()}" >
@@ -46,24 +43,6 @@ class HeaderStyle implements IStyle {
 </div>`;
   };
 
-  reset = (): HeaderStyle => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.size.reset();
-    this.border.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.spacing.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<HeaderStyle>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
@@ -77,7 +56,6 @@ class HeaderStyle implements IStyle {
     this.brand = new HeaderPartStyle();
     this.menu = new HeaderPartStyle();
     Object.assign(this, init);
-    this.default = clone<HeaderStyle>(this);
   }
 
   toStyles = () =>

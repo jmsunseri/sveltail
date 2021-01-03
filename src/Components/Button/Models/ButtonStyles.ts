@@ -10,7 +10,6 @@ import type { TransformStyles } from '../../../TailwindControls/Transform/Transf
 import { TransitionStyles } from '../../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../../utils';
 import { IconStyles } from './IconStyles';
-import clone from 'lodash/cloneDeep';
 
 class ButtonStyles implements IStyle {
   font: FontStyles;
@@ -23,31 +22,12 @@ class ButtonStyles implements IStyle {
   ring: RingStyles;
   transform: TransformStyles[];
   transition: TransitionStyles;
-  default: ButtonStyles;
-  name: string;
   getMarkup = (): string => {
     return `<button class="${this.toStyles()}">
   <div class="flex flex-row gap-1 items-center justify-center">
     Do Action
   </div>
 </button>`;
-  };
-
-  reset = (): ButtonStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.icon.reset();
-    this.border.reset();
-    this.spacing.reset();
-    this.size.reset();
-    this.ring.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
   };
 
   /**
@@ -66,7 +46,6 @@ class ButtonStyles implements IStyle {
     this.color = [];
 
     Object.assign(this, init);
-    this.default = clone<ButtonStyles>(this);
   }
 
   toStyles = () =>

@@ -9,7 +9,6 @@ import type { TransformStyles } from '../../TailwindControls/Transform/Transform
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
 import { TablePartStyles } from './TablePartStyles';
-import clone from 'lodash/cloneDeep';
 
 class TableStyles implements IStyle {
   font: FontStyles;
@@ -22,8 +21,6 @@ class TableStyles implements IStyle {
   header: TablePartStyles;
   transform: TransformStyles[];
   transition: TransitionStyles;
-  default: TableStyles;
-  name: string;
 
   getMarkup = (): string => {
     return `<div class="flex flex-col ${this.toStyles()}">
@@ -38,21 +35,6 @@ class TableStyles implements IStyle {
     <div class="flex-1">Value 2</div>
   </div>
 </div>`;
-  };
-
-  reset = (): TableStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.border.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.spacing.reset();
-    this.divider.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
   };
 
   /**
@@ -70,7 +52,6 @@ class TableStyles implements IStyle {
     this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone<TableStyles>(this);
   }
 
   toStyles = () =>

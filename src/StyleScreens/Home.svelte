@@ -32,6 +32,7 @@
     selectedTheme,
     tooltipStyles,
     selectedStyle,
+    getNewInstance,
   } from '../store';
   import type { IPageTheme } from '../StyleDefinitions/IPageTheme';
   import IconButton from '../Components/Button/IconButton.svelte';
@@ -50,16 +51,18 @@
   };
 
   const reset = () => {
-    $headerStyles = $headerStyles.reset();
-    $primaryButtonStyles = $primaryButtonStyles.reset();
-    $secondaryButtonStyles = $secondaryButtonStyles.reset();
-    $selectStyles = $selectStyles.reset();
-    $pageStyles = $pageStyles.reset();
-    $textFieldStyles = $textFieldStyles.reset();
-    $checkboxStyles = $checkboxStyles.reset();
-    $tableStyles = $tableStyles.reset();
-    $cardStyles = $cardStyles.reset();
-    $tooltipStyles = $tooltipStyles.reset();
+    const newInstance = $getNewInstance();
+
+    $headerStyles = newInstance.header;
+    $primaryButtonStyles = newInstance.primaryButton;
+    $secondaryButtonStyles = newInstance.secondaryButton;
+    $selectStyles = newInstance.select;
+    $pageStyles = newInstance.viewer;
+    $textFieldStyles = newInstance.textField;
+    $checkboxStyles = newInstance.checkbox;
+    $tableStyles = newInstance.table;
+    $cardStyles = newInstance.card;
+    $tooltipStyles = newInstance.tooltip;
   };
 
   $: {
@@ -68,10 +71,13 @@
       $selectedTheme = theme;
       if (theme === 'Default Theme') {
         Object.assign(newTheme, getDefaultInstance());
+        $getNewInstance = getDefaultInstance;
       } else if (theme === 'Blank Slate Theme') {
         Object.assign(newTheme, getBlankSlateInstance());
+        $getNewInstance = getBlankSlateInstance;
       } else if (theme === 'Get Hub Theme') {
         Object.assign(newTheme, getGetHubInstance());
+        $getNewInstance = getGetHubInstance;
       }
 
       $headerStyles = newTheme.header;

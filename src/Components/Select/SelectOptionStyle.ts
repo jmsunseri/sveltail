@@ -5,7 +5,6 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 
 class SelectOptionStyles implements IStyle {
   font?: FontStyles;
@@ -19,20 +18,6 @@ class SelectOptionStyles implements IStyle {
     return this.toStyles();
   };
 
-  reset = (): SelectOptionStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.spacing.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<SelectOptionStyles>) {
     this.font = new FontStyles();
     this.spacing = new SpacingStyles();
@@ -40,7 +25,6 @@ class SelectOptionStyles implements IStyle {
     this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone<SelectOptionStyles>(this);
   }
 
   toStyles = () =>

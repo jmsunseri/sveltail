@@ -6,7 +6,6 @@ import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 
 class TooltipStyles implements IStyle {
   font: FontStyles;
@@ -15,8 +14,6 @@ class TooltipStyles implements IStyle {
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   transform: TransformStyles[];
-  default: TooltipStyles;
-  name: string;
   getMarkup = (): string => {
     return `<div class="absolute z-10 ${getStyles(this.transform)}">
   <div class="${getStyles([
@@ -31,19 +28,6 @@ class TooltipStyles implements IStyle {
 </div>`;
   };
 
-  reset = (): TooltipStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.border.reset();
-    this.spacing.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    return this;
-  };
-
   constructor(init?: Partial<TooltipStyles>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
@@ -52,7 +36,6 @@ class TooltipStyles implements IStyle {
     this.transform = [];
     this.color = [];
     Object.assign(this, init);
-    this.default = clone(this);
   }
 
   toStyles = () =>

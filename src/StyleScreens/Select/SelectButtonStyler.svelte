@@ -10,10 +10,11 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { selectedStyle, selectStyles } from '../../store';
+  import { getNewInstance, selectedStyle, selectStyles } from '../../store';
   import Slider from '../../Components/Slider/Slider.svelte';
 
   let accordion: Accordion;
+  const reset = () => ($selectStyles.button = $getNewInstance().select.button);
 
   $: {
     $selectedStyle = $selectStyles;
@@ -24,6 +25,7 @@
   on:closed
   header="Button Styles"
   bind:style={$selectStyles.button}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">

@@ -8,7 +8,6 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 
 class CheckboxStyles implements IStyle {
   color?: ColorStyle[];
@@ -19,33 +18,12 @@ class CheckboxStyles implements IStyle {
   size: SizingStyles;
   transform: TransformStyles[];
   transition: TransitionStyles;
-  default: CheckboxStyles;
-  name: string;
   getMarkup = (): string => {
     return `<span class="${this.toStyles()} cursor-pointer flex flex-row items-center justify-center">
     ✓
 </span>`;
   };
 
-  reset = (): CheckboxStyles => {
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.font.reset();
-    this.border.reset();
-    this.spacing.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.spacing.reset();
-    this.size.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<CheckboxStyles>) {
     this.border = new BorderStyles();
     this.font = new FontStyles();
@@ -56,7 +34,6 @@ class CheckboxStyles implements IStyle {
     this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone(this);
   }
 
   toStyles = () =>

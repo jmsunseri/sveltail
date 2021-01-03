@@ -8,9 +8,22 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { headerStyles, selectedStyle } from '../../store';
+  import { getNewInstance, headerStyles, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+
+  const reset = () => {
+    console.log('trying to reset');
+    const instance = $getNewInstance().header;
+    console.log('color', instance.color);
+
+    $headerStyles.color = instance.color;
+    $headerStyles.border = instance.border;
+    $headerStyles.font = instance.font;
+    $headerStyles.effects = instance.effects;
+    $headerStyles.transform = instance.transform;
+    $headerStyles.transition = instance.transition;
+  };
 
   $: {
     $selectedStyle = $headerStyles;
@@ -21,6 +34,7 @@
   on:closed
   header="Header Container"
   bind:style={$headerStyles}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Background">

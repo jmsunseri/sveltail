@@ -7,9 +7,11 @@
   import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { headerStyles, selectedStyle } from '../../store';
+  import { getNewInstance, headerStyles, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+
+  const reset = () => ($headerStyles.menu = $getNewInstance().header.menu);
 
   $: {
     $selectedStyle = $headerStyles;
@@ -20,6 +22,7 @@
   on:closed
   header="Header Menu"
   bind:style={$headerStyles.menu}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Border">

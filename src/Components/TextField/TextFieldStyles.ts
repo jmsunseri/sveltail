@@ -9,7 +9,6 @@ import type { TransformStyles } from '../../TailwindControls/Transform/Transform
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
 import { IconStyles } from '../Button/Models/IconStyles';
-import clone from 'lodash/cloneDeep';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 
 class TextFieldStyles implements IStyle {
@@ -23,8 +22,6 @@ class TextFieldStyles implements IStyle {
   transform: TransformStyles[];
   transition: TransitionStyles;
   placeholder: PlaceholderStyles;
-  default: TextFieldStyles;
-  name: string;
   getMarkup = (): string => {
     let container = getStyles([
       this.ring,
@@ -49,25 +46,6 @@ class TextFieldStyles implements IStyle {
 </div>`;
   };
 
-  reset = (): TextFieldStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.icon.reset();
-    this.border.reset();
-    this.spacing.reset();
-    this.ring.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<TextFieldStyles>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
@@ -80,7 +58,6 @@ class TextFieldStyles implements IStyle {
     this.placeholder = new PlaceholderStyles();
     this.effects = [];
     Object.assign(this, init);
-    this.default = clone<TextFieldStyles>(this);
   }
 
   toStyles = () =>

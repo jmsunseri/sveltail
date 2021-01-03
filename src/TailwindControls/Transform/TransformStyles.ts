@@ -1,6 +1,4 @@
 import type { IStyle } from '../../IStyle';
-import clone from 'lodash/cloneDeep';
-import type { TransitionStyles } from '../Transition/TransitionStyles';
 
 class TransformStyles implements IStyle {
   origin: string;
@@ -9,20 +7,9 @@ class TransformStyles implements IStyle {
   translate: string;
   skew: string;
   onHover: boolean = false;
-  default: TransformStyles;
 
-  reset = (): TransformStyles => {
-    const { origin, scale, rotate, translate, skew, onHover } = this.default;
-    Object.assign(this, { origin, scale, rotate, translate, skew, onHover });
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<TransformStyles>) {
     Object.assign(this, init);
-    this.default = clone<TransformStyles>(this);
   }
 
   toStyles = () => {

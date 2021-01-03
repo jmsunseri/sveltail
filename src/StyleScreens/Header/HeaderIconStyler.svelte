@@ -2,16 +2,12 @@
   import Accordion from '../../Components/Accordion/Accordion.svelte';
   import AccordionItem from '../../Components/Accordion/AccordionItem.svelte';
   import StyleGroup from '../StyleGroup.svelte';
-  import BorderSelect from '../../TailwindControls/Border/BorderSelect.svelte';
-  import FontSelect from '../../TailwindControls/Font/FontSelect.svelte';
-  import EffectsSelect from '../../TailwindControls/Effects/EffectsSelect.svelte';
-  import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
-  import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { headerStyles, selectedStyle } from '../../store';
+  import { getNewInstance, headerStyles, selectedStyle } from '../../store';
   import Slider from '../../Components/Slider/Slider.svelte';
 
   let accordion: Accordion;
+  const reset = () => ($headerStyles.icon = $getNewInstance().header.icon);
 
   $: {
     $selectedStyle = $headerStyles;
@@ -22,6 +18,7 @@
   on:closed
   header="Header Icon"
   bind:style={$headerStyles.icon}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst isLast id={0} {accordion} headerText="Icon">

@@ -10,6 +10,7 @@ import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
 import { getInstance } from './StyleDefinitions/PageThemes/DefaultStyles';
 import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
 import type { IStyle } from './IStyle';
+import type { IPageTheme } from './StyleDefinitions/IPageTheme';
 
 const defaultTheme = getInstance();
 
@@ -28,6 +29,7 @@ const tooltipStyles = writable<TooltipStyles>(defaultTheme.tooltip);
 const selectedStyle = writable<IStyle>(defaultTheme.viewer);
 
 const selectedTheme = writable<string>('Default Theme');
+const getNewInstance = writable<() => IPageTheme>(getInstance);
 
 export {
   headerStyles,
@@ -42,4 +44,5 @@ export {
   selectedTheme,
   tooltipStyles,
   selectedStyle,
+  getNewInstance,
 };

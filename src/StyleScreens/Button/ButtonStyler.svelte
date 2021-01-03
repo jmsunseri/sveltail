@@ -11,7 +11,11 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
-  import { primaryButtonStyles, secondaryButtonStyles } from '../../store';
+  import {
+    getNewInstance,
+    primaryButtonStyles,
+    secondaryButtonStyles,
+  } from '../../store';
   import type { Writable } from 'svelte/store';
   import Slider from '../../Components/Slider/Slider.svelte';
 
@@ -19,6 +23,14 @@
   export let isPrimary: boolean;
 
   let value: Writable<ButtonStyles> = primaryButtonStyles;
+
+  const reset = () => {
+    if (isPrimary) {
+      $primaryButtonStyles = $getNewInstance().primaryButton;
+    } else {
+      $secondaryButtonStyles = $getNewInstance().secondaryButton;
+    }
+  };
 
   $: {
     if (isPrimary) {
@@ -29,7 +41,7 @@
   }
 </script>
 
-<StyleGroup on:closed header="Button Styles" bind:style={$value}>
+<StyleGroup on:closed header="Button Styles" bind:style={$value} {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$value.color} />

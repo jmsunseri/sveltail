@@ -7,12 +7,14 @@
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
 
-  import { pageStyles } from '../../store';
+  import { getNewInstance, pageStyles } from '../../store';
+
+  const reset = () => ($pageStyles = $getNewInstance().viewer);
 
   let accordion: Accordion;
 </script>
 
-<StyleGroup on:closed header="Page Styles" bind:style={$pageStyles}>
+<StyleGroup on:closed header="Page Styles" bind:style={$pageStyles} {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Background">
       <ColorsSelects prefix="bg" bind:value={$pageStyles.color} />

@@ -8,9 +8,10 @@
   import TransformSelect from '../../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../../TailwindControls/Color/ColorsSelects.svelte';
   import TransitionSelect from '../../TailwindControls/Transition/TransitionSelect.svelte';
-  import { cardStyles, selectedStyle } from '../../store';
+  import { cardStyles, getNewInstance, selectedStyle } from '../../store';
 
   let accordion: Accordion;
+  const reset = () => ($cardStyles.header = $getNewInstance().card.header);
 
   $: {
     $selectedStyle = $cardStyles;
@@ -21,6 +22,7 @@
   on:closed
   header="Header Styles"
   bind:style={$cardStyles.header}
+  {reset}
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Color">

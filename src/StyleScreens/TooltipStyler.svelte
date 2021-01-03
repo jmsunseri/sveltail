@@ -7,13 +7,14 @@
   import AccordionItem from '../Components/Accordion/AccordionItem.svelte';
   import TransformSelect from '../TailwindControls/Transform/TransformSelect.svelte';
   import ColorsSelects from '../TailwindControls/Color/ColorsSelects.svelte';
-  import { tooltipStyles } from '../store';
+  import { getNewInstance, tooltipStyles } from '../store';
   import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
 
   let accordion: Accordion;
+  const reset = () => ($tooltipStyles = $getNewInstance().tooltip);
 </script>
 
-<StyleGroup on:closed header="Tooltip" bind:style={$tooltipStyles}>
+<StyleGroup on:closed header="Tooltip" bind:style={$tooltipStyles} {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
       <ColorsSelects prefix="bg" bind:value={$tooltipStyles.color} />

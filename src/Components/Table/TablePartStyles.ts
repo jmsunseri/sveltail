@@ -8,7 +8,6 @@ import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
 import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
-import clone from 'lodash/cloneDeep';
 
 class TablePartStyles implements IStyle {
   font: FontStyles;
@@ -19,30 +18,10 @@ class TablePartStyles implements IStyle {
   divider: DividerStyles;
   transform?: TransformStyles[];
   transition?: TransitionStyles;
-  default: TablePartStyles;
-  name: string;
   getMarkup = (): string => {
     return this.toStyles();
   };
 
-  reset = (): TablePartStyles => {
-    this.font.reset();
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color.forEach((x) => x.reset());
-    this.border.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects.forEach((x) => x.reset());
-    this.spacing.reset();
-    this.divider.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform.forEach((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<TablePartStyles>) {
     this.font = new FontStyles();
     this.border = new BorderStyles();
@@ -53,7 +32,6 @@ class TablePartStyles implements IStyle {
     this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone<TablePartStyles>(this);
   }
 
   toStyles = () =>

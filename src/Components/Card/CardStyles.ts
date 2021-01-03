@@ -7,7 +7,6 @@ import type { TransformStyles } from '../../TailwindControls/Transform/Transform
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import { getStyles } from '../../utils';
 import { CardPartStyles } from './CardPartStyles';
-import clone from 'lodash/cloneDeep';
 
 class CardStyles implements IStyle {
   color?: ColorStyle[];
@@ -19,8 +18,6 @@ class CardStyles implements IStyle {
   container?: CardPartStyles;
   transform?: TransformStyles[];
   transition?: TransitionStyles;
-  default: CardStyles;
-  name: string;
   getMarkup = (): string => {
     return `<div class="${this.toStyles()}">
     <div class="${this.header.toStyles()}">
@@ -35,22 +32,6 @@ class CardStyles implements IStyle {
 </div>`;
   };
 
-  reset = (): CardStyles => {
-    this.color = this.color.slice(0, this.default.color.length);
-    this.color = this.color.map((x) => x.reset());
-    this.border.reset();
-    this.effects = this.effects.slice(0, this.default.effects.length);
-    this.effects = this.effects.map((x) => x.reset());
-    this.spacing.reset();
-    this.transform = this.transform.slice(0, this.default.transform.length);
-    this.transform = this.transform.map((x) => x.reset());
-    this.transition.reset();
-    return this;
-  };
-
-  /**
-   *
-   */
   constructor(init?: Partial<CardStyles>) {
     this.border = new BorderStyles();
     this.effects = [];
@@ -62,7 +43,6 @@ class CardStyles implements IStyle {
     this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
-    this.default = clone(this);
   }
 
   toStyles = () =>
