@@ -1,9 +1,14 @@
 import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
 
 class ColorStyle implements IStyle {
   color?: string;
-  isHover?: boolean;
+  from?: string;
+  to?: string;
+  via?: string;
+  direction?: string;
   isGradient?: boolean;
+  isHover?: boolean;
   getMarkup = (): string => {
     return this.toStyles();
   };
@@ -12,14 +17,13 @@ class ColorStyle implements IStyle {
     Object.assign(this, init);
   }
 
-  toStyles = () =>
-    this.isHover && this.color
-      ? this.color
-          .split(' ')
-          .map((x) => (x.includes('gradient') ? x : `hover:${x}`))
-          .join(' ')
-          .trim()
-      : this.color || '';
+  toStyles = () => {
+    if (!this.isGradient) {
+      return this.color;
+    } else {
+      return getStyles([this.direction, this.from, this.to, this.via]);
+    }
+  };
 }
 
 export { ColorStyle };

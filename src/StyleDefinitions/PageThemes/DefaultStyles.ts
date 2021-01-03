@@ -132,8 +132,10 @@ const getInstance = (): IPageTheme => {
   const header = new HeaderStyle({
     color: [
       new ColorStyle({
-        color: 'bg-gradient-to-r from-pink-900 to-pink-700',
         isGradient: true,
+        direction: 'bg-gradient-to-r',
+        from: 'from-pink-900',
+        to: 'to-pink-700',
       }),
     ],
     font: new FontStyles({
@@ -218,7 +220,7 @@ const getInstance = (): IPageTheme => {
       }),
     }),
     menuItem: new SelectOptionStyles({
-      color: [new ColorStyle({ color: 'bg-purple-100', isHover: true })],
+      color: [new ColorStyle({ color: 'hover:bg-purple-100', isHover: true })],
       spacing: new SpacingStyles({
         padding: [{ spacing: 'p', size: '2' }],
       }),
@@ -250,7 +252,7 @@ const getInstance = (): IPageTheme => {
           { spacing: 'px', size: '2' },
         ],
       }),
-      color: [new ColorStyle({ color: 'bg-purple-200', isHover: true })],
+      color: [new ColorStyle({ color: 'hover:bg-purple-200', isHover: true })],
     }),
   });
 
