@@ -1,13 +1,14 @@
 <script lang="ts">
   import Button from '../../Components/Button/Button.svelte';
   import { primaryButton } from '../../StyleDefinitions/SveltailStyles';
+  import { Variant } from '../../Variants';
   import ColorSelect from './ColorSelect.svelte';
   import { ColorStyle } from './ColorStyle';
 
-  export let value: ColorStyle[] = [new ColorStyle()];
+  export let value: ColorStyle[] = [];
   export let prefix: string;
   export let blockGradient: boolean;
-  export let blockHover: boolean;
+  export let variants: Variant[] = [Variant.None, Variant.Hover];
 
   const remove = (toBeRemoved: number) => {
     value = value.filter((_, index: number) => index !== toBeRemoved);
@@ -20,10 +21,10 @@
       {prefix}
       bind:value={color}
       {blockGradient}
-      {blockHover}
+      {variants}
       onDelete={() => remove(index)} />
   {/each}
-  {#if !blockHover && value.length !== 2}
+  {#if (variants.length > 1 && value.length !== variants.length) || value.length === 0}
     <div class="flex items-center justify-center">
       <Button
         styles={primaryButton}

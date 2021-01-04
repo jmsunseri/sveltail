@@ -7,36 +7,54 @@
   import ColorMenu from './ColorMenu.svelte';
   import type { ColorStyle } from './ColorStyle';
   import IconButton from '../../Components/Button/IconButton.svelte';
+  import { Variant } from '../../Variants';
+  import RadioButton from '../../Components/RadioButton/RadioButton.svelte';
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
-  export let blockHover: boolean;
+  export let variants: Variant[];
   export let onDelete: VoidFunction;
 
   let isVia: boolean = false;
   let select: Select;
+
+  let radioOptions = [
+    { value: undefined, label: 'None' },
+    { value: Variant.Hover, label: 'Hover' },
+    { value: Variant.Focus, label: 'Focus' },
+  ];
+
+  $: {
+    radioOptions = radioOptions.filter(
+      (x) =>
+        variants.includes(x.value) ||
+        (!x.value && variants.includes(Variant.None))
+    );
+  }
 </script>
 
 <div class="flex flex-col gap-2">
-  <div class="flex flex-row gap-2 justify-end justify-between">
+  <div class="flex flex-row gap-2 justify-end justify-between items-center">
     {#if !blockGradient}
-      <div class="flex gap-1">
+      <div class="flex gap-1 items-center">
+        <span>Gradient: </span>
         <Switch bind:checked={value.isGradient} />
-        <span>Gradient ?</span>
       </div>
     {/if}
-    {#if !blockHover}
-      <div class="flex gap-1">
-        <Switch bind:checked={value.isHover} />
-        <span>Apply On Hover?</span>
-      </div>
-    {/if}
-    <IconButton
-      on:click={onDelete}
-      styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
-      <Trash />
-    </IconButton>
+    <div class="flex-1 flex justify-end">
+      <IconButton
+        on:click={onDelete}
+        styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+        <Trash />
+      </IconButton>
+    </div>
   </div>
+  {#if radioOptions.length}
+    <div class="flex flex-row items-center">
+      <span>Variant: </span>
+      <RadioButton options={radioOptions} bind:value={value.variant} />
+    </div>
+  {/if}
   {#if value.isGradient}
     Direction:
     <Select
@@ -57,17 +75,17 @@
       </SelectOption>
     </Select>
     From:
-    <ColorMenu isHover={value.isHover} prefix="from" bind:value={value.from} />
+    <ColorMenu variant={value.variant} prefix="from" bind:value={value.from} />
     <div class="flex flex-row gap-2">
       <Switch bind:checked={isVia} />
       <span>Via ?</span>
     </div>
     {#if isVia}
-      <ColorMenu isHover={value.isHover} prefix="via" bind:value={value.via} />
+      <ColorMenu variant={value.variant} prefix="via" bind:value={value.via} />
     {/if}
     To:
-    <ColorMenu isHover={value.isHover} prefix="to" bind:value={value.to} />
+    <ColorMenu variant={value.variant} prefix="to" bind:value={value.to} />
   {:else}
-    <ColorMenu isHover={value.isHover} {prefix} bind:value={value.color} />
+    <ColorMenu variant={value.variant} {prefix} bind:value={value.color} />
   {/if}
 </div>

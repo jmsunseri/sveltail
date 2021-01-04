@@ -1,18 +1,27 @@
 <script lang="ts">
   import Button from '../../Components/Button/Button.svelte';
   import { primaryButton } from '../../StyleDefinitions/SveltailStyles';
+  import { Variant } from '../../Variants';
 
   import { colors, numbers } from './color';
   export let value: string;
   export let prefix: string;
-  export let isHover: boolean;
+  export let variant: Variant = Variant.None;
+
+  let valueWithoutVariant: string;
 
   $: {
-    if (isHover && value && !value.includes('hover')) {
-      value = `hover:${value}`;
-    } else if (!isHover && value?.includes('hover')) {
-      value = value.replace('hover:', '');
+    if (variant && value && !value.includes(':')) {
+      value = `${variant}${value}`;
+    } else if (variant && value?.includes(':')) {
+      value = `${variant}${value.substring(value.indexOf(':') + 1)}`;
+    } else if (!variant && value?.includes(':')) {
+      value = value.substring(value.indexOf(':') + 1);
     }
+
+    valueWithoutVariant = value?.includes(':')
+      ? value.substring(value.indexOf(':') + 1)
+      : value;
   }
 </script>
 
@@ -23,8 +32,8 @@
         <div class="flex flex-col flex-1 gap-1">
           {#each numbers as number}
             <button
-              on:click={() => (value = `${isHover ? 'hover:' : ''}${prefix}-${color}-${number}`)}
-              class={`btn px-1 focus:outline-none border-none rounded-full bg-${color}-${number} flex-1 flex ${value?.replace('hover:', '') === `${prefix}-${color}-${number}` ? 'ring-4 ring-offset-1  ring-blue-300' : 'border-none'}  `} />
+              on:click={() => (value = `${variant || ''}${prefix}-${color}-${number}`)}
+              class={`btn px-1 focus:outline-none border-none rounded-full bg-${color}-${number} flex-1 flex ${valueWithoutVariant === `${prefix}-${color}-${number}` ? 'ring-4 ring-offset-1  ring-blue-300' : 'border-none'}  `} />
           {/each}
         </div>
       {/if}
@@ -32,36 +41,36 @@
   </div>
   <div class="flex flex-col flex-1">
     <div
-      class={` grid rounded justify-items-auto ${value?.replace('hover:', '') === `${prefix}-black` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-black` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
       <Button
-        on:click={() => (value = `${isHover ? 'hover:' : ''}${prefix}-black`)}
+        on:click={() => (value = `${variant || ''}${prefix}-black`)}
         styles={primaryButton}>
         Black
       </Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${value?.replace('hover:', '') === `${prefix}-white` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-white` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
       <Button
-        on:click={() => (value = `${isHover ? 'hover:' : ''}${prefix}-white`)}
+        on:click={() => (value = `${variant || ''}${prefix}-white`)}
         styles={primaryButton}>
         White
       </Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${value?.replace('hover:', '') === `${prefix}-transparent` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-transparent` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
       <Button
         on:click={() => {
-          value = `${isHover ? 'hover:' : ''}${prefix}-transparent`;
+          value = `${variant || ''}${prefix}-transparent`;
         }}
         styles={primaryButton}>
         Transparent
       </Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${value?.replace('hover:', '') === `${prefix}-current` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-current` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
       <Button
         on:click={() => {
-          value = `${isHover ? 'hover:' : ''}${prefix}-current`;
+          value = `${variant || ''}${prefix}-current`;
         }}
         styles={primaryButton}>
         Current

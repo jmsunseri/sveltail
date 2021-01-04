@@ -13,6 +13,7 @@
   import { textFieldStyles, getNewInstance } from '../store';
   import EffectsSelect from '../TailwindControls/Effects/EffectsSelect.svelte';
   import Slider from '../Components/Slider/Slider.svelte';
+  import { Variant } from '../Variants';
 
   let accordion: Accordion;
 
@@ -22,7 +23,10 @@
 <StyleGroup on:closed header="Text Field" bind:style={$textFieldStyles} {reset}>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={0} {accordion} headerText="Color">
-      <ColorsSelects prefix="bg" bind:value={$textFieldStyles.color} />
+      <ColorsSelects
+        prefix="bg"
+        bind:value={$textFieldStyles.color}
+        variants={[Variant.None, Variant.Hover, Variant.Focus]} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Font">
       <FontSelect bind:value={$textFieldStyles.font} />

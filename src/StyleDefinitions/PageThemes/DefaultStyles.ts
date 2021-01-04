@@ -220,7 +220,12 @@ const getInstance = (): IPageTheme => {
       }),
     }),
     menuItem: new SelectOptionStyles({
-      color: [new ColorStyle({ color: 'hover:bg-purple-100', isHover: true })],
+      color: [
+        new ColorStyle({
+          color: 'hover:bg-purple-100',
+          variant: Variant.Hover,
+        }),
+      ],
       spacing: new SpacingStyles({
         padding: [{ spacing: 'p', size: '2' }],
       }),
@@ -252,7 +257,12 @@ const getInstance = (): IPageTheme => {
           { spacing: 'px', size: '2' },
         ],
       }),
-      color: [new ColorStyle({ color: 'hover:bg-purple-200', isHover: true })],
+      color: [
+        new ColorStyle({
+          color: 'hover:bg-purple-200',
+          variant: Variant.Hover,
+        }),
+      ],
     }),
   });
 

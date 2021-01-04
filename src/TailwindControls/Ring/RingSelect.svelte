@@ -30,18 +30,18 @@
     <Switch bind:checked={onFocus} />
     Apply On Focus?
   </div>
-
   <RingWidthSelect bind:value={value.width} />
+  <OpacitySelect bind:value={opacity} />
   <ColorsSelects
     prefix="ring"
     bind:value={value.color}
     blockGradient
-    blockHover />
-  <OpacitySelect bind:value={opacity} />
+    variants={[]} />
+
   <RingOffsetWidthSelect bind:value={value.offsetWidth} />
   <ColorsSelects
     prefix="ring-offset"
     bind:value={value.offsetColor}
     blockGradient
-    blockHover />
+    variants={[]} />
 </div>

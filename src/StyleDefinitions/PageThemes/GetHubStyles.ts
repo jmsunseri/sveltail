@@ -30,7 +30,7 @@ const getInstance = (): IPageTheme => {
   const primaryButton = new ButtonStyles({
     color: [
       new ColorStyle({ color: 'bg-green-500' }),
-      new ColorStyle({ color: 'hover:bg-green-600', isHover: true }),
+      new ColorStyle({ color: 'hover:bg-green-600', variant: Variant.Hover }),
     ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-gray-50' })],
@@ -103,7 +103,7 @@ const getInstance = (): IPageTheme => {
   const secondaryButton = new ButtonStyles({
     color: [
       new ColorStyle({ color: 'bg-gray-50' }),
-      new ColorStyle({ color: 'hover:bg-gray-100', isHover: true }),
+      new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
     ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-gray-900' })],
@@ -151,10 +151,20 @@ const getInstance = (): IPageTheme => {
     }),
     icon: new IconStyles({
       size: 36,
-      color: [new ColorStyle({ color: 'hover:text-gray-200', isHover: true })],
+      color: [
+        new ColorStyle({
+          color: 'hover:text-gray-200',
+          variant: Variant.Hover,
+        }),
+      ],
     }),
     menu: new HeaderPartStyle({
-      color: [new ColorStyle({ color: 'hover:text-gray-200', isHover: true })],
+      color: [
+        new ColorStyle({
+          color: 'hover:text-gray-200',
+          variant: Variant.Hover,
+        }),
+      ],
     }),
   });
 
@@ -206,7 +216,9 @@ const getInstance = (): IPageTheme => {
       }),
     }),
     menuItem: new SelectOptionStyles({
-      color: [new ColorStyle({ color: 'hover:bg-gray-100', isHover: true })],
+      color: [
+        new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
+      ],
       spacing: new SpacingStyles({
         padding: [
           { spacing: 'py', size: '1' },
@@ -242,7 +254,9 @@ const getInstance = (): IPageTheme => {
       font: new FontStyles({
         color: [new ColorStyle({ color: 'text-gray-700' })],
       }),
-      color: [new ColorStyle({ color: 'hover:bg-gray-100', isHover: true })],
+      color: [
+        new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
+      ],
     }),
   });
 

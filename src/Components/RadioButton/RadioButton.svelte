@@ -8,7 +8,7 @@
   {#each options as option, index}
     <label
       on:click={() => (value = option.value)}
-      class={`px-4 transform-gpu transition duration-500  rounded-full border-gray-300  border-dashed ${value === option.value ? 'shadow-md bg-white scale-125 text-blue-300 border-2 font-semibold py-0.5' : ''}`}
+      class={`px-4 transform-gpu transition duration-500 rounded-full border-gray-300 border-dashed ${value === option.value ? 'shadow-md bg-white scale-125 text-blue-300 border-2 font-semibold py-0.5' : ''}`}
       for={`${index}`}>{option.label}</label>
     <input
       class="appearance-none"

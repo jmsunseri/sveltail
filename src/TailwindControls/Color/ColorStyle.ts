@@ -1,5 +1,6 @@
 import type { IStyle } from '../../IStyle';
 import { getStyles } from '../../utils';
+import type { Variant } from '../../Variants';
 
 class ColorStyle implements IStyle {
   color?: string;
@@ -8,7 +9,8 @@ class ColorStyle implements IStyle {
   via?: string;
   direction?: string;
   isGradient?: boolean;
-  isHover?: boolean;
+  variant?: Variant;
+  // isHover?: boolean;
   getMarkup = (): string => {
     return this.toStyles();
   };

@@ -12,6 +12,7 @@ import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../TailwindControls/Transform/TransformStyles';
+import { Variant } from '../Variants';
 
 const selectStyles: SelectStyles = new SelectStyles({
   button: new ButtonStyles({
@@ -59,7 +60,9 @@ const selectStyles: SelectStyles = new SelectStyles({
     }),
   }),
   menuItem: new SelectOptionStyles({
-    color: [new ColorStyle({ color: 'hover:bg-gray-100', isHover: true })],
+    color: [
+      new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
+    ],
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
     }),
