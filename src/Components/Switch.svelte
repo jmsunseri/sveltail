@@ -8,5 +8,5 @@
   <input
     type="checkbox"
     {checked}
-    class="appearance-none h-4 w-4 bg-white rounded-full mx-1" />
+    class="appearance-none h-4 w-4 bg-white rounded-full mx-1 focus:outline-none" />
 </div>
