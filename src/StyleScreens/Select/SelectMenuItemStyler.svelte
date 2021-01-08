@@ -26,23 +26,18 @@
   dontSelectSelectedStyle>
   <Accordion bind:this={accordion}>
     <AccordionItem isFirst id={1} {accordion} headerText="Font">
-      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <FontSelect bind:value={$selectStyles.menuItem.font} />
     </AccordionItem>
     <AccordionItem id={2} {accordion} headerText="Spacing">
-      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <SpacingSelect bind:value={$selectStyles.menuItem.spacing} />
     </AccordionItem>
     <AccordionItem id={3} {accordion} headerText="Transform">
-      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <TransformSelect bind:value={$selectStyles.menuItem.transform} />
     </AccordionItem>
     <AccordionItem id={4} {accordion} headerText="Transition">
-      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <TransitionSelect bind:value={$selectStyles.menuItem.transition} />
     </AccordionItem>
     <AccordionItem isLast id={5} {accordion} headerText="Color">
-      <div class="text-xs">(toggle dropdown for changes to take effect)</div>
       <ColorsSelects prefix="bg" bind:value={$selectStyles.menuItem.color} />
     </AccordionItem>
   </Accordion>

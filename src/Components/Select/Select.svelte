@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { writable } from 'svelte/store';
+
   import { slide } from 'svelte/transition';
   import { ChevronDown, ChevronUp, X } from 'tabler-icons-svelte';
+  import type { SelectOptionStyles } from './SelectOptionStyle';
   import type { SelectStyles } from './SelectStyle';
   export let styles: SelectStyles;
   export let placeholder: string;
@@ -14,9 +17,11 @@
     value = v;
   };
 
-  export const getStyle = (): string => {
-    return styles?.menuItem?.toStyles();
-  };
+  export const selectStyles = writable<SelectOptionStyles>(styles.menuItem);
+
+  $: {
+    $selectStyles = styles.menuItem;
+  }
 
   export const onClick = () => {
     isMenuOpen = !isMenuOpen;
