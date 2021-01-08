@@ -4,7 +4,6 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const heightOptions: string[] = [
-    '',
     'h-0',
     'h-0.5',
     'h-1',

@@ -98,7 +98,11 @@
 
 <div transition:slide class="grid gap-2 grid-cols-3">
   <div bind:this={resetButton} class="col-span-3 flex items-center gap-3">
-    <Select bind:this={select} bind:value={theme} styles={sveltailSelectStyle}>
+    <Select
+      bind:this={select}
+      bind:value={theme}
+      mustHaveValue
+      styles={sveltailSelectStyle}>
       <SelectOption value="Default Theme" {select}>Default Theme</SelectOption>
       <SelectOption value="Blank Slate Theme" {select}>
         Blank Slate Theme

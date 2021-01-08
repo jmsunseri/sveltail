@@ -6,7 +6,6 @@
   export let value: string;
 
   const shadowOptions: string[] = [
-    '',
     'shadow-sm',
     'shadow',
     'shadow-md',

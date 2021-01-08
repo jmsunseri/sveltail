@@ -49,6 +49,7 @@
             bind:value={petType}
             isMenuOpen
             placeholder="Pet Type"
+            mustHaveValue
             styles={$selectStyles}>
             <SelectOption {select} value="Dog">Dog</SelectOption>
             <SelectOption {select} value="Cat">Cat</SelectOption>

@@ -4,7 +4,6 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const heightOptions: string[] = [
-    '',
     'max-h-0.5',
     'max-h-1',
     'max-h-1.5',

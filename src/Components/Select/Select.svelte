@@ -1,10 +1,11 @@
 <script lang="ts">
   import { slide } from 'svelte/transition';
-  import { ChevronDown, ChevronUp } from 'tabler-icons-svelte';
+  import { ChevronDown, ChevronUp, X } from 'tabler-icons-svelte';
   import type { SelectStyles } from './SelectStyle';
   export let styles: SelectStyles;
   export let placeholder: string;
   export let value: any;
+  export let mustHaveValue: boolean = false;
 
   export let isMenuOpen: boolean;
 
@@ -45,6 +46,19 @@
     <div
       transition:slide
       class={styles.menu.toStyles() + ' absolute z-10 overflow-auto w-full cursor-pointer'}>
+      {#if !mustHaveValue}
+        <div class="flex m-1 justify-end items-center">
+          <button
+            class="focus:outline-none"
+            on:click={() => onSelected(undefined)}>
+            <div class={`${styles.button.icon.toStyles()}`}>
+              <X
+                size={styles.button.icon.size}
+                strokeWidth={styles.button.icon.stroke} />
+            </div>
+          </button>
+        </div>
+      {/if}
       <slot />
     </div>
   {/if}

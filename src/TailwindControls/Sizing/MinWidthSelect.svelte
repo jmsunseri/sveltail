@@ -4,7 +4,6 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const widthOptions: string[] = [
-    '',
     'min-w-0',
     'min-w-full',
     'min-w-min',
