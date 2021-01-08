@@ -36,11 +36,13 @@ const getInstance = (): IPageTheme => {
       color: [new ColorStyle({ color: 'text-gray-50' })],
       weight: 'font-bold',
     }),
-    border: new BorderStyles({
-      radius: 'rounded-lg',
-      color: [new ColorStyle({ color: 'border-green-600' })],
-      width: 'border',
-    }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
+        color: [new ColorStyle({ color: 'border-green-600' })],
+        width: 'border',
+      }),
+    ],
     spacing: new SpacingStyles({
       padding: [
         { spacing: 'py', size: '2' },
@@ -54,11 +56,13 @@ const getInstance = (): IPageTheme => {
 
   const checkbox = new CheckboxStyles({
     color: [new ColorStyle({ color: 'bg-white' })],
-    border: new BorderStyles({
-      width: 'border',
-      color: [new ColorStyle({ color: 'border-gray-600' })],
-      radius: 'rounded-sm',
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border',
+        color: [new ColorStyle({ color: 'border-gray-600' })],
+        radius: 'rounded-sm',
+      }),
+    ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-blue-500' })],
       weight: 'font-black',
@@ -73,11 +77,13 @@ const getInstance = (): IPageTheme => {
 
   const textField = new TextFieldStyles({
     color: [new ColorStyle({ color: 'bg-gray-50' })],
-    border: new BorderStyles({
-      width: 'border',
-      color: [new ColorStyle({ color: 'border-gray-300' })],
-      radius: 'rounded-lg',
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border',
+        color: [new ColorStyle({ color: 'border-gray-300' })],
+        radius: 'rounded-lg',
+      }),
+    ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-gray-600' })],
     }),
@@ -109,15 +115,17 @@ const getInstance = (): IPageTheme => {
       color: [new ColorStyle({ color: 'text-gray-900' })],
       weight: 'font-bold',
     }),
-    border: new BorderStyles({
-      radius: 'rounded-lg',
-      color: [
-        new ColorStyle({
-          color: 'border-gray-300',
-        }),
-      ],
-      width: 'border',
-    }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
+        color: [
+          new ColorStyle({
+            color: 'border-gray-300',
+          }),
+        ],
+        width: 'border',
+      }),
+    ],
     spacing: new SpacingStyles({
       padding: [
         { spacing: 'py', size: '2' },
@@ -179,11 +187,13 @@ const getInstance = (): IPageTheme => {
 
   const select: SelectStyles = new SelectStyles({
     button: new ButtonStyles({
-      border: new BorderStyles({
-        width: 'border',
-        color: [new ColorStyle({ color: 'border-gray-300' })],
-        radius: 'rounded-lg',
-      }),
+      border: [
+        new BorderStyles({
+          width: 'border',
+          color: [new ColorStyle({ color: 'border-gray-300' })],
+          radius: 'rounded-lg',
+        }),
+      ],
       spacing: new SpacingStyles({
         padding: [
           { spacing: 'py', size: '2' },
@@ -209,11 +219,13 @@ const getInstance = (): IPageTheme => {
         padding: [{ spacing: 'py', size: '1' }],
       }),
       color: [new ColorStyle({ color: 'bg-white' })],
-      border: new BorderStyles({
-        width: 'border',
-        radius: 'rounded-lg',
-        color: [new ColorStyle({ color: 'border-gray-300' })],
-      }),
+      border: [
+        new BorderStyles({
+          width: 'border',
+          radius: 'rounded-lg',
+          color: [new ColorStyle({ color: 'border-gray-300' })],
+        }),
+      ],
     }),
     menuItem: new SelectOptionStyles({
       color: [
@@ -229,11 +241,13 @@ const getInstance = (): IPageTheme => {
   });
 
   const table: TableStyles = new TableStyles({
-    border: new BorderStyles({
-      width: 'border',
-      radius: 'rounded-lg',
-      color: [new ColorStyle({ color: 'border-gray-300' })],
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border',
+        radius: 'rounded-lg',
+        color: [new ColorStyle({ color: 'border-gray-300' })],
+      }),
+    ],
     divider: new DividerStyles({
       width: 'divide-y',
       color: [new ColorStyle({ color: 'divider-gray-300' })],
@@ -262,11 +276,13 @@ const getInstance = (): IPageTheme => {
 
   const card: CardStyles = new CardStyles({
     color: [new ColorStyle({ color: 'bg-white' })],
-    border: new BorderStyles({
-      width: 'border',
-      radius: 'rounded-lg',
-      color: [new ColorStyle({ color: 'border-gray-300' })],
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border',
+        radius: 'rounded-lg',
+        color: [new ColorStyle({ color: 'border-gray-300' })],
+      }),
+    ],
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-lg',
@@ -307,9 +323,11 @@ const getInstance = (): IPageTheme => {
       padding: [{ spacing: 'p', size: '2' }],
       margin: [{ spacing: 'my', size: '2' }],
     }),
-    border: new BorderStyles({
-      radius: 'rounded-lg',
-    }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
+      }),
+    ],
     color: [
       new ColorStyle({
         color: 'bg-gray-800',

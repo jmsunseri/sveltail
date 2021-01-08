@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { DividerStyles } from '../../TailwindControls/Divider/DividerStyles';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
@@ -13,7 +13,7 @@ import { TablePartStyles } from './TablePartStyles';
 class TableStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   divider: DividerStyles;
@@ -42,7 +42,7 @@ class TableStyles implements IStyle {
    */
   constructor(init?: Partial<TableStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.effects = [];
     this.spacing = new SpacingStyles();
     this.divider = new DividerStyles();

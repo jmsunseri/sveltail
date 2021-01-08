@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { PlaceholderStyles } from '../../TailwindControls/Placeholder/PlaceholderStyles';
@@ -15,7 +15,7 @@ class TextFieldStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   icon: IconStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   spacing: SpacingStyles;
   effects: EffectsStyle[];
   ring: RingStyles;
@@ -48,7 +48,7 @@ class TextFieldStyles implements IStyle {
 
   constructor(init?: Partial<TextFieldStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();

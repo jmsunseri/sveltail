@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
@@ -10,7 +10,7 @@ import { getStyles } from '../../utils';
 class CardPartStyles implements IStyle {
   font?: FontStyles;
   color?: ColorStyle[];
-  border?: BorderStyles;
+  border?: BorderStyles[];
   spacing?: SpacingStyles;
   transform?: TransformStyles[];
   transition?: TransitionStyles;
@@ -20,7 +20,7 @@ class CardPartStyles implements IStyle {
 
   constructor(init?: Partial<CardPartStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.spacing = new SpacingStyles();
     this.color = [];
     this.transform = [];

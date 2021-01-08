@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
@@ -10,7 +10,7 @@ import { getStyles } from '../../utils';
 class TooltipStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   transform: TransformStyles[];
@@ -30,7 +30,7 @@ class TooltipStyles implements IStyle {
 
   constructor(init?: Partial<TooltipStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.effects = [];
     this.spacing = new SpacingStyles();
     this.transform = [];

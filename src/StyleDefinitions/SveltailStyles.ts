@@ -16,12 +16,14 @@ import { Variant } from '../Variants';
 
 const selectStyles: SelectStyles = new SelectStyles({
   button: new ButtonStyles({
-    border: new BorderStyles({
-      radius: 'rounded',
-      style: 'border-dashed',
-      width: 'border-2',
-      color: [new ColorStyle({ color: 'border-gray-300' })],
-    }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded',
+        style: 'border-dashed',
+        width: 'border-2',
+        color: [new ColorStyle({ color: 'border-gray-300' })],
+      }),
+    ],
     spacing: new SpacingStyles({
       padding: [
         { spacing: 'py', size: '1' },
@@ -49,12 +51,14 @@ const selectStyles: SelectStyles = new SelectStyles({
       style: 'divide-dashed',
     }),
     color: [new ColorStyle({ color: 'bg-white' })],
-    border: new BorderStyles({
-      radius: 'rounded-lg',
-      width: 'border-2',
-      color: [new ColorStyle({ color: 'border-gray-300' })],
-      style: 'border-dashed',
-    }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
+        width: 'border-2',
+        color: [new ColorStyle({ color: 'border-gray-300' })],
+        style: 'border-dashed',
+      }),
+    ],
     spacing: new SpacingStyles({
       margin: [{ size: '1', spacing: 'mt' }],
     }),
@@ -74,12 +78,14 @@ const primaryButton = new ButtonStyles({
   font: new FontStyles({
     weight: 'font-semibold',
   }),
-  border: new BorderStyles({
-    style: 'border-dashed focus:outline-none',
-    width: 'border-2',
-    color: [new ColorStyle({ color: 'border-gray-200' })],
-    radius: 'rounded-lg',
-  }),
+  border: [
+    new BorderStyles({
+      style: 'border-dashed focus:outline-none',
+      width: 'border-2',
+      color: [new ColorStyle({ color: 'border-gray-200' })],
+      radius: 'rounded-lg',
+    }),
+  ],
   icon: new IconStyles({
     color: [new ColorStyle({ color: 'text-blue-300' })],
   }),
@@ -103,12 +109,14 @@ const tooltip = new TooltipStyles({
       color: 'bg-white',
     }),
   ],
-  border: new BorderStyles({
-    width: 'border',
-    style: 'border-dashed',
-    color: [new ColorStyle({ color: 'border-blue-300' })],
-    radius: 'rounded-lg',
-  }),
+  border: [
+    new BorderStyles({
+      width: 'border',
+      style: 'border-dashed',
+      color: [new ColorStyle({ color: 'border-blue-300' })],
+      radius: 'rounded-lg',
+    }),
+  ],
   effects: [
     new EffectsStyle({
       boxShadow: 'shadow-md',

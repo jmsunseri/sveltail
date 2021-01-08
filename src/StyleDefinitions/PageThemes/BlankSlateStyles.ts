@@ -64,9 +64,11 @@ const getInstance = (): IPageTheme => {
 
   const textField = new TextFieldStyles({
     color: [new ColorStyle({ color: 'bg-gray-50' })],
-    border: new BorderStyles({
-      width: 'border-2',
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border-2',
+      }),
+    ],
     ring: new RingStyles({
       variant: Variant.Focus,
       width: 'ring-4',
@@ -148,10 +150,12 @@ const getInstance = (): IPageTheme => {
 
   const select: SelectStyles = new SelectStyles({
     button: new ButtonStyles({
-      border: new BorderStyles({
-        width: 'border-2',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
+      border: [
+        new BorderStyles({
+          width: 'border-2',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+      ],
       spacing: new SpacingStyles({
         padding: [
           { spacing: 'py', size: '2' },
@@ -172,10 +176,16 @@ const getInstance = (): IPageTheme => {
         }),
       ],
       color: [new ColorStyle({ color: 'bg-white' })],
-      border: new BorderStyles({
-        width: 'border-2 border-t-0',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
+      border: [
+        new BorderStyles({
+          width: 'border-2',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+        new BorderStyles({
+          width: 'border-t-0',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+      ],
       divider: new DividerStyles({
         width: 'divide-y-2',
         color: [new ColorStyle({ color: 'divide-black' })],
@@ -203,10 +213,12 @@ const getInstance = (): IPageTheme => {
       spacing: new SpacingStyles({
         padding: [{ spacing: 'py', size: '2' }],
       }),
-      border: new BorderStyles({
-        width: 'border-b-4',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
+      border: [
+        new BorderStyles({
+          width: 'border-b-4',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+      ],
     }),
     row: new TablePartStyles({
       spacing: new SpacingStyles({
@@ -223,10 +235,12 @@ const getInstance = (): IPageTheme => {
 
   const card: CardStyles = new CardStyles({
     color: [new ColorStyle({ color: 'bg-white' })],
-    border: new BorderStyles({
-      width: 'border-2',
-      color: [new ColorStyle({ color: 'border-black' })],
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border-2',
+        color: [new ColorStyle({ color: 'border-black' })],
+      }),
+    ],
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-lg',
@@ -243,11 +257,13 @@ const getInstance = (): IPageTheme => {
         weight: 'font-semibold',
         size: 'text-2xl',
       }),
-      border: new BorderStyles({
-        style: 'border-solid',
-        width: 'border-b-2',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
+      border: [
+        new BorderStyles({
+          style: 'border-solid',
+          width: 'border-b-2',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+      ],
     }),
     container: new CardPartStyles({
       spacing: new SpacingStyles({
@@ -261,11 +277,13 @@ const getInstance = (): IPageTheme => {
       spacing: new SpacingStyles({
         padding: [{ spacing: 'p', size: '2' }],
       }),
-      border: new BorderStyles({
-        style: 'border-solid',
-        width: 'border-t-2',
-        color: [new ColorStyle({ color: 'border-black' })],
-      }),
+      border: [
+        new BorderStyles({
+          style: 'border-solid',
+          width: 'border-t-2',
+          color: [new ColorStyle({ color: 'border-black' })],
+        }),
+      ],
     }),
   });
 
@@ -274,10 +292,12 @@ const getInstance = (): IPageTheme => {
       padding: [{ spacing: 'p', size: '1' }],
       margin: [{ spacing: 'my', size: '2' }],
     }),
-    border: new BorderStyles({
-      width: 'border',
-      color: [new ColorStyle({ color: 'border-white' })],
-    }),
+    border: [
+      new BorderStyles({
+        width: 'border',
+        color: [new ColorStyle({ color: 'border-white' })],
+      }),
+    ],
     color: [
       new ColorStyle({
         color: 'bg-black',

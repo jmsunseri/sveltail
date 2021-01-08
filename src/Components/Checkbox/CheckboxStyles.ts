@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
@@ -12,7 +12,7 @@ import { getStyles } from '../../utils';
 class CheckboxStyles implements IStyle {
   color?: ColorStyle[];
   font: FontStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   size: SizingStyles;
@@ -25,7 +25,7 @@ class CheckboxStyles implements IStyle {
   };
 
   constructor(init?: Partial<CheckboxStyles>) {
-    this.border = new BorderStyles();
+    this.border = [];
     this.font = new FontStyles();
     this.effects = [];
     this.spacing = new SpacingStyles();

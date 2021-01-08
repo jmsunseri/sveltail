@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { DividerStyles } from '../../TailwindControls/Divider/DividerStyles';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
@@ -14,7 +14,7 @@ class MenuStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   size: SizingStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   divider: DividerStyles;
@@ -29,7 +29,7 @@ class MenuStyles implements IStyle {
    */
   constructor(init?: Partial<MenuStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.size = new SizingStyles();
     this.effects = [];
     this.spacing = new SpacingStyles();

@@ -1,5 +1,5 @@
 import type { IStyle } from '../../IStyle';
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
 import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
@@ -13,7 +13,7 @@ class HeaderPartStyle implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   size: SizingStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   transform: TransformStyles[];
@@ -24,7 +24,7 @@ class HeaderPartStyle implements IStyle {
 
   constructor(init?: Partial<HeaderPartStyle>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.size = new SizingStyles();
     this.effects = [];
     this.spacing = new SpacingStyles();
