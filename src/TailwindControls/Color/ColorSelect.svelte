@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Trash } from 'tabler-icons-svelte';
-  import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
+  import { selectStyles, tooltip } from '../../StyleDefinitions/SveltailStyles';
   import Select from '../../Components/Select/Select.svelte';
   import SelectOption from '../../Components/Select/SelectOption.svelte';
   import Switch from '../../Components/Switch.svelte';
@@ -9,6 +9,7 @@
   import IconButton from '../../Components/Button/IconButton.svelte';
   import { Variant } from '../../Variants';
   import RadioButton from '../../Components/RadioButton/RadioButton.svelte';
+  import Tooltip from '../../Components/Tooltip/Tooltip.svelte';
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
@@ -42,11 +43,14 @@
       </div>
     {/if}
     <div class="flex-1 flex justify-end">
-      <IconButton
-        on:click={onDelete}
-        styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
-        <Trash />
-      </IconButton>
+      <Tooltip styles={tooltip}>
+        <div slot="tooltip">Delete Color</div>
+        <IconButton
+          on:click={onDelete}
+          styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+          <Trash />
+        </IconButton>
+      </Tooltip>
     </div>
   </div>
   {#if radioOptions.length}
