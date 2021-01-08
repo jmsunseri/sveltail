@@ -40,13 +40,13 @@
     <AccordionItem id={3} {accordion} headerText="Ring">
       <RingSelect bind:value={$selectStyles.button.ring} />
     </AccordionItem>
-    <AccordionItem id={4} {accordion} headerText="Button Effects">
+    <AccordionItem id={4} {accordion} headerText="Effects">
       <EffectsSelect bind:value={$selectStyles.button.effects} />
     </AccordionItem>
-    <AccordionItem id={5} {accordion} headerText="Button Spacing">
+    <AccordionItem id={5} {accordion} headerText="Spacing">
       <SpacingSelect bind:value={$selectStyles.button.spacing} />
     </AccordionItem>
-    <AccordionItem id={6} {accordion} headerText="Button Icon">
+    <AccordionItem id={6} {accordion} headerText="Icon">
       <div class="flex-col flex gap-1">
         <Slider
           min={12}
