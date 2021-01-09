@@ -32,10 +32,8 @@
   };
 </script>
 
-<div class="flex flex-col">
+<div class="lg:sticky lg:top-0 lg:bg-white z-40 lg:shadow-sm pt-2 mb-2">
   <BreadcrumbNavigator on:navigate={navigate} {breadcrumbs} />
-  <svelte:component
-    this={component}
-    on:navigate={componentNavigate}
-    {...props} />
 </div>
+
+<svelte:component this={component} on:navigate={componentNavigate} {...props} />

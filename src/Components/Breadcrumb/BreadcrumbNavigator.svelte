@@ -19,7 +19,7 @@
   };
 </script>
 
-<div class="flex flex-row gap-3 items-center pb-3">
+<div class="flex gap-3 items-center pb-3">
   {#each breadcrumbs as crumb, index}
     {#if index !== 0}
       <div
