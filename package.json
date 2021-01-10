@@ -26,7 +26,8 @@
     "tslib": "^2.0.0",
     "typescript": "^4.1.2",
     "@rollup/plugin-typescript": "^8.1.0",
-    "rollup-plugin-css-only": "^3.1.0"
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-terser": "^7.0.2"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
