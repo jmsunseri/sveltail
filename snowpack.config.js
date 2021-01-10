@@ -19,6 +19,7 @@ module.exports = {
     /* ... */
   },
   buildOptions: {
+    out: './public/build',
     /* ... */
   },
   alias: {
