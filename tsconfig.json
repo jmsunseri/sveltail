@@ -1,14 +1,6 @@
 {
   "extends": "@tsconfig/svelte/tsconfig.json",
 
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "snowpack.config.js"],
   "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
-
-  //needed to get alias working
-  // "compilerOptions": {
-  //   "baseUrl": ".",
-  //   "paths": {
-  //     "src/*": ["src/*"]
-  //   }
-  // }
 }
