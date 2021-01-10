@@ -7,7 +7,7 @@ import type { SelectStyles } from './Components/Select/SelectStyle';
 import type { PageStyle } from './Components/Page/PageStyle';
 import type { TableStyles } from './Components/Table/TableStyles';
 import type { TextFieldStyles } from './Components/TextField/TextFieldStyles';
-import { getInstance } from './StyleDefinitions/PageThemes/DefaultStyles';
+import { getInstance } from './StyleDefinitions/PageThemes/TwitterishDarkStyles';
 import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
 import type { IStyle } from './IStyle';
 import type { IPageTheme } from './StyleDefinitions/IPageTheme';
@@ -28,7 +28,7 @@ const cardStyles = writable<CardStyles>(defaultTheme.card);
 const tooltipStyles = writable<TooltipStyles>(defaultTheme.tooltip);
 const selectedStyle = writable<IStyle>(defaultTheme.viewer);
 
-const selectedTheme = writable<string>('Default Theme');
+const selectedTheme = writable<string>('Tweet Dark Theme');
 const getNewInstance = writable<() => IPageTheme>(getInstance);
 
 export {

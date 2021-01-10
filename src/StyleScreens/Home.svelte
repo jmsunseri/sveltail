@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher, SvelteComponentTyped } from 'svelte';
   import { Refresh, ColorSwatch } from 'tabler-icons-svelte';
   import { slide } from 'svelte/transition';
   import type { IBreadcrumbEvent } from '../Components/Breadcrumb/Breadcrumb';
@@ -19,6 +19,7 @@
   import { getInstance as getDefaultInstance } from '../StyleDefinitions/PageThemes/DefaultStyles';
   import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/PageThemes/BlankSlateStyles';
   import { getInstance as getGetHubInstance } from '../StyleDefinitions/PageThemes/GetHubStyles';
+  import { getInstance as getTweetInstance } from '../StyleDefinitions/PageThemes/TwitterishDarkStyles';
   import {
     cardStyles,
     checkboxStyles,
@@ -45,6 +46,8 @@
   let select: any;
   let theme: string = $selectedTheme;
   let resetButton: any;
+
+  const foo = SvelteComponentTyped;
 
   const navigate = (text: string, component: any) => {
     dispatch('navigate', { text, component } as IBreadcrumbEvent);
@@ -78,6 +81,9 @@
       } else if (theme === 'Get Hub Theme') {
         Object.assign(newTheme, getGetHubInstance());
         $getNewInstance = getGetHubInstance;
+      } else if (theme === 'Tweet Dark Theme') {
+        Object.assign(newTheme, getTweetInstance());
+        $getNewInstance = getTweetInstance;
       }
 
       $headerStyles = newTheme.header;
@@ -108,6 +114,9 @@
         Blank Slate Theme
       </SelectOption>
       <SelectOption value="Get Hub Theme" {select}>Get Hub Theme</SelectOption>
+      <SelectOption value="Tweet Dark Theme" {select}>
+        Tweet Dark Theme
+      </SelectOption>
     </Select>
     <Tooltip styles={tooltip}>
       <div slot="tooltip">reset theme</div>
