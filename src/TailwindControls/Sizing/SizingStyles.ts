@@ -1,3 +1,5 @@
+import { getStyles } from '../../utils';
+
 class SizingStyles {
   height?: string;
   maxHeight?: string;
@@ -11,9 +13,14 @@ class SizingStyles {
   }
 
   toStyles = () =>
-    `${this.height || ''} ${this.maxHeight || ''} ${this.minHeight || ''} ${
-      this.width || ''
-    } ${this.maxWidth || ''} ${this.minWidth || ''}`.trim();
+    getStyles([
+      this.height,
+      this.maxHeight,
+      this.maxWidth,
+      this.width,
+      this.minHeight,
+      this.minWidth,
+    ]);
 }
 
 export { SizingStyles };

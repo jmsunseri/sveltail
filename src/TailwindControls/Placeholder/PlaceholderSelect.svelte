@@ -17,6 +17,6 @@
     bind:value={value.color}
     prefix="placeholder"
     blockGradient
-    blockHover />
+    variants={[]} />
   <OpacitySelect bind:value={opacity} />
 </div>

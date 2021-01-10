@@ -1,57 +1,77 @@
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { PlaceholderStyles } from '../../TailwindControls/Placeholder/PlaceholderStyles';
 import { RingStyles } from '../../TailwindControls/Ring/RingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 import { IconStyles } from '../Button/Models/IconStyles';
+import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 
-class TextFieldStyles {
+class TextFieldStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   icon: IconStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   spacing: SpacingStyles;
+  effects: EffectsStyle[];
   ring: RingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
   placeholder: PlaceholderStyles;
+  getMarkup = (): string => {
+    let container = getStyles([
+      this.ring,
+      this?.color,
+      this?.border,
+      this?.font,
+      this?.spacing,
+      this.transform,
+      this.transition,
+      this.effects,
+      this.placeholder,
+    ]);
 
-  /**
-   *
-   */
+    return `<div class="flex items-center">
+  <input
+    class="focus:outline-none min-w-0 flex-1 bg-transparent ${container}"
+    type="text"
+    placeholder="Placeholder" />
+    <div class="relative right-8 ${this.icon?.toStyles()}">
+      <svg>Some SVG ICON HERE</svg>
+    </div>
+</div>`;
+  };
+
   constructor(init?: Partial<TextFieldStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.icon = new IconStyles();
     this.spacing = new SpacingStyles();
     this.ring = new RingStyles();
-    this.transform = new TransformStyles();
-    this.color = [new ColorStyle()];
+    this.transform = [];
+    this.color = [];
     this.transition = new TransitionStyles();
     this.placeholder = new PlaceholderStyles();
+    this.effects = [];
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.font.toStyles(),
-      this.border.toStyles(),
-      this.spacing.toStyles(),
-      this.ring.toStyles(),
-      this.transform.toStyles(),
-      this.transition.toStyles(),
-      this.placeholder.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.font,
+      this.border,
+      this.spacing,
+      this.ring,
+      this.transform,
+      this.transition,
+      this.placeholder,
+      this.effects,
+    ]);
 }
 
 export { TextFieldStyles };

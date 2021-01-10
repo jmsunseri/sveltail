@@ -5,7 +5,7 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
   import TransformTranslateNumberSelect from './TransformTranslateNumberSelect.svelte';
 
-  const options: string[] = ['', 'translate-x', 'translate-y'];
+  const options: string[] = ['translate-x', 'translate-y'];
   export let value: string;
   let select: Select;
   let scale: string;

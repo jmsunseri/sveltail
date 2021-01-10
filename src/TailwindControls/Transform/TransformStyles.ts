@@ -1,4 +1,6 @@
-class TransformStyles {
+import type { IStyle } from '../../IStyle';
+
+class TransformStyles implements IStyle {
   origin: string;
   scale: string;
   rotate: string;
@@ -6,9 +8,6 @@ class TransformStyles {
   skew: string;
   onHover: boolean = false;
 
-  /**
-   *
-   */
   constructor(init?: Partial<TransformStyles>) {
     Object.assign(this, init);
   }

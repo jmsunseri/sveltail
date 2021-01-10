@@ -1,4 +1,6 @@
-class EffectsStyle {
+import type { IStyle } from '../../IStyle';
+
+class EffectsStyle implements IStyle {
   boxShadow: string;
   opacity: string;
   isHover: boolean;

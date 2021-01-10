@@ -1,57 +1,52 @@
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
-import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
+import type { IStyle } from '../../IStyle';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 
-class CheckboxStyles {
+class CheckboxStyles implements IStyle {
   color?: ColorStyle[];
   font: FontStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   size: SizingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
+  getMarkup = (): string => {
+    return `<span class="${this.toStyles()} cursor-pointer flex flex-row items-center justify-center">
+    ✓
+</span>`;
+  };
 
-  /**
-   *
-   */
   constructor(init?: Partial<CheckboxStyles>) {
-    this.border = new BorderStyles();
+    this.border = [];
     this.font = new FontStyles();
-    this.effects = [new EffectsStyle()];
+    this.effects = [];
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
-    this.transform = new TransformStyles();
-    this.color = [new ColorStyle()];
+    this.transform = [];
+    this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.border?.toStyles(),
-      this.effects
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.spacing?.toStyles(),
-      this.size?.toStyles(),
-      this.font?.toStyles(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.border,
+      this.effects,
+      this.spacing,
+      this.size,
+      this.font,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { CheckboxStyles };

@@ -4,7 +4,6 @@
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
   const options: string[] = [
-    '',
     'origin-center',
     'origin-top',
     'origin-top-right',

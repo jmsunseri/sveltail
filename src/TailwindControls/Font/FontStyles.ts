@@ -1,32 +1,22 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
 
-class FontStyles {
+class FontStyles implements IStyle {
   color?: ColorStyle[];
   weight?: string;
   size?: string;
   family?: string;
   italics?: string;
+  default: FontStyles;
 
   constructor(init?: Partial<FontStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.weight,
-      this.size,
-      this.family,
-      this.italics,
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([this.color, this.weight, this.size, this.family, this.italics]);
 }
 
 export { FontStyles };

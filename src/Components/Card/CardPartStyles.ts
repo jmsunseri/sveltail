@@ -1,46 +1,42 @@
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { FontStyles } from '../../TailwindControls/Font/FontStyles';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 
-class CardPartStyles {
+class CardPartStyles implements IStyle {
   font?: FontStyles;
   color?: ColorStyle[];
-  border?: BorderStyles;
+  border?: BorderStyles[];
   spacing?: SpacingStyles;
-  transform?: TransformStyles;
+  transform?: TransformStyles[];
   transition?: TransitionStyles;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
-  /**
-   *
-   */
   constructor(init?: Partial<CardPartStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.spacing = new SpacingStyles();
-    this.color = [new ColorStyle()];
-    this.transform = new TransformStyles();
+    this.color = [];
+    this.transform = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.font?.toStyles(),
-      this.border?.toStyles(),
-      this.spacing?.toStyles(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.font,
+      this.border,
+      this.spacing,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { CardPartStyles };

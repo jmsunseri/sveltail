@@ -1,5 +1,6 @@
 export const borderRadiusOptions: string[] = [
   'rounded-none',
+  'rounded-sm',
   'rounded',
   'rounded-md',
   'rounded-lg',

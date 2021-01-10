@@ -3,7 +3,7 @@
   import SelectOption from '../../Components/Select/SelectOption.svelte';
   import { selectStyles } from '../../StyleDefinitions/SveltailStyles';
 
-  const heightOptions: string[] = ['', 'min-h-0', 'min-h-full', 'min-h-screen'];
+  const heightOptions: string[] = ['min-h-0', 'min-h-full', 'min-h-screen'];
   export let value: string;
   let select: Select;
 </script>

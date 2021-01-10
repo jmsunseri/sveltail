@@ -1,40 +1,32 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
+import type { Variant } from '../../Variants';
 
-class RingStyles {
+class RingStyles implements IStyle {
   color?: ColorStyle[];
   width?: string;
   opacity?: string;
   offsetWidth?: string;
   offsetColor?: ColorStyle[];
-  onFocus?: boolean = true;
+  variant?: Variant;
 
   constructor(init?: Partial<RingStyles>) {
-    this.color = [new ColorStyle()];
-    this.offsetColor = [new ColorStyle()];
+    this.color = [];
+    this.offsetColor = [];
     Object.assign(this, init);
   }
 
-  addFocus = (style?: string) =>
-    this.onFocus && style ? `focus:${style}` : style;
-
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
-        .join(' ')
-        .trim(),
-      this.offsetColor
-        .filter((x) => !!x)
-        .map((x) => (x.isHover ? x.toStyles() : this.addFocus(x.toStyles())))
-        .join(' ')
-        .trim(),
-      this.addFocus(this.width),
-      this.addFocus(this.opacity),
-      this.addFocus(this.offsetWidth),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles(
+      [
+        this.color,
+        this.offsetColor,
+        this.width,
+        this.opacity,
+        this.offsetWidth,
+      ],
+      this.variant
+    );
 }
 export { RingStyles };

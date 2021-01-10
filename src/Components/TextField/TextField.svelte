@@ -1,81 +1,41 @@
 <script lang="ts">
+  import { getStyles } from '../../utils';
+
   import { TextFieldStyles } from './TextFieldStyles';
   export let styles: TextFieldStyles = new TextFieldStyles();
   export let value: string;
   export let placeholder: string;
-
-  let input: string;
-  let icon: string;
-  let ring: string;
-  let font: string;
   let container: string;
-  let transform: string;
-  let transition: string;
-  let placeholderStyle: string;
-
-  let isFocused = false;
-  let activateRingOnFocus = false;
 
   $: {
-    icon = styles?.icon?.toStyles();
-    input = [
-      styles?.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' '),
-      styles?.border?.toStyles(),
-      styles?.font?.toStyles(),
-      styles?.spacing?.toStyles(),
-    ].join(' ');
-    font = styles?.font?.toStyles();
-
-    if (styles?.ring?.onFocus === false) {
-      input += ` ${styles.ring.toStyles()}`;
-    } else {
-      ring = styles.ring.toStyles().replaceAll('focus:', '');
-      activateRingOnFocus = true;
-    }
-    transform = styles.transform.toStyles();
-    transition = styles.transition.toStyles();
-    placeholderStyle = styles.placeholder.toStyles();
-  }
-
-  $: {
-    container =
-      activateRingOnFocus && isFocused
-        ? `flex flex-col justify-center ${input} ${ring}`
-        : `flex flex-col justify-center ${input}`;
-    if (transform) {
-      container += ` ${transform}`;
-    }
-    if (transition) {
-      container += ` ${transition}`;
-    }
+    container = getStyles([
+      styles.ring,
+      styles?.color,
+      styles?.border,
+      styles?.font,
+      styles?.spacing,
+      styles.transform,
+      styles.transition,
+      styles.effects,
+      styles.placeholder,
+    ]);
   }
 </script>
 
-<div class={container} on:click>
-  <div class="flex flex-row gap-1 items-center">
-    {#if $$slots.icon}
-      <div class={icon}>
-        <slot name="icon" />
-      </div>
-    {/if}
-    <input
-      class={`focus:outline-none min-w-0 flex-1 bg-transparent ${font} ${placeholderStyle}`}
-      type="text"
-      bind:value
-      on:focus={() => {
-        isFocused = true;
-      }}
-      on:blur={() => {
-        isFocused = false;
-      }}
-      {placeholder} />
-    {#if $$slots.trailingIcon}
-      <div class={icon}>
-        <slot name="trailingIcon" />
-      </div>
-    {/if}
-  </div>
+<div class="flex items-center">
+  {#if $$slots.icon}
+    <div class={`relative left-8 ${styles?.icon?.toStyles()}`}>
+      <slot name="icon" />
+    </div>
+  {/if}
+  <input
+    class={`focus:outline-none min-w-0 ${!!$$slots.icon && 'pl-10'} flex-1 bg-transparent ${container}`}
+    type="text"
+    bind:value
+    {placeholder} />
+  {#if $$slots.trailingIcon}
+    <div class={`relative right-8 ${styles?.icon?.toStyles()}`}>
+      <slot name="trailingIcon" />
+    </div>
+  {/if}
 </div>

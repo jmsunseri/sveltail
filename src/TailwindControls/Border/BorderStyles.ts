@@ -1,6 +1,8 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
 
-class BorderStyles {
+class BorderStyles implements IStyle {
   color: ColorStyle[];
   style: string;
   width: string;
@@ -11,24 +13,12 @@ class BorderStyles {
    *
    */
   constructor(init?: Partial<BorderStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.style,
-      this.width,
-      this.radius,
-      this.opacity,
-    ]
-      .join(' ')
-      .trim();
+    getStyles([this.color, this.style, this.width, this.radius, this.opacity]);
 }
 
 export { BorderStyles };

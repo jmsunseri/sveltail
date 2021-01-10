@@ -1,9 +1,11 @@
+import type { IStyle } from '../../IStyle';
+
 interface ISpacing {
   spacing: string;
   size: string;
 }
 
-class SpacingStyles {
+class SpacingStyles implements IStyle {
   padding?: ISpacing[] = [];
   margin?: ISpacing[] = [];
 

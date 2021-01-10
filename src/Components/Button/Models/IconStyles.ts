@@ -1,27 +1,23 @@
-import { ColorStyle } from '../../../TailwindControls/Color/ColorStyle';
-import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
+import type { IStyle } from '../../../IStyle';
+import type { ColorStyle } from '../../../TailwindControls/Color/ColorStyle';
+import { getStyles } from '../../../utils';
 
-class IconStyles {
+class IconStyles implements IStyle {
   color?: ColorStyle[];
-  size?: SizingStyles;
+  size?: number;
+  stroke?: number;
+  getMarkup = (): string => {
+    return this.toStyles();
+  };
 
   constructor(init?: Partial<IconStyles>) {
-    this.color = [new ColorStyle()];
-    this.size = new SizingStyles();
+    this.color = [];
+    this.size = 24;
+    this.stroke = 3;
     Object.assign(this, init);
   }
 
-  toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.size?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+  toStyles = () => getStyles([this.color]);
 }
 
 export { IconStyles };

@@ -1,10 +1,14 @@
 <script lang="ts">
+  import { writable } from 'svelte/store';
+
   import { slide } from 'svelte/transition';
-  import FaChevronDown from 'svelte-icons/fa/FaChevronDown.svelte';
+  import { ChevronDown, ChevronUp, X } from 'tabler-icons-svelte';
+  import type { SelectOptionStyles } from './SelectOptionStyle';
   import type { SelectStyles } from './SelectStyle';
   export let styles: SelectStyles;
   export let placeholder: string;
   export let value: any;
+  export let mustHaveValue: boolean = false;
 
   export let isMenuOpen: boolean;
 
@@ -13,9 +17,11 @@
     value = v;
   };
 
-  export const getStyle = (): string => {
-    return styles?.menuItem?.toStyles();
-  };
+  export const selectStyles = writable<SelectOptionStyles>(styles.menuItem);
+
+  $: {
+    $selectStyles = styles.menuItem;
+  }
 
   export const onClick = () => {
     isMenuOpen = !isMenuOpen;
@@ -29,7 +35,15 @@
     <span class="flex justify-between items-center gap-4">
       {value || placeholder || ''}
       <div class={styles.button.icon.toStyles()}>
-        <FaChevronDown />
+        {#if !isMenuOpen}
+          <ChevronDown
+            size={styles.button.icon.size}
+            strokeWidth={styles.button.icon.stroke} />
+        {:else}
+          <ChevronUp
+            size={styles.button.icon.size}
+            strokeWidth={styles.button.icon.stroke} />
+        {/if}
       </div>
     </span>
   </button>
@@ -37,6 +51,19 @@
     <div
       transition:slide
       class={styles.menu.toStyles() + ' absolute z-10 overflow-auto w-full cursor-pointer'}>
+      {#if !mustHaveValue}
+        <div class="flex m-1 justify-end items-center">
+          <button
+            class="focus:outline-none"
+            on:click={() => onSelected(undefined)}>
+            <div class={`${styles.button.icon.toStyles()}`}>
+              <X
+                size={styles.button.icon.size}
+                strokeWidth={styles.button.icon.stroke} />
+            </div>
+          </button>
+        </div>
+      {/if}
       <slot />
     </div>
   {/if}

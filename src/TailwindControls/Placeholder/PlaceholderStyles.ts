@@ -1,29 +1,17 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { ColorStyle } from '../Color/ColorStyle';
 import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
 
 class PlaceholderStyles implements IStyle {
   color: ColorStyle[];
   opacity: string;
 
-  /**
-   *
-   */
   constructor(init?: Partial<PlaceholderStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
   }
 
-  toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.opacity,
-    ]
-      .join(' ')
-      .trim();
+  toStyles = () => getStyles([this.color, this.opacity]);
 }
 
 export { PlaceholderStyles };

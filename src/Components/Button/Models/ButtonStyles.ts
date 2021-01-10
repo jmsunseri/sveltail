@@ -1,64 +1,65 @@
-import { BorderStyles } from '../../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../../TailwindControls/Color/ColorStyle';
-import { EffectsStyle } from '../../../TailwindControls/Effects/EffectsStyle';
+import type { IStyle } from '../../../IStyle';
+import type { BorderStyles } from '../../../TailwindControls/Border/BorderStyles';
+import type { ColorStyle } from '../../../TailwindControls/Color/ColorStyle';
+import type { EffectsStyle } from '../../../TailwindControls/Effects/EffectsStyle';
 import { FontStyles } from '../../../TailwindControls/Font/FontStyles';
 import { RingStyles } from '../../../TailwindControls/Ring/RingStyles';
 import { SizingStyles } from '../../../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../../utils';
 import { IconStyles } from './IconStyles';
 
-class ButtonStyles {
+class ButtonStyles implements IStyle {
   font: FontStyles;
   color?: ColorStyle[];
   icon: IconStyles;
-  border: BorderStyles;
+  border: BorderStyles[];
   effects: EffectsStyle[];
   spacing: SpacingStyles;
   size: SizingStyles;
   ring: RingStyles;
-  transform: TransformStyles;
+  transform: TransformStyles[];
   transition: TransitionStyles;
+  getMarkup = (): string => {
+    return `<button class="${this.toStyles()}">
+  <div class="flex flex-row gap-1 items-center justify-center">
+    Do Action
+  </div>
+</button>`;
+  };
 
   /**
    *
    */
   constructor(init?: Partial<ButtonStyles>) {
     this.font = new FontStyles();
-    this.border = new BorderStyles();
+    this.border = [];
     this.icon = new IconStyles();
-    this.effects = [new EffectsStyle()];
+    this.effects = [];
     this.spacing = new SpacingStyles();
     this.size = new SizingStyles();
     this.ring = new RingStyles();
-    this.transform = new TransformStyles();
+    this.transform = [];
     this.transition = new TransitionStyles();
-    this.color = [new ColorStyle()];
+    this.color = [];
+
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.font?.toStyles(),
-      this.border?.toStyles(),
-      this.effects
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.spacing?.toStyles(),
-      this.size?.toStyles(),
-      this.ring?.toStyles(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.font,
+      this.border,
+      this.effects,
+      this.spacing,
+      this.size,
+      this.ring,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { ButtonStyles };

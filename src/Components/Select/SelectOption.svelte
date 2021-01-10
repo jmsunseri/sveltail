@@ -2,6 +2,8 @@
   import { onMount, tick } from 'svelte';
 
   import type Select from './Select.svelte';
+  import type { SelectOptionStyles } from './SelectOptionStyle';
+  import type { SelectStyles } from './SelectStyle';
 
   let styles: string;
   export let value: any;
@@ -13,9 +15,9 @@
 
   onMount(async () => {
     await tick();
-    if (select) {
-      styles = select.getStyle();
-    }
+    return select.selectStyles.subscribe((x: SelectOptionStyles) => {
+      styles = x.toStyles();
+    });
   });
 </script>
 

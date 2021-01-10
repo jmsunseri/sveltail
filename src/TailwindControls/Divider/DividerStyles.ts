@@ -1,32 +1,20 @@
-import { ColorStyle } from '../Color/ColorStyle';
+import type { IStyle } from '../../IStyle';
+import { getStyles } from '../../utils';
+import type { ColorStyle } from '../Color/ColorStyle';
 
-class DividerStyles {
+class DividerStyles implements IStyle {
   color: ColorStyle[];
   style: string;
   width: string;
   opacity: string;
 
-  /**
-   *
-   */
   constructor(init?: Partial<DividerStyles>) {
-    this.color = [new ColorStyle()];
+    this.color = [];
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        .filter((x) => !!x)
-        .map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.style,
-      this.width,
-      this.opacity,
-    ]
-      .join(' ')
-      .trim();
+    getStyles([this.color, this.style, this.width, this.opacity]);
 }
 
 export { DividerStyles };

@@ -1,56 +1,59 @@
-import { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
-import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
-import { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
+import type { IStyle } from '../../IStyle';
+import type { BorderStyles } from '../../TailwindControls/Border/BorderStyles';
+import type { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
+import type { EffectsStyle } from '../../TailwindControls/Effects/EffectsStyle';
 import { SpacingStyles } from '../../TailwindControls/Spacing/SpacingStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
+import type { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
+import { getStyles } from '../../utils';
 import { CardPartStyles } from './CardPartStyles';
 
-class CardStyles {
+class CardStyles implements IStyle {
   color?: ColorStyle[];
-  border?: BorderStyles;
+  border?: BorderStyles[];
   effects?: EffectsStyle[];
   spacing?: SpacingStyles;
   header?: CardPartStyles;
   footer?: CardPartStyles;
   container?: CardPartStyles;
-  transform?: TransformStyles;
+  transform?: TransformStyles[];
   transition?: TransitionStyles;
+  getMarkup = (): string => {
+    return `<div class="${this.toStyles()}">
+    <div class="${this.header.toStyles()}">
+      Card Header
+    </div>
+  <div class="${this.container.toStyles()}">
+    body content
+  </div>
+    <div class="${this.footer.toStyles()}">
+      Some footer content!
+    </div>
+</div>`;
+  };
 
-  /**
-   *
-   */
   constructor(init?: Partial<CardStyles>) {
-    this.border = new BorderStyles();
-    this.effects = [new EffectsStyle()];
+    this.border = [];
+    this.effects = [];
     this.spacing = new SpacingStyles();
     this.header = new CardPartStyles();
     this.footer = new CardPartStyles();
     this.container = new CardPartStyles();
-    this.transform = new TransformStyles();
-    this.color = [new ColorStyle()];
+    this.transform = [];
+    this.color = [];
     this.transition = new TransitionStyles();
     Object.assign(this, init);
   }
 
   toStyles = () =>
-    [
-      this.color
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.border?.toStyles(),
-      this.effects
-        ?.map((x) => x.toStyles())
-        .join(' ')
-        .trim(),
-      this.spacing?.toStyles(),
-      this.transform?.toStyles(),
-      this.transition?.toStyles(),
-    ]
-      .filter((x) => !!x)
-      .join(' ')
-      .trim();
+    getStyles([
+      this.color,
+      this.border,
+      this.effects,
+      this.spacing,
+      this.transform,
+      this.transition,
+    ]);
 }
 
 export { CardStyles };

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import FaRegTrashAlt from 'svelte-icons/fa/FaRegTrashAlt.svelte';
-  import IoIosAdd from 'svelte-icons/io/IoIosAdd.svelte';
+  import { Trash, Plus } from 'tabler-icons-svelte';
+
   import { SpacingStyles } from './SpacingStyles';
   import IconButton from '../../Components/Button/IconButton.svelte';
   import Button from '../../Components/Button/Button.svelte';
@@ -20,9 +20,9 @@
       <MarginSelect bind:value={margin.spacing} />
       <SizeSelect bind:value={margin.size} />
       <IconButton
-        styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300']}
+        styles={['border-none', 'fill-current', 'text-blue-300']}
         on:click={() => (value.margin = value.margin.filter((_, i) => i !== index))}>
-        <FaRegTrashAlt />
+        <Trash />
       </IconButton>
     </div>
   {/each}
@@ -31,7 +31,7 @@
       on:click={() => (value.margin = [...value.margin, { spacing: '', size: '' }])}
       styles={primaryButton}>
       <div slot="icon">
-        <IoIosAdd />
+        <Plus />
       </div>
       Add Margin
     </Button>
@@ -43,9 +43,9 @@
       <PaddingSelect bind:value={padding.spacing} />
       <SizeSelect bind:value={padding.size} />
       <IconButton
-        styles={['h-5', 'w-5', 'border-none', 'fill-current', 'text-blue-300']}
+        styles={['border-none', 'fill-current', 'text-blue-300']}
         on:click={() => (value.padding = value.padding.filter((_, i) => i !== index))}>
-        <FaRegTrashAlt />
+        <Trash />
       </IconButton>
     </div>
   {/each}
@@ -54,7 +54,7 @@
       on:click={() => (value.padding = [...value.padding, { spacing: '', size: '' }])}
       styles={primaryButton}>
       <div slot="icon">
-        <IoIosAdd />
+        <Plus />
       </div>
 
       Add Padding
