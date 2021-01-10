@@ -8,7 +8,6 @@ module.exports = {
     '@snowpack/plugin-svelte',
     '@snowpack/plugin-dotenv',
     '@snowpack/plugin-typescript',
-    '@snowpack/plugin-webpack',
   ],
   install: [
     /* ... */
@@ -25,11 +24,4 @@ module.exports = {
   alias: {
     /* ... */
   },
-  // experiments: {
-  //   optimize: {
-  //     bundle: true,
-  //     minify: true,
-  //     target: 'es2018',
-  //   },
-  // },
 };

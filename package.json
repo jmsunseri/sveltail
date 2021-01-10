@@ -2,7 +2,7 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "snowpack build",
+    "build": "rollup -c",
     "dev": "snowpack dev",
     "start": "snowpack dev",
     "validate": "svelte-check"
@@ -24,7 +24,10 @@
     "tabler-icons-svelte": "^1.4.0",
     "tailwindcss": "^2.0.2",
     "tslib": "^2.0.0",
-    "typescript": "^4.1.2"
+    "typescript": "^4.1.2",
+    "snowpack-plugin-rollup-bundle": "^0.3.3",
+    "@rollup/plugin-typescript": "^8.1.0",
+    "rollup-plugin-css-only": "^3.1.0"
   },
   "dependencies": {
     "sirv-cli": "^1.0.0"
