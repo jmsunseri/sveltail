@@ -16,26 +16,7 @@
     tooltip,
   } from '../StyleDefinitions/SveltailStyles';
   import SelectOption from '../Components/Select/SelectOption.svelte';
-  import { getInstance as getDefaultInstance } from '../StyleDefinitions/PageThemes/DefaultStyles';
-  import { getInstance as getBlankSlateInstance } from '../StyleDefinitions/PageThemes/BlankSlateStyles';
-  import { getInstance as getGetHubInstance } from '../StyleDefinitions/PageThemes/GetHubStyles';
-  import { getInstance as getTweetInstance } from '../StyleDefinitions/PageThemes/TwitterishDarkStyles';
-  import {
-    cardStyles,
-    checkboxStyles,
-    headerStyles,
-    primaryButtonStyles,
-    secondaryButtonStyles,
-    selectStyles,
-    tableStyles,
-    textFieldStyles,
-    pageStyles,
-    selectedTheme,
-    tooltipStyles,
-    selectedStyle,
-    getNewInstance,
-  } from '../store';
-  import type { IPageTheme } from '../StyleDefinitions/IPageTheme';
+  import { reset, selectedTheme } from '../store';
   import IconButton from '../Components/Button/IconButton.svelte';
   import Tooltip from '../Components/Tooltip/Tooltip.svelte';
   import TooltipStyler from './TooltipStyler.svelte';
@@ -44,69 +25,18 @@
 
   const dispatch = createEventDispatcher();
   let select: any;
-  let theme: string = $selectedTheme;
   let resetButton: any;
-
-  const foo = SvelteComponentTyped;
 
   const navigate = (text: string, component: any) => {
     dispatch('navigate', { text, component } as IBreadcrumbEvent);
   };
-
-  const reset = () => {
-    const newInstance = $getNewInstance();
-
-    $headerStyles = newInstance.header;
-    $primaryButtonStyles = newInstance.primaryButton;
-    $secondaryButtonStyles = newInstance.secondaryButton;
-    $selectStyles = newInstance.select;
-    $pageStyles = newInstance.viewer;
-    $textFieldStyles = newInstance.textField;
-    $checkboxStyles = newInstance.checkbox;
-    $tableStyles = newInstance.table;
-    $cardStyles = newInstance.card;
-    $tooltipStyles = newInstance.tooltip;
-  };
-
-  $: {
-    if (theme !== $selectedTheme) {
-      const newTheme: IPageTheme = {};
-      $selectedTheme = theme;
-      if (theme === 'Default Theme') {
-        Object.assign(newTheme, getDefaultInstance());
-        $getNewInstance = getDefaultInstance;
-      } else if (theme === 'Blank Slate Theme') {
-        Object.assign(newTheme, getBlankSlateInstance());
-        $getNewInstance = getBlankSlateInstance;
-      } else if (theme === 'Get Hub Theme') {
-        Object.assign(newTheme, getGetHubInstance());
-        $getNewInstance = getGetHubInstance;
-      } else if (theme === 'Tweet Dark Theme') {
-        Object.assign(newTheme, getTweetInstance());
-        $getNewInstance = getTweetInstance;
-      }
-
-      $headerStyles = newTheme.header;
-      $primaryButtonStyles = newTheme.primaryButton;
-      $secondaryButtonStyles = newTheme.secondaryButton;
-      $selectStyles = newTheme.select;
-      $pageStyles = newTheme.viewer;
-      $textFieldStyles = newTheme.textField;
-      $checkboxStyles = newTheme.checkbox;
-      $tableStyles = newTheme.table;
-      $cardStyles = newTheme.card;
-      $tooltipStyles = newTheme.tooltip;
-
-      $selectedStyle = newTheme.viewer;
-    }
-  }
 </script>
 
 <div transition:slide class="grid gap-2 grid-cols-3">
   <div bind:this={resetButton} class="col-span-3 flex items-center gap-3">
     <Select
       bind:this={select}
-      bind:value={theme}
+      bind:value={$selectedTheme}
       mustHaveValue
       styles={sveltailSelectStyle}>
       <SelectOption value="Default Theme" {select}>Default Theme</SelectOption>

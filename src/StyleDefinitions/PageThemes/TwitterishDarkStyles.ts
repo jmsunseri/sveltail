@@ -154,15 +154,35 @@ const getInstance = (): IPageTheme => {
       size: 36,
       color: [
         new ColorStyle({
-          color: 'text-blue-200',
+          color: 'text-blue-400',
           variant: Variant.None,
         }),
       ],
     }),
     menu: new HeaderPartStyle({
+      border: [
+        new BorderStyles({
+          radius: 'rounded-full',
+        }),
+      ],
+      effects: [
+        new EffectsStyle({
+          opacity: 'hover:opacity-50',
+        }),
+      ],
+      spacing: new SpacingStyles({
+        padding: [
+          { size: '4', spacing: 'px' },
+          { size: '2', spacing: 'py' },
+        ],
+      }),
+      font: new FontStyles({
+        color: [new ColorStyle({ color: 'text-blue-400' })],
+        weight: 'font-semibold',
+      }),
       color: [
         new ColorStyle({
-          color: 'hover:text-gray-200',
+          color: 'hover:bg-blue-100',
           variant: Variant.Hover,
         }),
       ],
@@ -254,7 +274,6 @@ const getInstance = (): IPageTheme => {
       spacing: new SpacingStyles({
         padding: [{ spacing: 'py', size: '4' }],
       }),
-      color: [new ColorStyle({ color: 'bg-blue-50' })],
     }),
     row: new TablePartStyles({
       spacing: new SpacingStyles({
