@@ -15,7 +15,7 @@ import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
 import type { IPageTheme } from './StyleDefinitions/IPageTheme';
 import { hmr } from './hmr';
 
-export const themeProviders = writable({
+export const themeProviders = writable<{ [key: string]: () => IPageTheme }>({
   'Default Theme': getDefaultInstance,
   'Blank Slate Theme': getBlankSlateInstance,
   'Get Hub Theme': getGetHubInstance,
@@ -24,7 +24,7 @@ export const themeProviders = writable({
 
 type ThemeInitializer = () => IPageTheme;
 
-const selectedTheme = writable<string>('Tweet Dark Theme');
+const selectedTheme = writable<string>('Default Theme');
 
 const getNewInstance = derived<any, ThemeInitializer>(
   [themeProviders, selectedTheme],
@@ -103,7 +103,14 @@ const selectedStyle = getWritableThemePart<SelectStyles>(
 // (adding, renaming...) the named exports of a module, so most update to the
 // current module will probably need a full reload anyway
 //
-hmr(themeProviders);
+
+// @ts-ignore
+if (import.meta.hot) {
+  // @ts-ignore
+  import.meta.hot.accept(({ module }) => {
+    themeProviders.set(get(module.themeProviders));
+  });
+}
 
 export {
   headerStyles,

@@ -29,8 +29,11 @@ import { HeaderPartStyle } from '../../Components/Header/HeaderPartStyle';
 const getInstance = (): IPageTheme => {
   const primaryButton = new ButtonStyles({
     color: [
-      new ColorStyle({ color: 'bg-green-500' }),
-      new ColorStyle({ color: 'hover:bg-green-600', variant: Variant.Hover }),
+      new ColorStyle({ color: 'bg-blue-400' }),
+      new ColorStyle({
+        variant: Variant.Hover,
+        opacity: 'hover:bg-opacity-90',
+      }),
     ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-gray-50' })],
@@ -38,9 +41,7 @@ const getInstance = (): IPageTheme => {
     }),
     border: [
       new BorderStyles({
-        radius: 'rounded-lg',
-        color: [new ColorStyle({ color: 'border-green-600' })],
-        width: 'border',
+        radius: 'rounded-full',
       }),
     ],
     spacing: new SpacingStyles({
@@ -76,51 +77,60 @@ const getInstance = (): IPageTheme => {
   });
 
   const textField = new TextFieldStyles({
-    color: [new ColorStyle({ color: 'bg-gray-50' })],
+    color: [
+      new ColorStyle({
+        color: 'bg-gray-700',
+        isGradient: false,
+      }),
+    ],
     border: [
       new BorderStyles({
-        width: 'border',
-        color: [new ColorStyle({ color: 'border-gray-300' })],
-        radius: 'rounded-lg',
+        style: 'border-none',
+        radius: 'rounded-full',
       }),
     ],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-gray-600' })],
+      color: [new ColorStyle({ color: 'text-gray-400' })],
     }),
     placeholder: new PlaceholderStyles({
       opacity: 'placeholder-opacity-0',
     }),
     ring: new RingStyles({
       variant: Variant.Focus,
-      width: 'ring-4',
-      opacity: 'ring-opacity-50',
-      color: [new ColorStyle({ color: 'ring-blue-500' })],
+      width: 'ring-1',
+
+      color: [
+        new ColorStyle({ color: 'ring-blue-400', opacity: 'ring-opacity-100' }),
+      ],
     }),
     spacing: new SpacingStyles({
-      padding: [{ spacing: 'p', size: '2' }],
+      padding: [{ spacing: 'p', size: '3' }],
     }),
     icon: new IconStyles({
       size: 18,
       stroke: 2,
-      color: [new ColorStyle({ color: 'text-gray-500' })],
+      color: [new ColorStyle({ color: 'text-gray-400' })],
     }),
   });
 
   const secondaryButton = new ButtonStyles({
     color: [
-      new ColorStyle({ color: 'bg-gray-50' }),
-      new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
+      new ColorStyle({
+        color: 'hover:bg-blue-300',
+        variant: Variant.Hover,
+        opacity: 'hover:bg-opacity-5',
+      }),
     ],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-gray-900' })],
+      color: [new ColorStyle({ color: 'text-blue-400' })],
       weight: 'font-bold',
     }),
     border: [
       new BorderStyles({
-        radius: 'rounded-lg',
+        radius: 'rounded-full',
         color: [
           new ColorStyle({
-            color: 'border-gray-300',
+            color: 'border-blue-400',
           }),
         ],
         width: 'border',
@@ -128,8 +138,8 @@ const getInstance = (): IPageTheme => {
     ],
     spacing: new SpacingStyles({
       padding: [
-        { spacing: 'py', size: '2' },
-        { spacing: 'px', size: '4' },
+        { spacing: 'py', size: '1' },
+        { spacing: 'px', size: '2' },
       ],
     }),
   });
@@ -137,8 +147,19 @@ const getInstance = (): IPageTheme => {
   const header = new HeaderStyle({
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-white' })],
-      weight: 'font-semibold',
+      weight: 'font-black',
+      size: 'text-lg',
     }),
+    border: [
+      new BorderStyles({
+        width: 'border-b',
+        color: [
+          new ColorStyle({
+            color: 'border-gray-600',
+          }),
+        ],
+      }),
+    ],
     size: new SizingStyles({
       height: 'h-12',
       width: 'w-full',
@@ -165,11 +186,6 @@ const getInstance = (): IPageTheme => {
           radius: 'rounded-full',
         }),
       ],
-      effects: [
-        new EffectsStyle({
-          opacity: 'hover:opacity-50',
-        }),
-      ],
       spacing: new SpacingStyles({
         padding: [
           { size: '4', spacing: 'px' },
@@ -182,7 +198,8 @@ const getInstance = (): IPageTheme => {
       }),
       color: [
         new ColorStyle({
-          color: 'hover:bg-blue-100',
+          color: 'hover:bg-blue-400',
+          opacity: 'hover:bg-opacity-10',
           variant: Variant.Hover,
         }),
       ],
@@ -205,11 +222,20 @@ const getInstance = (): IPageTheme => {
 
   const select: SelectStyles = new SelectStyles({
     button: new ButtonStyles({
+      color: [
+        new ColorStyle({
+          color: 'bg-blue-400',
+          opacity: 'bg-opacity-10',
+          isGradient: false,
+        }),
+      ],
       border: [
         new BorderStyles({
-          width: 'border',
-          color: [new ColorStyle({ color: 'border-gray-300' })],
-          radius: 'rounded-lg',
+          width: 'border-none',
+          radius: 'rounded-t-xl',
+        }),
+        new BorderStyles({
+          radius: 'rounded-b-none',
         }),
       ],
       spacing: new SpacingStyles({
@@ -222,36 +248,56 @@ const getInstance = (): IPageTheme => {
         width: 'w-full',
       }),
       icon: new IconStyles({
-        color: [new ColorStyle({ color: 'text-gray-700' })],
-        size: 16,
+        color: [new ColorStyle({ color: 'text-blue-400' })],
+        size: 24,
       }),
     }),
     menu: new MenuStyles({
-      effects: [
-        new EffectsStyle({
-          boxShadow: 'shadow-md',
+      divider: new DividerStyles({
+        width: 'divide-y',
+        color: [
+          new ColorStyle({
+            color: 'divide-blue-100',
+            opacity: 'divide-opacity-10',
+          }),
+        ],
+      }),
+      color: [
+        new ColorStyle({
+          color: 'bg-blue-400',
+          opacity: 'bg-opacity-10',
+          isGradient: false,
         }),
       ],
-      spacing: new SpacingStyles({
-        margin: [{ spacing: 'mt', size: '0.5' }],
-        padding: [{ spacing: 'py', size: '1' }],
-      }),
-      color: [new ColorStyle({ color: 'bg-white' })],
       border: [
         new BorderStyles({
-          width: 'border',
-          radius: 'rounded-lg',
-          color: [new ColorStyle({ color: 'border-gray-300' })],
+          radius: 'rounded-b-xl',
+        }),
+        new BorderStyles({
+          radius: 'rounded-t-none',
+        }),
+        new BorderStyles({
+          width: 'border-t',
+          color: [
+            new ColorStyle({
+              color: 'border-blue-100',
+              opacity: 'border-opacity-10',
+            }),
+          ],
         }),
       ],
     }),
     menuItem: new SelectOptionStyles({
       color: [
-        new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
+        new ColorStyle({
+          color: 'hover:bg-gray-100',
+          opacity: 'hover:bg-opacity-20',
+          variant: Variant.Hover,
+        }),
       ],
       spacing: new SpacingStyles({
         padding: [
-          { spacing: 'py', size: '1' },
+          { spacing: 'py', size: '2' },
           { spacing: 'px', size: '4' },
         ],
       }),
@@ -262,13 +308,22 @@ const getInstance = (): IPageTheme => {
     border: [
       new BorderStyles({
         width: 'border',
-        radius: 'rounded-lg',
-        color: [new ColorStyle({ color: 'border-gray-300' })],
+        color: [
+          new ColorStyle({
+            color: 'border-blue-100',
+            opacity: 'border-opacity-20',
+          }),
+        ],
       }),
     ],
     divider: new DividerStyles({
       width: 'divide-y',
-      color: [new ColorStyle({ color: 'divider-gray-300' })],
+      color: [
+        new ColorStyle({
+          color: 'divide-blue-100',
+          opacity: 'divide-opacity-20',
+        }),
+      ],
     }),
     header: new TablePartStyles({
       spacing: new SpacingStyles({
@@ -282,27 +337,30 @@ const getInstance = (): IPageTheme => {
           { spacing: 'px', size: '4' },
         ],
       }),
+      color: [
+        new ColorStyle({
+          color: 'hover:bg-blue-50',
+          variant: Variant.Hover,
+          opacity: 'hover:bg-opacity-10',
+        }),
+      ],
       font: new FontStyles({
         color: [new ColorStyle({ color: 'text-white' })],
       }),
-      color: [
-        new ColorStyle({ color: 'hover:bg-gray-100', variant: Variant.Hover }),
-      ],
     }),
   });
 
   const card: CardStyles = new CardStyles({
-    color: [new ColorStyle({ color: 'bg-white' })],
-    border: [
-      new BorderStyles({
-        width: 'border',
-        radius: 'rounded-lg',
-        color: [new ColorStyle({ color: 'border-gray-300' })],
+    color: [
+      new ColorStyle({
+        color: 'bg-blue-400',
+        opacity: 'bg-opacity-10',
+        isGradient: false,
       }),
     ],
-    effects: [
-      new EffectsStyle({
-        boxShadow: 'shadow-lg',
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
       }),
     ],
     spacing: new SpacingStyles({
@@ -310,14 +368,11 @@ const getInstance = (): IPageTheme => {
     }),
     header: new CardPartStyles({
       spacing: new SpacingStyles({
-        padding: [
-          { spacing: 'px', size: '4' },
-          { spacing: 'py', size: '6' },
-        ],
+        padding: [{ spacing: 'p', size: '2' }],
       }),
       font: new FontStyles({
         weight: 'font-semibold',
-        size: 'text-xl',
+        size: 'text-base',
       }),
     }),
     container: new CardPartStyles({
