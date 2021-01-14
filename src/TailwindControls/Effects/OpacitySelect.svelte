@@ -21,6 +21,23 @@
     'opacity-100',
   ];
   export let value: string | undefined;
+  export let prefix: string;
+
+  let prefixedOptions: string[] = options;
+
+  $: {
+    prefixedOptions = options.map((x) => `${!!prefix ? `${prefix}-` : ''}${x}`);
+  }
+
+  $: {
+    if (value) {
+      if (prefix && !value.startsWith(prefix)) {
+        value = `${prefix}-opacity-${value.split('opacity-')[1]}`;
+      } else if (!prefix && !value.startsWith('opacity-')) {
+        value = `opacity-${value.split('opacity-')[1]}`;
+      }
+    }
+  }
 
   let select: Select;
 </script>
@@ -30,7 +47,7 @@
   bind:value
   bind:this={select}
   styles={selectStyles}>
-  {#each options as option}
+  {#each prefixedOptions as option}
     <SelectOption {select} value={option} on:selected>{option}</SelectOption>
   {/each}
 </Select>

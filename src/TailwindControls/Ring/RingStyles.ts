@@ -6,7 +6,6 @@ import type { Variant } from '../../Variants';
 class RingStyles implements IStyle {
   color?: ColorStyle[];
   width?: string;
-  opacity?: string;
   offsetWidth?: string;
   offsetColor?: ColorStyle[];
   variant?: Variant;
@@ -19,13 +18,7 @@ class RingStyles implements IStyle {
 
   toStyles = () =>
     getStyles(
-      [
-        this.color,
-        this.offsetColor,
-        this.width,
-        this.opacity,
-        this.offsetWidth,
-      ],
+      [this.color, this.offsetColor, this.width, this.offsetWidth],
       this.variant
     );
 }

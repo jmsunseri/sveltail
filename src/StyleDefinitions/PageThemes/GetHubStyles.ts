@@ -93,8 +93,10 @@ const getInstance = (): IPageTheme => {
     ring: new RingStyles({
       variant: Variant.Focus,
       width: 'ring-4',
-      opacity: 'ring-opacity-50',
-      color: [new ColorStyle({ color: 'ring-blue-500' })],
+
+      color: [
+        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-50' }),
+      ],
     }),
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],

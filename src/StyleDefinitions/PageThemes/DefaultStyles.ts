@@ -35,10 +35,11 @@ const getInstance = (): IPageTheme => {
     }),
     ring: new RingStyles({
       variant: Variant.Focus,
-      color: [new ColorStyle({ color: 'ring-blue-500' })],
+      color: [
+        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
+      ],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     effects: [
       new EffectsStyle({
@@ -88,10 +89,11 @@ const getInstance = (): IPageTheme => {
     ],
     ring: new RingStyles({
       variant: Variant.Focus,
-      color: [new ColorStyle({ color: 'ring-blue-500' })],
+      color: [
+        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
+      ],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     icon: new IconStyles({
       color: [new ColorStyle({ color: 'text-pink-900' })],
@@ -120,10 +122,11 @@ const getInstance = (): IPageTheme => {
     ],
     ring: new RingStyles({
       variant: Variant.Focus,
-      color: [new ColorStyle({ color: 'ring-blue-500' })],
+      color: [
+        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
+      ],
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     icon: new IconStyles({
       color: [new ColorStyle({ color: 'bg-purple-300' })],

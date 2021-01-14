@@ -8,6 +8,7 @@
   export let value: ColorStyle[] = [];
   export let prefix: string;
   export let blockGradient: boolean;
+  export let blockOpacity: boolean;
   export let variants: Variant[] = [Variant.None, Variant.Hover];
 
   const remove = (toBeRemoved: number) => {
@@ -21,6 +22,7 @@
       {prefix}
       bind:value={color}
       {blockGradient}
+      {blockOpacity}
       {variants}
       onDelete={() => remove(index)} />
   {/each}
