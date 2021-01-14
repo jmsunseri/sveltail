@@ -51,7 +51,7 @@
     <Tooltip styles={tooltip}>
       <div slot="tooltip">reset theme</div>
       <IconButton
-        on:click={reset}
+        on:click={() => reset && reset()}
         styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
         <Refresh size={30} />
       </IconButton>

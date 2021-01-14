@@ -13,7 +13,7 @@ import { getInstance as getGetHubInstance } from './StyleDefinitions/PageThemes/
 import { getInstance as getTweetInstance } from './StyleDefinitions/PageThemes/TwitterishDarkStyles';
 import type { TooltipStyles } from './Components/Tooltip/TooltipStyles';
 import type { IPageTheme } from './StyleDefinitions/IPageTheme';
-import { hmr } from './hmr';
+import type { IStyle } from './IStyle';
 
 export const themeProviders = writable<{ [key: string]: () => IPageTheme }>({
   'Default Theme': getDefaultInstance,
@@ -36,7 +36,11 @@ export let reset: VoidFunction;
 const currentInstance = derived<Readable<ThemeInitializer>, IPageTheme>(
   getNewInstance,
   ($getNewInstance: ThemeInitializer, set: (theme: IPageTheme) => void) => {
-    reset = () => set($getNewInstance());
+    reset = () => {
+      const instance = $getNewInstance();
+      instance.selected = instance.viewer;
+      set(instance);
+    };
     reset(); // initialize
   }
 );
@@ -89,9 +93,10 @@ const tooltipStyles = getWritableThemePart<TooltipStyles>(
   currentInstance,
   ($theme) => $theme.tooltip
 );
-const selectedStyle = getWritableThemePart<SelectStyles>(
+
+const selectedStyle = getWritableThemePart<IStyle>(
   currentInstance,
-  ($theme) => $theme.viewer
+  ($theme) => $theme.selected
 );
 
 // HMR handler
@@ -124,6 +129,6 @@ export {
   cardStyles,
   selectedTheme,
   tooltipStyles,
-  selectedStyle,
   getNewInstance,
+  selectedStyle,
 };
