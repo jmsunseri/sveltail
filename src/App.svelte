@@ -4,6 +4,7 @@
   import Home from './StyleScreens/Home.svelte';
   import Markup from './Markup.svelte';
   import { BrandGithub, BrandTwitter } from 'tabler-icons-svelte';
+  import Sveltail from './Sveltail.svelte';
 </script>
 
 <!--  -->
@@ -22,7 +23,8 @@
   <div
     class="md:text-3xl sm:text-2xl w-full px-4 z-50 bg-gray-100 border-b-2 border-dashed shadow py-2 flex sticky top-0">
     <div class="container mx-auto flex items-center gap-2">
-      <div class="flex-1 flex gap-1">
+      <div class="flex-1 flex gap-1 items-center">
+        <Sveltail />
         SvelTail
         <span class="hidden md:block ">- TailwindCSS Styling Lab</span>
       </div>
