@@ -14,5 +14,9 @@
   <FontSizeSelect bind:value={value.size} />
   <FontFamilySelect bind:value={value.family} />
   <FontItalicSelect bind:value={value.italics} />
-  <ColorsSelects bind:value={value.color} prefix="text" blockGradient />
+  <ColorsSelects
+    bind:value={value.color}
+    prefix="text"
+    blockGradient
+    blockOpacity />
 </div>

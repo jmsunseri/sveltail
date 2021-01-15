@@ -10,9 +10,11 @@
   import { Variant } from '../../Variants';
   import RadioButton from '../../Components/RadioButton/RadioButton.svelte';
   import Tooltip from '../../Components/Tooltip/Tooltip.svelte';
+  import OpacitySelect from '../Effects/OpacitySelect.svelte';
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
+  export let blockOpacity: boolean;
   export let variants: Variant[];
   export let onDelete: VoidFunction;
 
@@ -53,6 +55,11 @@
       </Tooltip>
     </div>
   </div>
+  {#if !blockOpacity}
+    <OpacitySelect
+      prefix={`${value.variant || ''}${prefix}`}
+      bind:value={value.opacity} />
+  {/if}
   {#if radioOptions.length}
     <div class="flex flex-row items-center">
       <span>Variant: </span>

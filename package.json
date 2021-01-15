@@ -8,9 +8,10 @@
     "validate": "svelte-check"
   },
   "devDependencies": {
-    "@snowpack/app-scripts-svelte": "^1.9.2",
     "@snowpack/plugin-typescript": "^1.1.1",
     "@snowpack/plugin-webpack": "^2.2.0",
+    "@snowpack/plugin-svelte": "^3.4.1",
+    "@snowpack/plugin-dotenv": "^2.0.5",
     "@tsconfig/svelte": "^1.0.10",
     "@types/lodash": "^4.14.166",
     "@types/snowpack-env": "^2.3.3",

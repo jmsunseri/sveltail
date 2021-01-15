@@ -21,7 +21,7 @@
   on:mouseleave={onMouseLeave}>
   <slot />
   {#if visible}
-    <div class={`absolute z-10 ${getStyles(styles.transform)}`}>
+    <div class={`absolute z-50 ${getStyles(styles.transform)}`}>
       <div
         transition:fade={{ duration: 300 }}
         class={getStyles([

@@ -18,147 +18,152 @@ import { TableStyles } from '../../Components/Table/TableStyles';
 import { TablePartStyles } from '../../Components/Table/TablePartStyles';
 import { CardStyles } from '../../Components/Card/CardStyles';
 import { CardPartStyles } from '../../Components/Card/CardPartStyles';
-import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
-import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import type { IPageTheme } from '../IPageTheme';
 import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
+import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
 import { Variant } from '../../Variants';
+import { PlaceholderStyles } from '../../TailwindControls/Placeholder/PlaceholderStyles';
 import { HeaderPartStyle } from '../../Components/Header/HeaderPartStyle';
 
 const getInstance = (): IPageTheme => {
   const primaryButton = new ButtonStyles({
-    color: [new ColorStyle({ color: 'bg-purple-500' })],
-    font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-white' })],
-      weight: 'font-semibold',
-    }),
-    ring: new RingStyles({
-      variant: Variant.Focus,
-      color: [
-        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
-      ],
-      width: 'ring-4',
-      offsetWidth: 'ring-offset-1',
-    }),
-    effects: [
-      new EffectsStyle({
-        boxShadow: 'shadow-md',
-      }),
-    ],
-    spacing: new SpacingStyles({
-      padding: [{ spacing: 'p', size: '2' }],
-    }),
-  });
-
-  const checkbox = new CheckboxStyles({
-    color: [new ColorStyle({ color: 'bg-purple-500' })],
-    border: [
-      new BorderStyles({
-        radius: 'rounded',
+    color: [
+      new ColorStyle({ color: 'bg-blue-400' }),
+      new ColorStyle({
+        variant: Variant.Hover,
+        opacity: 'hover:bg-opacity-90',
       }),
     ],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-white' })],
-      weight: 'font-black',
-      size: 'text-xl',
-      family: 'font-sans',
+      color: [new ColorStyle({ color: 'text-gray-50' })],
+      weight: 'font-bold',
     }),
-    size: new SizingStyles({
-      height: 'h-5',
-      width: 'w-5',
-    }),
-    transform: [
-      new TransformStyles({
-        rotate: 'rotate-6',
-        onHover: true,
-      }),
-    ],
-    transition: new TransitionStyles({
-      transition: 'transition',
-      duration: 'duration-300',
-    }),
-  });
-
-  const textField = new TextFieldStyles({
-    color: [new ColorStyle({ color: 'bg-gray-50' })],
     border: [
       new BorderStyles({
         radius: 'rounded-full',
       }),
     ],
-    ring: new RingStyles({
-      variant: Variant.Focus,
-      color: [
-        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
+    spacing: new SpacingStyles({
+      padding: [
+        { spacing: 'py', size: '2' },
+        { spacing: 'px', size: '4' },
       ],
-      width: 'ring-4',
-      offsetWidth: 'ring-offset-1',
     }),
     icon: new IconStyles({
-      color: [new ColorStyle({ color: 'text-pink-900' })],
+      size: 14,
+    }),
+  });
+
+  const checkbox = new CheckboxStyles({
+    color: [new ColorStyle({ color: 'bg-white' })],
+    border: [
+      new BorderStyles({
+        width: 'border',
+        color: [new ColorStyle({ color: 'border-gray-600' })],
+        radius: 'rounded-sm',
+      }),
+    ],
+    font: new FontStyles({
+      color: [new ColorStyle({ color: 'text-blue-500' })],
+      weight: 'font-black',
+      size: 'text-xs',
+      family: 'font-sans',
+    }),
+    size: new SizingStyles({
+      height: 'h-3',
+      width: 'w-3',
+    }),
+  });
+
+  const textField = new TextFieldStyles({
+    color: [
+      new ColorStyle({
+        color: 'bg-gray-700',
+        isGradient: false,
+      }),
+    ],
+    border: [
+      new BorderStyles({
+        style: 'border-none',
+        radius: 'rounded-full',
+      }),
+    ],
+    font: new FontStyles({
+      color: [new ColorStyle({ color: 'text-gray-400' })],
+    }),
+    placeholder: new PlaceholderStyles({
+      opacity: 'placeholder-opacity-0',
+    }),
+    ring: new RingStyles({
+      variant: Variant.Focus,
+      width: 'ring-1',
+
+      color: [
+        new ColorStyle({ color: 'ring-blue-400', opacity: 'ring-opacity-100' }),
+      ],
     }),
     spacing: new SpacingStyles({
-      padding: [{ spacing: 'p', size: '2' }],
+      padding: [{ spacing: 'p', size: '3' }],
+    }),
+    icon: new IconStyles({
+      size: 18,
+      stroke: 2,
+      color: [new ColorStyle({ color: 'text-gray-400' })],
     }),
   });
 
   const secondaryButton = new ButtonStyles({
-    color: [new ColorStyle({ color: 'bg-purple-50' })],
+    color: [
+      new ColorStyle({
+        color: 'hover:bg-blue-300',
+        variant: Variant.Hover,
+        opacity: 'hover:bg-opacity-5',
+      }),
+    ],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-purple-800' })],
+      color: [new ColorStyle({ color: 'text-blue-400' })],
       weight: 'font-bold',
     }),
-    transform: [
-      new TransformStyles({
-        scale: 'scale-110',
-        onHover: true,
+    border: [
+      new BorderStyles({
+        radius: 'rounded-full',
+        color: [
+          new ColorStyle({
+            color: 'border-blue-400',
+          }),
+        ],
+        width: 'border',
       }),
     ],
-    effects: [
-      new EffectsStyle({
-        boxShadow: 'shadow-md',
-      }),
-    ],
-    ring: new RingStyles({
-      variant: Variant.Focus,
-      color: [
-        new ColorStyle({ color: 'ring-blue-500', opacity: 'ring-opacity-20' }),
-      ],
-      width: 'ring-4',
-      offsetWidth: 'ring-offset-1',
-    }),
-    icon: new IconStyles({
-      color: [new ColorStyle({ color: 'bg-purple-300' })],
-    }),
     spacing: new SpacingStyles({
-      padding: [{ spacing: 'p', size: '2' }],
+      padding: [
+        { spacing: 'py', size: '1' },
+        { spacing: 'px', size: '2' },
+      ],
     }),
   });
 
   const header = new HeaderStyle({
-    color: [
-      new ColorStyle({
-        isGradient: true,
-        direction: 'bg-gradient-to-r',
-        from: 'from-pink-900',
-        to: 'to-pink-700',
-      }),
-    ],
     font: new FontStyles({
       color: [new ColorStyle({ color: 'text-white' })],
-      size: 'text-3xl',
-      weight: 'font-bold',
+      weight: 'font-black',
+      size: 'text-lg',
     }),
+    border: [
+      new BorderStyles({
+        width: 'border-b',
+        color: [
+          new ColorStyle({
+            color: 'border-gray-600',
+          }),
+        ],
+      }),
+    ],
     size: new SizingStyles({
       height: 'h-12',
       width: 'w-full',
     }),
-    effects: [
-      new EffectsStyle({
-        boxShadow: 'shadow-lg',
-      }),
-    ],
     spacing: new SpacingStyles({
       padding: [
         { spacing: 'py', size: '2' },
@@ -168,129 +173,194 @@ const getInstance = (): IPageTheme => {
     }),
     icon: new IconStyles({
       size: 36,
+      color: [
+        new ColorStyle({
+          color: 'text-blue-400',
+          variant: Variant.None,
+        }),
+      ],
     }),
     menu: new HeaderPartStyle({
-      font: new FontStyles({
-        size: 'text-base',
+      border: [
+        new BorderStyles({
+          radius: 'rounded-full',
+        }),
+      ],
+      spacing: new SpacingStyles({
+        padding: [
+          { size: '4', spacing: 'px' },
+          { size: '2', spacing: 'py' },
+        ],
       }),
+      font: new FontStyles({
+        color: [new ColorStyle({ color: 'text-blue-400' })],
+        weight: 'font-semibold',
+      }),
+      color: [
+        new ColorStyle({
+          color: 'hover:bg-blue-400',
+          opacity: 'hover:bg-opacity-10',
+          variant: Variant.Hover,
+        }),
+      ],
     }),
   });
 
   const viewer = new PageStyle({
     color: [
       new ColorStyle({
-        color: 'bg-purple-100',
+        color: 'bg-gray-800',
+        isGradient: false,
       }),
     ],
     font: new FontStyles({
-      color: [new ColorStyle({ color: 'text-gray-700' })],
+      color: [new ColorStyle({ color: 'text-white' })],
       weight: 'font-normal',
-      size: 'text-base',
-      family: 'font-mono',
+      size: 'text-sm',
     }),
   });
 
   const select: SelectStyles = new SelectStyles({
     button: new ButtonStyles({
-      color: [new ColorStyle({ color: 'bg-white' })],
+      color: [
+        new ColorStyle({
+          color: 'bg-blue-400',
+          opacity: 'bg-opacity-10',
+          isGradient: false,
+        }),
+      ],
       border: [
         new BorderStyles({
-          width: 'border-2',
-          color: [new ColorStyle({ color: 'border-pink-900' })],
+          width: 'border-none',
+          radius: 'rounded-t-xl',
+        }),
+        new BorderStyles({
+          radius: 'rounded-b-none',
         }),
       ],
       spacing: new SpacingStyles({
         padding: [
           { spacing: 'py', size: '2' },
-          { spacing: 'px', size: '2' },
+          { spacing: 'px', size: '4' },
         ],
       }),
       size: new SizingStyles({
         width: 'w-full',
       }),
       icon: new IconStyles({
-        color: [new ColorStyle({ color: 'text-black' })],
+        color: [new ColorStyle({ color: 'text-blue-400' })],
+        size: 24,
       }),
     }),
     menu: new MenuStyles({
-      effects: [
-        new EffectsStyle({
-          boxShadow: 'shadow-md',
+      divider: new DividerStyles({
+        width: 'divide-y',
+        color: [
+          new ColorStyle({
+            color: 'divide-blue-100',
+            opacity: 'divide-opacity-10',
+          }),
+        ],
+      }),
+      color: [
+        new ColorStyle({
+          color: 'bg-blue-400',
+          opacity: 'bg-opacity-10',
+          isGradient: false,
         }),
       ],
-      color: [new ColorStyle({ color: 'bg-white' })],
       border: [
         new BorderStyles({
-          width: 'border-2 border-t-0',
-          color: [new ColorStyle({ color: 'border-pink-900' })],
+          radius: 'rounded-b-xl',
+        }),
+        new BorderStyles({
+          radius: 'rounded-t-none',
+        }),
+        new BorderStyles({
+          width: 'border-t',
+          color: [
+            new ColorStyle({
+              color: 'border-blue-100',
+              opacity: 'border-opacity-10',
+            }),
+          ],
         }),
       ],
-      divider: new DividerStyles({
-        width: 'divide-y-2',
-        color: [new ColorStyle({ color: 'divide-pink-100' })],
-      }),
     }),
     menuItem: new SelectOptionStyles({
       color: [
         new ColorStyle({
-          color: 'hover:bg-purple-100',
+          color: 'hover:bg-gray-100',
+          opacity: 'hover:bg-opacity-20',
           variant: Variant.Hover,
         }),
       ],
       spacing: new SpacingStyles({
-        padding: [{ spacing: 'p', size: '2' }],
+        padding: [
+          { spacing: 'py', size: '2' },
+          { spacing: 'px', size: '4' },
+        ],
       }),
     }),
   });
 
   const table: TableStyles = new TableStyles({
-    color: [new ColorStyle({ color: 'bg-purple-50' })],
+    border: [
+      new BorderStyles({
+        width: 'border',
+        color: [
+          new ColorStyle({
+            color: 'border-blue-100',
+            opacity: 'border-opacity-20',
+          }),
+        ],
+      }),
+    ],
     divider: new DividerStyles({
       width: 'divide-y',
-      color: [new ColorStyle({ color: 'divider-purple-100' })],
-    }),
-    header: new TablePartStyles({
-      font: new FontStyles({
-        weight: 'font-bold',
-      }),
-      spacing: new SpacingStyles({
-        padding: [{ spacing: 'py', size: '2' }],
-      }),
-      border: [
-        new BorderStyles({
-          width: 'border-b-4',
-          color: [new ColorStyle({ color: 'border-pink-800' })],
+      color: [
+        new ColorStyle({
+          color: 'divide-blue-100',
+          opacity: 'divide-opacity-20',
         }),
       ],
+    }),
+    header: new TablePartStyles({
+      spacing: new SpacingStyles({
+        padding: [{ spacing: 'py', size: '4' }],
+      }),
     }),
     row: new TablePartStyles({
       spacing: new SpacingStyles({
         padding: [
-          { spacing: 'py', size: '1' },
-          { spacing: 'px', size: '2' },
+          { spacing: 'py', size: '3' },
+          { spacing: 'px', size: '4' },
         ],
       }),
       color: [
         new ColorStyle({
-          color: 'hover:bg-purple-200',
+          color: 'hover:bg-blue-50',
           variant: Variant.Hover,
+          opacity: 'hover:bg-opacity-10',
         }),
       ],
+      font: new FontStyles({
+        color: [new ColorStyle({ color: 'text-white' })],
+      }),
     }),
   });
 
   const card: CardStyles = new CardStyles({
-    color: [new ColorStyle({ color: 'bg-purple-50' })],
-    border: [
-      new BorderStyles({
-        width: 'border-2',
-        color: [new ColorStyle({ color: 'border-purple-200' })],
-        radius: 'rounded-lg',
+    color: [
+      new ColorStyle({
+        color: 'bg-blue-400',
+        opacity: 'bg-opacity-10',
+        isGradient: false,
       }),
     ],
-    effects: [
-      new EffectsStyle({
-        boxShadow: 'shadow-lg',
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
       }),
     ],
     spacing: new SpacingStyles({
@@ -302,19 +372,12 @@ const getInstance = (): IPageTheme => {
       }),
       font: new FontStyles({
         weight: 'font-semibold',
-        size: 'text-2xl',
+        size: 'text-base',
       }),
-      border: [
-        new BorderStyles({
-          style: 'border-solid',
-          width: 'border-b-2',
-          color: [new ColorStyle({ color: 'border-pink-800' })],
-        }),
-      ],
     }),
     container: new CardPartStyles({
       spacing: new SpacingStyles({
-        padding: [{ spacing: 'p', size: '4' }],
+        padding: [{ spacing: 'px', size: '8' }],
       }),
       font: new FontStyles({
         size: 'text-sm',
@@ -322,32 +385,30 @@ const getInstance = (): IPageTheme => {
     }),
     footer: new CardPartStyles({
       spacing: new SpacingStyles({
-        padding: [{ spacing: 'p', size: '2' }],
+        padding: [{ spacing: 'p', size: '4' }],
       }),
-      border: [
-        new BorderStyles({
-          style: 'border-solid',
-          width: 'border-t-2',
-          color: [new ColorStyle({ color: 'border-pink-800' })],
-        }),
-      ],
     }),
   });
 
   const tooltip = new TooltipStyles({
     spacing: new SpacingStyles({
-      padding: [{ spacing: 'p', size: '1' }],
-      margin: [{ spacing: 'm', size: '1.5' }],
+      padding: [{ spacing: 'p', size: '2' }],
+      margin: [{ spacing: 'my', size: '2' }],
     }),
+    border: [
+      new BorderStyles({
+        radius: 'rounded-lg',
+      }),
+    ],
     color: [
       new ColorStyle({
-        color: 'bg-black',
+        color: 'bg-gray-800',
       }),
     ],
     effects: [
       new EffectsStyle({
         boxShadow: 'shadow-md',
-        opacity: 'opacity-75',
+        opacity: 'opacity-95',
       }),
     ],
     font: new FontStyles({

@@ -36,7 +36,6 @@ const getInstance = (): IPageTheme => {
       variant: Variant.Focus,
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     effects: [
       new EffectsStyle({
@@ -73,7 +72,6 @@ const getInstance = (): IPageTheme => {
       variant: Variant.Focus,
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
@@ -94,7 +92,6 @@ const getInstance = (): IPageTheme => {
       variant: Variant.Focus,
       width: 'ring-4',
       offsetWidth: 'ring-offset-1',
-      opacity: 'ring-opacity-20',
     }),
     spacing: new SpacingStyles({
       padding: [{ spacing: 'p', size: '2' }],
