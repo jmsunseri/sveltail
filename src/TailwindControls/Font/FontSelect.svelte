@@ -18,5 +18,7 @@
     bind:value={value.color}
     prefix="text"
     blockGradient
-    blockOpacity />
+    blockOpacity
+    blockFilters
+  />
 </div>

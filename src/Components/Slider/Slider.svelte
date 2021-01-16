@@ -12,6 +12,7 @@
   <input
     class="appearance-none h-px border-gray-300 border-dashed border-2 focus:outline-none rounded-full flex-1"
     type="range"
+    on:input
     {step}
     {min}
     {max}

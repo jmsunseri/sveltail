@@ -10,5 +10,7 @@
     bind:value={value.color}
     prefix="placeholder"
     blockGradient
-    variants={[]} />
+    blockFilters
+    variants={[]}
+  />
 </div>

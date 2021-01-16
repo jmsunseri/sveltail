@@ -11,6 +11,8 @@ class ColorStyle implements IStyle {
   isGradient?: boolean;
   variant?: Variant;
   opacity?: string;
+  filter?: string;
+  backdropBlur?: string;
   // isHover?: boolean;
   getMarkup = (): string => {
     return this.toStyles();
@@ -22,7 +24,12 @@ class ColorStyle implements IStyle {
 
   toStyles = () => {
     if (!this.isGradient) {
-      return getStyles([this.color, this.opacity]);
+      return getStyles([
+        this.color,
+        this.opacity,
+        this.filter,
+        this.backdropBlur,
+      ]);
     } else {
       return getStyles([
         this.direction,
@@ -30,6 +37,8 @@ class ColorStyle implements IStyle {
         this.to,
         this.via,
         this.opacity,
+        this.filter,
+        this.backdropBlur,
       ]);
     }
   };

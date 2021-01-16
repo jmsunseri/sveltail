@@ -341,7 +341,9 @@ const getInstance = (): IPageTheme => {
     }),
     color: [
       new ColorStyle({
-        color: 'bg-black',
+        color: 'bg-white',
+        opacity: 'bg-opacity-60',
+        backdropBlur: 'backdrop-blur-4',
       }),
     ],
     effects: [
@@ -354,7 +356,7 @@ const getInstance = (): IPageTheme => {
       size: 'text-xs',
       color: [
         new ColorStyle({
-          color: 'text-white',
+          color: 'text-black',
         }),
       ],
     }),

@@ -28,7 +28,9 @@
     prefix="ring"
     bind:value={value.color}
     blockGradient
-    variants={[]} />
+    blockFilters
+    variants={[]}
+  />
 
   <RingOffsetWidthSelect bind:value={value.offsetWidth} />
   <ColorsSelects
@@ -36,5 +38,7 @@
     bind:value={value.offsetColor}
     blockGradient
     blockOpacity
-    variants={[]} />
+    blockFilters
+    variants={[]}
+  />
 </div>

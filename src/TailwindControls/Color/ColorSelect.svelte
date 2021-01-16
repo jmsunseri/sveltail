@@ -11,20 +11,37 @@
   import RadioButton from '../../Components/RadioButton/RadioButton.svelte';
   import Tooltip from '../../Components/Tooltip/Tooltip.svelte';
   import OpacitySelect from '../Effects/OpacitySelect.svelte';
+  import Slider from '../../Components/Slider/Slider.svelte';
   export let value: ColorStyle;
   export let prefix: string;
   export let blockGradient: boolean;
   export let blockOpacity: boolean;
+  export let blockFilters: boolean;
   export let variants: Variant[];
   export let onDelete: VoidFunction;
 
   let isVia: boolean = false;
   let select: Select;
+  let backdropFilter: number;
+
+  $: {
+    backdropFilter =
+      value.backdropBlur && value.backdropBlur.split('-blur-').length
+        ? +value.backdropBlur.split('-blur-')[1]
+        : 0;
+  }
 
   let radioOptions = [
     { value: undefined, label: 'None' },
     { value: Variant.Hover, label: 'Hover' },
     { value: Variant.Focus, label: 'Focus' },
+  ];
+
+  let filterOptions = [
+    { value: undefined, label: 'None' },
+    { value: 'filter-invert', label: 'Invert' },
+    { value: 'filter-sepia', label: 'Sepia' },
+    { value: 'filter-grayscale', label: 'Grayscale' },
   ];
 
   $: {
@@ -34,6 +51,13 @@
         (!x.value && variants.includes(Variant.None))
     );
   }
+
+  const onBlurChanged = (event: any) => {
+    console.log(event);
+    value.backdropBlur = `${value.variant || ''}backdrop-blur-${
+      event.target.value
+    }`;
+  };
 </script>
 
 <div class="flex flex-col gap-2">
@@ -49,7 +73,13 @@
         <div slot="tooltip">Delete Color</div>
         <IconButton
           on:click={onDelete}
-          styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+          styles={[
+            'border-none',
+            'fill-current',
+            'text-blue-300',
+            'focus:outline-none',
+          ]}
+        >
           <Trash />
         </IconButton>
       </Tooltip>
@@ -58,7 +88,8 @@
   {#if !blockOpacity}
     <OpacitySelect
       prefix={`${value.variant || ''}${prefix}`}
-      bind:value={value.opacity} />
+      bind:value={value.opacity}
+    />
   {/if}
   {#if radioOptions.length}
     <div class="flex flex-row items-center">
@@ -71,7 +102,8 @@
     <Select
       bind:this={select}
       styles={selectStyles}
-      bind:value={value.direction}>
+      bind:value={value.direction}
+    >
       <SelectOption {select} value={`${prefix}-gradient-to-b`}>
         From Top To Bottom
       </SelectOption>
@@ -98,5 +130,21 @@
     <ColorMenu variant={value.variant} prefix="to" bind:value={value.to} />
   {:else}
     <ColorMenu variant={value.variant} {prefix} bind:value={value.color} />
+  {/if}
+  {#if !blockFilters}
+    <div class="flex flex-row items-center">
+      <span>Filters: </span>
+      <RadioButton options={filterOptions} bind:value={value.filter} />
+    </div>
+
+    <Slider
+      min={0}
+      max={20}
+      value={backdropFilter}
+      step={1}
+      label="Backdrop Blur:"
+      units="px"
+      on:input={onBlurChanged}
+    />
   {/if}
 </div>

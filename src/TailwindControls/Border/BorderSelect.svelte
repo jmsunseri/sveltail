@@ -28,7 +28,13 @@
         <div slot="tooltip">Delete Border</div>
         <IconButton
           on:click={() => onDelete(index)}
-          styles={['border-none', 'fill-current', 'text-blue-300', 'focus:outline-none']}>
+          styles={[
+            'border-none',
+            'fill-current',
+            'text-blue-300',
+            'focus:outline-none',
+          ]}
+        >
           <Trash />
         </IconButton>
       </Tooltip>
@@ -36,11 +42,15 @@
 
     <BorderWidthSelect bind:value={border.width} />
     <BorderRadiusSelect bind:value={border.radius} />
-    <ColorsSelects bind:value={border.color} prefix="border" blockGradient />
+    <ColorsSelects
+      bind:value={border.color}
+      prefix="border"
+      blockGradient
+      blockFilters
+    />
   {/each}
   <Button
     styles={primaryButton}
-    on:click={() => (value = [...value, new BorderStyles()])}>
-    Add Border
-  </Button>
+    on:click={() => (value = [...value, new BorderStyles()])}
+  >Add Border</Button>
 </div>
