@@ -31,7 +31,7 @@
     <AccordionItem id={6.1} {accordion} headerText="Effects">
       <EffectsSelect bind:value={$tooltipStyles.effects} />
     </AccordionItem>
-    <AccordionItem id={8} {accordion} headerText="Transform">
+    <AccordionItem isLast id={8} {accordion} headerText="Transform">
       <TransformSelect bind:value={$tooltipStyles.transform} />
     </AccordionItem>
   </Accordion>
