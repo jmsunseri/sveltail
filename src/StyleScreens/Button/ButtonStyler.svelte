@@ -18,7 +18,7 @@
   } from '../../store';
   import type { Writable } from 'svelte/store';
   import Slider from '../../Components/Slider/Slider.svelte';
-  import { Variant } from '../../Variants';
+  import { Variant } from '../../Variant';
 
   let accordion: Accordion;
   export let isPrimary: boolean;
@@ -48,7 +48,8 @@
       <ColorsSelects
         prefix="bg"
         bind:value={$value.color}
-        variants={[Variant.None, Variant.Hover, Variant.Focus]} />
+        variants={[Variant.None, Variant.Hover, Variant.Focus]}
+      />
     </AccordionItem>
     <AccordionItem id={1} {accordion} headerText="Font">
       <FontSelect bind:value={$value.font} />
@@ -73,14 +74,16 @@
           bind:value={$value.icon.size}
           step={1}
           units="px"
-          label="Size" />
+          label="Size"
+        />
         <Slider
           min={0.5}
           max={10}
           bind:value={$value.icon.stroke}
           step={0.5}
           units="px"
-          label="Stroke" />
+          label="Stroke"
+        />
         <ColorsSelects prefix="text" bind:value={$value.icon.color} />
       </div>
     </AccordionItem>

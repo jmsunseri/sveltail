@@ -23,7 +23,7 @@ import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import { TransitionStyles } from '../../TailwindControls/Transition/TransitionStyles';
 import type { IPageTheme } from '../IPageTheme';
 import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
-import { Variant } from '../../Variants';
+import { Variant } from '../../Variant';
 import { HeaderPartStyle } from '../../Components/Header/HeaderPartStyle';
 
 const getInstance = (): IPageTheme => {

@@ -7,7 +7,7 @@
   import ColorMenu from './ColorMenu.svelte';
   import type { ColorStyle } from './ColorStyle';
   import IconButton from '../../Components/Button/IconButton.svelte';
-  import { Variant } from '../../Variants';
+  import { Variant } from '../../Variant';
   import RadioButton from '../../Components/RadioButton/RadioButton.svelte';
   import Tooltip from '../../Components/Tooltip/Tooltip.svelte';
   import OpacitySelect from '../Effects/OpacitySelect.svelte';

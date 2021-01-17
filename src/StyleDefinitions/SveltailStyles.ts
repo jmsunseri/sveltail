@@ -12,7 +12,7 @@ import { FontStyles } from '../TailwindControls/Font/FontStyles';
 import { SizingStyles } from '../TailwindControls/Sizing/SizingStyles';
 import { SpacingStyles } from '../TailwindControls/Spacing/SpacingStyles';
 import { TransformStyles } from '../TailwindControls/Transform/TransformStyles';
-import { Variant } from '../Variants';
+import { Variant } from '../Variant;
 
 const selectStyles: SelectStyles = new SelectStyles({
   button: new ButtonStyles({

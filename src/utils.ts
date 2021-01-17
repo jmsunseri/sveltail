@@ -1,5 +1,5 @@
 import type { IStyle } from './IStyle';
-import type { Variant } from './Variants';
+import type { Variant } from './Variant';
 
 const getStyles = (
   styles: (IStyle | IStyle[] | string | undefined)[],

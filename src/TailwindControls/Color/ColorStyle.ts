@@ -1,6 +1,6 @@
 import type { IStyle } from '../../IStyle';
 import { getStyles } from '../../utils';
-import type { Variant } from '../../Variants';
+import type { Variant } from '../../Variant';
 
 class ColorStyle implements IStyle {
   color?: string;

@@ -22,7 +22,7 @@ import { ColorStyle } from '../../TailwindControls/Color/ColorStyle';
 import type { IPageTheme } from '../IPageTheme';
 import { TooltipStyles } from '../../Components/Tooltip/TooltipStyles';
 import { TransformStyles } from '../../TailwindControls/Transform/TransformStyles';
-import { Variant } from '../../Variants';
+import { Variant } from '../../Variant';
 import { HeaderPartStyle } from '../../Components/Header/HeaderPartStyle';
 
 const getInstance = (): IPageTheme => {

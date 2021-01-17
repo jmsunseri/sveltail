@@ -4,7 +4,7 @@
   import Switch from '../../Components/Switch.svelte';
   import RingOffsetWidthSelect from './RingOffsetWidthSelect.svelte';
   import ColorsSelects from '../Color/ColorsSelects.svelte';
-  import { Variant } from '../../Variants';
+  import { Variant } from '../../Variant';
 
   export let value: RingStyles = new RingStyles();
 

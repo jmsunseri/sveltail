@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from '../../Components/Button/Button.svelte';
   import { primaryButton } from '../../StyleDefinitions/SveltailStyles';
-  import { Variant } from '../../Variants';
+  import { Variant } from '../../Variant';
 
   import { colors, numbers } from './color';
   export let value: string;
@@ -32,8 +32,14 @@
         <div class="flex flex-col flex-1 gap-1">
           {#each numbers as number}
             <button
-              on:click={() => (value = `${variant || ''}${prefix}-${color}-${number}`)}
-              class={`btn px-1 focus:outline-none border-none rounded-full bg-${color}-${number} flex-1 flex ${valueWithoutVariant === `${prefix}-${color}-${number}` ? 'ring-4 ring-offset-1  ring-blue-300' : 'border-none'}  `} />
+              on:click={() =>
+                (value = `${variant || ''}${prefix}-${color}-${number}`)}
+              class={`btn px-1 focus:outline-none border-none rounded-full bg-${color}-${number} flex-1 flex ${
+                valueWithoutVariant === `${prefix}-${color}-${number}`
+                  ? 'ring-4 ring-offset-1  ring-blue-300'
+                  : 'border-none'
+              }  `}
+            />
           {/each}
         </div>
       {/if}
@@ -41,40 +47,56 @@
   </div>
   <div class="flex flex-col flex-1">
     <div
-      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-black` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${
+        valueWithoutVariant === `${prefix}-black`
+          ? 'ring-4 ring-blue-300 ring-offset-0'
+          : ''
+      }`}
+    >
       <Button
         on:click={() => (value = `${variant || ''}${prefix}-black`)}
-        styles={primaryButton}>
-        Black
-      </Button>
+        styles={primaryButton}
+      >Black</Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-white` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${
+        valueWithoutVariant === `${prefix}-white`
+          ? 'ring-4 ring-blue-300 ring-offset-0'
+          : ''
+      }`}
+    >
       <Button
         on:click={() => (value = `${variant || ''}${prefix}-white`)}
-        styles={primaryButton}>
-        White
-      </Button>
+        styles={primaryButton}
+      >White</Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-transparent` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${
+        valueWithoutVariant === `${prefix}-transparent`
+          ? 'ring-4 ring-blue-300 ring-offset-0'
+          : ''
+      }`}
+    >
       <Button
         on:click={() => {
           value = `${variant || ''}${prefix}-transparent`;
         }}
-        styles={primaryButton}>
-        Transparent
-      </Button>
+        styles={primaryButton}
+      >Transparent</Button>
     </div>
     <div
-      class={` grid rounded justify-items-auto ${valueWithoutVariant === `${prefix}-current` ? 'ring-4 ring-blue-300 ring-offset-0' : ''}`}>
+      class={` grid rounded justify-items-auto ${
+        valueWithoutVariant === `${prefix}-current`
+          ? 'ring-4 ring-blue-300 ring-offset-0'
+          : ''
+      }`}
+    >
       <Button
         on:click={() => {
           value = `${variant || ''}${prefix}-current`;
         }}
-        styles={primaryButton}>
-        Current
-      </Button>
+        styles={primaryButton}
+      >Current</Button>
     </div>
   </div>
 </div>

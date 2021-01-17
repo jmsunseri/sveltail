@@ -1,7 +1,7 @@
 <script lang="ts">
   import Button from '../../Components/Button/Button.svelte';
   import { primaryButton } from '../../StyleDefinitions/SveltailStyles';
-  import { Variant } from '../../Variants';
+  import { Variant } from '../../Variant';
   import ColorSelect from './ColorSelect.svelte';
   import { ColorStyle } from './ColorStyle';
 
@@ -26,7 +26,8 @@
       {blockOpacity}
       {blockFilters}
       {variants}
-      onDelete={() => remove(index)} />
+      onDelete={() => remove(index)}
+    />
   {/each}
   {#if (variants.length > 1 && value.length !== variants.length) || value.length === 0}
     <div class="flex items-center justify-center">
@@ -34,9 +35,8 @@
         styles={primaryButton}
         on:click={() => {
           value = [...value, new ColorStyle()];
-        }}>
-        Add Color Styles
-      </Button>
+        }}
+      >Add Color Styles</Button>
     </div>
   {/if}
 </div>

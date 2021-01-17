@@ -1,7 +1,7 @@
 import type { IStyle } from '../../IStyle';
 import { getStyles } from '../../utils';
 import type { ColorStyle } from '../Color/ColorStyle';
-import type { Variant } from '../../Variants';
+import type { Variant } from '../../Variant';
 
 class RingStyles implements IStyle {
   color?: ColorStyle[];
