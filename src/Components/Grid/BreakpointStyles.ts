@@ -14,8 +14,6 @@ const breakpointToStyle = <T extends unknown>(
     b.styles,
     (y: T) => `${b.breakpoint || ''}${toStyle(y)}`
   );
-
-  console.log('bps', result);
   return result;
 };
 

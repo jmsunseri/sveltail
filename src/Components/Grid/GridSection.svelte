@@ -1,11 +1,7 @@
 <script lang="ts">
-  import { getStyles } from '../../utils';
-
-  import type { GridSectionStyle } from './GridSectionStyle';
-
-  export let styles: GridSectionStyle[];
+  // TODO implement col span and row span styles
 </script>
 
-<div class={getStyles(styles)}>
+<div>
   <slot />
 </div>

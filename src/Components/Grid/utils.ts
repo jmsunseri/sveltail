@@ -5,7 +5,7 @@ const combine = <T>(
   toStyle: (x: T) => string
 ): string => {
   if (Array.isArray(styles) && styles.length) {
-    if ('prop' in styles[0]) {
+    if ('styles' in styles[0]) {
       return (styles as IBreakpointStyles<T>[])
         .map((x: IBreakpointStyles<T>) => breakpointToStyle(x, toStyle))
         .join(' ')
@@ -14,7 +14,7 @@ const combine = <T>(
       return (styles as T[]).map(toStyle).join(' ').trim();
     }
   } else if (styles && !Array.isArray(styles)) {
-    if (typeof styles === 'object' && 'prop' in styles) {
+    if (typeof styles === 'object' && 'styles' in styles) {
       return breakpointToStyle(styles as IBreakpointStyles<T>, toStyle);
     } else {
       return toStyle(styles as T);

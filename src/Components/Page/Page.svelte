@@ -42,7 +42,6 @@
         gap={3}
         template={[
           {
-            breakpoint: Breakpoint.Small,
             styles: [
               { direction: 'rows', number: 2 },
               { direction: 'cols', number: 1 },
