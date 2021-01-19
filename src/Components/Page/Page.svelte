@@ -18,6 +18,8 @@
   import TextField from '../TextField/TextField.svelte';
   import Tooltip from '../Tooltip/Tooltip.svelte';
   import Table from './Table.svelte';
+  import Grid from '../Grid/Grid.svelte';
+  import { Breakpoint } from '../../Breakpoint';
 
   let select: Select;
   let petType: string;
@@ -28,50 +30,70 @@
     <div slot="icon">
       <SmartHome
         size={$headerStyles.icon.size}
-        strokeWidth={$headerStyles.icon.stroke} />
+        strokeWidth={$headerStyles.icon.stroke}
+      />
     </div>
     <div slot="brand">Pet Finder</div>
     <div slot="menu" class="hover:underline cursor-pointer">Account</div>
   </Header>
   <div class="px-4 pb-4">
-    <div class="flex flex-row gap-3">
-      <div class="flex flex-1 flex-col gap-3">
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3  ">
-          <TextField styles={$textFieldStyles} placeholder="Pet's Name">
-            <span slot="trailingIcon">
-              <Search
-                size={$textFieldStyles.icon.size}
-                strokeWidth={$textFieldStyles.icon.stroke} />
-            </span>
-          </TextField>
+    <div class="flex flex-1 flex-col gap-3">
+      <Grid
+        gap={3}
+        template={[
+          {
+            breakpoint: Breakpoint.Small,
+            styles: [
+              { direction: 'rows', number: 2 },
+              { direction: 'cols', number: 1 },
+            ],
+          },
+          {
+            breakpoint: Breakpoint.Medium,
+            styles: [
+              { direction: 'cols', number: 2 },
+              { direction: 'rows', number: 1 },
+            ],
+          },
+        ]}
+      >
+        <TextField styles={$textFieldStyles} placeholder="Pet's Name">
+          <span slot="trailingIcon">
+            <Search
+              size={$textFieldStyles.icon.size}
+              strokeWidth={$textFieldStyles.icon.stroke}
+            />
+          </span>
+        </TextField>
+        <div class="flex gap-3">
           <Select
             bind:this={select}
             bind:value={petType}
             isMenuOpen
             placeholder="Pet Type"
             mustHaveValue
-            styles={$selectStyles}>
+            styles={$selectStyles}
+          >
             <SelectOption {select} value="Dog">Dog</SelectOption>
             <SelectOption {select} value="Cat">Cat</SelectOption>
             <SelectOption {select} value="Bird">Bird</SelectOption>
           </Select>
-          <div>
-            <Tooltip styles={$tooltipStyles} visible>
-              <Button styles={$primaryButtonStyles}>
-                Search
-                <span slot="icon">
-                  <Search
-                    size={$primaryButtonStyles.icon.size}
-                    strokeWidth={$primaryButtonStyles.icon.stroke} />
-                </span>
-              </Button>
-              <div slot="tooltip">I'm a tooltip!!!</div>
-            </Tooltip>
-          </div>
+          <Tooltip styles={$tooltipStyles} visible>
+            <Button styles={$primaryButtonStyles}>
+              Search
+              <span slot="icon">
+                <Search
+                  size={$primaryButtonStyles.icon.size}
+                  strokeWidth={$primaryButtonStyles.icon.stroke}
+                />
+              </span>
+            </Button>
+            <div slot="tooltip">I'm a tooltip!!!</div>
+          </Tooltip>
         </div>
-        <div class="text-2xl mt-28">Found Dogs:</div>
-        <Table />
-      </div>
+      </Grid>
+      <div class="text-2xl mt-28">Found Dogs:</div>
+      <Table />
     </div>
 
     <div>
