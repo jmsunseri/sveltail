@@ -1,4 +1,4 @@
-import type { Breakpoint } from '../../Breakpoint';
+import type { Breakpoint } from '../../Models/Breakpoint';
 type TemplateDirection = 'rows' | 'cols';
 type TemplateNumber = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 'none';
 

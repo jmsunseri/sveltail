@@ -1,4 +1,4 @@
-import type { Breakpoint } from '../../Breakpoint';
+import type { Breakpoint } from './Breakpoint';
 
 type Gap =
   | 0
@@ -40,6 +40,8 @@ interface IGap {
   number: Gap;
   direction?: 'x' | 'y';
 }
+
+export type GapType = IGap | IGap[] | Gap;
 
 export const toStyle = (gap: IGap | Gap, bp?: Breakpoint) => {
   if (typeof gap === 'object') {

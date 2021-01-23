@@ -19,12 +19,19 @@
   import Tooltip from '../Tooltip/Tooltip.svelte';
   import Table from './Table.svelte';
   import Grid from '../Grid/Grid.svelte';
+  import { FlexSize, FlexDirection, FlexGrow } from '../../Models/Flex';
+  import { JustifyContent } from '../../Models/Justify';
+  import Flex from '../Flex/Flex.svelte';
 
   let select: Select;
   let petType: string;
 </script>
 
-<div class={`flex-grow flex flex-col ${$pageStyles.toStyles()}`}>
+<Flex
+  grow={FlexGrow.Grow}
+  direction={FlexDirection.Col}
+  css={$pageStyles.toStyles()}
+>
   <Header styles={$headerStyles}>
     <div slot="icon">
       <SmartHome
@@ -36,7 +43,7 @@
     <div slot="menu" class="hover:underline cursor-pointer">Account</div>
   </Header>
   <div class="px-4 pb-4">
-    <div class="flex flex-1 flex-col gap-3">
+    <Flex flex={FlexSize.One} direction={FlexDirection.Col} gap={3}>
       <Grid
         gap={3}
         template={[
@@ -85,34 +92,43 @@
       </Grid>
       <div class="text-2xl mt-28">Found Dogs:</div>
       <Table />
-    </div>
-
+    </Flex>
     <div>
       <Card styles={$cardStyles}>
         <div slot="header">Dog Profile</div>
-
-        <div class="flex md:flex-row md:gap-2 flex-col ">
+        <Flex
+          directionMd={FlexDirection.Row}
+          gapMd={2}
+          direction={FlexDirection.Col}
+        >
           <img alt="Doge" class="h-40 w-40" src="/shiba.jpg" />
-          <div class="flex flex-col gap-1">
-            <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
-            <div class="flex flex-row gap-1"><b>Gender:</b> Female</div>
-            <div class="flex flex-row gap-1"><b>DOB:</b> Nov, 2 2005</div>
-            <div class="flex flex-row gap-1">
+          <Flex direction={FlexDirection.Col} gap={1}>
+            <Flex direction={FlexDirection.Row} gap={1}><b>Name:</b> Doge</Flex>
+            <Flex direction={FlexDirection.Row} gap={1}
+              ><b>Gender:</b> Female</Flex
+            >
+            <Flex direction={FlexDirection.Row} gap={1}
+              ><b>DOB:</b> Nov, 2 2005</Flex
+            >
+            <Flex direction={FlexDirection.Row} gap={1}>
               <b>Bio:</b>
               <p>
                 An Internet meme that became popular in 2013. The meme typically
                 consists of a picture of a Shiba Inu dog accompanied by
                 multicolored text in Comic Sans font in the foreground.
               </p>
-            </div>
-          </div>
-        </div>
+            </Flex>
+          </Flex>
+        </Flex>
         <div slot="footer">
-          <div class="flex flex-row justify-end">
+          <Flex
+            direction={FlexDirection.Row}
+            justifyContent={JustifyContent.End}
+          >
             <Button styles={$secondaryButtonStyles}>Adopt Me</Button>
-          </div>
+          </Flex>
         </div>
       </Card>
     </div>
   </div>
-</div>
+</Flex>

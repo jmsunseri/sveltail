@@ -1,0 +1,16 @@
+export enum Order {
+  One = 'order-1',
+  Two = 'order-2',
+  Three = 'order-3',
+  Four = 'order-4',
+  Five = 'order-5',
+  Six = 'order-6',
+  Seven = 'order-7',
+  Eight = 'order-8',
+  Nine = 'order-9',
+  Ten = 'order-10',
+  Eleven = 'order-11',
+  Twelve = 'order-12',
+  First = 'order-first',
+  Last = 'order-last',
+}
