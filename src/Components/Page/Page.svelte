@@ -19,7 +19,6 @@
   import Tooltip from '../Tooltip/Tooltip.svelte';
   import Table from './Table.svelte';
   import Grid from '../Grid/Grid.svelte';
-  import { Breakpoint } from '../../Breakpoint';
 
   let select: Select;
   let petType: string;
@@ -41,19 +40,12 @@
       <Grid
         gap={3}
         template={[
-          {
-            styles: [
-              { direction: 'rows', number: 2 },
-              { direction: 'cols', number: 1 },
-            ],
-          },
-          {
-            breakpoint: Breakpoint.Medium,
-            styles: [
-              { direction: 'cols', number: 2 },
-              { direction: 'rows', number: 1 },
-            ],
-          },
+          ['rows', 2],
+          ['cols', 1],
+        ]}
+        templateMd={[
+          ['cols', 2],
+          ['rows', 1],
         ]}
       >
         <TextField styles={$textFieldStyles} placeholder="Pet's Name">
