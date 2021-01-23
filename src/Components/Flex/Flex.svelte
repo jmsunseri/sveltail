@@ -8,7 +8,7 @@
   import type { AlignContent, AlignItems } from '../../Models/Align';
   import type { PlaceContent, PlaceItems } from '../../Models/Place';
   import type {
-    Flex,
+    FlexSize,
     FlexDirection,
     FlexGrow,
     FlexShrink,
@@ -66,32 +66,32 @@
 
   export let direction: FlexDirection = undefined;
   export let wrap: FlexWrap = undefined;
-  export let flex: Flex = undefined;
+  export let flex: FlexSize = undefined;
   export let grow: FlexGrow = undefined;
   export let shrink: FlexShrink = undefined;
   export let directionMd: FlexDirection = undefined;
   export let wrapMd: FlexWrap = undefined;
-  export let flexMd: Flex = undefined;
+  export let flexMd: FlexSize = undefined;
   export let growMd: FlexGrow = undefined;
   export let shrinkMd: FlexShrink = undefined;
   export let directionSm: FlexDirection = undefined;
   export let wrapSm: FlexWrap = undefined;
-  export let flexSm: Flex = undefined;
+  export let flexSm: FlexSize = undefined;
   export let growSm: FlexGrow = undefined;
   export let shrinkSm: FlexShrink = undefined;
   export let directionLg: FlexDirection = undefined;
   export let wrapLg: FlexWrap = undefined;
-  export let flexLg: Flex = undefined;
+  export let flexLg: FlexSize = undefined;
   export let growLg: FlexGrow = undefined;
   export let shrinkLg: FlexShrink = undefined;
   export let directionXl: FlexDirection = undefined;
   export let wrapXl: FlexWrap = undefined;
-  export let flexXl: Flex = undefined;
+  export let flexXl: FlexSize = undefined;
   export let growXl: FlexGrow = undefined;
   export let shrinkXl: FlexShrink = undefined;
   export let direction2xl: FlexDirection = undefined;
   export let wrap2xl: FlexWrap = undefined;
-  export let flex2xl: Flex = undefined;
+  export let flex2xl: FlexSize = undefined;
   export let grow2xl: FlexGrow = undefined;
   export let shrink2xl: FlexShrink = undefined;
 

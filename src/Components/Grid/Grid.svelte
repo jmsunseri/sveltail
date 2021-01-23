@@ -13,6 +13,7 @@
   type Flow = 'row' | 'col' | 'row-dense' | 'col-dense';
   type TemplateType = Template | Template[];
 
+  export let css: string = '';
   export let template: TemplateType = undefined;
   export let gap: GapType = undefined;
   export let flow: Flow = undefined;
@@ -170,6 +171,7 @@
     getGapStyles(gapLg, Breakpoint.Lg),
     getGapStyles(gapXl, Breakpoint.Xl),
     getGapStyles(gap2xl, Breakpoint.Xxl),
+    css,
   ])}
 >
   <slot />
