@@ -1,56 +1,54 @@
 <script lang="ts">
   import { checkboxStyles, tableStyles } from '../../store';
   import Checkbox from '../Checkbox/Checkbox.svelte';
+  import Flex from '../Flex.svelte';
 </script>
 
-<div class={`flex flex-col ${$tableStyles.toStyles()}`}>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.header.toStyles()}`}>
+<Flex dir="col" css={$tableStyles.toStyles()}>
+  <Flex dir="row" gap={3} css={$tableStyles.header.toStyles()}>
     <div
-      class={`${$checkboxStyles.size.height || ''} ${$checkboxStyles.size.width || ''}`} />
-    <div class="flex-1">Name</div>
-    <div class="flex-1">Type</div>
-    <div class="flex-1">Breed</div>
-    <div class="flex-1">Distance</div>
-  </div>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.row.toStyles()}`}>
+      class={`${$checkboxStyles.size.height || ''} ${
+        $checkboxStyles.size.width || ''
+      }`}
+    />
+    <Flex size="1">Name</Flex>
+    <Flex size="1">Type</Flex>
+    <Flex size="1">Breed</Flex>
+    <Flex size="1">Distance</Flex>
+  </Flex>
+  <Flex dir="row" gap={3} align="center" css={$tableStyles.row.toStyles()}>
     <Checkbox style={$checkboxStyles} />
-    <div class="flex-1">Fido</div>
-    <div class="flex-1">Dog</div>
-    <div class="flex-1">Hound</div>
-    <div class="flex-1">10km</div>
-  </div>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.row.toStyles()}`}>
+    <Flex size="1">Fido</Flex>
+    <Flex size="1">Dog</Flex>
+    <Flex size="1">Hound</Flex>
+    <Flex size="1">10km</Flex>
+  </Flex>
+  <Flex dir="row" gap={3} align="center" css={$tableStyles.row.toStyles()}>
     <Checkbox checked style={$checkboxStyles} />
-    <div class="flex-1">Doge</div>
-    <div class="flex-1">Dog</div>
-    <div class="flex-1">Shiba Inu</div>
-    <div class="flex-1">1km</div>
-  </div>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.row.toStyles()}`}>
+    <Flex size="1">Doge</Flex>
+    <Flex size="1">Dog</Flex>
+    <Flex size="1">Shiba Inu</Flex>
+    <Flex size="1">1km</Flex>
+  </Flex>
+  <Flex dir="row" gap={3} align="center" css={$tableStyles.row.toStyles()}>
     <Checkbox style={$checkboxStyles} />
-    <div class="flex-1">Fifi</div>
-    <div class="flex-1">Dog</div>
-    <div class="flex-1">Poodle</div>
-    <div class="flex-1">7km</div>
-  </div>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.row.toStyles()}`}>
+    <Flex size="1">Fifi</Flex>
+    <Flex size="1">Dog</Flex>
+    <Flex size="1">Poodle</Flex>
+    <Flex size="1">7km</Flex>
+  </Flex>
+  <Flex dir="row" gap={3} align="center" css={$tableStyles.row.toStyles()}>
     <Checkbox style={$checkboxStyles} />
-    <div class="flex-1">Gaston</div>
-    <div class="flex-1">Dog</div>
-    <div class="flex-1">French Bulldog</div>
-    <div class="flex-1">5km</div>
-  </div>
-  <div
-    class={`flex flex-row gap-3 items-center ${$tableStyles.row.toStyles()}`}>
+    <Flex size="1">Gaston</Flex>
+    <Flex size="1">Dog</Flex>
+    <Flex size="1">French Bulldog</Flex>
+    <Flex size="1">5km</Flex>
+  </Flex>
+  <Flex dir="row" gap={3} align="center" css={$tableStyles.row.toStyles()}>
     <Checkbox style={$checkboxStyles} />
-    <div class="flex-1">Floyd</div>
-    <div class="flex-1">Dog</div>
-    <div class="flex-1">Pug</div>
-    <div class="flex-1">3km</div>
-  </div>
-</div>
+    <Flex size="1">Floyd</Flex>
+    <Flex size="1">Dog</Flex>
+    <Flex size="1">Pug</Flex>
+    <Flex size="1">3km</Flex>
+  </Flex>
+</Flex>

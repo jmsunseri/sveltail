@@ -18,88 +18,90 @@
   import TextField from '../TextField/TextField.svelte';
   import Tooltip from '../Tooltip/Tooltip.svelte';
   import Table from './Table.svelte';
+  import Flex from '../Flex.svelte';
+  import Grid from '../Grid.svelte';
 
   let select: Select;
   let petType: string;
 </script>
 
-<div class={`flex-grow flex flex-col ${$pageStyles.toStyles()}`}>
+<Flex dir="col" css={$pageStyles.toStyles()}>
   <Header styles={$headerStyles}>
     <div slot="icon">
       <SmartHome
         size={$headerStyles.icon.size}
-        strokeWidth={$headerStyles.icon.stroke} />
+        strokeWidth={$headerStyles.icon.stroke}
+      />
     </div>
     <div slot="brand">Pet Finder</div>
     <div slot="menu" class="hover:underline cursor-pointer">Account</div>
   </Header>
   <div class="px-4 pb-4">
-    <div class="flex flex-row gap-3">
-      <div class="flex flex-1 flex-col gap-3">
-        <div class="grid grid-cols-2 md:grid-cols-3 gap-3  ">
-          <TextField styles={$textFieldStyles} placeholder="Pet's Name">
-            <span slot="trailingIcon">
-              <Search
-                size={$textFieldStyles.icon.size}
-                strokeWidth={$textFieldStyles.icon.stroke} />
-            </span>
-          </TextField>
+    <Flex dir="col" gap={3}>
+      <Grid gap={3} rows={2} cols={1} md={{ cols: 2, rows: 1 }}>
+        <TextField styles={$textFieldStyles} placeholder="Pet's Name">
+          <span slot="trailingIcon">
+            <Search
+              size={$textFieldStyles.icon.size}
+              strokeWidth={$textFieldStyles.icon.stroke}
+            />
+          </span>
+        </TextField>
+        <Flex dir="row" gap={3}>
           <Select
             bind:this={select}
             bind:value={petType}
             isMenuOpen
             placeholder="Pet Type"
             mustHaveValue
-            styles={$selectStyles}>
+            styles={$selectStyles}
+          >
             <SelectOption {select} value="Dog">Dog</SelectOption>
             <SelectOption {select} value="Cat">Cat</SelectOption>
             <SelectOption {select} value="Bird">Bird</SelectOption>
           </Select>
-          <div>
-            <Tooltip styles={$tooltipStyles} visible>
-              <Button styles={$primaryButtonStyles}>
-                Search
-                <span slot="icon">
-                  <Search
-                    size={$primaryButtonStyles.icon.size}
-                    strokeWidth={$primaryButtonStyles.icon.stroke} />
-                </span>
-              </Button>
-              <div slot="tooltip">I'm a tooltip!!!</div>
-            </Tooltip>
-          </div>
-        </div>
-        <div class="text-2xl mt-28">Found Dogs:</div>
-        <Table />
-      </div>
-    </div>
-
+          <Tooltip styles={$tooltipStyles} visible>
+            <Button styles={$primaryButtonStyles}>
+              Search
+              <span slot="icon">
+                <Search
+                  size={$primaryButtonStyles.icon.size}
+                  strokeWidth={$primaryButtonStyles.icon.stroke}
+                />
+              </span>
+            </Button>
+            <div slot="tooltip">I'm a tooltip!!!</div>
+          </Tooltip>
+        </Flex>
+      </Grid>
+      <div class="text-2xl mt-28">Found Dogs:</div>
+      <Table />
+    </Flex>
     <div>
       <Card styles={$cardStyles}>
         <div slot="header">Dog Profile</div>
-
-        <div class="flex md:flex-row md:gap-2 flex-col ">
+        <Flex md={{ dir: 'row', gap: 2 }} dir="col">
           <img alt="Doge" class="h-40 w-40" src="/shiba.jpg" />
-          <div class="flex flex-col gap-1">
-            <div class="flex flex-row gap-1"><b>Name:</b> Doge</div>
-            <div class="flex flex-row gap-1"><b>Gender:</b> Female</div>
-            <div class="flex flex-row gap-1"><b>DOB:</b> Nov, 2 2005</div>
-            <div class="flex flex-row gap-1">
+          <Flex dir="col" gap={1}>
+            <Flex dir="row" gap={1}><b>Name:</b> Doge</Flex>
+            <Flex dir="row" gap={1}><b>Gender:</b> Female</Flex>
+            <Flex dir="row" gap={1}><b>DOB:</b> Nov, 2 2005</Flex>
+            <Flex dir="row" gap={1}>
               <b>Bio:</b>
               <p>
                 An Internet meme that became popular in 2013. The meme typically
                 consists of a picture of a Shiba Inu dog accompanied by
                 multicolored text in Comic Sans font in the foreground.
               </p>
-            </div>
-          </div>
-        </div>
+            </Flex>
+          </Flex>
+        </Flex>
         <div slot="footer">
-          <div class="flex flex-row justify-end">
+          <Flex dir="row" justify="end">
             <Button styles={$secondaryButtonStyles}>Adopt Me</Button>
-          </div>
+          </Flex>
         </div>
       </Card>
     </div>
   </div>
-</div>
+</Flex>
