@@ -37,18 +37,24 @@ type Gap =
   | 'px';
 
 interface IGap {
-  number: Gap;
-  direction?: 'x' | 'y';
+  x?: Gap;
+  y?: Gap;
 }
 
-export type GapType = IGap | IGap[] | Gap;
+type GapType = IGap | Gap;
 
-export const toStyle = (gap: IGap | Gap, bp?: Breakpoint) => {
-  if (typeof gap === 'object') {
-    return `${bp || ''}gap-${gap.direction}-${gap.number}`;
-  } else {
-    return `${bp || ''}gap-${gap}`;
+const gapToStyle = (gap?: GapType, bp?: Breakpoint) => {
+  if (gap) {
+    if (typeof gap === 'object') {
+      return `${gap.x ? `${bp || ''}gap-x-${gap.x}` : ''}  ${
+        gap.y ? `${bp || ''}gap-y-${gap.y}` : ''
+      }`.trim();
+    } else {
+      return `${bp || ''}gap-${gap}`;
+    }
   }
+  return '';
 };
 
-export type { IGap, Gap };
+export type { IGap, Gap, GapType };
+export { gapToStyle };

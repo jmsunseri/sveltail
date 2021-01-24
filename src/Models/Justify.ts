@@ -1,25 +1,43 @@
-export enum JustifyContent {
-  Start = 'justify-start',
-  End = 'justify-end',
-  Center = 'justify-center',
-  Between = 'justify-between',
-  Around = 'justify-around',
-  Evenly = 'justify-evenly',
-}
+import type { Breakpoint } from './Breakpoint';
 
-export enum JustifyItems {
-  Start = 'justify-items-start',
-  End = 'justify-items-end',
-  Center = 'justify-items-center',
-  Stretch = 'justify-items-stretch',
-  Auto = 'justify-items-auto',
-  Evenly = 'justify-items-evenly',
-}
+type JustifyContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly';
 
-export enum JustifySelf {
-  Start = 'justify-self-start',
-  End = 'justify-self-end',
-  Center = 'justify-self-center',
-  Stretch = 'justify-self-stretch',
-  Auto = 'justify-self-auto',
-}
+type JustifyItems = 'start' | 'end' | 'center' | 'stretch' | 'auto';
+
+type JustifySelf = 'start' | 'end' | 'center' | 'stretch' | 'auto';
+
+const justifyContentToStyle = (
+  justify?: JustifyContent,
+  bp?: Breakpoint
+): string => {
+  if (justify) {
+    return justify ? `${bp || ''}justify-${justify}` : '';
+  }
+  return '';
+};
+
+const justifyItemsToStyle = (
+  justify?: JustifyItems,
+  bp?: Breakpoint
+): string => {
+  if (justify) {
+    return justify ? `${bp || ''}justify-items-${justify}` : '';
+  }
+  return '';
+};
+
+const justifySelfToStyle = (justify?: JustifySelf, bp?: Breakpoint): string => {
+  if (justify) {
+    return justify ? `${bp || ''}justify-self-${justify}` : '';
+  }
+  return '';
+};
+
+export type { JustifyContent, JustifyItems, JustifySelf };
+export { justifyContentToStyle, justifyItemsToStyle, justifySelfToStyle };

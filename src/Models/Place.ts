@@ -1,25 +1,37 @@
-export enum PlaceContent {
-  Start = 'place-content-start',
-  End = 'place-content-end',
-  Center = 'place-content-center',
-  Between = 'place-content-between',
-  Around = 'place-content-around',
-  Evenly = 'place-content-evenly',
-  Stretch = 'place-content-stretch',
-}
+import type { Breakpoint } from './Breakpoint';
 
-export enum PlaceItems {
-  Start = 'place-items-start',
-  End = 'place-items-end',
-  Center = 'place-items-center',
-  Auto = 'place-items-auto',
-  Stretch = 'place-items-stretch',
-}
+type PlaceContent =
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'between'
+  | 'around'
+  | 'evenly'
+  | 'stretch';
 
-export enum PlaceSelf {
-  Start = 'place-self-start',
-  End = 'place-self-end',
-  Center = 'place-self-center',
-  Stretch = 'place-self-stretch',
-  Auto = 'place-self-auto',
-}
+type PlaceItems = 'start' | 'end' | 'center' | 'auto' | 'stretch';
+type PlaceSelf = 'start' | 'end' | 'center' | 'stretch' | 'auto';
+
+const placeContentToStyle = (place?: PlaceContent, bp?: Breakpoint): string => {
+  if (place) {
+    return place ? `${bp || ''}place-content-${place}` : '';
+  }
+  return '';
+};
+
+const placeItemsToStyle = (place?: PlaceItems, bp?: Breakpoint): string => {
+  if (place) {
+    return place ? `${bp || ''}place-items-${place}` : '';
+  }
+  return '';
+};
+
+const placeSelfToStyle = (place?: PlaceSelf, bp?: Breakpoint): string => {
+  if (place) {
+    return place ? `${bp || ''}place-self-${place}` : '';
+  }
+  return '';
+};
+
+export type { PlaceContent, PlaceItems, PlaceSelf };
+export { placeContentToStyle, placeItemsToStyle, placeSelfToStyle };

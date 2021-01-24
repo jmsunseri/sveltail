@@ -18,20 +18,14 @@
   import TextField from '../TextField/TextField.svelte';
   import Tooltip from '../Tooltip/Tooltip.svelte';
   import Table from './Table.svelte';
-  import Grid from '../Grid/Grid.svelte';
-  import { FlexSize, FlexDirection, FlexGrow } from '../../Models/Flex';
-  import { JustifyContent } from '../../Models/Justify';
-  import Flex from '../Flex/Flex.svelte';
+  import Flex from '../Flex.svelte';
+  import Grid from '../Grid.svelte';
 
   let select: Select;
   let petType: string;
 </script>
 
-<Flex
-  grow={FlexGrow.Grow}
-  direction={FlexDirection.Col}
-  css={$pageStyles.toStyles()}
->
+<Flex dir="col" css={$pageStyles.toStyles()}>
   <Header styles={$headerStyles}>
     <div slot="icon">
       <SmartHome
@@ -43,18 +37,8 @@
     <div slot="menu" class="hover:underline cursor-pointer">Account</div>
   </Header>
   <div class="px-4 pb-4">
-    <Flex flex={FlexSize.One} direction={FlexDirection.Col} gap={3}>
-      <Grid
-        gap={3}
-        template={[
-          ['rows', 2],
-          ['cols', 1],
-        ]}
-        templateMd={[
-          ['cols', 2],
-          ['rows', 1],
-        ]}
-      >
+    <Flex dir="col" gap={3}>
+      <Grid gap={3} rows={2} cols={1} md={{ cols: 2, rows: 1 }}>
         <TextField styles={$textFieldStyles} placeholder="Pet's Name">
           <span slot="trailingIcon">
             <Search
@@ -63,7 +47,7 @@
             />
           </span>
         </TextField>
-        <div class="flex gap-3">
+        <Flex dir="row" gap={3}>
           <Select
             bind:this={select}
             bind:value={petType}
@@ -88,7 +72,7 @@
             </Button>
             <div slot="tooltip">I'm a tooltip!!!</div>
           </Tooltip>
-        </div>
+        </Flex>
       </Grid>
       <div class="text-2xl mt-28">Found Dogs:</div>
       <Table />
@@ -96,21 +80,13 @@
     <div>
       <Card styles={$cardStyles}>
         <div slot="header">Dog Profile</div>
-        <Flex
-          directionMd={FlexDirection.Row}
-          gapMd={2}
-          direction={FlexDirection.Col}
-        >
+        <Flex md={{ dir: 'row', gap: 2 }} dir="col">
           <img alt="Doge" class="h-40 w-40" src="/shiba.jpg" />
-          <Flex direction={FlexDirection.Col} gap={1}>
-            <Flex direction={FlexDirection.Row} gap={1}><b>Name:</b> Doge</Flex>
-            <Flex direction={FlexDirection.Row} gap={1}
-              ><b>Gender:</b> Female</Flex
-            >
-            <Flex direction={FlexDirection.Row} gap={1}
-              ><b>DOB:</b> Nov, 2 2005</Flex
-            >
-            <Flex direction={FlexDirection.Row} gap={1}>
+          <Flex dir="col" gap={1}>
+            <Flex dir="row" gap={1}><b>Name:</b> Doge</Flex>
+            <Flex dir="row" gap={1}><b>Gender:</b> Female</Flex>
+            <Flex dir="row" gap={1}><b>DOB:</b> Nov, 2 2005</Flex>
+            <Flex dir="row" gap={1}>
               <b>Bio:</b>
               <p>
                 An Internet meme that became popular in 2013. The meme typically
@@ -121,10 +97,7 @@
           </Flex>
         </Flex>
         <div slot="footer">
-          <Flex
-            direction={FlexDirection.Row}
-            justifyContent={JustifyContent.End}
-          >
+          <Flex dir="row" justify="end">
             <Button styles={$secondaryButtonStyles}>Adopt Me</Button>
           </Flex>
         </div>
